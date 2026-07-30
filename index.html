@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TankSmart – Kalkulator cen goriva | Balkan & Evropa</title>
+<meta name="description" content="Primerjaj cene goriva po Balkanu in Evropi. Izračunaj strošek poti, razdeli stroške s sopotniki in najdi, kje je najcenejše točenje.">
+<meta name="keywords" content="fuel price calculator, petrol prices Europe, diesel prices Balkans, cene goriva, kalkulator goriva, cijene goriva, cestnine, vinjeta">
+<meta name="author" content="TankSmart">
+<meta property="og:title" content="TankSmart – Kalkulator cen goriva, Balkan & Evropa">
+<meta property="og:description" content="Primerjaj cene goriva po Balkanu in Evropi. Izračunaj strošek poti in razdeli s sopotniki. Brezplačno in posodobljeno tedensko.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tanksmart.eu">
+<meta name="google-site-verification" content="acx_DVhwnb23Ej65PcwssD-63N3sdqYMKsiMqGZiBKE" />
+<meta name="google-site-verification" content="vXxjpm2MInLPAoBD0eWskdH50QsaMvK0BpokGEbnQEw" />
+<link rel="canonical" href="https://tanksmart.eu">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3494450722238693" crossorigin="anonymous"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f2ed;--bg2:#ffffff;--bg3:#f0ece6;
+  --border:#ddd8d0;--text:#1e1c19;--text2:#6b6560;--text3:#a09a93;
+  --orange:#c95f00;--orange-dim:#fdf0e6;
+  --green:#1a7a4a;--red:#c0392b;
+  --r:12px;--rs:8px;--rxs:6px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:60px}
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#fff;border:1px solid var(--orange);border-radius:10px;font-size:20px;flex-shrink:0}
+.logo-text{font-size:1.1rem;font-weight:700;color:var(--orange)}
+.lang-btns{display:flex;gap:6px}
+.lang-btn{background:none;border:1px solid var(--border);color:var(--text2);padding:5px 10px;border-radius:var(--rxs);font-size:0.78rem;cursor:pointer;transition:all .15s}
+.lang-btn:hover{border-color:var(--orange);color:var(--orange)}
+.lang-btn.active{background:var(--orange-dim);border-color:var(--orange);color:var(--orange);font-weight:600}
+.hero{text-align:center;padding:36px 20px 24px}
+.hero h1{font-size:1.9rem;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--text2);font-size:0.95rem;max-width:460px;margin:0 auto}
+.tabs{display:flex;border-bottom:1px solid var(--border);padding:0 20px;max-width:680px;margin:0 auto;background:var(--bg2)}
+.tab{padding:14px 16px;font-size:0.88rem;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--orange);border-bottom-color:var(--orange)}
+main{max-width:680px;margin:0 auto;padding:20px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.card-title{font-size:0.78rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+label{display:block;font-size:0.83rem;color:var(--text2);margin-bottom:5px;margin-top:14px}
+label:first-of-type{margin-top:0}
+input,select{width:100%;padding:10px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);color:var(--text);font-size:0.95rem;outline:none;transition:border-color .15s;appearance:none}
+input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+.vehicle-row{display:flex;gap:8px;align-items:flex-end}
+.vehicle-row input{flex:1}
+.btn-save-v{padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);color:var(--text2);font-size:0.82rem;cursor:pointer;white-space:nowrap;transition:all .15s}
+.btn-save-v:hover{border-color:var(--orange);color:var(--orange)}
+.saved-vehicles{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.v-chip{padding:4px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;font-size:0.78rem;color:var(--text2);cursor:pointer;transition:all .15s}
+.v-chip:hover{border-color:var(--orange);color:var(--orange)}
+.v-chip.selected{background:var(--orange-dim);border-color:var(--orange);color:var(--orange)}
+.prices-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:16px}
+.p-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px}
+.p-item.best{background:#edf7f2;border-color:#7bcba4}
+.p-item.worst{background:#fdf0ee;border-color:#e8a89e}
+.p-item .ctry{font-size:0.75rem;color:var(--text2);margin-bottom:3px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.p-item .prc{font-size:1rem;font-weight:600;color:var(--text)}
+.p-item.best .prc{color:#1a7a4a}
+.p-item.worst .prc{color:#c0392b}
+.prc-mw{font-size:1rem;font-weight:600;color:var(--orange)}
+.prc-label{font-size:0.7rem;color:var(--text3);margin-bottom:2px}
+.prc-divider{border:none;border-top:0.5px solid var(--border);margin:6px 0}
+.badge{display:inline-block;font-size:0.6rem;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase}
+.badge.best{background:#d4f0e3;color:#1a7a4a}
+.badge.worst{background:#fde0dc;color:#c0392b}
+.btn{width:100%;padding:13px;background:var(--orange);border:none;border-radius:var(--rs);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;margin-top:8px;transition:opacity .15s}
+.btn:hover{opacity:.88}
+.results{display:none}
+.results.show{display:block}
+.result-main{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.result-main .total{font-size:2.2rem;font-weight:700;color:var(--orange)}
+.result-main .detail{font-size:0.85rem;color:var(--text2);margin-top:6px;line-height:1.7}
+.split-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:12px}
+.split-person{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:14px;text-align:center}
+.split-person .amt{font-size:1.4rem;font-weight:700;color:var(--green)}
+.split-person .nm{font-size:0.78rem;color:var(--text2);margin-top:2px}
+.tip-row{padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.tip-row:last-child{border-bottom:none}
+.toll-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.toll-btn{font-size:0.78rem;padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;transition:all .15s}
+.toll-btn:hover,.toll-btn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.toll-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.toll-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px}
+.toll-card.free{border-left:3px solid #2e7d32}
+.toll-card.vignette{border-left:3px solid #1565c0}
+.toll-card.toll{border-left:3px solid var(--orange)}
+.toll-card.hidden{display:none}
+.toll-badge{display:inline-block;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:6px;margin-bottom:8px}
+.badge-free{background:#e8f5e9;color:#2e7d32}
+.badge-vignette{background:#e3f2fd;color:#1565c0}
+.badge-toll{background:var(--orange-dim);color:var(--orange)}
+.toll-prices{font-size:0.78rem;color:var(--text);line-height:1.8;margin-bottom:6px}
+.toll-note{font-size:0.72rem;color:var(--text2);line-height:1.5;border-top:1px solid var(--border);padding-top:7px;margin-top:4px}
+.toll-note a{color:var(--orange);text-decoration:none}
+.notice{font-size:0.75rem;color:var(--text3);text-align:center;margin-top:8px;line-height:1.6}
+.notice a{color:var(--text2);text-decoration:underline;text-underline-offset:2px}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.about-text{font-size:0.9rem;color:var(--text2);line-height:1.8}
+.faq-item{padding:12px 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.faq-a{font-size:0.83rem;color:var(--text2);line-height:1.6}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-icon">⛽</span>
+    <span class="logo-text">TankSmart</span>
+  </a>
+  <div class="lang-btns">
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn active" onclick="setLang('sl')">SLO</button>
+    <button class="lang-btn" onclick="setLang('hr')">HR/SRB/BIH</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1 id="hero-title"><span>TankSmart</span> – Cene goriva, Balkan & Evropa</h1>
+  <p id="hero-sub">Primerjaj cene, izračunaj strošek poti in najdi, kje je najcenejše točenje.</p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('compare')" id="tab-compare">🗺 Primerjava cen</button>
+  <button class="tab" onclick="showTab('calc')" id="tab-calc">🧮 Kalkulator poti</button>
+  <button class="tab" onclick="showTab('tolls')" id="tab-tolls">🛣️ Cestnine</button>
+  <button class="tab" onclick="showTab('faq')" id="tab-faq">❓ FAQ</button>
+</div>
+
+<main>
+<div class="tab-content active" id="content-compare">
+  <div class="card">
+    <div class="card-title" id="lbl-fueltype">Vrsta goriva</div>
+    <select id="fuelTypeCompare" onchange="renderPrices()">
+      <option value="b95">Bencin 95</option>
+      <option value="b98">Bencin 98/100</option>
+      <option value="diesel">Diesel</option>
+    </select>
+    <div id="pricesGrid"></div>
+    <p class="notice" id="notice-prices"></p>
+  </div>
+  <div class="card">
+    <div class="card-title" id="lbl-tips">💡 Koristno vedeti</div>
+    <div id="tipsList"></div>
+  </div>
+</div>
+
+<div class="tab-content" id="content-calc">
+  <div class="card">
+    <div class="card-title" id="lbl-vehicle">Vaše vozilo</div>
+    <label id="lbl-vname">Ime vozila (neobvezno)</label>
+    <div class="vehicle-row">
+      <input type="text" id="vName" placeholder="npr. VW Golf">
+      <button class="btn-save-v" onclick="saveVehicle()" id="btn-save-v">Shrani</button>
+    </div>
+    <div class="saved-vehicles" id="savedVehicles"></div>
+    <div class="row2" style="margin-top:12px">
+      <div>
+        <label id="lbl-cons">Poraba (L/100km)</label>
+        <input type="number" id="consumption" placeholder="npr. 6.5" step="0.1" min="1">
+      </div>
+      <div>
+        <label id="lbl-ftype">Vrsta goriva</label>
+        <select id="fuelType">
+          <option value="b95">Bencin 95</option>
+          <option value="b98">Bencin 98/100</option>
+          <option value="diesel">Diesel</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" id="lbl-trip">Podrobnosti poti</div>
+    <label id="lbl-km">Razdalja (km)</label>
+    <input type="number" id="km" placeholder="npr. 350" min="1">
+    <label id="lbl-country">Država točenja</label>
+    <select id="country"></select>
+    <hr class="divider">
+    <label id="lbl-pass">Število potnikov (delitev stroška)</label>
+    <select id="passengers" onchange="updateNames()">
+      <option value="1">1 (sam/a)</option>
+      <option value="2" selected>2 osebi</option>
+      <option value="3">3 osebe</option>
+      <option value="4">4 osebe</option>
+      <option value="5">5 oseb</option>
+      <option value="6">6 oseb</option>
+    </select>
+    <div id="nameFields" style="margin-top:10px"></div>
+    <button class="btn" onclick="calculate()" id="btn-calc">Izračunaj →</button>
+  </div>
+  <div class="results" id="results">
+    <div class="result-main">
+      <div style="font-size:0.78rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px" id="lbl-total">Skupni strošek goriva</div>
+      <div class="total" id="totalCost">—</div>
+      <div class="detail" id="costDetail"></div>
+      <div class="split-grid" id="splitBox"></div>
+    </div>
+    <p class="notice" id="notice-calc">Cene so informativne. Pred potjo preveri aktualne cene.</p>
+  </div>
+</div>
+
+<div class="tab-content" id="content-tolls">
+  <div class="card">
+    <div class="card-title" id="lbl-tolls">🛣️ Cestnine & vinjete</div>
+    <p style="font-size:0.8rem;color:var(--text2);margin-bottom:14px" id="toll-subtitle">Stroški avtocest za osebna vozila · Posodobljeno julij 2026</p>
+    <div class="toll-filter">
+      <button class="toll-btn active" onclick="filterTolls('all',this)" id="toll-btn-all">Vse</button>
+      <button class="toll-btn" onclick="filterTolls('free',this)" id="toll-btn-free">🟢 Brezplačno</button>
+      <button class="toll-btn" onclick="filterTolls('vignette',this)" id="toll-btn-vignette">🔵 Vinjeta</button>
+      <button class="toll-btn" onclick="filterTolls('toll',this)" id="toll-btn-toll">🟠 Cestnina</button>
+    </div>
+    <div class="toll-grid" id="toll-grid"></div>
+    <p class="notice" style="margin-top:12px" id="toll-footer">Podatki veljavni za osebna vozila · Posodobljeno julij 2026 · Cene se lahko spremenijo</p>
+  </div>
+</div>
+
+<div class="tab-content" id="content-faq">
+  <div class="card">
+    <div class="card-title" id="lbl-faq">FAQ</div>
+    <div id="faqList"></div>
+  </div>
+</div>
+</main>
+
+<footer style="max-width:680px;margin:8px auto 0;padding:20px 20px 40px;text-align:center;border-top:1px solid var(--border)">
+  <p id="footer-about" style="font-size:0.85rem;color:var(--text2);line-height:1.6;margin-bottom:10px"></p>
+  <a href="about.html" id="about-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px"></a>
+  <p style="font-size:0.78rem;color:var(--text3);margin-top:16px">
+    <span id="footer-contact-label"></span> <a href="mailto:tank-smart@pm.me" style="color:var(--orange);text-decoration:none">tank-smart@pm.me</a>
+  </p>
+</footer>
+
+<script>
+var lang = 'sl';
+var activeTollFilter = 'all';
+var savedVehicles = [];
+try { savedVehicles = JSON.parse(localStorage.getItem('ts_v') || '[]'); } catch(e) {}
+
+// ── CENE – 29. jul 2026 ──────────────────────────────────────────
+var prices = {
+  "Slovenia":    {flag:'🇸🇮', b95:1.603, b98:1.960, diesel:1.828},
+  "Croatia":     {flag:'🇭🇷', b95:1.620, b98:2.190, diesel:1.750},
+  "Bosnia":      {flag:'🇧🇦', b95:1.420, b98:1.550, diesel:1.470},
+  "Serbia":      {flag:'🇷🇸', b95:1.700, b98:1.900, diesel:1.910},
+  "N. Macedonia":{flag:'🇲🇰', b95:1.360, b98:1.400, diesel:1.310},
+  "Montenegro":  {flag:'🇲🇪', b95:1.650, b98:1.680, diesel:1.650},
+  "Kosovo":      {flag:'🇽🇰', b95:1.380, b98:null,  diesel:1.450},
+  "Albania":     {flag:'🇦🇱', b95:1.860, b98:null,  diesel:1.890},
+  "Austria":     {flag:'🇦🇹', b95:1.828, b98:2.060, diesel:2.009},
+  "Italy":       {flag:'🇮🇹', b95:1.986, b98:2.220, diesel:2.180},
+  "Hungary":     {flag:'🇭🇺', b95:1.660, b98:null,  diesel:1.720},
+  "Bulgaria":    {flag:'🇧🇬', b95:1.500, b98:1.700, diesel:1.620},
+  "Greece":      {flag:'🇬🇷', b95:1.977, b98:null,  diesel:1.950},
+  "Romania":     {flag:'🇷🇴', b95:1.721, b98:null,  diesel:1.888},
+  "Czechia":     {flag:'🇨🇿', b95:1.720, b98:null,  diesel:1.707},
+  "Slovakia":    {flag:'🇸🇰', b95:1.713, b98:null,  diesel:1.668},
+  "Poland":      {flag:'🇵🇱', b95:1.682, b98:null,  diesel:1.725}
+};
+
+// Okvirne avtocestne cene (~) za države z veliko razliko
+var motorway = {
+  "Slovenia": {b95:1.85, b98:2.29, diesel:2.07},
+  "Croatia":  {b95:1.87, b98:2.47, diesel:2.04},
+  "Austria":  {b95:2.13, b98:2.41, diesel:2.37},
+  "Italy":    {b95:2.25, b98:2.50, diesel:2.44},
+  "Hungary":  {b95:1.95, b98:null, diesel:2.05},
+  "Bulgaria": {b95:1.65, b98:1.87, diesel:1.78},
+  "Greece":   {b95:2.47, b98:null, diesel:2.44},
+  "Czechia":  {b95:1.96, b98:null, diesel:1.95},
+  "Slovakia": {b95:1.95, b98:null, diesel:1.90},
+  "Poland":   {b95:1.88, b98:null, diesel:1.93},
+  "Romania":  {b95:1.89, b98:null, diesel:2.08}
+};
+
+var tolls = [
+  {flag:'🇽🇰', type:'free', sl:{name:'Kosovo',badge:'Brezplačno',prices:'Ni nikakršnih cestnin.',note:'Vse ceste brezplačne za osebna vozila.'}, en:{name:'Kosovo',badge:'Free',prices:'No tolls at all.',note:'All roads free for passenger vehicles.'}, hr:{name:'Kosovo',badge:'Besplatno',prices:'Nema cestarina.',note:'Sve ceste besplatne za osobna vozila.'}},
+  {flag:'🇲🇰', type:'free', sl:{name:'Sev. Makedonija',badge:'Brezplačno',prices:'Ni nikakršnih cestnin.',note:'Vse avtoceste brezplačne za osebna vozila.'}, en:{name:'N. Macedonia',badge:'Free',prices:'No tolls at all.',note:'All motorways free for passenger vehicles.'}, hr:{name:'S. Makedonija',badge:'Besplatno',prices:'Nema cestarina.',note:'Sve autoceste besplatne za osobna vozila.'}},
+  {flag:'🇲🇪', type:'free', sl:{name:'Črna Gora',badge:'Skoraj brezplačno',prices:'Večina cest brezplačnih.<br><strong>Tunel Sozina</strong>: 2,50 €',note:'Edina izjema je tunel Sozina (Bar → Podgorica).'}, en:{name:'Montenegro',badge:'Almost free',prices:'Most roads free.<br><strong>Sozina Tunnel</strong>: €2.50',note:'Only exception is the Sozina tunnel (Bar → Podgorica).'}, hr:{name:'Crna Gora',badge:'Gotovo besplatno',prices:'Većina cesta besplatna.<br><strong>Tunel Sozina</strong>: 2,50 €',note:'Jedina iznimka je tunel Sozina (Bar → Podgorica).'}},
+  {flag:'🇦🇱', type:'free', sl:{name:'Albanija',badge:'Skoraj brezplačno',prices:'Večina cest brezplačnih.<br><strong>Tunel Kalimash</strong>: 5 €',note:'Edina cestnina je tunel na poti proti Kosovu.'}, en:{name:'Albania',badge:'Almost free',prices:'Most roads free.<br><strong>Kalimash Tunnel</strong>: €5',note:'Only toll is the tunnel towards Kosovo.'}, hr:{name:'Albanija',badge:'Gotovo besplatno',prices:'Većina cesta besplatna.<br><strong>Tunel Kalimash</strong>: 5 €',note:'Jedina cestarina je tunel prema Kosovu.'}},
+  {flag:'🇧🇦', type:'toll', sl:{name:'Bosna in H.',badge:'Cestnina',prices:'Samo na nekaterih odsekih:<br><strong>Zenica → Sarajevo</strong>: ~3–4 €',note:'Večina cest brezplačnih. Plačilo z gotovino ali kartico.'}, en:{name:'Bosnia & Herz.',badge:'Toll',prices:'Only on some sections:<br><strong>Zenica → Sarajevo</strong>: ~€3–4',note:'Most roads free. Cash or card payment.'}, hr:{name:'Bosna i H.',badge:'Cestarina',prices:'Samo na nekim dionicama:<br><strong>Zenica → Sarajevo</strong>: ~3–4 €',note:'Većina cesta besplatna. Plaćanje gotovinom ili karticom.'}},
+  {flag:'🇭🇷', type:'toll', sl:{name:'Hrvaška',badge:'Cestnina',prices:'Plačaš glede na prevožene km:<br><strong>Zagreb → Split</strong>: ~9 €',note:'Vzameš listič pri vhodu, plačaš pri izhodu. Od 2026 uvajajo nov sistem brez zapornic.'}, en:{name:'Croatia',badge:'Toll',prices:'Pay per km driven:<br><strong>Zagreb → Split</strong>: ~€9',note:'Take ticket at entry, pay at exit. New barrier-free system being introduced in 2026.'}, hr:{name:'Hrvatska',badge:'Cestarina',prices:'Plaćaš prema prijeđenim km:<br><strong>Zagreb → Split</strong>: ~9 €',note:'Uzmeš listić na ulazu, platiš na izlazu. Od 2026. uvodi se novi sustav bez rampi.'}},
+  {flag:'🇷🇸', type:'toll', sl:{name:'Srbija',badge:'Cestnina',prices:'Plačaš na postajah po km:<br><strong>Tranzit HR → MK</strong>: ~15–25 €',note:'Vzameš listič pri vhodu, plačaš pri izhodu. Gotovina ali kartica.'}, en:{name:'Serbia',badge:'Toll',prices:'Pay per km at booths:<br><strong>Transit HR → MK</strong>: ~€15–25',note:'Take ticket at entry, pay at exit. Cash or card.'}, hr:{name:'Srbija',badge:'Cestarina',prices:'Plaćaš na naplatnim postajama po km:<br><strong>Tranzit HR → MK</strong>: ~15–25 €',note:'Uzmeš listić na ulazu, platiš na izlazu. Gotovina ili kartica.'}},
+  {flag:'🇮🇹', type:'toll', sl:{name:'Italija',badge:'Cestnina',prices:'~9 € / 100 km povprečno:<br><strong>Trst → Milano</strong>: ~20 €<br><strong>Trst → Benetke</strong>: ~8 €',note:'Vzameš listič pri vhodu, plačaš pri izhodu. Rumeni pasovi samo za Telepass.'}, en:{name:'Italy',badge:'Toll',prices:'~€9 / 100 km average:<br><strong>Trieste → Milan</strong>: ~€20<br><strong>Trieste → Venice</strong>: ~€8',note:'Take ticket at entry, pay at exit. Yellow lanes are Telepass only.'}, hr:{name:'Italija',badge:'Cestarina',prices:'~9 € / 100 km prosjek:<br><strong>Trst → Milano</strong>: ~20 €<br><strong>Trst → Venecija</strong>: ~8 €',note:'Uzmeš listić na ulazu, platiš na izlazu. Žute trake samo za Telepass.'}},
+  {flag:'🇸🇮', type:'vignette', sl:{name:'Slovenija',badge:'Vinjeta',prices:'<strong>7 dni:</strong> 16 €<br><strong>1 mesec:</strong> 32 €<br><strong>Letna:</strong> 117,50 €',note:'Kupiš na <a href="https://evinjeta.dars.si" target="_blank">evinjeta.dars.si</a> ali na bencinskih servisih.'}, en:{name:'Slovenia',badge:'Vignette',prices:'<strong>7 days:</strong> €16<br><strong>1 month:</strong> €32<br><strong>Annual:</strong> €117.50',note:'Buy at <a href="https://evinjeta.dars.si" target="_blank">evinjeta.dars.si</a> or at petrol stations.'}, hr:{name:'Slovenija',badge:'Vinjeta',prices:'<strong>7 dana:</strong> 16 €<br><strong>1 mjesec:</strong> 32 €<br><strong>Godišnja:</strong> 117,50 €',note:'Kupi na <a href="https://evinjeta.dars.si" target="_blank">evinjeta.dars.si</a> ili na benzinskim postajama.'}},
+  {flag:'🇦🇹', type:'vignette', sl:{name:'Avstrija',badge:'Vinjeta',prices:'<strong>10 dni:</strong> 11,50 €<br><strong>2 meseca:</strong> 29 €<br><strong>Letna:</strong> 103 €',note:'Kupiš na <a href="https://www.asfinag.at" target="_blank">asfinag.at</a> ali na bencinskih servisih pred mejo.'}, en:{name:'Austria',badge:'Vignette',prices:'<strong>10 days:</strong> €11.50<br><strong>2 months:</strong> €29<br><strong>Annual:</strong> €103',note:'Buy at <a href="https://www.asfinag.at" target="_blank">asfinag.at</a> or at petrol stations before the border.'}, hr:{name:'Austrija',badge:'Vinjeta',prices:'<strong>10 dana:</strong> 11,50 €<br><strong>2 mjeseca:</strong> 29 €<br><strong>Godišnja:</strong> 103 €',note:'Kupi na <a href="https://www.asfinag.at" target="_blank">asfinag.at</a> ili na benzinskim postajama prije granice.'}},
+  {flag:'🇭🇺', type:'vignette', sl:{name:'Madžarska',badge:'Vinjeta (e-matrica)',prices:'<strong>1 dan:</strong> ~9 €<br><strong>10 dni:</strong> ~18 €<br><strong>1 mesec:</strong> ~35 €',note:'Kupiš na <a href="https://ematrica.nemzetiutdij.hu" target="_blank">ematrica.nemzetiutdij.hu</a>. 100% digitalno.'}, en:{name:'Hungary',badge:'Vignette (e-matrica)',prices:'<strong>1 day:</strong> ~€9<br><strong>10 days:</strong> ~€18<br><strong>1 month:</strong> ~€35',note:'Buy at <a href="https://ematrica.nemzetiutdij.hu" target="_blank">ematrica.nemzetiutdij.hu</a>. 100% digital.'}, hr:{name:'Mađarska',badge:'Vinjeta (e-matrica)',prices:'<strong>1 dan:</strong> ~9 €<br><strong>10 dana:</strong> ~18 €<br><strong>1 mjesec:</strong> ~35 €',note:'Kupi na <a href="https://ematrica.nemzetiutdij.hu" target="_blank">ematrica.nemzetiutdij.hu</a>. 100% digitalno.'}},
+  {flag:'🇧🇬', type:'vignette', sl:{name:'Bolgarija',badge:'Vinjeta',prices:'<strong>7 dni:</strong> 7,67 €<br><strong>1 mesec:</strong> 15,34 €<br><strong>Letna:</strong> 49,60 €',note:'Kupiš na <a href="https://www.bgtoll.bg" target="_blank">bgtoll.bg</a>. 100% digitalno.'}, en:{name:'Bulgaria',badge:'Vignette',prices:'<strong>7 days:</strong> €7.67<br><strong>1 month:</strong> €15.34<br><strong>Annual:</strong> €49.60',note:'Buy at <a href="https://www.bgtoll.bg" target="_blank">bgtoll.bg</a>. 100% digital.'}, hr:{name:'Bugarska',badge:'Vinjeta',prices:'<strong>7 dana:</strong> 7,67 €<br><strong>1 mjesec:</strong> 15,34 €<br><strong>Godišnja:</strong> 49,60 €',note:'Kupi na <a href="https://www.bgtoll.bg" target="_blank">bgtoll.bg</a>. 100% digitalno.'}},
+  {flag:'🇷🇴', type:'vignette', sl:{name:'Romunija',badge:'Vinjeta (Rovinieta)',prices:'<strong>7 dni:</strong> ~3 €<br><strong>1 mesec:</strong> ~7 €<br><strong>Letna:</strong> ~29 €',note:'Kupiš na <a href="https://www.rovinieta.ro" target="_blank">rovinieta.ro</a>. 100% digitalno, veže se na registrsko tablico.'}, en:{name:'Romania',badge:'Vignette (Rovinieta)',prices:'<strong>7 days:</strong> ~€3<br><strong>1 month:</strong> ~€7<br><strong>Annual:</strong> ~€29',note:'Buy at <a href="https://www.rovinieta.ro" target="_blank">rovinieta.ro</a>. 100% digital, linked to your plate.'}, hr:{name:'Rumunjska',badge:'Vinjeta (Rovinieta)',prices:'<strong>7 dana:</strong> ~3 €<br><strong>1 mjesec:</strong> ~7 €<br><strong>Godišnja:</strong> ~29 €',note:'Kupi na <a href="https://www.rovinieta.ro" target="_blank">rovinieta.ro</a>. 100% digitalno, vezano uz registarsku pločicu.'}},
+  {flag:'🇨🇿', type:'vignette', sl:{name:'Češka',badge:'Vinjeta (dálniční známka)',prices:'<strong>10 dni:</strong> ~9 €<br><strong>1 mesec:</strong> ~19 €<br><strong>Letna:</strong> ~54 €',note:'Kupiš na <a href="https://edalnice.cz" target="_blank">edalnice.cz</a>. 100% digitalno, veže se na registrsko tablico.'}, en:{name:'Czechia',badge:'Vignette (dálniční známka)',prices:'<strong>10 days:</strong> ~€9<br><strong>1 month:</strong> ~€19<br><strong>Annual:</strong> ~€54',note:'Buy at <a href="https://edalnice.cz" target="_blank">edalnice.cz</a>. 100% digital, linked to your plate.'}, hr:{name:'Češka',badge:'Vinjeta (dálniční známka)',prices:'<strong>10 dana:</strong> ~9 €<br><strong>1 mjesec:</strong> ~19 €<br><strong>Godišnja:</strong> ~54 €',note:'Kupi na <a href="https://edalnice.cz" target="_blank">edalnice.cz</a>. 100% digitalno, vezano uz registarsku pločicu.'}},
+  {flag:'🇸🇰', type:'vignette', sl:{name:'Slovaška',badge:'Vinjeta (diaľničná známka)',prices:'<strong>10 dni:</strong> 10 €<br><strong>1 mesec:</strong> 14 €<br><strong>Letna:</strong> 60 €',note:'Kupiš na <a href="https://eznamka.sk" target="_blank">eznamka.sk</a>. 100% digitalno, veže se na registrsko tablico.'}, en:{name:'Slovakia',badge:'Vignette (diaľničná známka)',prices:'<strong>10 days:</strong> €10<br><strong>1 month:</strong> €14<br><strong>Annual:</strong> €60',note:'Buy at <a href="https://eznamka.sk" target="_blank">eznamka.sk</a>. 100% digital, linked to your plate.'}, hr:{name:'Slovačka',badge:'Vinjeta (diaľničná známka)',prices:'<strong>10 dana:</strong> 10 €<br><strong>1 mjesec:</strong> 14 €<br><strong>Godišnja:</strong> 60 €',note:'Kupi na <a href="https://eznamka.sk" target="_blank">eznamka.sk</a>. 100% digitalno, vezano uz registarsku pločicu.'}},
+  {flag:'🇵🇱', type:'toll', sl:{name:'Poljska',badge:'Delno cestnina',prices:'Državne avtoceste (GDDKiA) brezplačne za osebna vozila.<br>Zasebni odseki (npr. A2, A4): plačilo po km na terminalu.',note:'Za osebna vozila večina omrežja brezplačna, izjema so zasebno upravljane avtoceste.'}, en:{name:'Poland',badge:'Partial toll',prices:'State motorways (GDDKiA) free for passenger cars.<br>Private sections (e.g. A2, A4): pay per km at the barrier.',note:'Most of the network is free for cars; exceptions are privately operated motorways.'}, hr:{name:'Poljska',badge:'Djelomična cestarina',prices:'Državne autoceste (GDDKiA) besplatne za osobna vozila.<br>Privatne dionice (npr. A2, A4): plaćanje po km na rampi.',note:'Većina mreže besplatna za osobna vozila, iznimka su privatno upravljane autoceste.'}},
+  {flag:'🇬🇷', type:'toll', sl:{name:'Grčija',badge:'Cestnina',prices:'Plačaš na postajah po odseku:<br><strong>Atene → Solun</strong>: ~30 €',note:'Vzameš listič ali plačaš gotovinsko/kartično na vsaki cestninski postaji.'}, en:{name:'Greece',badge:'Toll',prices:'Pay per section at booths:<br><strong>Athens → Thessaloniki</strong>: ~€30',note:'Take a ticket or pay by cash/card at each toll station.'}, hr:{name:'Grčka',badge:'Cestarina',prices:'Plaćaš po dionici na naplatnim postajama:<br><strong>Atena → Solun</strong>: ~30 €',note:'Uzmeš listić ili platiš gotovinom/karticom na svakoj naplatnoj postaji.'}}
+];
+
+var T = {
+  sl:{
+    heroTitle:'<span>TankSmart</span> – Cene goriva, Balkan & Evropa',
+    heroSub:'Primerjaj cene, izračunaj strošek poti in najdi, kje je najcenejše točenje.',
+    tabCompare:'🗺 Primerjava cen', tabCalc:'🧮 Kalkulator poti', tabTolls:'🛣️ Cestnine', tabFaq:'❓ FAQ',
+    lblFueltype:'Vrsta goriva', lblVehicle:'Vaše vozilo', lblVname:'Ime vozila (neobvezno)',
+    btnSaveV:'Shrani', lblCons:'Poraba (L/100km)', lblFtype:'Vrsta goriva',
+    lblTrip:'Podrobnosti poti', lblKm:'Razdalja (km)', lblCountry:'Država točenja',
+    lblPass:'Število potnikov (delitev stroška)',
+    pass:['1 (sam/a)','2 osebi','3 osebe','4 osebe','5 oseb','6 oseb'],
+    btnCalc:'Izračunaj →', lblTotal:'Skupni strošek goriva',
+    noticeCalc:'Cene so informativne. Pred potjo preveri aktualne cene.',
+    noticePrices:'Cene nazadnje posodobljene: 29. jul 2026 · Posodobitev enkrat tedensko<br>Vir: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
+    cheapest:'najcenejše', priciest:'najdražje',
+    roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
+    personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
+    noData:'Ni podatka za to vrsto goriva.',
+    f95:'Bencin 95', f98:'Bencin 98/100', fd:'Diesel',
+    tipsTitle:'💡 Koristno vedeti',
+    tips:[
+      {flag:'🇸🇮',c:'Slovenija',t:'Cene goriva na avtocestah niso regulirane in se razlikujejo med servisi. Pričakuj 15–25 % višjo ceno kot na navadnih cestah. Natočite pred avtocesto kadar je mogoče.'},
+      {flag:'🇦🇹',c:'Avstrija',t:'Cene na avtocestah so višje kot na ostalih cestah. Najnižje so običajno v bližini večjih mest.'},
+      {flag:'🇮🇹',c:'Italija',t:'Cene na avtocestah so višje. Če vam uslužbenec natoči gorivo, je cena lahko višja za 3–5 centov, na avtocestah še več.'},
+      {flag:'🇭🇷',c:'Hrvaška',t:'Cene na avtocestah niso regulirane in so višje kot na navadnih cestah.'},
+      {flag:'🇭🇺',c:'Madžarska',t:'Cene goriva niso regulirane in se razlikujejo po lokaciji. Na avtocestah so višje kot v mestih.'},
+      {flag:'🇧🇦',c:'Bosna in H.',t:'Cene niso regulirane, so pa določene marže, zato so razlike med lokacijami majhne.'},
+      {flag:'🇷🇸',c:'Srbija',t:'Cene goriv so regulirane in se spreminjajo vsak petek.'},
+      {flag:'🇬🇷',c:'Grčija',t:'Cene na avtocestah so lahko tudi do 25 % višje kot v mestih ali vaseh v bližini. To je med najvišjimi razlikami v Evropi. Natočite pred vstopom na avtocesto.'},
+      {flag:'🇨🇿',c:'Češka',t:'Cene na avtocestah (npr. D1 Praga–Brno) so lahko tudi do 20 % višje kot v mestih. Razlike med posameznimi servisi so velike ne glede na lokacijo.'},
+      {flag:'🇸🇰',c:'Slovaška',t:'Cene na avtocestah so v povprečju okoli 14 % višje kot na navadnih cestah.'},
+      {flag:'🇵🇱',c:'Poljska',t:'Razlike med avtocestnimi in mestnimi cenami so med nižjimi v Evropi (~12 %). Državne avtoceste so za osebna vozila brezplačne.'},
+      {flag:'🇷🇴',c:'Romunija',t:'Razlike med cenami na avtocestah in drugod so med najmanjšimi v regiji (~10 %), avtocestno omrežje pa je še vedno omejeno.'},
+      {flag:'🇦🇱',c:'Albanija',t:'Prava avtocestna mreža je še zelo omejena, zato razlike med lokacijami niso velike. Cene so opazno višje v bližini meje z Grčijo.'}
+    ],
+    tollTitle:'🛣️ Cestnine & vinjete', tollSub:'Stroški avtocest za osebna vozila · Posodobljeno julij 2026',
+    tollFooter:'Podatki veljavni za osebna vozila · Posodobljeno julij 2026 · Cene se lahko spremenijo',
+    tollAll:'Vse', tollFree:'🟢 Brezplačno', tollVignette:'🔵 Vinjeta', tollToll:'🟠 Cestnina',
+    aboutTitle:'O TankSmart',
+    about:'TankSmart sem najprej naredila zase, ker sem iskala nekaj takšnega in tega nisem našla. Ko je začel nastajati, sem ugotovila, da bi lahko bil uporaben tudi za druge, ki se pogosto vozijo po Balkanu in okoliških državah.<br><br>Želela sem eno preprosto spletno stran, kjer lahko hitro preverim aktualne cene goriva in izračunam strošek poti, ne da bi morala odpirati več različnih spletnih strani. Poleg primerjave cen goriva lahko izračunaš tudi strošek poti glede na razdaljo, porabo svojega avtomobila in trenutne cene goriva. Če na pot ne greš sam, lahko strošek goriva preprosto razdeliš med sopotnike.<br><br>Cene za zdaj posodabljam ročno vsak teden in jih preverjam pri uradnih virih posamezne države. Če opaziš kakšno napako ali imaš predlog za izboljšavo, mi lahko vedno pišeš. 😊',
+    faq:[
+      {q:'Ali kalkulator upošteva tudi cestnine in vinjete?',a:'Ne. Strošek cestnin je ločen od stroška goriva, ker se preveč razlikuje glede na natančno pot in vozilo. Poglej zavihek Cestnine, kjer najdeš cene vinjet in cestnin za vsako državo.'},
+      {q:'Kako izračunam pot tja in nazaj?',a:'Vnesi skupno razdaljo (tja + nazaj), ali pa izračunaj enosmerno pot in rezultat preprosto podvoji.'},
+      {q:'Zakaj se prikazana cena razlikuje od tiste na črpalki?',a:'Cene se med posameznimi črpalkami znotraj iste države lahko razlikujejo tudi za nekaj centov, poleg tega jih posodabljam enkrat tedensko. Prikazana cena je dober okviren vodič, ne pa zagotovljena cena na vsaki črpalki.'},
+      {q:'Ali TankSmart shranjuje moje podatke o vozilu?',a:'Da, a samo lokalno v tvojem brskalniku. Ni računa, ni strežnika, ni sledenja. Če počistiš podatke brskalnika, se shranjena vozila izbrišejo.'},
+      {q:'Kako pogosto se cene posodabljajo?',a:'Vsak teden ročno preverim uradne vire kot so goriva.si, hak.hr, nafta.hr in drugi. V nekaterih državah (npr. Srbiji) se cene menjajo vsak petek, v drugih vsakih 14 dni.'},
+      {q:'Je TankSmart brezplačen?',a:'Ja, popolnoma. Brez registracije, brez naročnine.'},
+      {q:'Lahko predlagam funkcijo ali javim napačno ceno?',a:'Z veseljem! Piši mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
+    ],
+    aboutLink:'Zakaj je bil TankSmart ustvarjen? →',
+    footerAbout:'TankSmart je brezplačen kalkulator cen goriva in stroškov poti za Balkan in okoliške države, posodobljen vsak teden.',
+    footerContact:'Vprašanja, predlogi ali napačna cena?',
+    countries:{"Slovenia":"Slovenija","Croatia":"Hrvaška","Bosnia":"Bosna in H.","Serbia":"Srbija","N. Macedonia":"Sev. Makedonija","Montenegro":"Črna Gora","Kosovo":"Kosovo","Albania":"Albanija","Austria":"Avstrija","Italy":"Italija","Hungary":"Madžarska","Bulgaria":"Bolgarija","Greece":"Grčija","Romania":"Romunija","Czechia":"Češka","Slovakia":"Slovaška","Poland":"Poljska"},
+    namePh:['Ana','Maja','Luka','Sara','Petra','Marko']
+  },
+  en:{
+    heroTitle:'<span>TankSmart</span> – Fuel Prices, Balkans & Europe',
+    heroSub:'Compare prices, calculate trip costs, and find where it\'s cheapest to fill up.',
+    tabCompare:'🗺 Compare prices', tabCalc:'🧮 Trip calculator', tabTolls:'🛣️ Tolls', tabFaq:'❓ FAQ',
+    lblFueltype:'Fuel type', lblVehicle:'Your vehicle', lblVname:'Vehicle name (optional)',
+    btnSaveV:'Save', lblCons:'Consumption (L/100km)', lblFtype:'Fuel type',
+    lblTrip:'Trip details', lblKm:'Distance (km)', lblCountry:'Country where you fill up',
+    lblPass:'Number of passengers (to split cost)',
+    pass:['1 (alone)','2 people','3 people','4 people','5 people','6 people'],
+    namePh:['Emma','James','Sophie','Noah','Olivia','Lucas'],
+    btnCalc:'Calculate →', lblTotal:'Total fuel cost',
+    noticeCalc:'Prices are indicative. Always verify current prices before your trip.',
+    noticePrices:'Prices last updated: 29 Jul 2026 · Updated weekly<br>Source: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
+    cheapest:'cheapest', priciest:'priciest',
+    roadLabel:'Regular road', mwLabel:'Motorway ~',
+    personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
+    noData:'No data for this fuel type.',
+    f95:'Petrol 95', f98:'Petrol 98/100', fd:'Diesel',
+    tipsTitle:'💡 Good to know',
+    tips:[
+      {flag:'🇸🇮',c:'Slovenia',t:'Motorway fuel prices are unregulated and vary between stations. Expect to pay 15–25% more than on regular roads. Fill up before the motorway when you can.'},
+      {flag:'🇦🇹',c:'Austria',t:'Motorway prices are higher than on regular roads. Lowest prices are usually near larger cities.'},
+      {flag:'🇮🇹',c:'Italy',t:'Motorway prices are higher. If an attendant fills your tank, expect to pay 3 to 5 cents more per litre, even more on motorways.'},
+      {flag:'🇭🇷',c:'Croatia',t:'Motorway prices are unregulated and higher than on regular roads.'},
+      {flag:'🇭🇺',c:'Hungary',t:'Fuel prices are unregulated and vary by location. Motorway stations are more expensive than city ones.'},
+      {flag:'🇧🇦',c:'Bosnia & Herz.',t:'Prices are not regulated, but margins are limited, so prices vary very little between locations.'},
+      {flag:'🇷🇸',c:'Serbia',t:'Fuel prices are regulated and updated every Friday.'},
+      {flag:'🇬🇷',c:'Greece',t:'Highway prices can be up to 25% higher than in nearby towns, among the biggest gaps in Europe. Fill up before the motorway.'},
+      {flag:'🇨🇿',c:'Czechia',t:'Motorway prices (e.g. the D1 Prague–Brno) can be up to 20% higher than in cities. Prices between individual stations vary a lot regardless of location.'},
+      {flag:'🇸🇰',c:'Slovakia',t:'Motorway prices are on average around 14% higher than on regular roads.'},
+      {flag:'🇵🇱',c:'Poland',t:'The gap between motorway and city prices is among the smallest in Europe (~12%). State-run motorways are free for passenger cars.'},
+      {flag:'🇷🇴',c:'Romania',t:'The gap between motorway and other prices is among the smallest in the region (~10%), though the motorway network is still limited.'},
+      {flag:'🇦🇱',c:'Albania',t:'A proper motorway network is still very limited, so prices vary little between locations. Prices are noticeably higher near the Greek border.'}
+    ],
+    tollTitle:'🛣️ Tolls & Vignettes', tollSub:'Motorway costs for passenger vehicles · Updated July 2026',
+    tollFooter:'Valid for passenger vehicles · Updated July 2026 · Prices may change',
+    tollAll:'All', tollFree:'🟢 Free', tollVignette:'🔵 Vignette', tollToll:'🟠 Toll',
+    aboutTitle:'About TankSmart',
+    about:'I originally built TankSmart for myself because I was looking for something like it and couldn\'t find it. As the project started taking shape, I realized it could also be useful for other people who regularly travel across the Balkans and nearby countries.<br><br>I wanted one simple website where you can quickly check current fuel prices and calculate the cost of your trip without having to open several different websites. Besides comparing fuel prices, you can also estimate your trip cost based on the distance, your car\'s fuel consumption, and the latest fuel prices. If you\'re travelling with other people, you can easily split the fuel cost between everyone.<br><br>For now, I update the fuel prices manually every week using official sources from each country. If you notice a mistake or have an idea for improving TankSmart, feel free to get in touch. 😊',
+    faq:[
+      {q:'Does the calculator include tolls and vignettes?',a:'No. Toll costs are kept separate from fuel costs because they vary too much depending on the exact route and vehicle. Check the Tolls tab for vignette and toll prices for each country.'},
+      {q:'How do I calculate a round trip?',a:'Enter the total distance (there and back), or calculate one-way and simply double the result.'},
+      {q:'Why does the price shown differ from what I see at the pump?',a:'Prices can vary by a few cents between individual stations within the same country, and I update them once a week. The price shown is a solid guide, not a guarantee at every pump.'},
+      {q:'Does TankSmart store my vehicle data?',a:'Yes, but only locally in your browser. No account, no server, no tracking. If you clear your browser data, your saved vehicles are deleted.'},
+      {q:'How often are prices updated?',a:'Every week, manually checked from official sources like goriva.si, hak.hr, nafta.hr and others. Prices in some countries (like Serbia) change every Friday, others every two weeks.'},
+      {q:'Is TankSmart free?',a:'Yes, completely free. No sign-up, no subscription.'},
+      {q:'Can I suggest a feature or report a wrong price?',a:'I\'d love that! Drop me a message at <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
+    ],
+    aboutLink:'Why was TankSmart created? →',
+    footerAbout:'TankSmart is a free fuel price and trip cost calculator for the Balkans and nearby countries, updated every week.',
+    footerContact:'Questions, suggestions, or a wrong price?',
+    countries:{"Slovenia":"Slovenia","Croatia":"Croatia","Bosnia":"Bosnia & Herz.","Serbia":"Serbia","N. Macedonia":"N. Macedonia","Montenegro":"Montenegro","Kosovo":"Kosovo","Albania":"Albania","Austria":"Austria","Italy":"Italy","Hungary":"Hungary","Bulgaria":"Bulgaria","Greece":"Greece","Romania":"Romania","Czechia":"Czechia","Slovakia":"Slovakia","Poland":"Poland"}
+  },
+  hr:{
+    heroTitle:'<span>TankSmart</span> – Cijene goriva, Balkan & Europa',
+    heroSub:'Usporedi cijene, izračunaj trošak puta i pronađi gdje je najjeftinije gorivo.',
+    tabCompare:'🗺 Usporedi cijene', tabCalc:'🧮 Kalkulator puta', tabTolls:'🛣️ Cestarine', tabFaq:'❓ FAQ',
+    lblFueltype:'Vrsta goriva', lblVehicle:'Vaše vozilo', lblVname:'Naziv vozila (opcionalno)',
+    btnSaveV:'Spremi', lblCons:'Potrošnja (L/100km)', lblFtype:'Vrsta goriva',
+    lblTrip:'Detalji puta', lblKm:'Udaljenost (km)', lblCountry:'Zemlja punjenja',
+    lblPass:'Broj putnika (za podjelu troška)',
+    pass:['1 (sam/a)','2 osobe','3 osobe','4 osobe','5 osoba','6 osoba'],
+    btnCalc:'Izračunaj →', lblTotal:'Ukupni trošak goriva',
+    noticeCalc:'Cijene su informativne. Provjeri aktualne cijene prije puta.',
+    noticePrices:'Cijene zadnji put ažurirane: 29. jul 2026 · Ažuriranje jednom tjednom<br>Izvor: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
+    cheapest:'najjeftinije', priciest:'najskuplje',
+    roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
+    personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
+    noData:'Nema podataka za ovu vrstu goriva.',
+    f95:'Benzin 95', f98:'Benzin 98/100', fd:'Diesel',
+    tipsTitle:'💡 Korisno znati',
+    tips:[
+      {flag:'🇸🇮',c:'Slovenija',t:'Cijene goriva na autocestama nisu regulirane i razlikuju se između postaja. Očekuj 15–25 % višu cijenu nego na lokalnim cestama. Natočite prije autoceste kad god možete.'},
+      {flag:'🇦🇹',c:'Austrija',t:'Cijene na autocestama su više nego na ostalim cestama. Najniže su obično u blizini većih gradova.'},
+      {flag:'🇮🇹',c:'Italija',t:'Cijene na autocestama su više. Ako vam djelatnik toči gorivo, cijena može biti veća za 3 do 5 centi, na autocestama i više.'},
+      {flag:'🇭🇷',c:'Hrvatska',t:'Cijene na autocestama nisu regulirane i više su nego na lokalnim cestama.'},
+      {flag:'🇭🇺',c:'Mađarska',t:'Cijene goriva nisu regulirane i razlikuju se po lokaciji. Na autocestama su više nego u gradovima.'},
+      {flag:'🇧🇦',c:'Bosna i H.',t:'Cijene nisu regulirane, ali su marže ograničene, pa su razlike između lokacija male.'},
+      {flag:'🇷🇸',c:'Srbija',t:'Cijene goriva su regulirane i mijenjaju se svakog petka.'},
+      {flag:'🇬🇷',c:'Grčka',t:'Cijene na autocestama mogu biti i do 25 % veće nego u obližnjim gradovima, među najvećim razlikama u Europi. Natočite prije autoceste.'},
+      {flag:'🇨🇿',c:'Češka',t:'Cijene na autocestama (npr. D1 Prag–Brno) mogu biti i do 20 % veće nego u gradovima. Razlike među pojedinim postajama su velike bez obzira na lokaciju.'},
+      {flag:'🇸🇰',c:'Slovačka',t:'Cijene na autocestama su u prosjeku oko 14 % veće nego na običnim cestama.'},
+      {flag:'🇵🇱',c:'Poljska',t:'Razlika između cijena na autocestama i u gradovima je među najmanjima u Europi (~12 %). Državne autoceste su besplatne za osobna vozila.'},
+      {flag:'🇷🇴',c:'Rumunjska',t:'Razlika između cijena na autocestama i drugdje je među najmanjima u regiji (~10 %), a mreža autocesta je i dalje ograničena.'},
+      {flag:'🇦🇱',c:'Albanija',t:'Prava mreža autocesta još je vrlo ograničena, pa se cijene malo razlikuju između lokacija. Cijene su primjetno više blizu grčke granice.'}
+    ],
+    tollTitle:'🛣️ Cestarine & vinjete', tollSub:'Troškovi autocesta za osobna vozila · Ažurirano srpanj 2026',
+    tollFooter:'Podaci vrijede za osobna vozila · Ažurirano srpanj 2026 · Cijene se mogu promijeniti',
+    tollAll:'Sve', tollFree:'🟢 Besplatno', tollVignette:'🔵 Vinjeta', tollToll:'🟠 Cestarina',
+    aboutTitle:'O TankSmart',
+    about:'TankSmart sam prvo napravila za sebe jer sam tražila nešto takvo, ali nisam uspjela pronaći. Kako je projekt počeo nastajati, shvatila sam da bi mogao biti koristan i drugim ljudima koji često putuju kroz Balkan i okolne zemlje.<br><br>Htjela sam napraviti jednu jednostavnu web stranicu na kojoj možeš brzo provjeriti aktualne cijene goriva i izračunati trošak putovanja, bez otvaranja nekoliko različitih web stranica. Osim usporedbe cijena goriva, možeš izračunati i trošak puta na temelju udaljenosti, potrošnje svog automobila i aktualnih cijena goriva. Ako ne putuješ sam, trošak goriva možeš jednostavno podijeliti sa suputnicima.<br><br>Za sada cijene goriva ručno ažuriram jednom tjedno koristeći službene izvore iz svake države. Ako primijetiš neku grešku ili imaš prijedlog kako poboljšati TankSmart, slobodno mi se javi. 😊',
+    faq:[
+      {q:'Uključuje li kalkulator i cestarine i vinjete?',a:'Ne. Trošak cestarina odvojen je od troška goriva jer previše ovisi o točnoj ruti i vozilu. Pogledaj karticu Cestarine, gdje su cijene vinjeta i cestarina za svaku državu.'},
+      {q:'Kako izračunam put tamo i natrag?',a:'Unesi ukupnu udaljenost (tamo i natrag), ili izračunaj put u jednom smjeru pa jednostavno udvostruči rezultat.'},
+      {q:'Zašto se prikazana cijena razlikuje od one na pumpi?',a:'Cijene se mogu razlikovati i nekoliko centi između pojedinih pumpi unutar iste zemlje, a osim toga ih ažuriram jednom tjedno. Prikazana cijena je dobra okvirna smjernica, ali nije zajamčena cijena na svakoj pumpi.'},
+      {q:'Sprema li TankSmart podatke o mom vozilu?',a:'Da, ali samo lokalno u tvom pregledniku. Nema računa, nema poslužitelja, nema praćenja. Ako obrišeš podatke preglednika, spremljena vozila se brišu.'},
+      {q:'Koliko često se cijene ažuriraju?',a:'Svaki tjedan ručno provjeravam službene izvore poput goriva.si, hak.hr, nafta.hr i drugih. U nekim zemljama (npr. Srbiji) cijene se mijenjaju svaki petak, u drugima svakih 14 dana.'},
+      {q:'Je li TankSmart besplatan?',a:'Da, potpuno besplatno. Bez registracije, bez pretplate.'},
+      {q:'Mogu li predložiti funkciju ili prijaviti krivu cijenu?',a:'Rado! Piši mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
+    ],
+    aboutLink:'Zašto je nastao TankSmart? →',
+    footerAbout:'TankSmart je besplatni kalkulator cijena goriva i troškova puta za Balkan i okolne zemlje, ažuriran svaki tjedan.',
+    footerContact:'Pitanja, prijedlozi ili kriva cijena?',
+    countries:{"Slovenia":"Slovenija","Croatia":"Hrvatska","Bosnia":"Bosna i H.","Serbia":"Srbija","N. Macedonia":"S. Makedonija","Montenegro":"Crna Gora","Kosovo":"Kosovo","Albania":"Albanija","Austria":"Austrija","Italy":"Italija","Hungary":"Mađarska","Bulgaria":"Bugarska","Greece":"Grčka","Romania":"Rumunjska","Czechia":"Češka","Slovakia":"Slovačka","Poland":"Poljska"},
+    namePh:['Ana','Marko','Ivana','Luka','Nikola','Jovana']
+  }
+};
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(function(b,i){b.classList.toggle('active',['en','sl','hr'][i]===l);});
+  applyLang();
+}
+
+function applyLang() {
+  var t = T[lang];
+  document.getElementById('hero-title').innerHTML = t.heroTitle;
+  document.getElementById('hero-sub').textContent = t.heroSub;
+  document.getElementById('tab-compare').textContent = t.tabCompare;
+  document.getElementById('tab-calc').textContent = t.tabCalc;
+  document.getElementById('tab-tolls').textContent = t.tabTolls;
+  document.getElementById('tab-faq').textContent = t.tabFaq;
+  document.getElementById('lbl-fueltype').textContent = t.lblFueltype;
+  document.getElementById('lbl-vehicle').textContent = t.lblVehicle;
+  document.getElementById('lbl-vname').textContent = t.lblVname;
+  document.getElementById('btn-save-v').textContent = t.btnSaveV;
+  document.getElementById('lbl-cons').textContent = t.lblCons;
+  document.getElementById('lbl-ftype').textContent = t.lblFtype;
+  document.getElementById('lbl-trip').textContent = t.lblTrip;
+  document.getElementById('lbl-km').textContent = t.lblKm;
+  document.getElementById('lbl-country').textContent = t.lblCountry;
+  document.getElementById('lbl-pass').textContent = t.lblPass;
+  document.getElementById('btn-calc').textContent = t.btnCalc;
+  document.getElementById('lbl-total').textContent = t.lblTotal;
+  document.getElementById('notice-calc').textContent = t.noticeCalc;
+  document.getElementById('lbl-tips').textContent = t.tipsTitle;
+  document.getElementById('footer-about').textContent = t.footerAbout;
+  document.getElementById('footer-contact-label').textContent = t.footerContact;
+  document.getElementById('lbl-tolls').textContent = t.tollTitle;
+  document.getElementById('toll-subtitle').textContent = t.tollSub;
+  document.getElementById('toll-footer').textContent = t.tollFooter;
+  document.getElementById('toll-btn-all').textContent = t.tollAll;
+  document.getElementById('toll-btn-free').textContent = t.tollFree;
+  document.getElementById('toll-btn-vignette').textContent = t.tollVignette;
+  document.getElementById('toll-btn-toll').textContent = t.tollToll;
+  document.getElementById('about-link').textContent = t.aboutLink;
+  var ftc = document.getElementById('fuelTypeCompare');
+  var ft = document.getElementById('fuelType');
+  [ftc,ft].forEach(function(s){if(s){s.options[0].text=t.f95;s.options[1].text=t.f98;s.options[2].text=t.fd;}});
+  var ps = document.getElementById('passengers');
+  if(ps) t.pass.forEach(function(txt,i){if(ps.options[i])ps.options[i].text=txt;});
+  renderPrices();
+  renderTips();
+  renderFAQ();
+  renderTolls();
+  populateCountries();
+  renderSavedVehicles();
+  updateNames();
+}
+
+function renderPrices() {
+  var t = T[lang];
+  var ft = document.getElementById('fuelTypeCompare').value;
+  var entries = Object.entries(prices).filter(function(e){return e[1][ft]!==null;}).sort(function(a,b){return a[1][ft]-b[1][ft];});
+  var html = '<div class="prices-grid">';
+  entries.forEach(function(e,i) {
+    var k=e[0], p=e[1];
+    var best=i===0, worst=i===entries.length-1;
+    var mw = motorway[k];
+    var mwPrice = mw && mw[ft] ? mw[ft] : null;
+    html += '<div class="p-item'+(best?' best':worst?' worst':'')+'">';
+    html += '<div class="ctry">'+p.flag+' '+(t.countries[k]||k);
+    if(best) html += '<span class="badge best">'+t.cheapest+'</span>';
+    if(worst) html += '<span class="badge worst">'+t.priciest+'</span>';
+    html += '</div>';
+    if(mwPrice) {
+      html += '<div class="prc-label">'+t.roadLabel+'</div>';
+      html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+      html += '<div class="prc-divider"></div>';
+      html += '<div class="prc-label">'+t.mwLabel+'</div>';
+      html += '<div class="prc-mw">'+mwPrice.toFixed(2)+' €/l</div>';
+    } else {
+      html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  document.getElementById('pricesGrid').innerHTML = html;
+  document.getElementById('notice-prices').innerHTML = t.noticePrices;
+}
+
+function renderTips() {
+  var t = T[lang];
+  document.getElementById('tipsList').innerHTML = t.tips.map(function(item){
+    return '<div class="tip-row"><span style="font-size:1.1rem;flex-shrink:0">'+item.flag+'</span><div><div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">'+item.c+'</div><div style="font-size:0.82rem;color:var(--text2);line-height:1.5">'+item.t+'</div></div></div>';
+  }).join('');
+}
+
+function renderTolls() {
+  var t = T[lang];
+  document.getElementById('toll-grid').innerHTML = tolls.map(function(toll){
+    var d = toll[lang] || toll['sl'];
+    var hidden = activeTollFilter!=='all' && toll.type!==activeTollFilter ? ' hidden' : '';
+    return '<div class="toll-card '+toll.type+hidden+'">'+
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:1.2rem">'+toll.flag+'</span><span style="font-size:0.88rem;font-weight:700;color:var(--text)">'+d.name+'</span></div>'+
+      '<span class="toll-badge badge-'+toll.type+'">'+d.badge+'</span>'+
+      '<div class="toll-prices">'+d.prices+'</div>'+
+      '<div class="toll-note">'+d.note+'</div></div>';
+  }).join('');
+}
+
+function filterTolls(type, btn) {
+  activeTollFilter = type;
+  document.querySelectorAll('.toll-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderTolls();
+}
+
+function renderFAQ() {
+  var t = T[lang];
+  document.getElementById('faqList').innerHTML = t.faq.map(function(item){
+    return '<div class="faq-item"><div class="faq-q">'+item.q+'</div><div class="faq-a">'+item.a+'</div></div>';
+  }).join('');
+}
+
+function populateCountries() {
+  var sel = document.getElementById('country');
+  var cur = sel.value;
+  sel.innerHTML = Object.keys(prices).map(function(k){
+    return '<option value="'+k+'">'+prices[k].flag+' '+(T[lang].countries[k]||k)+'</option>';
+  }).join('');
+  if(cur) sel.value = cur;
+}
+
+function updateNames() {
+  var n = parseInt(document.getElementById('passengers').value);
+  var box = document.getElementById('nameFields');
+  if(n<2){box.innerHTML='';return;}
+  var ph = T[lang].namePh;
+  box.innerHTML = Array.from({length:n},function(_,i){
+    return '<div style="margin-top:8px"><input type="text" id="name'+i+'" placeholder="'+T[lang].personLabel+' '+(i+1)+' ('+ph[i]+')"></div>';
+  }).join('');
+}
+
+function saveVehicle() {
+  var name = document.getElementById('vName').value.trim();
+  var cons = document.getElementById('consumption').value;
+  var ft = document.getElementById('fuelType').value;
+  if(!name||!cons) return;
+  savedVehicles = savedVehicles.filter(function(x){return x.name!==name;});
+  savedVehicles.unshift({name:name,cons:parseFloat(cons),ft:ft});
+  if(savedVehicles.length>5) savedVehicles.pop();
+  try{localStorage.setItem('ts_v',JSON.stringify(savedVehicles));}catch(e){}
+  renderSavedVehicles();
+}
+
+function renderSavedVehicles() {
+  document.getElementById('savedVehicles').innerHTML = savedVehicles.map(function(v,i){
+    return '<div class="v-chip" onclick="loadVehicle('+i+')">'+v.name+'</div>';
+  }).join('');
+}
+
+function loadVehicle(i) {
+  var v = savedVehicles[i];
+  document.getElementById('vName').value = v.name;
+  document.getElementById('consumption').value = v.cons;
+  document.getElementById('fuelType').value = v.ft;
+  document.querySelectorAll('.v-chip').forEach(function(c,j){c.classList.toggle('selected',j===i);});
+}
+
+function calculate() {
+  var km = parseFloat(document.getElementById('km').value);
+  var cons = parseFloat(document.getElementById('consumption').value);
+  var ft = document.getElementById('fuelType').value;
+  var country = document.getElementById('country').value;
+  var n = parseInt(document.getElementById('passengers').value);
+  var t = T[lang];
+  if(!km||!cons){alert(lang==='en'?'Please enter distance and consumption.':lang==='sl'?'Vnesi razdaljo in porabo.':'Unesi udaljenost i potrošnju.');return;}
+  var pricePerL = prices[country][ft];
+  if(!pricePerL){alert(t.noData);return;}
+  var litres = (km/100)*cons;
+  var total = litres*pricePerL;
+  var perPerson = total/n;
+  document.getElementById('totalCost').textContent = total.toFixed(2)+' €';
+  document.getElementById('costDetail').innerHTML =
+    litres.toFixed(1)+' '+t.litres+' × '+pricePerL.toFixed(3)+' €/l ('+(t.countries[country]||country)+')<br>'+
+    t.distance+': '+km+' km · '+t.cons+': '+cons+' l/100km';
+  var splitBox = document.getElementById('splitBox');
+  if(n>=2){
+    splitBox.innerHTML = Array.from({length:n},function(_,i){
+      var el = document.getElementById('name'+i);
+      var name = el&&el.value ? el.value : t.personLabel+' '+(i+1);
+      return '<div class="split-person"><div class="amt">'+perPerson.toFixed(2)+' €</div><div class="nm">'+name+'</div></div>';
+    }).join('');
+  } else {splitBox.innerHTML='';}
+  var res = document.getElementById('results');
+  res.classList.add('show');
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function showTab(name) {
+  var tabs = ['compare','calc','tolls','faq'];
+  document.querySelectorAll('.tab').forEach(function(t,i){t.classList.toggle('active',tabs[i]===name);});
+  document.querySelectorAll('.tab-content').forEach(function(c,i){c.classList.toggle('active',tabs[i]===name);});
+}
+
+document.addEventListener('DOMContentLoaded',function(){applyLang();});
+</script>
+</body>
+</html>
