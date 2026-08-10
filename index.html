@@ -85,6 +85,15 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 .split-person .nm{font-size:0.78rem;color:var(--text2);margin-top:2px}
 .tip-row{padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
 .tip-row:last-child{border-bottom:none}
+.search-input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg2);color:var(--text);font-size:0.88rem;margin-bottom:12px;box-sizing:border-box}
+.search-input:focus{outline:none;border-color:var(--orange)}
+.region-group{margin-bottom:10px;border:1px solid var(--border);border-radius:var(--rs);overflow:hidden}
+.region-group summary{padding:10px 14px;font-size:0.85rem;font-weight:700;color:var(--text);cursor:pointer;background:var(--bg3);list-style:none;display:flex;align-items:center;justify-content:space-between}
+.region-group summary::-webkit-details-marker{display:none}
+.region-group summary::after{content:'▸';color:var(--text3);transition:transform .15s}
+.region-group[open] summary::after{transform:rotate(90deg)}
+.region-group-body{padding:10px}
+.no-results{padding:20px;text-align:center;color:var(--text3);font-size:0.85rem}
 .toll-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .toll-btn{font-size:0.78rem;padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;transition:all .15s}
 .toll-btn:hover,.toll-btn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
@@ -146,6 +155,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
       <option value="b98">Bencin 98/100</option>
       <option value="diesel">Diesel</option>
     </select>
+    <input type="text" id="priceSearch" class="search-input" placeholder="Poišči državo..." oninput="renderPrices()">
     <div id="pricesGrid"></div>
     <p class="notice" id="notice-prices"></p>
   </div>
@@ -213,13 +223,14 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   <div class="card">
     <div class="card-title" id="lbl-tolls">🛣️ Cestnine & vinjete</div>
     <p style="font-size:0.8rem;color:var(--text2);margin-bottom:14px" id="toll-subtitle">Stroški avtocest za osebna vozila · Posodobljeno julij 2026</p>
+    <input type="text" id="tollSearch" class="search-input" placeholder="Poišči državo..." oninput="renderTolls()">
     <div class="toll-filter">
       <button class="toll-btn active" onclick="filterTolls('all',this)" id="toll-btn-all">Vse</button>
       <button class="toll-btn" onclick="filterTolls('free',this)" id="toll-btn-free">🟢 Brezplačno</button>
       <button class="toll-btn" onclick="filterTolls('vignette',this)" id="toll-btn-vignette">🔵 Vinjeta</button>
       <button class="toll-btn" onclick="filterTolls('toll',this)" id="toll-btn-toll">🟠 Cestnina</button>
     </div>
-    <div class="toll-grid" id="toll-grid"></div>
+    <div id="toll-grid-wrap"></div>
     <p class="notice" style="margin-top:12px" id="toll-footer">Podatki veljavni za osebna vozila · Posodobljeno julij 2026 · Cene se lahko spremenijo</p>
   </div>
 </div>
@@ -246,80 +257,93 @@ var activeTollFilter = 'all';
 var savedVehicles = [];
 try { savedVehicles = JSON.parse(localStorage.getItem('ts_v') || '[]'); } catch(e) {}
 
-// ── CENE – 1. avg 2026 ──────────────────────────────────────────
+// ── CENE – 8. avg 2026 ──────────────────────────────────────────
+// Regijske skupine za organizacijo prikaza
+var countryRegion = {
+  "Slovenia":"balkan","Croatia":"balkan","Bosnia":"balkan","Serbia":"balkan","N. Macedonia":"balkan","Montenegro":"balkan","Kosovo":"balkan","Albania":"balkan",
+  "Austria":"cee","Hungary":"cee","Bulgaria":"cee","Romania":"cee","Czechia":"cee","Slovakia":"cee","Poland":"cee",
+  "Italy":"south","Greece":"south","Spain":"south","Portugal":"south",
+  "Germany":"west","Switzerland":"west","France":"west","Netherlands":"west","Belgium":"west","UK":"west","Ireland":"west","Luxembourg":"west",
+  "Denmark":"nordic","Sweden":"nordic","Norway":"nordic","Finland":"nordic","Iceland":"nordic",
+  "Estonia":"baltic","Latvia":"baltic","Lithuania":"baltic",
+  "Malta":"micro","San Marino":"micro","Andorra":"micro","Monaco":"micro",
+  "Ukraine":"east","Moldova":"east","Belarus":"east"
+};
+var regionOrder = ['balkan','cee','south','west','nordic','baltic','micro','east'];
+
 var prices = {
-  "Slovenia":    {flag:'🇸🇮', b95:1.603, b98:1.960, diesel:1.828},
-  "Croatia":     {flag:'🇭🇷', b95:1.620, b98:2.190, diesel:1.750},
-  "Bosnia":      {flag:'🇧🇦', b95:1.450, b98:1.570, diesel:1.600},
-  "Serbia":      {flag:'🇷🇸', b95:1.720, b98:1.920, diesel:1.930},
-  "N. Macedonia":{flag:'🇲🇰', b95:1.360, b98:1.400, diesel:1.310},
-  "Montenegro":  {flag:'🇲🇪', b95:1.650, b98:1.680, diesel:1.650},
-  "Kosovo":      {flag:'🇽🇰', b95:1.380, b98:null,  diesel:1.450},
-  "Albania":     {flag:'🇦🇱', b95:1.860, b98:null,  diesel:1.890},
-  "Austria":     {flag:'🇦🇹', b95:1.874, b98:2.110, diesel:2.051},
-  "Italy":       {flag:'🇮🇹', b95:1.986, b98:2.220, diesel:2.180},
-  "Hungary":     {flag:'🇭🇺', b95:1.660, b98:null,  diesel:1.720},
-  "Bulgaria":    {flag:'🇧🇬', b95:1.500, b98:1.700, diesel:1.620},
-  "Greece":      {flag:'🇬🇷', b95:2.017, b98:null,  diesel:2.041},
-  "Romania":     {flag:'🇷🇴', b95:1.768, b98:null,  diesel:1.995},
-  "Czechia":     {flag:'🇨🇿', b95:1.746, b98:null,  diesel:1.815},
-  "Slovakia":    {flag:'🇸🇰', b95:1.765, b98:null,  diesel:1.737},
-  "Poland":      {flag:'🇵🇱', b95:1.719, b98:null,  diesel:1.818},
-  "Germany":     {flag:'🇩🇪', b95:2.191, b98:2.480, diesel:2.186},
-  "Switzerland": {flag:'🇨🇭', b95:1.990, b98:2.250, diesel:2.230},
-  "France":      {flag:'🇫🇷', b95:2.057, b98:2.320, diesel:2.169},
-  "Netherlands": {flag:'🇳🇱', b95:2.385, b98:2.700, diesel:2.393},
-  "Belgium":     {flag:'🇧🇪', b95:1.888, b98:2.140, diesel:2.141},
-  "UK":          {flag:'🇬🇧', b95:1.827, b98:2.070, diesel:2.036},
-  "Ireland":     {flag:'🇮🇪', b95:1.758, b98:1.990, diesel:1.752},
-  "Spain":       {flag:'🇪🇸', b95:1.645, b98:1.860, diesel:1.722},
-  "Portugal":    {flag:'🇵🇹', b95:1.990, b98:2.250, diesel:2.026},
-  "Luxembourg":  {flag:'🇱🇺', b95:1.764, b98:1.990, diesel:1.889},
-  "Denmark":     {flag:'🇩🇰', b95:2.486, b98:2.810, diesel:2.290},
-  "Sweden":      {flag:'🇸🇪', b95:1.455, b98:1.640, diesel:1.825},
-  "Norway":      {flag:'🇳🇴', b95:1.881, b98:2.130, diesel:1.679},
-  "Finland":     {flag:'🇫🇮', b95:2.178, b98:2.460, diesel:2.270},
-  "Iceland":     {flag:'🇮🇸', b95:1.490, b98:1.680, diesel:1.660},
-  "Estonia":     {flag:'🇪🇪', b95:1.812, b98:2.050, diesel:1.877},
-  "Latvia":      {flag:'🇱🇻', b95:1.885, b98:2.130, diesel:1.936},
-  "Lithuania":   {flag:'🇱🇹', b95:1.793, b98:2.030, diesel:1.995},
-  "Malta":       {flag:'🇲🇹', b95:1.340, b98:1.510, diesel:1.210},
-  "San Marino":  {flag:'🇸🇲', b95:1.380, b98:1.560, diesel:1.519},
-  "Andorra":     {flag:'🇦🇩', b95:1.400, b98:1.580, diesel:1.710},
-  "Monaco":      {flag:'🇲🇨', b95:2.057, b98:2.320, diesel:2.169},
-  "Ukraine":     {flag:'🇺🇦', b95:1.727, b98:1.793, diesel:1.957},
-  "Moldova":     {flag:'🇲🇩', b95:1.570, b98:null,  diesel:1.660},
-  "Belarus":     {flag:'🇧🇾', b95:0.690, b98:null,  diesel:0.750}
+  "Slovenia":       {flag:'🇸🇮', b95:1.583, b98:1.789, diesel:1.882},
+  "Croatia":        {flag:'🇭🇷', b95:1.690, b98:1.910, diesel:1.890},
+  "Bosnia":         {flag:'🇧🇦', b95:1.490, b98:1.684, diesel:1.610},
+  "Serbia":         {flag:'🇷🇸', b95:1.720, b98:1.944, diesel:1.930},
+  "N. Macedonia":   {flag:'🇲🇰', b95:1.480, b98:1.672, diesel:1.620},
+  "Montenegro":     {flag:'🇲🇪', b95:1.750, b98:1.977, diesel:1.770},
+  "Kosovo":         {flag:'🇽🇰', b95:1.380, b98:null, diesel:1.450},
+  "Albania":        {flag:'🇦🇱', b95:2.100, b98:null, diesel:2.290},
+  "Austria":        {flag:'🇦🇹', b95:1.720, b98:1.944, diesel:1.960},
+  "Italy":          {flag:'🇮🇹', b95:1.990, b98:2.249, diesel:2.090},
+  "Hungary":        {flag:'🇭🇺', b95:1.610, b98:null, diesel:1.810},
+  "Bulgaria":       {flag:'🇧🇬', b95:1.530, b98:1.729, diesel:1.740},
+  "Greece":         {flag:'🇬🇷', b95:2.020, b98:null, diesel:2.060},
+  "Romania":        {flag:'🇷🇴', b95:1.800, b98:null, diesel:2.030},
+  "Czechia":        {flag:'🇨🇿', b95:1.740, b98:null, diesel:1.840},
+  "Slovakia":       {flag:'🇸🇰', b95:1.760, b98:null, diesel:1.810},
+  "Poland":         {flag:'🇵🇱', b95:1.760, b98:null, diesel:1.880},
+  "Germany":        {flag:'🇩🇪', b95:2.180, b98:2.463, diesel:2.210},
+  "Switzerland":    {flag:'🇨🇭', b95:2.100, b98:2.373, diesel:2.320},
+  "France":         {flag:'🇫🇷', b95:2.070, b98:2.339, diesel:2.220},
+  "Netherlands":    {flag:'🇳🇱', b95:2.370, b98:2.678, diesel:2.410},
+  "Belgium":        {flag:'🇧🇪', b95:1.880, b98:2.124, diesel:2.180},
+  "UK":             {flag:'🇬🇧', b95:1.870, b98:2.113, diesel:2.090},
+  "Ireland":        {flag:'🇮🇪', b95:1.820, b98:2.057, diesel:1.850},
+  "Spain":          {flag:'🇪🇸', b95:1.690, b98:1.910, diesel:1.790},
+  "Portugal":       {flag:'🇵🇹', b95:1.980, b98:2.237, diesel:2.050},
+  "Luxembourg":     {flag:'🇱🇺', b95:1.710, b98:1.932, diesel:1.850},
+  "Denmark":        {flag:'🇩🇰', b95:2.460, b98:2.780, diesel:2.260},
+  "Sweden":         {flag:'🇸🇪', b95:1.450, b98:1.638, diesel:1.820},
+  "Norway":         {flag:'🇳🇴', b95:1.990, b98:2.249, diesel:1.950},
+  "Finland":        {flag:'🇫🇮', b95:2.200, b98:2.486, diesel:2.340},
+  "Iceland":        {flag:'🇮🇸', b95:1.530, b98:1.729, diesel:1.670},
+  "Estonia":        {flag:'🇪🇪', b95:1.810, b98:2.045, diesel:1.880},
+  "Latvia":         {flag:'🇱🇻', b95:1.870, b98:2.113, diesel:1.940},
+  "Lithuania":      {flag:'🇱🇹', b95:1.800, b98:2.034, diesel:2.040},
+  "Malta":          {flag:'🇲🇹', b95:1.340, b98:1.514, diesel:1.210},
+  "San Marino":     {flag:'🇸🇲', b95:1.610, b98:1.819, diesel:1.860},
+  "Andorra":        {flag:'🇦🇩', b95:1.500, b98:1.695, diesel:1.640},
+  "Monaco":         {flag:'🇲🇨', b95:1.960, b98:2.215, diesel:2.070},
+  "Ukraine":        {flag:'🇺🇦', b95:1.570, b98:null, diesel:1.800},
+  "Moldova":        {flag:'🇲🇩', b95:1.530, b98:null, diesel:1.630},
+  "Belarus":        {flag:'🇧🇾', b95:0.800, b98:null, diesel:0.800}
 };
 
 // Okvirne avtocestne cene (~) za države z veliko razliko
 var motorway = {
-  "Slovenia": {b95:1.85, b98:2.29, diesel:2.07},
-  "Croatia":  {b95:1.87, b98:2.47, diesel:2.04},
-  "Austria":  {b95:2.18, b98:2.46, diesel:2.42},
-  "Italy":    {b95:2.25, b98:2.50, diesel:2.44},
-  "Hungary":  {b95:1.95, b98:null, diesel:2.05},
-  "Bulgaria": {b95:1.65, b98:1.87, diesel:1.78},
-  "Greece":   {b95:2.52, b98:null, diesel:2.55},
-  "Czechia":  {b95:1.99, b98:null, diesel:2.07},
-  "Slovakia": {b95:2.01, b98:null, diesel:1.98},
-  "Poland":   {b95:1.93, b98:null, diesel:2.04},
-  "Romania":  {b95:1.94, b98:null, diesel:2.19},
-  "Germany":     {b95:2.59, b98:2.93, diesel:2.58},
-  "France":      {b95:2.43, b98:2.74, diesel:2.56},
-  "Netherlands": {b95:2.86, b98:3.24, diesel:2.87},
-  "Belgium":     {b95:2.19, b98:2.48, diesel:2.48},
-  "Denmark":     {b95:2.98, b98:3.37, diesel:2.75},
-  "Finland":     {b95:2.57, b98:2.90, diesel:2.68},
-  "Sweden":      {b95:1.72, b98:1.94, diesel:2.15},
-  "Estonia":     {b95:1.99, b98:2.26, diesel:2.07},
-  "Latvia":      {b95:2.07, b98:2.34, diesel:2.13},
-  "Lithuania":   {b95:1.97, b98:2.23, diesel:2.20},
-  "UK":          {b95:2.06, b98:2.30, diesel:2.27},
-  "Ireland":     {b95:2.04, b98:2.31, diesel:2.03},
-  "Portugal":    {b95:2.31, b98:2.61, diesel:2.35},
-  "Spain":       {b95:1.87, b98:2.12, diesel:1.96},
-  "Luxembourg":  {b95:1.98, b98:2.23, diesel:2.12}
+  "Slovenia":     {b95:1.80, b98:2.04, diesel:2.15},
+  "Croatia":      {b95:1.93, b98:2.18, diesel:2.15},
+  "Austria":      {b95:2.00, b98:2.26, diesel:2.27},
+  "Italy":        {b95:2.43, b98:2.74, diesel:2.55},
+  "Hungary":      {b95:1.80, b98:null, diesel:2.03},
+  "Bulgaria":     {b95:1.68, b98:1.90, diesel:1.91},
+  "Greece":       {b95:2.52, b98:null, diesel:2.58},
+  "Czechia":      {b95:1.98, b98:null, diesel:2.10},
+  "Slovakia":     {b95:2.01, b98:null, diesel:2.06},
+  "Poland":       {b95:1.97, b98:null, diesel:2.11},
+  "Romania":      {b95:1.98, b98:null, diesel:2.23},
+  "Germany":      {b95:2.57, b98:2.91, diesel:2.61},
+  "France":       {b95:2.44, b98:2.76, diesel:2.62},
+  "Netherlands":  {b95:2.84, b98:3.21, diesel:2.89},
+  "Belgium":      {b95:2.18, b98:2.46, diesel:2.53},
+  "Ireland":      {b95:2.11, b98:2.39, diesel:2.15},
+  "Spain":        {b95:1.93, b98:2.18, diesel:2.04},
+  "Portugal":     {b95:2.30, b98:2.59, diesel:2.38},
+  "Luxembourg":   {b95:1.92, b98:2.16, diesel:2.07},
+  "Denmark":      {b95:2.95, b98:3.34, diesel:2.71},
+  "Finland":      {b95:2.60, b98:2.93, diesel:2.76},
+  "Sweden":       {b95:1.71, b98:1.93, diesel:2.15},
+  "Estonia":      {b95:1.99, b98:2.25, diesel:2.07},
+  "Latvia":       {b95:2.06, b98:2.32, diesel:2.13},
+  "Lithuania":    {b95:1.98, b98:2.24, diesel:2.24},
+  "UK":           {b95:2.11, b98:2.39, diesel:2.36}
 };
 
 var tolls = [
@@ -379,7 +403,7 @@ var T = {
     pass:['1 (sam/a)','2 osebi','3 osebe','4 osebe','5 oseb','6 oseb'],
     btnCalc:'Izračunaj →', lblTotal:'Skupni strošek goriva',
     noticeCalc:'Cene so informativne. Pred potjo preveri aktualne cene.',
-    noticePrices:'Cene nazadnje posodobljene: 1. avg 2026 · Posodobitev enkrat tedensko<br>Vir: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
+    noticePrices:'Cene nazadnje posodobljene: 8. avg 2026 · Posodobitev enkrat tedensko<br>Vir: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
     cheapest:'najcenejše', priciest:'najdražje',
     roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
     personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
@@ -445,6 +469,8 @@ var T = {
     aboutLink:'Zakaj je bil TankSmart ustvarjen? →',
     footerAbout:'TankSmart je brezplačen kalkulator cen goriva in stroškov poti za vso Evropo, posodobljen vsak teden.',
     footerContact:'Vprašanja, predlogi ali napačna cena?',
+    regions:{balkan:'Balkan',cee:'Srednja/Vzh. Evropa',south:'Južna Evropa',west:'Zahodna Evropa',nordic:'Skandinavija',baltic:'Baltik',micro:'Mikro-države',east:'Vzhodna Evropa (izven EU)'},
+    searchPh:'Poišči državo...', noResults:'Ni zadetkov za to iskanje.',
     countries:{"Slovenia":"Slovenija","Croatia":"Hrvaška","Bosnia":"Bosna in H.","Serbia":"Srbija","N. Macedonia":"Sev. Makedonija","Montenegro":"Črna Gora","Kosovo":"Kosovo","Albania":"Albanija","Austria":"Avstrija","Italy":"Italija","Hungary":"Madžarska","Bulgaria":"Bolgarija","Greece":"Grčija","Romania":"Romunija","Czechia":"Češka","Slovakia":"Slovaška","Poland":"Poljska","Germany":"Nemčija","Switzerland":"Švica","France":"Francija","Netherlands":"Nizozemska","Belgium":"Belgija","UK":"Velika Britanija","Ireland":"Irska","Spain":"Španija","Portugal":"Portugalska","Luxembourg":"Luksemburg","Denmark":"Danska","Sweden":"Švedska","Norway":"Norveška","Finland":"Finska","Iceland":"Islandija","Estonia":"Estonija","Latvia":"Latvija","Lithuania":"Litva","Malta":"Malta","San Marino":"San Marino","Andorra":"Andora","Monaco":"Monako","Ukraine":"Ukrajina","Moldova":"Moldavija","Belarus":"Belorusija"},
     namePh:['Ana','Maja','Luka','Sara','Petra','Marko']
   },
@@ -460,7 +486,7 @@ var T = {
     namePh:['Emma','James','Sophie','Noah','Olivia','Lucas'],
     btnCalc:'Calculate →', lblTotal:'Total fuel cost',
     noticeCalc:'Prices are indicative. Always verify current prices before your trip.',
-    noticePrices:'Prices last updated: 1 Aug 2026 · Updated weekly<br>Source: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
+    noticePrices:'Prices last updated: 8 Aug 2026 · Updated weekly<br>Source: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
     cheapest:'cheapest', priciest:'priciest',
     roadLabel:'Regular road', mwLabel:'Motorway ~',
     personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
@@ -526,6 +552,8 @@ var T = {
     aboutLink:'Why was TankSmart created? →',
     footerAbout:'TankSmart is a free fuel price and trip cost calculator for all of Europe, updated every week.',
     footerContact:'Questions, suggestions, or a wrong price?',
+    regions:{balkan:'Balkans',cee:'Central/East Europe',south:'Southern Europe',west:'Western Europe',nordic:'Scandinavia',baltic:'Baltics',micro:'Micro-states',east:'Eastern Europe (non-EU)'},
+    searchPh:'Search for a country...', noResults:'No matches for that search.',
     countries:{"Slovenia":"Slovenia","Croatia":"Croatia","Bosnia":"Bosnia & Herz.","Serbia":"Serbia","N. Macedonia":"N. Macedonia","Montenegro":"Montenegro","Kosovo":"Kosovo","Albania":"Albania","Austria":"Austria","Italy":"Italy","Hungary":"Hungary","Bulgaria":"Bulgaria","Greece":"Greece","Romania":"Romania","Czechia":"Czechia","Slovakia":"Slovakia","Poland":"Poland","Germany":"Germany","Switzerland":"Switzerland","France":"France","Netherlands":"Netherlands","Belgium":"Belgium","UK":"United Kingdom","Ireland":"Ireland","Spain":"Spain","Portugal":"Portugal","Luxembourg":"Luxembourg","Denmark":"Denmark","Sweden":"Sweden","Norway":"Norway","Finland":"Finland","Iceland":"Iceland","Estonia":"Estonia","Latvia":"Latvia","Lithuania":"Lithuania","Malta":"Malta","San Marino":"San Marino","Andorra":"Andorra","Monaco":"Monaco","Ukraine":"Ukraine","Moldova":"Moldova","Belarus":"Belarus"}
   },
   hr:{
@@ -539,7 +567,7 @@ var T = {
     pass:['1 (sam/a)','2 osobe','3 osobe','4 osobe','5 osoba','6 osoba'],
     btnCalc:'Izračunaj →', lblTotal:'Ukupni trošak goriva',
     noticeCalc:'Cijene su informativne. Provjeri aktualne cijene prije puta.',
-    noticePrices:'Cijene zadnji put ažurirane: 1. avg 2026 · Ažuriranje jednom tjednom<br>Izvor: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
+    noticePrices:'Cijene zadnji put ažurirane: 8. avg 2026 · Ažuriranje jednom tjednom<br>Izvor: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
     cheapest:'najjeftinije', priciest:'najskuplje',
     roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
     personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
@@ -605,6 +633,8 @@ var T = {
     aboutLink:'Zašto je nastao TankSmart? →',
     footerAbout:'TankSmart je besplatni kalkulator cijena goriva i troškova puta za cijelu Europu, ažuriran svaki tjedan.',
     footerContact:'Pitanja, prijedlozi ili kriva cijena?',
+    regions:{balkan:'Balkan',cee:'Sr./Ist. Europa',south:'Južna Europa',west:'Zapadna Europa',nordic:'Skandinavija',baltic:'Baltik',micro:'Mikro-države',east:'Istočna Europa (izvan EU)'},
+    searchPh:'Pretraži državu...', noResults:'Nema rezultata za tu pretragu.',
     countries:{"Slovenia":"Slovenija","Croatia":"Hrvatska","Bosnia":"Bosna i H.","Serbia":"Srbija","N. Macedonia":"S. Makedonija","Montenegro":"Crna Gora","Kosovo":"Kosovo","Albania":"Albanija","Austria":"Austrija","Italy":"Italija","Hungary":"Mađarska","Bulgaria":"Bugarska","Greece":"Grčka","Romania":"Rumunjska","Czechia":"Češka","Slovakia":"Slovačka","Poland":"Poljska","Germany":"Njemačka","Switzerland":"Švicarska","France":"Francuska","Netherlands":"Nizozemska","Belgium":"Belgija","UK":"Ujedinjeno Kraljevstvo","Ireland":"Irska","Spain":"Španjolska","Portugal":"Portugal","Luxembourg":"Luksemburg","Denmark":"Danska","Sweden":"Švedska","Norway":"Norveška","Finland":"Finska","Iceland":"Island","Estonia":"Estonija","Latvia":"Latvija","Lithuania":"Litva","Malta":"Malta","San Marino":"San Marino","Andorra":"Andora","Monaco":"Monako","Ukraine":"Ukrajina","Moldova":"Moldavija","Belarus":"Bjelorusija"},
     namePh:['Ana','Marko','Ivana','Luka','Nikola','Jovana']
   }
@@ -640,6 +670,8 @@ function applyLang() {
   document.getElementById('lbl-tips').textContent = t.tipsTitle;
   document.getElementById('footer-about').textContent = t.footerAbout;
   document.getElementById('footer-contact-label').textContent = t.footerContact;
+  document.getElementById('priceSearch').placeholder = t.searchPh;
+  document.getElementById('tollSearch').placeholder = t.searchPh;
   document.getElementById('lbl-tolls').textContent = t.tollTitle;
   document.getElementById('toll-subtitle').textContent = t.tollSub;
   document.getElementById('toll-footer').textContent = t.tollFooter;
@@ -662,33 +694,61 @@ function applyLang() {
   updateNames();
 }
 
+function normText(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+}
+
+function priceItemHtml(k, p, best, worst, ft, t) {
+  var mw = motorway[k];
+  var mwPrice = mw && mw[ft] ? mw[ft] : null;
+  var html = '<div class="p-item'+(best?' best':worst?' worst':'')+'">';
+  html += '<div class="ctry">'+p.flag+' '+(t.countries[k]||k);
+  if(best) html += '<span class="badge best">'+t.cheapest+'</span>';
+  if(worst) html += '<span class="badge worst">'+t.priciest+'</span>';
+  html += '</div>';
+  if(mwPrice) {
+    html += '<div class="prc-label">'+t.roadLabel+'</div>';
+    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+    html += '<div class="prc-divider"></div>';
+    html += '<div class="prc-label">'+t.mwLabel+'</div>';
+    html += '<div class="prc-mw">'+mwPrice.toFixed(2)+' €/l</div>';
+  } else {
+    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+  }
+  html += '</div>';
+  return html;
+}
+
 function renderPrices() {
   var t = T[lang];
   var ft = document.getElementById('fuelTypeCompare').value;
-  var entries = Object.entries(prices).filter(function(e){return e[1][ft]!==null;}).sort(function(a,b){return a[1][ft]-b[1][ft];});
-  var html = '<div class="prices-grid">';
-  entries.forEach(function(e,i) {
-    var k=e[0], p=e[1];
-    var best=i===0, worst=i===entries.length-1;
-    var mw = motorway[k];
-    var mwPrice = mw && mw[ft] ? mw[ft] : null;
-    html += '<div class="p-item'+(best?' best':worst?' worst':'')+'">';
-    html += '<div class="ctry">'+p.flag+' '+(t.countries[k]||k);
-    if(best) html += '<span class="badge best">'+t.cheapest+'</span>';
-    if(worst) html += '<span class="badge worst">'+t.priciest+'</span>';
-    html += '</div>';
-    if(mwPrice) {
-      html += '<div class="prc-label">'+t.roadLabel+'</div>';
-      html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
-      html += '<div class="prc-divider"></div>';
-      html += '<div class="prc-label">'+t.mwLabel+'</div>';
-      html += '<div class="prc-mw">'+mwPrice.toFixed(2)+' €/l</div>';
+  var searchEl = document.getElementById('priceSearch');
+  var query = searchEl ? normText(searchEl.value.trim()) : '';
+  var allEntries = Object.entries(prices).filter(function(e){return e[1][ft]!==null;}).sort(function(a,b){return a[1][ft]-b[1][ft];});
+  var bestKey = allEntries.length ? allEntries[0][0] : null;
+  var worstKey = allEntries.length ? allEntries[allEntries.length-1][0] : null;
+  var html = '';
+  if (query) {
+    var filtered = allEntries.filter(function(e){ return normText(t.countries[e[0]]||e[0]).indexOf(query)!==-1; });
+    if (!filtered.length) {
+      html = '<div class="no-results">'+t.noResults+'</div>';
     } else {
-      html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+      html = '<div class="prices-grid">' + filtered.map(function(e){
+        return priceItemHtml(e[0], e[1], e[0]===bestKey, e[0]===worstKey, ft, t);
+      }).join('') + '</div>';
     }
-    html += '</div>';
-  });
-  html += '</div>';
+  } else {
+    regionOrder.forEach(function(region) {
+      var regEntries = allEntries.filter(function(e){ return countryRegion[e[0]]===region; });
+      if (!regEntries.length) return;
+      var openAttr = region==='balkan' ? ' open' : '';
+      html += '<details class="region-group"'+openAttr+'><summary>'+(t.regions[region]||region)+' ('+regEntries.length+')</summary><div class="region-group-body"><div class="prices-grid">';
+      regEntries.forEach(function(e){
+        html += priceItemHtml(e[0], e[1], e[0]===bestKey, e[0]===worstKey, ft, t);
+      });
+      html += '</div></div></details>';
+    });
+  }
   document.getElementById('pricesGrid').innerHTML = html;
   document.getElementById('notice-prices').innerHTML = t.noticePrices;
 }
@@ -700,17 +760,44 @@ function renderTips() {
   }).join('');
 }
 
+function tollCardHtml(toll) {
+  var d = toll[lang] || toll['sl'];
+  return '<div class="toll-card '+toll.type+'">'+
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:1.2rem">'+toll.flag+'</span><span style="font-size:0.88rem;font-weight:700;color:var(--text)">'+d.name+'</span></div>'+
+    '<span class="toll-badge badge-'+toll.type+'">'+d.badge+'</span>'+
+    '<div class="toll-prices">'+d.prices+'</div>'+
+    '<div class="toll-note">'+d.note+'</div></div>';
+}
+
 function renderTolls() {
   var t = T[lang];
-  document.getElementById('toll-grid').innerHTML = tolls.map(function(toll){
-    var d = toll[lang] || toll['sl'];
-    var hidden = activeTollFilter!=='all' && toll.type!==activeTollFilter ? ' hidden' : '';
-    return '<div class="toll-card '+toll.type+hidden+'">'+
-      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:1.2rem">'+toll.flag+'</span><span style="font-size:0.88rem;font-weight:700;color:var(--text)">'+d.name+'</span></div>'+
-      '<span class="toll-badge badge-'+toll.type+'">'+d.badge+'</span>'+
-      '<div class="toll-prices">'+d.prices+'</div>'+
-      '<div class="toll-note">'+d.note+'</div></div>';
-  }).join('');
+  var searchEl = document.getElementById('tollSearch');
+  var query = searchEl ? normText(searchEl.value.trim()) : '';
+  var typeFiltered = tolls.filter(function(toll){ return activeTollFilter==='all' || toll.type===activeTollFilter; });
+  var html = '';
+  if (query) {
+    var filtered = typeFiltered.filter(function(toll){
+      var d = toll[lang] || toll['sl'];
+      return normText(d.name).indexOf(query)!==-1;
+    });
+    if (!filtered.length) {
+      html = '<div class="no-results">'+t.noResults+'</div>';
+    } else {
+      html = '<div class="toll-grid">' + filtered.map(tollCardHtml).join('') + '</div>';
+    }
+  } else {
+    var keyOf = function(toll){ for (var k in prices) { if (prices[k].flag===toll.flag) return k; } return null; };
+    regionOrder.forEach(function(region) {
+      var regTolls = typeFiltered.filter(function(toll){ var k = keyOf(toll); return k && countryRegion[k]===region; });
+      if (!regTolls.length) return;
+      var openAttr = region==='balkan' ? ' open' : '';
+      html += '<details class="region-group"'+openAttr+'><summary>'+(t.regions[region]||region)+' ('+regTolls.length+')</summary><div class="region-group-body"><div class="toll-grid">';
+      html += regTolls.map(tollCardHtml).join('');
+      html += '</div></div></details>';
+    });
+    if (!html) html = '<div class="no-results">'+t.noResults+'</div>';
+  }
+  document.getElementById('toll-grid-wrap').innerHTML = html;
 }
 
 function filterTolls(type, btn) {
