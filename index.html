@@ -91,6 +91,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 .prc-delta.up{color:var(--red)}
 .prc-delta.down{color:var(--green)}
 .prc-delta.flat{color:var(--text3);font-weight:400}
+.prc-tank{font-size:0.68rem;color:var(--text3);margin-top:3px}
 .prc-divider{border:none;border-top:0.5px solid var(--border);margin:6px 0}
 .badge{display:inline-block;font-size:0.6rem;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase}
 .badge.best{background:#1f2b21;color:var(--green)}
@@ -485,6 +486,7 @@ var T = {
     roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
     vsLastWeek:'v primerjavi s prejšnjim tednom',
     ctaTitle:'Greš s prijatelji na pot?', ctaDesc:'Izračunaj strošek goriva in ga enostavno razdeli med sopotnike.', ctaBtn:'Izračunaj →',
+    tank50:'poln tank (50L)',
     personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
     noData:'Ni podatka za to vrsto goriva.',
     f95:'Bencin 95', f98:'Bencin 98/100', fd:'Diesel',
@@ -570,6 +572,7 @@ var T = {
     roadLabel:'Regular road', mwLabel:'Motorway ~',
     vsLastWeek:'vs. last week',
     ctaTitle:'Going on a trip with friends?', ctaDesc:'Calculate the fuel cost and easily split it among your travel companions.', ctaBtn:'Calculate →',
+    tank50:'full tank (50L)',
     personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
     noData:'No data for this fuel type.',
     f95:'Petrol 95', f98:'Petrol 98/100', fd:'Diesel',
@@ -653,6 +656,7 @@ var T = {
     roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
     vsLastWeek:'u odnosu na prošlu sedmicu',
     ctaTitle:'Ideš s prijateljima na put?', ctaDesc:'Izračunaj trošak goriva i jednostavno ga podijeli među suputnicima.', ctaBtn:'Izračunaj →',
+    tank50:'pun tank (50L)',
     personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
     noData:'Nema podataka za ovu vrstu goriva.',
     f95:'Benzin 95', f98:'Benzin 98/100', fd:'Diesel',
@@ -802,6 +806,10 @@ function priceDeltaHtml(k, ft, t) {
   return '<span class="prc-delta '+(up?'up':'down')+'" title="'+t.vsLastWeek+'">'+arrow+' '+Math.abs(diff).toFixed(3)+'</span>';
 }
 
+function tank50Html(price, t) {
+  return '<div class="prc-tank">'+t.tank50+' ≈ '+(price*50).toFixed(2)+' €</div>';
+}
+
 function priceItemHtml(k, p, best, worst, ft, t) {
   var mw = motorway[k];
   var mwPrice = mw && mw[ft] ? mw[ft] : null;
@@ -813,11 +821,14 @@ function priceItemHtml(k, p, best, worst, ft, t) {
   if(mwPrice) {
     html += '<div class="prc-label">'+t.roadLabel+'</div>';
     html += '<div class="prc">'+p[ft].toFixed(3)+' €/l'+priceDeltaHtml(k,ft,t)+'</div>';
+    html += tank50Html(p[ft], t);
     html += '<div class="prc-divider"></div>';
     html += '<div class="prc-label">'+t.mwLabel+'</div>';
     html += '<div class="prc-mw">'+mwPrice.toFixed(2)+' €/l</div>';
+    html += tank50Html(mwPrice, t);
   } else {
     html += '<div class="prc">'+p[ft].toFixed(3)+' €/l'+priceDeltaHtml(k,ft,t)+'</div>';
+    html += tank50Html(p[ft], t);
   }
   html += '</div>';
   return html;
