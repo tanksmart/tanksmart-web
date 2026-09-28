@@ -55,6 +55,14 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 main{max-width:680px;margin:0 auto;padding:20px}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px}
 .card-title{font-size:0.78rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
+.calc-cta{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--orange-dim),var(--bg3));border:1px solid var(--orange);border-radius:var(--rs);padding:14px 16px;margin-bottom:16px;cursor:pointer}
+.calc-cta:hover{filter:brightness(1.08)}
+.calc-cta-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.calc-cta-text{flex-grow:1;min-width:0}
+.calc-cta-title{font-family:var(--font-head);font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.calc-cta-desc{font-size:0.72rem;color:var(--text2);line-height:1.4}
+.calc-cta-btn{flex-shrink:0;background:var(--orange);color:#1a1a1a;border:none;border-radius:6px;padding:9px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap}
+@media (max-width:480px){.calc-cta{padding:12px 14px}.calc-cta-desc{display:none}}
 label{display:block;font-size:0.83rem;color:var(--text2);margin-bottom:5px;margin-top:14px}
 label:first-of-type{margin-top:0}
 input,select{width:100%;padding:10px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);color:var(--text);font-size:0.95rem;outline:none;transition:border-color .15s;appearance:none}
@@ -163,6 +171,14 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 
 <main>
 <div class="tab-content active" id="content-compare">
+  <div class="calc-cta" onclick="showTab('calc')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showTab('calc')">
+    <span class="calc-cta-icon">🧮</span>
+    <div class="calc-cta-text">
+      <div class="calc-cta-title" id="cta-title">Greš na pot?</div>
+      <div class="calc-cta-desc" id="cta-desc">Izračunaj skupni strošek goriva za svojo relacijo</div>
+    </div>
+    <button class="calc-cta-btn" id="cta-btn" onclick="event.stopPropagation();showTab('calc')">Izračunaj →</button>
+  </div>
   <div class="card">
     <div class="card-title" id="lbl-fueltype">Vrsta goriva</div>
     <select id="fuelTypeCompare" onchange="renderPrices()">
@@ -468,6 +484,7 @@ var T = {
     cheapest:'najcenejše', priciest:'najdražje',
     roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
     vsLastWeek:'v primerjavi s prejšnjim tednom',
+    ctaTitle:'Greš na pot?', ctaDesc:'Izračunaj skupni strošek goriva za svojo relacijo', ctaBtn:'Izračunaj →',
     personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
     noData:'Ni podatka za to vrsto goriva.',
     f95:'Bencin 95', f98:'Bencin 98/100', fd:'Diesel',
@@ -552,6 +569,7 @@ var T = {
     cheapest:'cheapest', priciest:'priciest',
     roadLabel:'Regular road', mwLabel:'Motorway ~',
     vsLastWeek:'vs. last week',
+    ctaTitle:'Going on a trip?', ctaDesc:'Calculate the total fuel cost for your route', ctaBtn:'Calculate →',
     personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
     noData:'No data for this fuel type.',
     f95:'Petrol 95', f98:'Petrol 98/100', fd:'Diesel',
@@ -634,6 +652,7 @@ var T = {
     cheapest:'najjeftinije', priciest:'najskuplje',
     roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
     vsLastWeek:'u odnosu na prošlu sedmicu',
+    ctaTitle:'Ideš na put?', ctaDesc:'Izračunaj ukupni trošak goriva za svoju relaciju', ctaBtn:'Izračunaj →',
     personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
     noData:'Nema podataka za ovu vrstu goriva.',
     f95:'Benzin 95', f98:'Benzin 98/100', fd:'Diesel',
@@ -719,6 +738,9 @@ function applyLang() {
   document.getElementById('tab-tolls').textContent = t.tabTolls;
   document.getElementById('tab-faq').textContent = t.tabFaq;
   document.getElementById('lbl-fueltype').textContent = t.lblFueltype;
+  document.getElementById('cta-title').textContent = t.ctaTitle;
+  document.getElementById('cta-desc').textContent = t.ctaDesc;
+  document.getElementById('cta-btn').textContent = t.ctaBtn;
   document.getElementById('lbl-vehicle').textContent = t.lblVehicle;
   document.getElementById('lbl-vname').textContent = t.lblVname;
   document.getElementById('btn-save-v').textContent = t.btnSaveV;
