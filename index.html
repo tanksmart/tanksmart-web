@@ -709,11 +709,18 @@ function normText(s) {
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 }
 
+function flagImgHtml(flag, size) {
+  var iso = isoFromFlag(flag);
+  if (!iso) return flag;
+  var w = size || 16, h = Math.round(w * 0.75);
+  return '<img src="https://flagcdn.com/'+w+'x'+h+'/'+iso+'.png" srcset="https://flagcdn.com/'+(w*2)+'x'+(h*2)+'/'+iso+'.png 2x" width="'+w+'" height="'+h+'" alt="" loading="lazy" style="border-radius:1px;vertical-align:middle;margin-right:2px">';
+}
+
 function priceItemHtml(k, p, best, worst, ft, t) {
   var mw = motorway[k];
   var mwPrice = mw && mw[ft] ? mw[ft] : null;
   var html = '<div class="p-item'+(best?' best':worst?' worst':'')+'">';
-  html += '<div class="ctry">'+p.flag+' '+(t.countries[k]||k);
+  html += '<div class="ctry">'+flagImgHtml(p.flag,16)+' '+(t.countries[k]||k);
   if(best) html += '<span class="badge best">'+t.cheapest+'</span>';
   if(worst) html += '<span class="badge worst">'+t.priciest+'</span>';
   html += '</div>';
@@ -789,7 +796,7 @@ function renderTips() {
 function tollCardHtml(toll) {
   var d = toll[lang] || toll['sl'];
   return '<div class="toll-card '+toll.type+'">'+
-    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:1.2rem">'+toll.flag+'</span><span style="font-size:0.88rem;font-weight:700;color:var(--text)">'+d.name+'</span></div>'+
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'+flagImgHtml(toll.flag,20)+'<span style="font-size:0.88rem;font-weight:700;color:var(--text)">'+d.name+'</span></div>'+
     '<span class="toll-badge badge-'+toll.type+'">'+d.badge+'</span>'+
     '<div class="toll-prices">'+d.prices+'</div>'+
     '<div class="toll-note">'+d.note+'</div></div>';
