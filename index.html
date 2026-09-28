@@ -79,6 +79,10 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 .p-item.worst .prc{color:var(--red)}
 .prc-mw{font-family:var(--font-head);font-size:1rem;font-weight:600;color:var(--orange)}
 .prc-label{font-size:0.7rem;color:var(--text3);margin-bottom:2px}
+.prc-delta{display:inline-block;margin-left:6px;font-family:var(--font-head);font-size:0.68rem;font-weight:600;vertical-align:middle;letter-spacing:0.01em}
+.prc-delta.up{color:var(--red)}
+.prc-delta.down{color:var(--green)}
+.prc-delta.flat{color:var(--text3);font-weight:400}
 .prc-divider{border:none;border-top:0.5px solid var(--border);margin:6px 0}
 .badge{display:inline-block;font-size:0.6rem;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase}
 .badge.best{background:#1f2b21;color:var(--green)}
@@ -327,6 +331,52 @@ var prices = {
   "Belarus":        {flag:'🇧🇾', b95:0.780, b98:null, diesel:0.780}
 };
 
+// Cene iz prejšnjega tedna (za prikaz spremembe ▲/▼) - Routine to posodobi vsak petek pred zapisom novih cen
+var pricesPrev = {
+  "Slovenia": {b95:1.748, b98:1.975, diesel:2.012},
+  "Croatia": {b95:1.740, b98:1.966, diesel:1.910},
+  "Bosnia": {b95:1.683, b98:1.902, diesel:1.902},
+  "Serbia": {b95:1.667, b98:1.884, diesel:1.871},
+  "N. Macedonia": {b95:1.413, b98:1.597, diesel:1.430},
+  "Montenegro": {b95:1.720, b98:1.944, diesel:1.900},
+  "Kosovo": {b95:1.380, b98:null, diesel:1.450},
+  "Albania": {b95:2.230, b98:null, diesel:2.382},
+  "Austria": {b95:1.925, b98:2.175, diesel:2.238},
+  "Italy": {b95:2.159, b98:2.440, diesel:2.377},
+  "Hungary": {b95:1.741, b98:null, diesel:1.941},
+  "Bulgaria": {b95:1.650, b98:1.865, diesel:1.750},
+  "Greece": {b95:2.200, b98:null, diesel:2.020},
+  "Romania": {b95:1.901, b98:null, diesel:2.090},
+  "Czechia": {b95:1.884, b98:null, diesel:2.071},
+  "Slovakia": {b95:1.774, b98:null, diesel:1.908},
+  "Poland": {b95:1.820, b98:null, diesel:2.005},
+  "Germany": {b95:2.348, b98:2.653, diesel:2.457},
+  "Switzerland": {b95:2.050, b98:2.316, diesel:2.300},
+  "France": {b95:2.210, b98:2.497, diesel:2.383},
+  "Netherlands": {b95:2.450, b98:2.769, diesel:2.580},
+  "Belgium": {b95:1.976, b98:2.233, diesel:2.290},
+  "UK": {b95:2.019, b98:2.281, diesel:2.308},
+  "Ireland": {b95:1.945, b98:2.198, diesel:2.050},
+  "Spain": {b95:1.927, b98:2.178, diesel:1.920},
+  "Portugal": {b95:2.110, b98:2.384, diesel:2.210},
+  "Luxembourg": {b95:1.849, b98:2.089, diesel:2.114},
+  "Denmark": {b95:2.564, b98:2.897, diesel:2.502},
+  "Sweden": {b95:1.579, b98:1.784, diesel:2.090},
+  "Norway": {b95:1.798, b98:2.032, diesel:1.982},
+  "Finland": {b95:2.364, b98:2.671, diesel:2.555},
+  "Iceland": {b95:1.990, b98:2.249, diesel:2.014},
+  "Estonia": {b95:1.914, b98:2.163, diesel:2.065},
+  "Latvia": {b95:1.976, b98:2.233, diesel:2.096},
+  "Lithuania": {b95:1.918, b98:2.167, diesel:2.184},
+  "Malta": {b95:1.340, b98:1.514, diesel:1.210},
+  "San Marino": {b95:1.630, b98:1.842, diesel:1.910},
+  "Andorra": {b95:1.732, b98:1.957, diesel:1.752},
+  "Monaco": {b95:2.225, b98:2.514, diesel:2.386},
+  "Ukraine": {b95:1.570, b98:null, diesel:1.790},
+  "Moldova": {b95:1.698, b98:null, diesel:1.687},
+  "Belarus": {b95:0.780, b98:null, diesel:0.780}
+};
+
 // Okvirne avtocestne cene (~) za države z veliko razliko
 var motorway = {
   "Slovenia":     {b95:1.994, b98:2.255, diesel:2.293},
@@ -417,6 +467,7 @@ var T = {
     noticePrices:'Cene nazadnje posodobljene: 27. sep 2026 · Posodobitev enkrat tedensko<br>Vir: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
     cheapest:'najcenejše', priciest:'najdražje',
     roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
+    vsLastWeek:'v primerjavi s prejšnjim tednom',
     personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
     noData:'Ni podatka za to vrsto goriva.',
     f95:'Bencin 95', f98:'Bencin 98/100', fd:'Diesel',
@@ -500,6 +551,7 @@ var T = {
     noticePrices:'Prices last updated: 27 Sep 2026 · Updated weekly<br>Source: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
     cheapest:'cheapest', priciest:'priciest',
     roadLabel:'Regular road', mwLabel:'Motorway ~',
+    vsLastWeek:'vs. last week',
     personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
     noData:'No data for this fuel type.',
     f95:'Petrol 95', f98:'Petrol 98/100', fd:'Diesel',
@@ -581,6 +633,7 @@ var T = {
     noticePrices:'Cijene zadnji put ažurirane: 27. sep 2026 · Ažuriranje jednom tjednom<br>Izvor: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a>',
     cheapest:'najjeftinije', priciest:'najskuplje',
     roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
+    vsLastWeek:'u odnosu na prošlu sedmicu',
     personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
     noData:'Nema podataka za ovu vrstu goriva.',
     f95:'Benzin 95', f98:'Benzin 98/100', fd:'Diesel',
@@ -716,6 +769,17 @@ function flagImgHtml(flag, size) {
   return '<img src="https://flagcdn.com/'+w+'x'+h+'/'+iso+'.png" srcset="https://flagcdn.com/'+(w*2)+'x'+(h*2)+'/'+iso+'.png 2x" width="'+w+'" height="'+h+'" alt="" loading="lazy" style="border-radius:1px;vertical-align:middle;margin-right:2px">';
 }
 
+function priceDeltaHtml(k, ft, t) {
+  var prev = pricesPrev[k];
+  if (!prev || prev[ft] === null || prev[ft] === undefined) return '';
+  var cur = prices[k][ft];
+  var diff = cur - prev[ft];
+  if (Math.abs(diff) < 0.0005) return '<span class="prc-delta flat" title="'+t.vsLastWeek+'">&mdash;</span>';
+  var up = diff > 0;
+  var arrow = up ? '▲' : '▼';
+  return '<span class="prc-delta '+(up?'up':'down')+'" title="'+t.vsLastWeek+'">'+arrow+' '+Math.abs(diff).toFixed(3)+'</span>';
+}
+
 function priceItemHtml(k, p, best, worst, ft, t) {
   var mw = motorway[k];
   var mwPrice = mw && mw[ft] ? mw[ft] : null;
@@ -726,12 +790,12 @@ function priceItemHtml(k, p, best, worst, ft, t) {
   html += '</div>';
   if(mwPrice) {
     html += '<div class="prc-label">'+t.roadLabel+'</div>';
-    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l'+priceDeltaHtml(k,ft,t)+'</div>';
     html += '<div class="prc-divider"></div>';
     html += '<div class="prc-label">'+t.mwLabel+'</div>';
     html += '<div class="prc-mw">'+mwPrice.toFixed(2)+' €/l</div>';
   } else {
-    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l</div>';
+    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l'+priceDeltaHtml(k,ft,t)+'</div>';
   }
   html += '</div>';
   return html;
