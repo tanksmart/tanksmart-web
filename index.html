@@ -764,10 +764,25 @@ function renderPrices() {
   document.getElementById('notice-prices').innerHTML = t.noticePrices;
 }
 
+function isoFromFlag(flag) {
+  var chars = Array.from(flag);
+  if (chars.length < 2) return '';
+  var a = chars[0].codePointAt(0) - 0x1F1E6 + 65;
+  var b = chars[1].codePointAt(0) - 0x1F1E6 + 65;
+  if (a < 65 || a > 90 || b < 65 || b > 90) return '';
+  return String.fromCharCode(a, b).toLowerCase();
+}
+
 function renderTips() {
   var t = T[lang];
   document.getElementById('tipsList').innerHTML = t.tips.map(function(item){
-    return '<div class="tip-row"><span style="font-size:1.1rem;flex-shrink:0">'+item.flag+'</span><div><div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">'+item.c+'</div><div style="font-size:0.82rem;color:var(--text2);line-height:1.5">'+item.t+'</div></div></div>';
+    var iso = isoFromFlag(item.flag);
+    var flagImg = iso ?
+      '<img src="https://flagcdn.com/24x18/'+iso+'.png" srcset="https://flagcdn.com/48x36/'+iso+'.png 2x" width="24" height="18" alt="" loading="lazy" style="border-radius:2px;flex-shrink:0;margin-top:2px">' :
+      '<span style="font-size:1.1rem;flex-shrink:0">'+item.flag+'</span>';
+    var codeBadge = iso ?
+      '<span style="font-size:0.68rem;font-weight:700;letter-spacing:0.04em;color:var(--text3);margin-right:6px">'+iso.toUpperCase()+'</span>' : '';
+    return '<div class="tip-row" style="display:flex;gap:10px;align-items:flex-start">'+flagImg+'<div><div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">'+codeBadge+item.c+'</div><div style="font-size:0.82rem;color:var(--text2);line-height:1.5">'+item.t+'</div></div></div>';
   }).join('');
 }
 
