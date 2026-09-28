@@ -851,7 +851,9 @@ function populateCountries() {
   var sel = document.getElementById('country');
   var cur = sel.value;
   sel.innerHTML = Object.keys(prices).map(function(k){
-    return '<option value="'+k+'">'+prices[k].flag+' '+(T[lang].countries[k]||k)+'</option>';
+    var iso = isoFromFlag(prices[k].flag);
+    var prefix = iso ? iso.toUpperCase()+' · ' : prices[k].flag+' ';
+    return '<option value="'+k+'">'+prefix+(T[lang].countries[k]||k)+'</option>';
   }).join('');
   if(cur) sel.value = cur;
 }
