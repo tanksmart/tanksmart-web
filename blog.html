@@ -65,6 +65,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('sl')">SLO</button>
     <button class="lang-btn" onclick="setLang('hr')">HR/SRB/BIH</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
   </div>
 </header>
 
@@ -134,6 +135,27 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
   </div>
 
+  <!-- DE -->
+  <div class="lang-section" id="section-de">
+    <h1 class="page-title">Wöchentliche Neuigkeiten zu Kraftstoffpreisen</h1>
+    <p class="page-sub">Ein wöchentlicher Blick auf die Kraftstoffpreise in Europa: welche Länder sich am meisten verändert haben und um wie viel.</p>
+
+    <div class="entry">
+      <div class="entry-date">30. Sep 2026</div>
+      <div class="entry-title">Kraftstoffpreise, jede Woche im Blick</div>
+      <div class="entry-body">
+        <p>Ab dieser Woche prüft TankSmart jeden Freitag die Kraftstoffpreise für alle 42 europäischen Länder, direkt aus offiziellen Quellen, und aktualisiert den Vergleich automatisch.</p>
+        <p>Auf dieser Seite gibt es nach jeder wöchentlichen Prüfung eine kurze Zusammenfassung. Sie zeigt, welche Länder sich am meisten verändert haben und um wie viel, damit du nicht durch die ganze Preistabelle scrollen musst, wenn dich nur die wichtigsten Änderungen interessieren.</p>
+        <p>Der erste echte Vergleich erscheint hier nach dem Update am Freitag, sobald eine Vorwoche zum Vergleich vorliegt. Bis dahin siehst du die aktuellen Preise jederzeit auf der Hauptseite mit dem Preisvergleich.</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <p>Sieh dir die aktuellen Kraftstoffpreise für alle 42 Länder an.</p>
+      <a href="index.html" class="cta-btn lang-link">TankSmart öffnen →</a>
+    </div>
+  </div>
+
 </main>
 
 <script>
@@ -141,14 +163,15 @@ let lang = 'en';
 const pageTitles = {
   en: 'Weekly Fuel Price News | TankSmart',
   sl: 'Tedenske novice o cenah goriva | TankSmart',
-  hr: 'Tjedne vijesti o cijenama goriva | TankSmart'
+  hr: 'Tjedne vijesti o cijenama goriva | TankSmart',
+  de: 'Wöchentliche Neuigkeiten zu Kraftstoffpreisen | TankSmart'
 };
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', ['en','sl','hr'][i] === l));
+  document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', ['en','sl','hr','de'][i] === l));
   document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-'+l).classList.add('active');
-  const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart'};
+  const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart', de:'← Zurück zu TankSmart'};
   document.getElementById('back-link').textContent = backTexts[l];
   document.title = pageTitles[l] || pageTitles.en;
   document.documentElement.lang = l;
@@ -157,7 +180,7 @@ function setLang(l) {
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;
   try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
-  setLang((urlLang === 'en' || urlLang === 'sl' || urlLang === 'hr') ? urlLang : 'en');
+  setLang((urlLang === 'en' || urlLang === 'sl' || urlLang === 'hr' || urlLang === 'de') ? urlLang : 'en');
 });
 </script>
 </body>

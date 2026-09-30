@@ -63,6 +63,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('sl')">SLO</button>
     <button class="lang-btn" onclick="setLang('hr')">HR/SRB/BIH</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
   </div>
 </header>
 
@@ -129,6 +130,26 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
   </div>
 
+  <!-- DE -->
+  <div class="lang-section" id="section-de">
+    <h1 class="article-title">Warum ich TankSmart gebaut habe</h1>
+    <div class="article-meta">Juli 2026 · Von der Erstellerin von TankSmart</div>
+    <div class="article-body">
+      <p>Vor ein paar Monaten habe ich einen Road Trip geplant und wollte ungefähr ausrechnen, wie viel die Fahrt kosten würde. Ich habe online jede Menge Kraftstoffrechner gefunden, aber sie alle hatten dasselbe Problem. Bevor ich überhaupt etwas berechnen konnte, musste ich erst selbst die aktuellen Kraftstoffpreise heraussuchen.</p>
+      <p>Ich habe ein paar lokale Apps gefunden, aber jede davon hat nur ein Land abgedeckt. Auch Websites gab es viele, aber jedes Land hatte seine eigene. Wenn ich vor einer Fahrt Preise vergleichen wollte, musste ich immer noch drei oder vier verschiedene Tabs öffnen und alles selbst zusammensuchen.</p>
+      <p>Ich erinnere mich, dass ich dachte: Warum gibt es das nicht einfach an einem Ort?</p>
+      <p>Etwa zur gleichen Zeit fiel mir auf, dass immer mehr Leute mit KI Dinge bauen, und das hat mich gepackt. Ich hatte noch nie eine Website gebaut, aber ich habe beschlossen, es einfach zu versuchen. TankSmart ist meine erste Website, und ehrlich gesagt wusste ich nicht, ob ich es schaffen würde.</p>
+      <p>Der Rechner war von Anfang an die Hauptidee. Sobald ich die Kraftstoffpreise an einem Ort hatte, ergab es Sinn, sie auch dafür zu nutzen, statt jeden alles manuell eingeben zu lassen. Wenn du eine Fahrt planst, gibst du deine Distanz und den Verbrauch deines Autos ein, und TankSmart berechnet die Kraftstoffkosten anhand der aktuellsten verfügbaren Preise. Wenn du mit anderen unterwegs bist, kannst du die Kosten auch teilen.</p>
+      <p>Die Kraftstoffpreise sind dabei, weil der Rechner ohne sie nicht besonders nützlich wäre. Zuerst wollte ich nur den Balkan abdecken, die Länder, durch die ich selbst am häufigsten fahre. Aber als ich die Seite Freunden zeigte, schlug mir jeder ein anderes Land vor, das ich hinzufügen sollte, also entschied ich mich, gleich ganz Europa abzudecken. Heute umfasst TankSmart alle 42 europäischen Länder, von Island bis zur Ukraine.</p>
+      <p>Im Moment aktualisiere ich die Preise noch jede Woche manuell anhand offizieller Quellen aus jedem Land. Das ist nicht der spannendste Teil des Projekts, aber mir sind korrekte Daten wichtiger, als es sich zu erleichtern. Hoffentlich kann ich das eines Tages auch automatisieren.</p>
+      <p>TankSmart will nicht alles lösen. Ich wollte nur einen Ort, an dem ich schnell Kraftstoffpreise prüfen und die Kosten einer Fahrt berechnen kann, ohne zwischen fünf verschiedenen Websites zu springen. Wenn es sich zeigt, dass es auch für andere nützlich ist, freut mich das wirklich sehr.</p>
+    </div>
+    <div class="cta-box">
+      <p>Probier es aus, es dauert etwa 30 Sekunden.</p>
+      <a href="index.html" class="cta-btn lang-link">TankSmart öffnen →</a>
+    </div>
+  </div>
+
 </main>
 
 <script>
@@ -136,14 +157,15 @@ let lang = 'en';
 const pageTitles = {
   en: 'Why I Built TankSmart | TankSmart',
   sl: 'Zakaj sem ustvarila TankSmart | TankSmart',
-  hr: 'Zašto sam napravila TankSmart | TankSmart'
+  hr: 'Zašto sam napravila TankSmart | TankSmart',
+  de: 'Warum ich TankSmart gebaut habe | TankSmart'
 };
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', ['en','sl','hr'][i] === l));
+  document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', ['en','sl','hr','de'][i] === l));
   document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-'+l).classList.add('active');
-  const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart'};
+  const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart', de:'← Zurück zu TankSmart'};
   document.getElementById('back-link').textContent = backTexts[l];
   document.title = pageTitles[l] || pageTitles.en;
   document.documentElement.lang = l;
@@ -152,7 +174,7 @@ function setLang(l) {
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;
   try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
-  setLang((urlLang === 'en' || urlLang === 'sl' || urlLang === 'hr') ? urlLang : 'en');
+  setLang((urlLang === 'en' || urlLang === 'sl' || urlLang === 'hr' || urlLang === 'de') ? urlLang : 'en');
 });
 </script>
 </body>
