@@ -39,15 +39,18 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 .logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--orange);border-radius:10px;font-size:20px;flex-shrink:0}
 .logo-text{font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--orange);letter-spacing:-0.3px}
-.lang-btns{display:flex;gap:6px;overflow-x:auto;min-width:0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.lang-btns{display:flex;gap:6px;overflow-x:auto;min-width:0;flex:1;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .lang-btns::-webkit-scrollbar{display:none}
 .lang-btn{background:none;border:1px solid var(--border);color:var(--text2);padding:5px 10px;border-radius:var(--rxs);font-size:0.78rem;cursor:pointer;transition:all .15s;flex-shrink:0}
 .lang-btn:hover{border-color:var(--orange);color:var(--orange)}
 .lang-btn.active{background:var(--orange-dim);border-color:var(--orange);color:var(--orange);font-weight:600}
+.kofi-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;background:var(--orange);color:#1a1a1a;text-decoration:none;padding:6px 12px;border-radius:var(--rxs);font-size:0.78rem;font-weight:700;white-space:nowrap;transition:opacity .15s}
+.kofi-btn:hover{opacity:.85}
 @media (max-width:480px){
   header{padding:10px 12px;gap:8px}
   .logo-text{display:none}
   .lang-btn{padding:5px 8px;font-size:0.72rem}
+  .kofi-btn{padding:6px 9px;font-size:0.72rem}
 }
 main{max-width:680px;margin:0 auto;padding:32px 20px}
 .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:0.85rem;margin-bottom:28px;transition:color .15s}
@@ -85,6 +88,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     <button class="lang-btn" onclick="setLang('cs')">CS</button>
     <button class="lang-btn" onclick="setLang('uk')">UK</button>
   </div>
+  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-btn">☕ Ko-fi</a>
 </header>
 
 <main>
