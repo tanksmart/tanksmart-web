@@ -97,10 +97,10 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="kofi-cta">
     <span class="kofi-cta-icon">☕</span>
     <div class="kofi-cta-text">
-      <div class="kofi-cta-title">Like TankSmart? Buy me a coffee</div>
-      <div class="kofi-cta-desc">It will always be free to use. Your support just helps keep it running and updated every week.</div>
+      <div class="kofi-cta-title" id="kofi-title">Like TankSmart? Buy me a coffee</div>
+      <div class="kofi-cta-desc" id="kofi-desc">It will always be free to use. Your support just helps keep it running and updated every week.</div>
     </div>
-    <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn">Support →</a>
+    <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn" id="kofi-btn">Support →</a>
   </div>
 
   <!-- EN -->
@@ -285,6 +285,19 @@ function setLang(l) {
   document.getElementById('section-'+l).classList.add('active');
   const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart', de:'← Zurück zu TankSmart', es:'← Volver a TankSmart', it:'← Torna a TankSmart', cs:'← Zpět na TankSmart', uk:'← Назад до TankSmart'};
   document.getElementById('back-link').textContent = backTexts[l];
+  const kofiTexts = {
+    sl:{title:'Ti je všeč TankSmart? Počasti me s kavo', desc:'Vedno bo brezplačen za uporabo. Tvoja podpora samo pomaga, da deluje in se posodablja vsak teden.', btn:'Podpri →'},
+    en:{title:'Like TankSmart? Buy me a coffee', desc:'It will always be free to use. Your support just helps keep it running and updated every week.', btn:'Support →'},
+    hr:{title:'Sviđa ti se TankSmart? Časti me kavom', desc:'Uvijek će biti besplatan za korištenje. Tvoja podrška samo pomaže da ostane aktivan i ažuriran svaki tjedan.', btn:'Podrži →'},
+    de:{title:'Gefällt dir TankSmart? Spendier mir einen Kaffee', desc:'Die Nutzung bleibt immer kostenlos. Deine Unterstützung hilft nur dabei, die Seite am Laufen zu halten und jede Woche zu aktualisieren.', btn:'Unterstützen →'},
+    es:{title:'¿Te gusta TankSmart? Invítame a un café', desc:'Siempre será gratis de usar. Tu apoyo solo ayuda a mantenerlo funcionando y actualizado cada semana.', btn:'Apoyar →'},
+    it:{title:'Ti piace TankSmart? Offrimi un caffè', desc:'Sarà sempre gratuito da usare. Il tuo sostegno serve solo a tenerlo attivo e aggiornato ogni settimana.', btn:'Sostieni →'},
+    cs:{title:'Líbí se ti TankSmart? Kup mi kávu', desc:'Používání bude vždy zdarma. Tvoje podpora jen pomáhá udržet ho v chodu a aktualizovat každý týden.', btn:'Podpořit →'},
+    uk:{title:'Подобається TankSmart? Пригости мене кавою', desc:'Користування завжди буде безкоштовним. Твоя підтримка просто допомагає тримати сайт активним і оновлювати його щотижня.', btn:'Підтримати →'}
+  };
+  document.getElementById('kofi-title').textContent = kofiTexts[l].title;
+  document.getElementById('kofi-desc').textContent = kofiTexts[l].desc;
+  document.getElementById('kofi-btn').textContent = kofiTexts[l].btn;
   document.title = pageTitles[l] || pageTitles.en;
   document.documentElement.lang = l;
   document.querySelectorAll('.lang-link').forEach(a => { a.href = 'index.html?lang=' + l; });

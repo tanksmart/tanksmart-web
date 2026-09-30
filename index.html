@@ -197,10 +197,10 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 <div class="kofi-cta">
   <span class="kofi-cta-icon">☕</span>
   <div class="kofi-cta-text">
-    <div class="kofi-cta-title">Like TankSmart? Buy me a coffee</div>
-    <div class="kofi-cta-desc">It will always be free to use. Your support just helps keep it running and updated every week.</div>
+    <div class="kofi-cta-title" id="kofi-title">Like TankSmart? Buy me a coffee</div>
+    <div class="kofi-cta-desc" id="kofi-desc">It will always be free to use. Your support just helps keep it running and updated every week.</div>
   </div>
-  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn">Support →</a>
+  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn" id="kofi-btn">Support →</a>
 </div>
 <div class="tab-content active" id="content-compare">
   <div class="calc-cta" onclick="showTab('calc')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showTab('calc')">
@@ -519,6 +519,7 @@ var T = {
     roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
     vsLastWeek:'v primerjavi s prejšnjim tednom',
     ctaTitle:'Greš s prijatelji na pot?', ctaDesc:'Izračunaj strošek goriva in ga enostavno razdeli med sopotnike.', ctaBtn:'Izračunaj →',
+    kofiTitle:'Ti je všeč TankSmart? Počasti me s kavo', kofiDesc:'Vedno bo brezplačen za uporabo. Tvoja podpora samo pomaga, da deluje in se posodablja vsak teden.', kofiBtn:'Podpri →',
     tank50:'poln tank (50L)',
     personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
     noData:'Ni podatka za to vrsto goriva.',
@@ -606,6 +607,7 @@ var T = {
     roadLabel:'Regular road', mwLabel:'Motorway ~',
     vsLastWeek:'vs. last week',
     ctaTitle:'Going on a trip with friends?', ctaDesc:'Calculate the fuel cost and easily split it among your travel companions.', ctaBtn:'Calculate →',
+    kofiTitle:'Like TankSmart? Buy me a coffee', kofiDesc:'It will always be free to use. Your support just helps keep it running and updated every week.', kofiBtn:'Support →',
     tank50:'full tank (50L)',
     personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
     noData:'No data for this fuel type.',
@@ -691,6 +693,7 @@ var T = {
     roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
     vsLastWeek:'u odnosu na prošlu sedmicu',
     ctaTitle:'Ideš s prijateljima na put?', ctaDesc:'Izračunaj trošak goriva i jednostavno ga podijeli među suputnicima.', ctaBtn:'Izračunaj →',
+    kofiTitle:'Sviđa ti se TankSmart? Časti me kavom', kofiDesc:'Uvijek će biti besplatan za korištenje. Tvoja podrška samo pomaže da ostane aktivan i ažuriran svaki tjedan.', kofiBtn:'Podrži →',
     tank50:'pun tank (50L)',
     personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
     noData:'Nema podataka za ovu vrstu goriva.',
@@ -778,6 +781,7 @@ var T = {
     roadLabel:'Normale Straße', mwLabel:'Autobahn ~',
     vsLastWeek:'im Vergleich zur Vorwoche',
     ctaTitle:'Unterwegs mit Freunden?', ctaDesc:'Berechne die Kraftstoffkosten und teile sie einfach mit deinen Mitfahrern.', ctaBtn:'Berechnen →',
+    kofiTitle:'Gefällt dir TankSmart? Spendier mir einen Kaffee', kofiDesc:'Die Nutzung bleibt immer kostenlos. Deine Unterstützung hilft nur dabei, die Seite am Laufen zu halten und jede Woche zu aktualisieren.', kofiBtn:'Unterstützen →',
     tank50:'volle Tankfüllung (50L)',
     personLabel:'Person', litres:'Liter', distance:'Distanz', cons:'Verbrauch',
     noData:'Keine Daten für diese Kraftstoffart.',
@@ -865,6 +869,7 @@ var T = {
     roadLabel:'Carretera normal', mwLabel:'Autopista ~',
     vsLastWeek:'respecto a la semana pasada',
     ctaTitle:'¿Vas de viaje con amigos?', ctaDesc:'Calcula el coste del combustible y repártelo fácilmente entre tus acompañantes.', ctaBtn:'Calcular →',
+    kofiTitle:'¿Te gusta TankSmart? Invítame a un café', kofiDesc:'Siempre será gratis de usar. Tu apoyo solo ayuda a mantenerlo funcionando y actualizado cada semana.', kofiBtn:'Apoyar →',
     tank50:'depósito lleno (50L)',
     personLabel:'Persona', litres:'litros', distance:'Distancia', cons:'Consumo',
     noData:'No hay datos para este tipo de combustible.',
@@ -951,6 +956,7 @@ var T = {
     roadLabel:'Strada normale', mwLabel:'Autostrada ~',
     vsLastWeek:'rispetto alla settimana scorsa',
     ctaTitle:'Vai in viaggio con gli amici?', ctaDesc:'Calcola il costo del carburante e dividilo facilmente tra i tuoi compagni di viaggio.', ctaBtn:'Calcola →',
+    kofiTitle:'Ti piace TankSmart? Offrimi un caffè', kofiDesc:'Sarà sempre gratuito da usare. Il tuo sostegno serve solo a tenerlo attivo e aggiornato ogni settimana.', kofiBtn:'Sostieni →',
     tank50:'pieno (50L)',
     personLabel:'Persona', litres:'litri', distance:'Distanza', cons:'Consumo',
     noData:'Nessun dato per questo tipo di carburante.',
@@ -1037,6 +1043,7 @@ var T = {
     roadLabel:'Běžná silnice', mwLabel:'Dálnice ~',
     vsLastWeek:'ve srovnání s minulým týdnem',
     ctaTitle:'Jedeš na výlet s přáteli?', ctaDesc:'Spočítej náklady na palivo a jednoduše je rozděl mezi spolucestující.', ctaBtn:'Spočítat →',
+    kofiTitle:'Líbí se ti TankSmart? Kup mi kávu', kofiDesc:'Používání bude vždy zdarma. Tvoje podpora jen pomáhá udržet ho v chodu a aktualizovat každý týden.', kofiBtn:'Podpořit →',
     tank50:'plná nádrž (50L)',
     personLabel:'Osoba', litres:'litrů', distance:'Vzdálenost', cons:'Spotřeba',
     noData:'Pro tento druh paliva nejsou k dispozici žádná data.',
@@ -1123,6 +1130,7 @@ var T = {
     roadLabel:'Звичайна дорога', mwLabel:'Автомагістраль ~',
     vsLastWeek:'порівняно з минулим тижнем',
     ctaTitle:'Їдеш у подорож з друзями?', ctaDesc:'Розрахуй вартість пального і легко поділи її між попутниками.', ctaBtn:'Розрахувати →',
+    kofiTitle:'Подобається TankSmart? Пригости мене кавою', kofiDesc:'Користування завжди буде безкоштовним. Твоя підтримка просто допомагає тримати сайт активним і оновлювати його щотижня.', kofiBtn:'Підтримати →',
     tank50:'повний бак (50л)',
     personLabel:'Особа', litres:'літрів', distance:'Відстань', cons:'Витрата',
     noData:'Немає даних для цього типу пального.',
@@ -1213,6 +1221,9 @@ function applyLang() {
   document.getElementById('cta-title').textContent = t.ctaTitle;
   document.getElementById('cta-desc').textContent = t.ctaDesc;
   document.getElementById('cta-btn').textContent = t.ctaBtn;
+  document.getElementById('kofi-title').textContent = t.kofiTitle;
+  document.getElementById('kofi-desc').textContent = t.kofiDesc;
+  document.getElementById('kofi-btn').textContent = t.kofiBtn;
   document.getElementById('lbl-vehicle').textContent = t.lblVehicle;
   document.getElementById('lbl-vname').textContent = t.lblVname;
   document.getElementById('btn-save-v').textContent = t.btnSaveV;
