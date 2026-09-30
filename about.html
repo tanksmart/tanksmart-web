@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Zakaj je bil TankSmart ustvarjen? | TankSmart</title>
-<meta name="description" content="Zakaj je bil TankSmart ustvarjen: brezplačen kalkulator cen goriva za vso Evropo.">
+<title>Why I Built TankSmart | TankSmart</title>
+<meta name="description" content="Why TankSmart was built: a free fuel price calculator for the whole of Europe.">
 <meta name="author" content="TankSmart">
-<meta property="og:title" content="Zakaj je bil TankSmart ustvarjen?">
-<meta property="og:description" content="Zgodba za TankSmart, brezplačnim kalkulatorjem cen goriva za vso Evropo.">
+<meta property="og:title" content="Why I Built TankSmart">
+<meta property="og:description" content="The story behind TankSmart, a free fuel price calculator for the whole of Europe.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://tanksmart.eu/about.html">
 <link rel="canonical" href="https://tanksmart.eu/about.html">
@@ -55,7 +55,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
 <body>
 
 <header>
-  <a href="index.html" class="logo">
+  <a href="index.html" class="logo lang-link">
     <span class="logo-icon">⛽</span>
     <span class="logo-text">TankSmart</span>
   </a>
@@ -67,7 +67,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
 </header>
 
 <main>
-  <a href="index.html" class="back-link" id="back-link">← Back to TankSmart</a>
+  <a href="index.html" class="back-link lang-link" id="back-link">← Back to TankSmart</a>
 
   <!-- EN -->
   <div class="lang-section active" id="section-en">
@@ -85,7 +85,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
     <div class="cta-box">
       <p>Try it yourself, it takes about 30 seconds.</p>
-      <a href="index.html" class="cta-btn">Open TankSmart →</a>
+      <a href="index.html" class="cta-btn lang-link">Open TankSmart →</a>
     </div>
   </div>
 
@@ -105,7 +105,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
     <div class="cta-box">
       <p>Preizkusi, vzame kakšnih 30 sekund.</p>
-      <a href="index.html" class="cta-btn">Odpri TankSmart →</a>
+      <a href="index.html" class="cta-btn lang-link">Odpri TankSmart →</a>
     </div>
   </div>
 
@@ -125,7 +125,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
     <div class="cta-box">
       <p>Isprobaj, traje oko 30 sekundi.</p>
-      <a href="index.html" class="cta-btn">Otvori TankSmart →</a>
+      <a href="index.html" class="cta-btn lang-link">Otvori TankSmart →</a>
     </div>
   </div>
 
@@ -133,6 +133,11 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
 
 <script>
 let lang = 'en';
+const pageTitles = {
+  en: 'Why I Built TankSmart | TankSmart',
+  sl: 'Zakaj sem ustvarila TankSmart | TankSmart',
+  hr: 'Zašto sam napravila TankSmart | TankSmart'
+};
 function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', ['en','sl','hr'][i] === l));
@@ -140,7 +145,15 @@ function setLang(l) {
   document.getElementById('section-'+l).classList.add('active');
   const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart'};
   document.getElementById('back-link').textContent = backTexts[l];
+  document.title = pageTitles[l] || pageTitles.en;
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-link').forEach(a => { a.href = 'index.html?lang=' + l; });
 }
+document.addEventListener('DOMContentLoaded', function() {
+  var urlLang = null;
+  try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
+  setLang((urlLang === 'en' || urlLang === 'sl' || urlLang === 'hr') ? urlLang : 'en');
+});
 </script>
 </body>
 </html>

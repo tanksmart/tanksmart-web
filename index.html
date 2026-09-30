@@ -770,6 +770,7 @@ function applyLang() {
   document.getElementById('toll-btn-vignette').textContent = t.tollVignette;
   document.getElementById('toll-btn-toll').textContent = t.tollToll;
   document.getElementById('about-link').textContent = t.aboutLink;
+  document.getElementById('about-link').href = 'about.html?lang=' + lang;
   var ftc = document.getElementById('fuelTypeCompare');
   var ft = document.getElementById('fuelType');
   [ftc,ft].forEach(function(s){if(s){s.options[0].text=t.f95;s.options[1].text=t.f98;s.options[2].text=t.fd;}});
@@ -1027,7 +1028,11 @@ function showTab(name) {
   document.querySelectorAll('.tab-content').forEach(function(c,i){c.classList.toggle('active',tabs[i]===name);});
 }
 
-document.addEventListener('DOMContentLoaded',function(){applyLang();});
+document.addEventListener('DOMContentLoaded',function(){
+  var urlLang = null;
+  try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
+  if (urlLang === 'en' || urlLang === 'sl' || urlLang === 'hr') { setLang(urlLang); } else { applyLang(); }
+});
 </script>
 </body>
 </html>
