@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,8 +7,8 @@
 <meta name="description" content="Compare fuel prices across 42 European countries, calculate your trip cost, split it with passengers, and check tolls. Updated weekly from official sources.">
 <meta name="keywords" content="fuel price calculator, petrol prices Europe, diesel prices Balkans, cene goriva, kalkulator goriva, cijene goriva, cestnine, vinjeta">
 <meta name="author" content="TankSmart">
-<meta property="og:title" content="TankSmart – Kalkulator cen goriva po Evropi">
-<meta property="og:description" content="Primerjaj cene goriva po vsej Evropi. Izračunaj strošek poti in razdeli s sopotniki. Brezplačno in posodobljeno tedensko.">
+<meta property="og:title" content="TankSmart – Fuel Price Calculator for Europe">
+<meta property="og:description" content="Compare fuel prices across 42 European countries, calculate your trip cost, split it with passengers, and check tolls. Updated weekly from official sources.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tanksmart.eu">
 <meta name="google-site-verification" content="acx_DVhwnb23Ej65PcwssD-63N3sdqYMKsiMqGZiBKE" />
@@ -156,8 +156,8 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     <span class="logo-text">TankSmart</span>
   </a>
   <div class="lang-btns">
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
-    <button class="lang-btn active" onclick="setLang('sl')">SLO</button>
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('sl')">SLO</button>
     <button class="lang-btn" onclick="setLang('hr')">HR/SRB/BIH</button>
     <button class="lang-btn" onclick="setLang('de')">DE</button>
     <button class="lang-btn" onclick="setLang('es')">ES</button>
@@ -295,7 +295,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 </footer>
 
 <script>
-var lang = 'sl';
+var lang = 'en';
 var activeTollFilter = 'all';
 var savedVehicles = [];
 try { savedVehicles = JSON.parse(localStorage.getItem('ts_v') || '[]'); } catch(e) {}
@@ -1478,7 +1478,7 @@ function showTab(name) {
 document.addEventListener('DOMContentLoaded',function(){
   var urlLang = null;
   try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
-  if (['en','sl','hr','de','es','it','cs','uk'].indexOf(urlLang) !== -1) { setLang(urlLang); } else { applyLang(); }
+  if (['en','sl','hr','de','es','it','cs','uk'].indexOf(urlLang) !== -1) { setLang(urlLang); } else { setLang('en'); }
 });
 </script>
 </body>
