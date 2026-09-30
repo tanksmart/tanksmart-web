@@ -39,18 +39,12 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 .logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--orange);border-radius:10px;font-size:20px;flex-shrink:0}
 .logo-text{font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--orange);letter-spacing:-0.3px}
-.lang-btns{display:flex;gap:6px;overflow-x:auto;min-width:0;flex:1;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.lang-btns::-webkit-scrollbar{display:none}
-.lang-btn{background:none;border:1px solid var(--border);color:var(--text2);padding:5px 10px;border-radius:var(--rxs);font-size:0.78rem;cursor:pointer;transition:all .15s;flex-shrink:0}
-.lang-btn:hover{border-color:var(--orange);color:var(--orange)}
-.lang-btn.active{background:var(--orange-dim);border-color:var(--orange);color:var(--orange);font-weight:600}
-.kofi-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;background:var(--orange);color:#1a1a1a;text-decoration:none;padding:6px 12px;border-radius:var(--rxs);font-size:0.78rem;font-weight:700;white-space:nowrap;transition:opacity .15s}
-.kofi-btn:hover{opacity:.85}
+.lang-select-wrap{flex:1;min-width:0;max-width:220px}
+.lang-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:var(--rxs);font-size:0.82rem;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;padding-right:28px}
+.lang-select:hover{border-color:var(--orange)}
 @media (max-width:480px){
   header{padding:10px 12px;gap:8px}
   .logo-text{display:none}
-  .lang-btn{padding:5px 8px;font-size:0.72rem}
-  .kofi-btn{padding:6px 9px;font-size:0.72rem}
 }
 main{max-width:680px;margin:0 auto;padding:32px 20px}
 .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:0.85rem;margin-bottom:28px;transition:color .15s}
@@ -78,17 +72,18 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     <span class="logo-icon">⛽</span>
     <span class="logo-text">TankSmart</span>
   </a>
-  <div class="lang-btns">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('sl')">SLO</button>
-    <button class="lang-btn" onclick="setLang('hr')">HR/SRB/BIH</button>
-    <button class="lang-btn" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" onclick="setLang('cs')">CS</button>
-    <button class="lang-btn" onclick="setLang('uk')">UK</button>
+  <div class="lang-select-wrap">
+    <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="sl">Slovenščina</option>
+      <option value="hr">Hrvatski / Srpski / Bosanski</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="cs">Čeština</option>
+      <option value="uk">Українська</option>
+    </select>
   </div>
-  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-btn">☕ Ko-fi</a>
 </header>
 
 <main>
@@ -278,7 +273,8 @@ const pageTitles = {
 };
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', ['en','sl','hr','de','es','it','cs','uk'][i] === l));
+  var sel = document.getElementById('lang-select');
+  if (sel) sel.value = l;
   document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-'+l).classList.add('active');
   const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart', de:'← Zurück zu TankSmart', es:'← Volver a TankSmart', it:'← Torna a TankSmart', cs:'← Zpět na TankSmart', uk:'← Назад до TankSmart'};

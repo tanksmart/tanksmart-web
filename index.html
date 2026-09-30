@@ -42,13 +42,9 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 .logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--orange);border-radius:10px;font-size:20px;flex-shrink:0}
 .logo-text{font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--orange)}
-.lang-btns{display:flex;gap:6px;overflow-x:auto;min-width:0;flex:1;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.lang-btns::-webkit-scrollbar{display:none}
-.lang-btn{background:none;border:1px solid var(--border);color:var(--text2);padding:5px 10px;border-radius:var(--rxs);font-size:0.78rem;cursor:pointer;transition:all .15s;flex-shrink:0}
-.lang-btn:hover{border-color:var(--orange);color:var(--orange)}
-.lang-btn.active{background:var(--orange-dim);border-color:var(--orange);color:var(--orange);font-weight:600}
-.kofi-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;background:var(--orange);color:#1a1a1a;text-decoration:none;padding:6px 12px;border-radius:var(--rxs);font-size:0.78rem;font-weight:700;white-space:nowrap;transition:opacity .15s}
-.kofi-btn:hover{opacity:.85}
+.lang-select-wrap{flex:1;min-width:0;max-width:220px}
+.lang-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:var(--rxs);font-size:0.82rem;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;padding-right:28px}
+.lang-select:hover{border-color:var(--orange)}
 .hero{text-align:center;padding:36px 20px 24px}
 .hero h1{font-family:var(--font-head);font-size:1.9rem;font-weight:600;letter-spacing:-0.5px;margin-bottom:8px}
 .hero h1 span{color:var(--orange)}
@@ -61,8 +57,6 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
   .tab{padding:10px 3px;font-size:0.68rem}
   header{padding:10px 12px;gap:8px}
   .logo-text{display:none}
-  .lang-btn{padding:5px 8px;font-size:0.72rem}
-  .kofi-btn{padding:6px 9px;font-size:0.72rem}
 }
 @media (max-width:360px){
   .tab{font-size:0.62rem;padding:9px 2px}
@@ -78,6 +72,13 @@ main{max-width:680px;margin:0 auto;padding:20px}
 .calc-cta-desc{font-size:0.72rem;color:var(--text2);line-height:1.4}
 .calc-cta-btn{flex-shrink:0;background:var(--orange);color:#1a1a1a;border:none;border-radius:6px;padding:9px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap}
 @media (max-width:480px){.calc-cta{padding:12px 14px}.calc-cta-desc{display:none}}
+.kofi-cta{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--orange-dim),var(--bg3));border:1px solid var(--orange);border-radius:var(--rs);padding:14px 16px;margin-bottom:16px}
+.kofi-cta-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.kofi-cta-text{flex-grow:1;min-width:0}
+.kofi-cta-title{font-family:var(--font-head);font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.kofi-cta-desc{font-size:0.72rem;color:var(--text2);line-height:1.4}
+.kofi-cta-btn{flex-shrink:0;background:var(--orange);color:#1a1a1a;border:none;border-radius:6px;padding:9px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+@media (max-width:480px){.kofi-cta{padding:12px 14px}}
 label{display:block;font-size:0.83rem;color:var(--text2);margin-bottom:5px;margin-top:14px}
 label:first-of-type{margin-top:0}
 input,select{width:100%;padding:10px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);color:var(--text);font-size:0.95rem;outline:none;transition:border-color .15s;appearance:none}
@@ -166,17 +167,18 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     <span class="logo-icon">⛽</span>
     <span class="logo-text">TankSmart</span>
   </a>
-  <div class="lang-btns">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('sl')">SLO</button>
-    <button class="lang-btn" onclick="setLang('hr')">HR/SRB/BIH</button>
-    <button class="lang-btn" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" onclick="setLang('cs')">CS</button>
-    <button class="lang-btn" onclick="setLang('uk')">UK</button>
+  <div class="lang-select-wrap">
+    <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="sl">Slovenščina</option>
+      <option value="hr">Hrvatski / Srpski / Bosanski</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="cs">Čeština</option>
+      <option value="uk">Українська</option>
+    </select>
   </div>
-  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-btn">☕ Ko-fi</a>
 </header>
 
 <div class="hero">
@@ -192,6 +194,14 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 </div>
 
 <main>
+<div class="kofi-cta">
+  <span class="kofi-cta-icon">☕</span>
+  <div class="kofi-cta-text">
+    <div class="kofi-cta-title">Like TankSmart? Buy me a coffee</div>
+    <div class="kofi-cta-desc">It will always be free to use. Your support just helps keep it running and updated every week.</div>
+  </div>
+  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn">Support →</a>
+</div>
 <div class="tab-content active" id="content-compare">
   <div class="calc-cta" onclick="showTab('calc')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showTab('calc')">
     <span class="calc-cta-icon">🧮</span>
@@ -1186,7 +1196,8 @@ var T = {
 
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lang-btn').forEach(function(b,i){b.classList.toggle('active',['en','sl','hr','de','es','it','cs','uk'][i]===l);});
+  var sel = document.getElementById('lang-select');
+  if (sel) sel.value = l;
   applyLang();
 }
 
