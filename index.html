@@ -278,6 +278,8 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 <footer style="max-width:680px;margin:8px auto 0;padding:20px 20px 40px;text-align:center;border-top:1px solid var(--border)">
   <p id="footer-about" style="font-size:0.85rem;color:var(--text2);line-height:1.6;margin-bottom:10px"></p>
   <a href="about.html" id="about-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px"></a>
+  <br>
+  <a href="blog.html" id="blog-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px"></a>
   <p style="font-size:0.78rem;color:var(--text3);margin-top:16px">
     <span id="footer-contact-label"></span> <a href="mailto:tank-smart@pm.me" style="color:var(--orange);text-decoration:none">tank-smart@pm.me</a>
   </p>
@@ -548,6 +550,7 @@ var T = {
       {q:'Lahko predlagam funkcijo ali javim napačno ceno?',a:'Z veseljem! Piši mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
     aboutLink:'Zakaj je bil TankSmart ustvarjen? →',
+    blogLink:'Tedenske novice o cenah goriva →',
     footerAbout:'TankSmart je brezplačen kalkulator cen goriva in stroškov poti za vso Evropo, posodobljen vsak teden.',
     footerContact:'Vprašanja, predlogi ali napačna cena?',
     regions:{balkan:'Balkan',cee:'Srednja/Vzh. Evropa',south:'Južna Evropa',west:'Zahodna Evropa',nordic:'Skandinavija',baltic:'Baltik',micro:'Mikro-države',east:'Vzhodna Evropa (izven EU)'},
@@ -634,6 +637,7 @@ var T = {
       {q:'Can I suggest a feature or report a wrong price?',a:'I\'d love that! Drop me a message at <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
     aboutLink:'Why was TankSmart created? →',
+    blogLink:'Weekly fuel price news →',
     footerAbout:'TankSmart is a free fuel price and trip cost calculator for all of Europe, updated every week.',
     footerContact:'Questions, suggestions, or a wrong price?',
     regions:{balkan:'Balkans',cee:'Central/East Europe',south:'Southern Europe',west:'Western Europe',nordic:'Scandinavia',baltic:'Baltics',micro:'Micro-states',east:'Eastern Europe (non-EU)'},
@@ -718,6 +722,7 @@ var T = {
       {q:'Mogu li predložiti funkciju ili prijaviti krivu cijenu?',a:'Rado! Piši mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
     aboutLink:'Zašto je nastao TankSmart? →',
+    blogLink:'Tjedne vijesti o cijenama goriva →',
     footerAbout:'TankSmart je besplatni kalkulator cijena goriva i troškova puta za cijelu Europu, ažuriran svaki tjedan.',
     footerContact:'Pitanja, prijedlozi ili kriva cijena?',
     regions:{balkan:'Balkan',cee:'Sr./Ist. Europa',south:'Južna Europa',west:'Zapadna Europa',nordic:'Skandinavija',baltic:'Baltik',micro:'Mikro-države',east:'Istočna Europa (izvan EU)'},
@@ -771,6 +776,8 @@ function applyLang() {
   document.getElementById('toll-btn-toll').textContent = t.tollToll;
   document.getElementById('about-link').textContent = t.aboutLink;
   document.getElementById('about-link').href = 'about.html?lang=' + lang;
+  document.getElementById('blog-link').textContent = t.blogLink;
+  document.getElementById('blog-link').href = 'blog.html?lang=' + lang;
   var ftc = document.getElementById('fuelTypeCompare');
   var ft = document.getElementById('fuelType');
   [ftc,ft].forEach(function(s){if(s){s.options[0].text=t.f95;s.options[1].text=t.f98;s.options[2].text=t.fd;}});
