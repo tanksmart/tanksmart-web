@@ -359,8 +359,8 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
         <button type="button" class="fb-cancel" id="fb-cancel-btn" onclick="fbClose()">Prekliči</button>
         <button type="submit" class="fb-submit" id="fb-submit-btn">Pošlji</button>
       </div>
-      <p class="fb-thanks" id="fb-thanks">Hvala za povratno informacijo! 🙌</p>
     </form>
+    <p class="fb-thanks" id="fb-thanks">Hvala za povratno informacijo! 🙌</p>
   </div>
 </div>
 
@@ -1321,10 +1321,12 @@ document.getElementById('fb-form').addEventListener('submit', function(e) {
   fetch('/', {method: 'POST', body: data})
     .then(function() {
       form.style.display = 'none';
+      document.getElementById('fb-title').style.display = 'none';
       document.getElementById('fb-thanks').classList.add('show');
       setTimeout(function() {
         fbClose();
         form.style.display = '';
+        document.getElementById('fb-title').style.display = '';
         document.getElementById('fb-thanks').classList.remove('show');
         form.reset();
         document.getElementById('fb-shot-preview').classList.remove('show');
