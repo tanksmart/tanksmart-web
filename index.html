@@ -1500,8 +1500,7 @@ function flagImgHtml(flag, size) {
   var iso = isoFromFlag(flag);
   if (!iso) return flag;
   var w = size || 16, h = Math.round(w * 0.75);
-  var fallback = flag.replace(/'/g,"\\'");
-  return '<img src="https://flagcdn.com/'+w+'x'+h+'/'+iso+'.png" srcset="https://flagcdn.com/'+(w*2)+'x'+(h*2)+'/'+iso+'.png 2x" width="'+w+'" height="'+h+'" alt="" loading="lazy" style="border-radius:1px;vertical-align:middle;margin-right:2px;display:inline-block" onerror="this.outerHTML=\'<span style=&quot;font-size:'+(w*0.85)+'px;vertical-align:middle;margin-right:2px&quot;>'+fallback+'</span>\'">';
+  return '<img src="assets/flags/'+iso+'.svg" width="'+w+'" height="'+h+'" alt="" loading="lazy" style="border-radius:1px;vertical-align:middle;margin-right:2px;display:inline-block;object-fit:cover">';
 }
 
 function priceDeltaHtml(k, ft, t) {
@@ -1590,9 +1589,8 @@ function renderTips() {
   var t = T[lang];
   document.getElementById('tipsList').innerHTML = t.tips.map(function(item){
     var iso = isoFromFlag(item.flag);
-    var tipFallback = item.flag.replace(/'/g,"\\'");
     var flagImg = iso ?
-      '<img src="https://flagcdn.com/24x18/'+iso+'.png" srcset="https://flagcdn.com/48x36/'+iso+'.png 2x" width="24" height="18" alt="" loading="lazy" style="border-radius:2px;flex-shrink:0;margin-top:2px" onerror="this.outerHTML=\'<span style=&quot;font-size:1.1rem;flex-shrink:0&quot;>'+tipFallback+'</span>\'">' :
+      '<img src="assets/flags/'+iso+'.svg" width="24" height="18" alt="" loading="lazy" style="border-radius:2px;flex-shrink:0;margin-top:2px;object-fit:cover">' :
       '<span style="font-size:1.1rem;flex-shrink:0">'+item.flag+'</span>';
     var codeBadge = iso ?
       '<span style="font-size:0.68rem;font-weight:700;letter-spacing:0.04em;color:var(--text3);margin-right:6px">'+iso.toUpperCase()+'</span>' : '';
