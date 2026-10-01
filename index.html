@@ -190,6 +190,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   <button class="tab active" onclick="showTab('compare')" id="tab-compare">🗺 Primerjava cen</button>
   <button class="tab" onclick="showTab('calc')" id="tab-calc">🧮 Kalkulator poti</button>
   <button class="tab" onclick="showTab('tolls')" id="tab-tolls">🛣️ Cestnine</button>
+  <button class="tab" onclick="showTab('tips')" id="tab-tips">💡 Koristno vedeti</button>
   <button class="tab" onclick="showTab('faq')" id="tab-faq">❓ FAQ</button>
 </div>
 
@@ -221,10 +222,6 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     <input type="text" id="priceSearch" class="search-input" placeholder="Poišči državo..." oninput="renderPrices()">
     <div id="pricesGrid"></div>
     <p class="notice" id="notice-prices"></p>
-  </div>
-  <div class="card">
-    <div class="card-title" id="lbl-tips">💡 Koristno vedeti</div>
-    <div id="tipsList"></div>
   </div>
 </div>
 
@@ -295,6 +292,13 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     </div>
     <div id="toll-grid-wrap"></div>
     <p class="notice" style="margin-top:12px" id="toll-footer">Podatki veljavni za osebna vozila · Posodobljeno julij 2026 · Cene se lahko spremenijo</p>
+  </div>
+</div>
+
+<div class="tab-content" id="content-tips">
+  <div class="card">
+    <div class="card-title" id="lbl-tips">💡 Koristno vedeti</div>
+    <div id="tipsList"></div>
   </div>
 </div>
 
@@ -506,7 +510,7 @@ var T = {
   sl:{
     heroTitle:'<span>TankSmart</span> – Cene goriva po Evropi',
     heroSub:'Primerjaj cene, izračunaj strošek poti in najdi, kje je najcenejše točenje.',
-    tabCompare:'🗺 Primerjava cen', tabCalc:'🧮 Kalkulator poti', tabTolls:'🛣️ Cestnine', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Primerjava cen', tabCalc:'🧮 Kalkulator poti', tabTolls:'🛣️ Cestnine', tabTips:'💡 Koristno vedeti', tabFaq:'❓ FAQ',
     lblFueltype:'Vrsta goriva', lblVehicle:'Vaše vozilo', lblVname:'Ime vozila (neobvezno)',
     btnSaveV:'Shrani', lblCons:'Poraba (L/100km)', lblFtype:'Vrsta goriva',
     lblTrip:'Podrobnosti poti', lblKm:'Razdalja (km)', lblCountry:'Država točenja',
@@ -593,7 +597,7 @@ var T = {
   en:{
     heroTitle:'<span>TankSmart</span> – Fuel Prices Across Europe',
     heroSub:'Compare prices, calculate trip costs, and find where it\'s cheapest to fill up.',
-    tabCompare:'🗺 Compare prices', tabCalc:'🧮 Trip calculator', tabTolls:'🛣️ Tolls', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Compare prices', tabCalc:'🧮 Trip calculator', tabTolls:'🛣️ Tolls', tabTips:'💡 Good to know', tabFaq:'❓ FAQ',
     lblFueltype:'Fuel type', lblVehicle:'Your vehicle', lblVname:'Vehicle name (optional)',
     btnSaveV:'Save', lblCons:'Consumption (L/100km)', lblFtype:'Fuel type',
     lblTrip:'Trip details', lblKm:'Distance (km)', lblCountry:'Country where you fill up',
@@ -680,7 +684,7 @@ var T = {
   hr:{
     heroTitle:'<span>TankSmart</span> – Cijene goriva diljem Europe',
     heroSub:'Usporedi cijene, izračunaj trošak puta i pronađi gdje je najjeftinije gorivo.',
-    tabCompare:'🗺 Usporedi cijene', tabCalc:'🧮 Kalkulator puta', tabTolls:'🛣️ Cestarine', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Usporedi cijene', tabCalc:'🧮 Kalkulator puta', tabTolls:'🛣️ Cestarine', tabTips:'💡 Korisno znati', tabFaq:'❓ FAQ',
     lblFueltype:'Vrsta goriva', lblVehicle:'Vaše vozilo', lblVname:'Naziv vozila (opcionalno)',
     btnSaveV:'Spremi', lblCons:'Potrošnja (L/100km)', lblFtype:'Vrsta goriva',
     lblTrip:'Detalji puta', lblKm:'Udaljenost (km)', lblCountry:'Zemlja punjenja',
@@ -767,7 +771,7 @@ var T = {
   de:{
     heroTitle:'<span>TankSmart</span> – Kraftstoffpreise in Europa',
     heroSub:'Vergleiche Preise, berechne die Fahrtkosten und finde, wo Tanken am günstigsten ist.',
-    tabCompare:'🗺 Preisvergleich', tabCalc:'🧮 Fahrtrechner', tabTolls:'🛣️ Maut', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Preisvergleich', tabCalc:'🧮 Fahrtrechner', tabTolls:'🛣️ Maut', tabTips:'💡 Gut zu wissen', tabFaq:'❓ FAQ',
     lblFueltype:'Kraftstoffart', lblVehicle:'Dein Fahrzeug', lblVname:'Fahrzeugname (optional)',
     btnSaveV:'Speichern', lblCons:'Verbrauch (L/100km)', lblFtype:'Kraftstoffart',
     lblTrip:'Fahrtdetails', lblKm:'Distanz (km)', lblCountry:'Land des Tankens',
@@ -855,7 +859,7 @@ var T = {
   es:{
     heroTitle:'<span>TankSmart</span> – Precios de combustible en Europa',
     heroSub:'Compara precios, calcula el coste del viaje y encuentra dónde repostar es más barato.',
-    tabCompare:'🗺 Comparar precios', tabCalc:'🧮 Calculadora de viaje', tabTolls:'🛣️ Peajes', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Comparar precios', tabCalc:'🧮 Calculadora de viaje', tabTolls:'🛣️ Peajes', tabTips:'💡 Bueno saber', tabFaq:'❓ FAQ',
     lblFueltype:'Tipo de combustible', lblVehicle:'Tu vehículo', lblVname:'Nombre del vehículo (opcional)',
     btnSaveV:'Guardar', lblCons:'Consumo (L/100km)', lblFtype:'Tipo de combustible',
     lblTrip:'Detalles del viaje', lblKm:'Distancia (km)', lblCountry:'País de repostaje',
@@ -942,7 +946,7 @@ var T = {
   it:{
     heroTitle:'<span>TankSmart</span> – Prezzi del carburante in Europa',
     heroSub:'Confronta i prezzi, calcola il costo del viaggio e trova dove fare rifornimento costa meno.',
-    tabCompare:'🗺 Confronta prezzi', tabCalc:'🧮 Calcolatore di viaggio', tabTolls:'🛣️ Pedaggi', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Confronta prezzi', tabCalc:'🧮 Calcolatore di viaggio', tabTolls:'🛣️ Pedaggi', tabTips:'💡 Buono a sapersi', tabFaq:'❓ FAQ',
     lblFueltype:'Tipo di carburante', lblVehicle:'Il tuo veicolo', lblVname:'Nome del veicolo (opzionale)',
     btnSaveV:'Salva', lblCons:'Consumo (L/100km)', lblFtype:'Tipo di carburante',
     lblTrip:'Dettagli del viaggio', lblKm:'Distanza (km)', lblCountry:'Paese di rifornimento',
@@ -1029,7 +1033,7 @@ var T = {
   cs:{
     heroTitle:'<span>TankSmart</span> – Ceny pohonných hmot v Evropě',
     heroSub:'Porovnej ceny, spočítej náklady na cestu a najdi, kde je tankování nejlevnější.',
-    tabCompare:'🗺 Porovnání cen', tabCalc:'🧮 Kalkulačka cesty', tabTolls:'🛣️ Mýtné', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Porovnání cen', tabCalc:'🧮 Kalkulačka cesty', tabTolls:'🛣️ Mýtné', tabTips:'💡 Dobré vědět', tabFaq:'❓ FAQ',
     lblFueltype:'Druh paliva', lblVehicle:'Tvoje vozidlo', lblVname:'Název vozidla (nepovinné)',
     btnSaveV:'Uložit', lblCons:'Spotřeba (L/100km)', lblFtype:'Druh paliva',
     lblTrip:'Podrobnosti cesty', lblKm:'Vzdálenost (km)', lblCountry:'Země tankování',
@@ -1116,7 +1120,7 @@ var T = {
   uk:{
     heroTitle:'<span>TankSmart</span> – Ціни на пальне в Європі',
     heroSub:'Порівнюй ціни, розраховуй вартість поїздки і знаходь, де заправитися дешевше.',
-    tabCompare:'🗺 Порівняння цін', tabCalc:'🧮 Калькулятор поїздки', tabTolls:'🛣️ Платні дороги', tabFaq:'❓ FAQ',
+    tabCompare:'🗺 Порівняння цін', tabCalc:'🧮 Калькулятор поїздки', tabTolls:'🛣️ Платні дороги', tabTips:'💡 Корисно знати', tabFaq:'❓ FAQ',
     lblFueltype:'Тип пального', lblVehicle:'Твій автомобіль', lblVname:'Назва автомобіля (необов\'язково)',
     btnSaveV:'Зберегти', lblCons:'Витрата (л/100км)', lblFtype:'Тип пального',
     lblTrip:'Деталі поїздки', lblKm:'Відстань (км)', lblCountry:'Країна заправки',
@@ -1216,6 +1220,7 @@ function applyLang() {
   document.getElementById('tab-compare').textContent = t.tabCompare;
   document.getElementById('tab-calc').textContent = t.tabCalc;
   document.getElementById('tab-tolls').textContent = t.tabTolls;
+  document.getElementById('tab-tips').textContent = t.tabTips;
   document.getElementById('tab-faq').textContent = t.tabFaq;
   document.getElementById('lbl-fueltype').textContent = t.lblFueltype;
   document.getElementById('cta-title').textContent = t.ctaTitle;
@@ -1504,7 +1509,7 @@ function calculate() {
 }
 
 function showTab(name) {
-  var tabs = ['compare','calc','tolls','faq'];
+  var tabs = ['compare','calc','tolls','tips','faq'];
   document.querySelectorAll('.tab').forEach(function(t,i){t.classList.toggle('active',tabs[i]===name);});
   document.querySelectorAll('.tab-content').forEach(function(c,i){c.classList.toggle('active',tabs[i]===name);});
 }
