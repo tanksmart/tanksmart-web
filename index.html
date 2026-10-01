@@ -126,23 +126,27 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 .v-chip{padding:4px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;font-size:0.78rem;color:var(--text2);cursor:pointer;transition:all .15s}
 .v-chip:hover{border-color:var(--orange);color:var(--orange)}
 .v-chip.selected{background:var(--orange-dim);border-color:var(--orange);color:var(--orange)}
-.prices-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:16px}
-.p-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px}
-.p-item.best{background:#20281f;border-color:#4a7a5c}
-.p-item.worst{background:#2a1e1c;border-color:#7a4a42}
-.p-item .ctry{font-size:0.75rem;color:var(--text2);margin-bottom:3px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.p-item .prc{font-family:var(--font-mono);font-size:1rem;font-weight:600;color:var(--text)}
+.prices-grid{display:flex;flex-direction:column;margin-top:10px;border-top:1px solid var(--border)}
+.p-item{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--border)}
+.p-item.best{background:rgba(95,184,127,0.06)}
+.p-item.worst{background:rgba(232,102,79,0.06)}
+.p-item .ctry{flex-grow:1;min-width:0;font-size:0.84rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.p-item .ctry-flag{flex-shrink:0}
+.p-item .ctry-name{min-width:0;display:flex;flex-direction:column;gap:1px}
+.p-item .ctry-name .nm{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.p-item .pblock{text-align:right;flex-shrink:0}
+.p-item .prc{font-family:var(--font-mono);font-size:0.95rem;font-weight:600;color:var(--text);white-space:nowrap}
 .p-item.best .prc{color:var(--green)}
 .p-item.worst .prc{color:var(--red)}
-.prc-mw{font-family:var(--font-mono);font-size:0.92rem;font-weight:600;color:var(--sky)}
-.prc-label{font-size:0.7rem;color:var(--text3);margin-bottom:2px}
-.prc-delta{display:inline-block;margin-left:6px;font-family:var(--font-mono);font-size:0.68rem;font-weight:600;vertical-align:middle;letter-spacing:0.01em}
+.prc-mw-row{display:flex;align-items:baseline;justify-content:flex-end;gap:6px;margin-top:3px}
+.prc-mw{font-family:var(--font-mono);font-size:0.8rem;font-weight:600;color:var(--sky);white-space:nowrap}
+.prc-label{font-size:0.62rem;color:var(--text3)}
+.prc-delta{display:inline-block;font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.01em}
 .prc-delta.up{color:var(--red)}
 .prc-delta.down{color:var(--green)}
 .prc-delta.flat{color:var(--text3);font-weight:400}
-.prc-tank{font-size:0.68rem;color:var(--text3);margin-top:3px}
-.prc-divider{border:none;border-top:0.5px solid var(--border);margin:6px 0}
-.badge{display:inline-block;font-size:0.6rem;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase}
+.prc-tank{font-size:0.64rem;color:var(--text3);margin-top:2px}
+.badge{display:inline-block;font-size:0.6rem;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase;flex-shrink:0}
 .badge.best{background:#1f2b21;color:var(--green)}
 .badge.worst{background:#271b19;color:var(--red)}
 .btn{width:100%;padding:13px;background:var(--orange);border:none;border-radius:var(--rs);color:#1a1a1a;font-size:1rem;font-weight:700;cursor:pointer;margin-top:8px;transition:opacity .15s}
@@ -234,7 +238,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     <div class="kofi-cta-title" id="kofi-title">Like TankSmart? Buy me a coffee</div>
     <div class="kofi-cta-desc" id="kofi-desc">It will always be free to use. Your support just helps keep it running and updated every week.</div>
   </div>
-  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn" id="kofi-btn">Support →</a>
+  <a href="https://ko-fi.com/tanksmart" target="_blank" rel="noopener" class="kofi-cta-btn" id="kofi-btn">Support</a>
 </div>
 <div class="tab-content active" id="content-compare">
   <div class="calc-cta" onclick="showTab('calc')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showTab('calc')">
@@ -243,7 +247,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
       <div class="calc-cta-title" id="cta-title">Greš na pot?</div>
       <div class="calc-cta-desc" id="cta-desc">Izračunaj skupni strošek goriva za svojo relacijo</div>
     </div>
-    <button class="calc-cta-btn" id="cta-btn" onclick="event.stopPropagation();showTab('calc')">Izračunaj →</button>
+    <button class="calc-cta-btn" id="cta-btn" onclick="event.stopPropagation();showTab('calc')">Izračunaj</button>
   </div>
   <div class="card">
     <div class="card-title" id="lbl-fueltype">Vrsta goriva</div>
@@ -299,7 +303,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
       <option value="6">6 oseb</option>
     </select>
     <div id="nameFields" style="margin-top:10px"></div>
-    <button class="btn" onclick="calculate()" id="btn-calc">Izračunaj →</button>
+    <button class="btn" onclick="calculate()" id="btn-calc">Izračunaj</button>
   </div>
   <div class="results" id="results">
     <div class="result-main">
@@ -582,14 +586,14 @@ var T = {
     lblTrip:'Podrobnosti poti', lblKm:'Razdalja (km)', lblCountry:'Država točenja',
     lblPass:'Število potnikov (delitev stroška)',
     pass:['1 (sam/a)','2 osebi','3 osebe','4 osebe','5 oseb','6 oseb'],
-    btnCalc:'Izračunaj →', lblTotal:'Skupni strošek goriva',
+    btnCalc:'Izračunaj', lblTotal:'Skupni strošek goriva',
     noticeCalc:'Cene so informativne. Pred potjo preveri aktualne cene.',
     noticePrices:'Cene nazadnje posodobljene: 1. okt 2026 · Posodobitev enkrat tedensko<br>Vir: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Poln tank (50L) je povprečna ocena za orientacijo, ne dejanska kapaciteta vašega vozila.',
     cheapest:'najcenejše', priciest:'najdražje',
     roadLabel:'Navadna cesta', mwLabel:'Avtocesta ~',
     vsLastWeek:'v primerjavi s prejšnjim tednom',
-    ctaTitle:'Greš s prijatelji na pot?', ctaDesc:'Izračunaj strošek goriva in ga enostavno razdeli med sopotnike.', ctaBtn:'Izračunaj →',
-    kofiTitle:'Podpri TankSmart', kofiDesc:'Vedno brezplačen - tvoja podpora pomaga, da deluje naprej.', kofiBtn:'Podpri →',
+    ctaTitle:'Greš s prijatelji na pot?', ctaDesc:'Izračunaj strošek goriva in ga enostavno razdeli med sopotnike.', ctaBtn:'Izračunaj',
+    kofiTitle:'Podpri TankSmart', kofiDesc:'Vedno brezplačen - tvoja podpora pomaga, da deluje naprej.', kofiBtn:'Podpri',
     tank50:'poln tank (50L)',
     personLabel:'Oseba', litres:'litrov', distance:'Razdalja', cons:'Poraba',
     noData:'Ni podatka za to vrsto goriva.',
@@ -651,8 +655,8 @@ var T = {
       {q:'Je TankSmart brezplačen?',a:'Ja, popolnoma. Brez registracije, brez naročnine.'},
       {q:'Lahko predlagam funkcijo ali javim napačno ceno?',a:'Z veseljem! Piši mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Zakaj je bil TankSmart ustvarjen? →',
-    blogLink:'Tedenske novice o cenah goriva →',
+    aboutLink:'Zakaj je bil TankSmart ustvarjen?',
+    blogLink:'Tedenske novice o cenah goriva',
     footerAbout:'TankSmart je brezplačen kalkulator cen goriva in stroškov poti za vso Evropo, posodobljen vsak teden.',
     footerContact:'Vprašanja, predlogi ali napačna cena?',
     regions:{balkan:'Balkan',cee:'Srednja/Vzh. Evropa',south:'Južna Evropa',west:'Zahodna Evropa',nordic:'Skandinavija',baltic:'Baltik',micro:'Mikro-države',east:'Vzhodna Evropa (izven EU)'},
@@ -674,14 +678,14 @@ var T = {
     lblPass:'Number of passengers (to split cost)',
     pass:['1 (alone)','2 people','3 people','4 people','5 people','6 people'],
     namePh:['Emma','James','Sophie','Noah','Olivia','Lucas'],
-    btnCalc:'Calculate →', lblTotal:'Total fuel cost',
+    btnCalc:'Calculate', lblTotal:'Total fuel cost',
     noticeCalc:'Prices are indicative. Always verify current prices before your trip.',
     noticePrices:'Prices last updated: 1 Oct 2026 · Updated weekly<br>Source: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Full tank (50L) is an average estimate for reference, not your vehicle\'s actual capacity.',
     cheapest:'cheapest', priciest:'priciest',
     roadLabel:'Regular road', mwLabel:'Motorway ~',
     vsLastWeek:'vs. last week',
-    ctaTitle:'Going on a trip with friends?', ctaDesc:'Calculate the fuel cost and easily split it among your travel companions.', ctaBtn:'Calculate →',
-    kofiTitle:'Support TankSmart', kofiDesc:'Always free to use - your support keeps it running.', kofiBtn:'Support →',
+    ctaTitle:'Going on a trip with friends?', ctaDesc:'Calculate the fuel cost and easily split it among your travel companions.', ctaBtn:'Calculate',
+    kofiTitle:'Support TankSmart', kofiDesc:'Always free to use - your support keeps it running.', kofiBtn:'Support',
     tank50:'full tank (50L)',
     personLabel:'Person', litres:'litres', distance:'Distance', cons:'Consumption',
     noData:'No data for this fuel type.',
@@ -743,8 +747,8 @@ var T = {
       {q:'Is TankSmart free?',a:'Yes, completely free. No sign-up, no subscription.'},
       {q:'Can I suggest a feature or report a wrong price?',a:'I\'d love that! Drop me a message at <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Why was TankSmart created? →',
-    blogLink:'Weekly fuel price news →',
+    aboutLink:'Why was TankSmart created?',
+    blogLink:'Weekly fuel price news',
     footerAbout:'TankSmart is a free fuel price and trip cost calculator for all of Europe, updated every week.',
     footerContact:'Questions, suggestions, or a wrong price?',
     regions:{balkan:'Balkans',cee:'Central/East Europe',south:'Southern Europe',west:'Western Europe',nordic:'Scandinavia',baltic:'Baltics',micro:'Micro-states',east:'Eastern Europe (non-EU)'},
@@ -764,14 +768,14 @@ var T = {
     lblTrip:'Detalji puta', lblKm:'Udaljenost (km)', lblCountry:'Zemlja punjenja',
     lblPass:'Broj putnika (za podjelu troška)',
     pass:['1 (sam/a)','2 osobe','3 osobe','4 osobe','5 osoba','6 osoba'],
-    btnCalc:'Izračunaj →', lblTotal:'Ukupni trošak goriva',
+    btnCalc:'Izračunaj', lblTotal:'Ukupni trošak goriva',
     noticeCalc:'Cijene su informativne. Provjeri aktualne cijene prije puta.',
     noticePrices:'Cijene zadnji put ažurirane: 1. okt 2026 · Ažuriranje jednom tjednom<br>Izvor: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Pun tank (50L) je prosječna procjena za orijentaciju, ne stvarni kapacitet vašeg vozila.',
     cheapest:'najjeftinije', priciest:'najskuplje',
     roadLabel:'Lokalna cesta', mwLabel:'Autocesta ~',
     vsLastWeek:'u odnosu na prošlu sedmicu',
-    ctaTitle:'Ideš s prijateljima na put?', ctaDesc:'Izračunaj trošak goriva i jednostavno ga podijeli među suputnicima.', ctaBtn:'Izračunaj →',
-    kofiTitle:'Podrži TankSmart', kofiDesc:'Uvijek besplatan - tvoja podrška ga održava.', kofiBtn:'Podrži →',
+    ctaTitle:'Ideš s prijateljima na put?', ctaDesc:'Izračunaj trošak goriva i jednostavno ga podijeli među suputnicima.', ctaBtn:'Izračunaj',
+    kofiTitle:'Podrži TankSmart', kofiDesc:'Uvijek besplatan - tvoja podrška ga održava.', kofiBtn:'Podrži',
     tank50:'pun tank (50L)',
     personLabel:'Osoba', litres:'litara', distance:'Udaljenost', cons:'Potrošnja',
     noData:'Nema podataka za ovu vrstu goriva.',
@@ -833,8 +837,8 @@ var T = {
       {q:'Je li TankSmart besplatan?',a:'Da, potpuno besplatno. Bez registracije, bez pretplate.'},
       {q:'Mogu li predložiti funkciju ili prijaviti krivu cijenu?',a:'Rado! Piši mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Zašto je nastao TankSmart? →',
-    blogLink:'Tjedne vijesti o cijenama goriva →',
+    aboutLink:'Zašto je nastao TankSmart?',
+    blogLink:'Tjedne vijesti o cijenama goriva',
     footerAbout:'TankSmart je besplatni kalkulator cijena goriva i troškova puta za cijelu Europu, ažuriran svaki tjedan.',
     footerContact:'Pitanja, prijedlozi ili kriva cijena?',
     regions:{balkan:'Balkan',cee:'Sr./Ist. Europa',south:'Južna Europa',west:'Zapadna Europa',nordic:'Skandinavija',baltic:'Baltik',micro:'Mikro-države',east:'Istočna Europa (izvan EU)'},
@@ -856,14 +860,14 @@ var T = {
     lblPass:'Anzahl Mitfahrer (Kosten teilen)',
     pass:['1 (allein)','2 Personen','3 Personen','4 Personen','5 Personen','6 Personen'],
     namePh:['Anna','Max','Lena','Tom','Mia','Jonas'],
-    btnCalc:'Berechnen →', lblTotal:'Gesamte Kraftstoffkosten',
+    btnCalc:'Berechnen', lblTotal:'Gesamte Kraftstoffkosten',
     noticeCalc:'Die Preise sind Richtwerte. Prüfe vor der Fahrt die aktuellen Preise.',
     noticePrices:'Preise zuletzt aktualisiert: 27. Sep 2026 · Wöchentliche Aktualisierung<br>Quelle: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Die Angabe für eine volle Tankfüllung (50L) ist ein Durchschnittswert zur Orientierung, nicht das tatsächliche Volumen deines Fahrzeugs.',
     cheapest:'günstigste', priciest:'teuerste',
     roadLabel:'Normale Straße', mwLabel:'Autobahn ~',
     vsLastWeek:'im Vergleich zur Vorwoche',
-    ctaTitle:'Unterwegs mit Freunden?', ctaDesc:'Berechne die Kraftstoffkosten und teile sie einfach mit deinen Mitfahrern.', ctaBtn:'Berechnen →',
-    kofiTitle:'Unterstütze TankSmart', kofiDesc:'Immer kostenlos - deine Unterstützung hält es am Laufen.', kofiBtn:'Unterstützen →',
+    ctaTitle:'Unterwegs mit Freunden?', ctaDesc:'Berechne die Kraftstoffkosten und teile sie einfach mit deinen Mitfahrern.', ctaBtn:'Berechnen',
+    kofiTitle:'Unterstütze TankSmart', kofiDesc:'Immer kostenlos - deine Unterstützung hält es am Laufen.', kofiBtn:'Unterstützen',
     tank50:'volle Tankfüllung (50L)',
     personLabel:'Person', litres:'Liter', distance:'Distanz', cons:'Verbrauch',
     noData:'Keine Daten für diese Kraftstoffart.',
@@ -925,8 +929,8 @@ var T = {
       {q:'Ist TankSmart kostenlos?',a:'Ja, vollständig. Keine Registrierung, kein Abo.'},
       {q:'Kann ich eine Funktion vorschlagen oder einen falschen Preis melden?',a:'Sehr gerne! Schreib mir an <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Warum ich TankSmart gebaut habe →',
-    blogLink:'Wöchentliche Neuigkeiten zu Kraftstoffpreisen →',
+    aboutLink:'Warum ich TankSmart gebaut habe',
+    blogLink:'Wöchentliche Neuigkeiten zu Kraftstoffpreisen',
     footerAbout:'TankSmart ist ein kostenloser Rechner für Kraftstoffpreise und Fahrtkosten für ganz Europa, wöchentlich aktualisiert.',
     footerContact:'Fragen, Vorschläge oder ein falscher Preis?',
     regions:{balkan:'Balkan',cee:'Mittel-/Osteuropa',south:'Südeuropa',west:'Westeuropa',nordic:'Skandinavien',baltic:'Baltikum',micro:'Kleinststaaten',east:'Osteuropa (außerhalb der EU)'},
@@ -948,14 +952,14 @@ var T = {
     lblPass:'Número de pasajeros (repartir el coste)',
     pass:['1 (solo/a)','2 personas','3 personas','4 personas','5 personas','6 personas'],
     namePh:['Ana','Carlos','Lucía','Pablo','Marta','Diego'],
-    btnCalc:'Calcular →', lblTotal:'Coste total de combustible',
+    btnCalc:'Calcular', lblTotal:'Coste total de combustible',
     noticeCalc:'Los precios son orientativos. Verifica los precios actuales antes de tu viaje.',
     noticePrices:'Precios actualizados por última vez: 27 sep 2026 · Actualización semanal<br>Fuente: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* El depósito lleno (50L) es una estimación media de referencia, no la capacidad real de tu vehículo.',
     cheapest:'más barato', priciest:'más caro',
     roadLabel:'Carretera normal', mwLabel:'Autopista ~',
     vsLastWeek:'respecto a la semana pasada',
-    ctaTitle:'¿Vas de viaje con amigos?', ctaDesc:'Calcula el coste del combustible y repártelo fácilmente entre tus acompañantes.', ctaBtn:'Calcular →',
-    kofiTitle:'Apoya TankSmart', kofiDesc:'Siempre gratis - tu apoyo lo mantiene activo.', kofiBtn:'Apoyar →',
+    ctaTitle:'¿Vas de viaje con amigos?', ctaDesc:'Calcula el coste del combustible y repártelo fácilmente entre tus acompañantes.', ctaBtn:'Calcular',
+    kofiTitle:'Apoya TankSmart', kofiDesc:'Siempre gratis - tu apoyo lo mantiene activo.', kofiBtn:'Apoyar',
     tank50:'depósito lleno (50L)',
     personLabel:'Persona', litres:'litros', distance:'Distancia', cons:'Consumo',
     noData:'No hay datos para este tipo de combustible.',
@@ -1017,8 +1021,8 @@ var T = {
       {q:'¿Es gratis TankSmart?',a:'Sí, totalmente. Sin registro, sin suscripción.'},
       {q:'¿Puedo sugerir una función o reportar un precio incorrecto?',a:'¡Por supuesto! Escríbeme a <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'¿Por qué hice TankSmart? →',
-    blogLink:'Noticias semanales de precios de combustible →',
+    aboutLink:'¿Por qué hice TankSmart?',
+    blogLink:'Noticias semanales de precios de combustible',
     footerAbout:'TankSmart es una calculadora gratuita de precios de combustible y costes de viaje para toda Europa, actualizada cada semana.',
     footerContact:'¿Preguntas, sugerencias o un precio incorrecto?',
     regions:{balkan:'Balcanes',cee:'Europa Central/Oriental',south:'Europa del Sur',west:'Europa Occidental',nordic:'Escandinavia',baltic:'Bálticos',micro:'Microestados',east:'Europa del Este (fuera de la UE)'},
@@ -1039,14 +1043,14 @@ var T = {
     lblPass:'Numero di passeggeri (dividere il costo)',
     pass:['1 (da solo/a)','2 persone','3 persone','4 persone','5 persone','6 persone'],
     namePh:['Anna','Marco','Giulia','Luca','Sara','Matteo'],
-    btnCalc:'Calcola →', lblTotal:'Costo totale del carburante',
+    btnCalc:'Calcola', lblTotal:'Costo totale del carburante',
     noticeCalc:'I prezzi sono indicativi. Verifica i prezzi attuali prima del viaggio.',
     noticePrices:'Prezzi aggiornati l\'ultima volta: 27 set 2026 · Aggiornamento settimanale<br>Fonte: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Il pieno (50L) è una stima media di riferimento, non la capacità reale del tuo veicolo.',
     cheapest:'più economico', priciest:'più caro',
     roadLabel:'Strada normale', mwLabel:'Autostrada ~',
     vsLastWeek:'rispetto alla settimana scorsa',
-    ctaTitle:'Vai in viaggio con gli amici?', ctaDesc:'Calcola il costo del carburante e dividilo facilmente tra i tuoi compagni di viaggio.', ctaBtn:'Calcola →',
-    kofiTitle:'Sostieni TankSmart', kofiDesc:'Sempre gratuito - il tuo sostegno lo tiene attivo.', kofiBtn:'Sostieni →',
+    ctaTitle:'Vai in viaggio con gli amici?', ctaDesc:'Calcola il costo del carburante e dividilo facilmente tra i tuoi compagni di viaggio.', ctaBtn:'Calcola',
+    kofiTitle:'Sostieni TankSmart', kofiDesc:'Sempre gratuito - il tuo sostegno lo tiene attivo.', kofiBtn:'Sostieni',
     tank50:'pieno (50L)',
     personLabel:'Persona', litres:'litri', distance:'Distanza', cons:'Consumo',
     noData:'Nessun dato per questo tipo di carburante.',
@@ -1108,8 +1112,8 @@ var T = {
       {q:'TankSmart è gratuito?',a:'Sì, completamente. Nessuna registrazione, nessun abbonamento.'},
       {q:'Posso suggerire una funzione o segnalare un prezzo errato?',a:'Volentieri! Scrivimi a <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Perché ho creato TankSmart →',
-    blogLink:'Notizie settimanali sui prezzi del carburante →',
+    aboutLink:'Perché ho creato TankSmart',
+    blogLink:'Notizie settimanali sui prezzi del carburante',
     footerAbout:'TankSmart è un calcolatore gratuito di prezzi del carburante e costi di viaggio per tutta Europa, aggiornato ogni settimana.',
     footerContact:'Domande, suggerimenti o un prezzo sbagliato?',
     regions:{balkan:'Balcani',cee:'Europa Centrale/Orientale',south:'Europa Meridionale',west:'Europa Occidentale',nordic:'Scandinavia',baltic:'Baltico',micro:'Microstati',east:'Europa dell\'Est (fuori UE)'},
@@ -1130,14 +1134,14 @@ var T = {
     lblPass:'Počet spolujezdců (rozdělení nákladů)',
     pass:['1 (sám/sama)','2 osoby','3 osoby','4 osoby','5 osob','6 osob'],
     namePh:['Petra','Jakub','Tereza','Tomáš','Eva','Martin'],
-    btnCalc:'Spočítat →', lblTotal:'Celkové náklady na palivo',
+    btnCalc:'Spočítat', lblTotal:'Celkové náklady na palivo',
     noticeCalc:'Ceny jsou orientační. Před cestou si ověř aktuální ceny.',
     noticePrices:'Ceny naposledy aktualizovány: 27. zář 2026 · Aktualizace jednou týdně<br>Zdroj: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Plná nádrž (50L) je průměrný odhad pro orientaci, nikoli skutečný objem tvého vozidla.',
     cheapest:'nejlevnější', priciest:'nejdražší',
     roadLabel:'Běžná silnice', mwLabel:'Dálnice ~',
     vsLastWeek:'ve srovnání s minulým týdnem',
-    ctaTitle:'Jedeš na výlet s přáteli?', ctaDesc:'Spočítej náklady na palivo a jednoduše je rozděl mezi spolucestující.', ctaBtn:'Spočítat →',
-    kofiTitle:'Podpoř TankSmart', kofiDesc:'Vždy zdarma - tvoje podpora ho udržuje v chodu.', kofiBtn:'Podpořit →',
+    ctaTitle:'Jedeš na výlet s přáteli?', ctaDesc:'Spočítej náklady na palivo a jednoduše je rozděl mezi spolucestující.', ctaBtn:'Spočítat',
+    kofiTitle:'Podpoř TankSmart', kofiDesc:'Vždy zdarma - tvoje podpora ho udržuje v chodu.', kofiBtn:'Podpořit',
     tank50:'plná nádrž (50L)',
     personLabel:'Osoba', litres:'litrů', distance:'Vzdálenost', cons:'Spotřeba',
     noData:'Pro tento druh paliva nejsou k dispozici žádná data.',
@@ -1199,8 +1203,8 @@ var T = {
       {q:'Je TankSmart zdarma?',a:'Ano, úplně. Bez registrace, bez předplatného.'},
       {q:'Můžu navrhnout funkci nebo nahlásit špatnou cenu?',a:'Rád/a! Napiš mi na <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Proč jsem vytvořila TankSmart →',
-    blogLink:'Týdenní novinky o cenách paliva →',
+    aboutLink:'Proč jsem vytvořila TankSmart',
+    blogLink:'Týdenní novinky o cenách paliva',
     footerAbout:'TankSmart je bezplatná kalkulačka cen paliva a nákladů na cestu pro celou Evropu, aktualizovaná každý týden.',
     footerContact:'Otázky, návrhy nebo špatná cena?',
     regions:{balkan:'Balkán',cee:'Střední/Východní Evropa',south:'Jižní Evropa',west:'Západní Evropa',nordic:'Skandinávie',baltic:'Pobaltí',micro:'Mikrostáty',east:'Východní Evropa (mimo EU)'},
@@ -1221,14 +1225,14 @@ var T = {
     lblPass:'Кількість пасажирів (поділ витрат)',
     pass:['1 (сам/сама)','2 особи','3 особи','4 особи','5 осіб','6 осіб'],
     namePh:['Олена','Іван','Марія','Андрій','Софія','Максим'],
-    btnCalc:'Розрахувати →', lblTotal:'Загальна вартість пального',
+    btnCalc:'Розрахувати', lblTotal:'Загальна вартість пального',
     noticeCalc:'Ціни орієнтовні. Перед поїздкою перевір актуальні ціни.',
     noticePrices:'Ціни востаннє оновлено: 27 вер 2026 · Оновлення щотижня<br>Джерело: <a href="https://goriva.si" target="_blank">goriva.si</a>, <a href="https://www.hak.hr/info/cijene-goriva/" target="_blank">hak.hr</a>, <a href="https://nafta.hr" target="_blank">nafta.hr</a>, <a href="https://www.cijenegoriva.ba" target="_blank">cijenegoriva.ba</a>, <a href="https://www.spritpreisrechner.at" target="_blank">spritpreisrechner.at</a>, <a href="https://www.fuel-prices.eu" target="_blank">fuel-prices.eu</a><br>* Повний бак (50л) це середня орієнтовна оцінка, а не реальний об\'єм бака твого автомобіля.',
     cheapest:'найдешевше', priciest:'найдорожче',
     roadLabel:'Звичайна дорога', mwLabel:'Автомагістраль ~',
     vsLastWeek:'порівняно з минулим тижнем',
-    ctaTitle:'Їдеш у подорож з друзями?', ctaDesc:'Розрахуй вартість пального і легко поділи її між попутниками.', ctaBtn:'Розрахувати →',
-    kofiTitle:'Підтримай TankSmart', kofiDesc:'Завжди безкоштовно - твоя підтримка підтримує роботу сайту.', kofiBtn:'Підтримати →',
+    ctaTitle:'Їдеш у подорож з друзями?', ctaDesc:'Розрахуй вартість пального і легко поділи її між попутниками.', ctaBtn:'Розрахувати',
+    kofiTitle:'Підтримай TankSmart', kofiDesc:'Завжди безкоштовно - твоя підтримка підтримує роботу сайту.', kofiBtn:'Підтримати',
     tank50:'повний бак (50л)',
     personLabel:'Особа', litres:'літрів', distance:'Відстань', cons:'Витрата',
     noData:'Немає даних для цього типу пального.',
@@ -1290,8 +1294,8 @@ var T = {
       {q:'Чи безкоштовний TankSmart?',a:'Так, повністю. Без реєстрації, без підписки.'},
       {q:'Чи можу я запропонувати функцію або повідомити про неправильну ціну?',a:'Із задоволенням! Напиши мені на <a href="mailto:tank-smart@pm.me" style="color:var(--orange)">tank-smart@pm.me</a>.'}
     ],
-    aboutLink:'Чому я створила TankSmart →',
-    blogLink:'Щотижневі новини про ціни на пальне →',
+    aboutLink:'Чому я створила TankSmart',
+    blogLink:'Щотижневі новини про ціни на пальне',
     footerAbout:'TankSmart це безкоштовний калькулятор цін на пальне та вартості поїздок для всієї Європи, що оновлюється щотижня.',
     footerContact:'Питання, пропозиції чи неправильна ціна?',
     regions:{balkan:'Балкани',cee:'Центральна/Східна Європа',south:'Південна Європа',west:'Західна Європа',nordic:'Скандинавія',baltic:'Балтія',micro:'Мікродержави',east:'Східна Європа (поза ЄС)'},
@@ -1511,22 +1515,22 @@ function priceItemHtml(k, p, best, worst, ft, t) {
   var mw = motorway[k];
   var mwPrice = mw && mw[ft] ? mw[ft] : null;
   var html = '<div class="p-item'+(best?' best':worst?' worst':'')+'">';
-  html += '<div class="ctry">'+flagImgHtml(p.flag,16)+' '+(t.countries[k]||k);
+  html += '<div class="ctry-flag">'+flagImgHtml(p.flag,18)+'</div>';
+  html += '<div class="ctry"><div class="ctry-name">';
+  html += '<div class="nm">'+(t.countries[k]||k);
   if(best) html += '<span class="badge best">'+t.cheapest+'</span>';
   if(worst) html += '<span class="badge worst">'+t.priciest+'</span>';
   html += '</div>';
+  if(mwPrice) html += '<div class="prc-label">'+t.roadLabel+'</div>';
+  html += '</div></div>';
+  html += '<div class="pblock">';
+  html += '<div class="prc">'+priceDeltaHtml(k,ft,t)+' '+p[ft].toFixed(3)+' €/l</div>';
+  html += tank50Html(p[ft], t);
   if(mwPrice) {
-    html += '<div class="prc-label">'+t.roadLabel+'</div>';
-    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l'+priceDeltaHtml(k,ft,t)+'</div>';
-    html += tank50Html(p[ft], t);
-    html += '<div class="prc-divider"></div>';
-    html += '<div class="prc-label">'+t.mwLabel+'</div>';
-    html += '<div class="prc-mw">'+mwPrice.toFixed(2)+' €/l</div>';
+    html += '<div class="prc-mw-row"><span class="prc-label">'+t.mwLabel+'</span><span class="prc-mw">'+mwPrice.toFixed(2)+' €/l</span></div>';
     html += tank50Html(mwPrice, t);
-  } else {
-    html += '<div class="prc">'+p[ft].toFixed(3)+' €/l'+priceDeltaHtml(k,ft,t)+'</div>';
-    html += tank50Html(p[ft], t);
   }
+  html += '</div>';
   html += '</div>';
   return html;
 }
