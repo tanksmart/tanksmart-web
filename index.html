@@ -66,17 +66,19 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 .lang-select-wrap{flex:1;min-width:0;max-width:220px}
 .lang-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:var(--rxs);font-size:0.82rem;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;padding-right:28px}
 .lang-select:hover{border-color:var(--orange)}
-.hero{padding:28px 20px 22px;max-width:680px;margin:0 auto;display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:22px;flex-shrink:0;flex-wrap:wrap}
-.hero-stat .v{font-family:var(--font-mono);font-size:2.5rem;font-weight:700;color:var(--orange);line-height:1}
-.hero-stat .l{font-size:0.7rem;color:var(--text2);margin-top:4px;max-width:170px;line-height:1.35}
-.hero-stat2 .v{font-family:var(--font-mono);font-size:1.4rem;font-weight:700;color:var(--sky);line-height:1}
-.hero-stat2 .l{font-size:0.7rem;color:var(--text2);margin-top:4px;max-width:150px;line-height:1.35}
-.hero-text{flex-grow:1;min-width:200px}
-.hero h1{font-family:var(--font-head);font-size:1.7rem;font-weight:700;letter-spacing:-0.3px;margin-bottom:6px;line-height:1.1}
+.hero{padding:28px 20px 20px;max-width:680px;margin:0 auto}
+.hero h1{font-family:var(--font-head);font-size:1.8rem;font-weight:700;letter-spacing:-0.3px;margin-bottom:6px;line-height:1.1}
 .hero h1 span{color:var(--orange)}
-.hero p{color:var(--text2);font-size:0.9rem;max-width:400px}
-@media (max-width:480px){.hero{padding:22px 16px 18px}.hero-stat .v{font-size:2rem}.hero-stat2 .v{font-size:1.15rem}}
+.hero p{color:var(--text2);font-size:0.9rem;max-width:460px;margin-bottom:18px}
+.movers{display:flex;flex-direction:column;gap:8px}
+.mover-label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em}
+#moverChips{display:flex;gap:10px;flex-wrap:wrap}
+.mover-chip{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:8px 12px;display:flex;align-items:center;gap:8px}
+.mover-chip .ctry{font-size:0.78rem;color:var(--text2)}
+.mover-chip .delta{font-family:var(--font-mono);font-size:0.85rem;font-weight:700}
+.mover-chip .delta.up{color:var(--red)}
+.mover-chip .delta.down{color:var(--green)}
+@media (max-width:480px){.hero{padding:22px 16px 16px}}
 .tabs{display:flex;border-bottom:1px solid var(--border);max-width:680px;margin:0 auto;background:var(--bg2)}
 .tab{flex:1;min-width:0;padding:12px 6px;font-size:0.82rem;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;text-align:center;line-height:1.25;white-space:normal;overflow-wrap:break-word}
 .tab:hover{color:var(--text)}
@@ -210,19 +212,11 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 </header>
 
 <div class="hero">
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="v" id="hero-stat-value">—</div>
-      <div class="l" id="hero-stat-label"></div>
-    </div>
-    <div class="hero-stat2">
-      <div class="v" id="hero-stat2-value">—</div>
-      <div class="l" id="hero-stat2-label"></div>
-    </div>
-  </div>
-  <div class="hero-text">
-    <h1 id="hero-title"><span>TankSmart</span> – Cene goriva po Evropi</h1>
-    <p id="hero-sub">Primerjaj cene, izračunaj strošek poti in najdi, kje je najcenejše točenje.</p>
+  <h1 id="hero-title"><span>TankSmart</span> – Cene goriva po Evropi</h1>
+  <p id="hero-sub">Primerjaj cene, izračunaj strošek poti in najdi, kje je najcenejše točenje.</p>
+  <div class="movers">
+    <div class="mover-label" id="mover-label">Največje spremembe ta teden</div>
+    <div id="moverChips"></div>
   </div>
 </div>
 
@@ -1447,30 +1441,30 @@ function renderHeroStat() {
   var t = T[lang];
   var ftEl = document.getElementById('fuelTypeCompare');
   var ft = ftEl ? ftEl.value : 'b95';
-  var fuelName = ft==='b98' ? t.f98 : (ft==='diesel' ? t.fd : t.f95);
 
-  var entries = Object.entries(prices).filter(function(e){return e[1][ft]!==null;}).sort(function(a,b){return a[1][ft]-b[1][ft];});
-  if (entries.length) {
-    var cheapest = entries[0];
-    var ctryName = t.countries[cheapest[0]] || cheapest[0];
-    document.getElementById('hero-stat-value').textContent = cheapest[1][ft].toFixed(3);
-    document.getElementById('hero-stat-label').textContent = '€/l — ' + t.heroCheapestWord + ' ' + fuelName + ' ' + t.heroStatLabel + ' (' + ctryName + ')';
-  }
+  var moverLabelEl = document.getElementById('mover-label');
+  if (moverLabelEl) moverLabelEl.textContent = t.heroMoverLabel;
 
   var movers = Object.entries(prices).filter(function(e){
     var prev = pricesPrev[e[0]];
     return e[1][ft]!==null && prev && prev[ft]!==null && prev[ft]!==undefined;
   }).map(function(e){
     return [e[0], e[1][ft] - pricesPrev[e[0]][ft]];
-  }).sort(function(a,b){ return Math.abs(b[1]) - Math.abs(a[1]); });
-  if (movers.length) {
-    var top = movers[0];
-    var mCtryName = t.countries[top[0]] || top[0];
-    var up = top[1] > 0;
-    document.getElementById('hero-stat2-value').innerHTML = (up?'▲':'▼') + ' ' + Math.abs(top[1]).toFixed(3) + ' €/l';
-    document.getElementById('hero-stat2-value').style.color = up ? 'var(--red)' : 'var(--green)';
-    document.getElementById('hero-stat2-label').textContent = t.heroMoverLabel + ' (' + mCtryName + ')';
-  }
+  }).filter(function(e){ return Math.abs(e[1]) >= 0.0005; })
+    .sort(function(a,b){ return Math.abs(b[1]) - Math.abs(a[1]); })
+    .slice(0, 3);
+
+  var wrap = document.getElementById('moverChips');
+  if (!wrap) return;
+  if (!movers.length) { wrap.innerHTML = ''; return; }
+  wrap.innerHTML = movers.map(function(m){
+    var ctryName = t.countries[m[0]] || m[0];
+    var up = m[1] > 0;
+    return '<div class="mover-chip">'+flagImgHtml(prices[m[0]].flag,14)+
+      '<span class="ctry">'+ctryName+'</span>'+
+      '<span class="delta '+(up?'up':'down')+'">'+(up?'▲':'▼')+' '+Math.abs(m[1]).toFixed(3)+'</span>'+
+      '</div>';
+  }).join('');
 }
 
 function normText(s) {
