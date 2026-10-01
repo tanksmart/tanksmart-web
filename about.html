@@ -39,6 +39,7 @@
 }
 body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:60px}
 header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
+.road-line{height:8px;background:repeating-linear-gradient(90deg,var(--orange) 0 22px,transparent 22px 40px);opacity:0.55}
 .logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--orange);border-radius:10px;font-size:20px;flex-shrink:0}
 .logo-text{font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--orange);letter-spacing:-0.3px}
@@ -93,6 +94,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </select>
   </div>
 </header>
+<div class="road-line"></div>
 
 <main>
   <a href="index.html" class="back-link lang-link" id="back-link">← Back to TankSmart</a>
