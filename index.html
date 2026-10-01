@@ -37,6 +37,25 @@
   --font-head:'Space Grotesk',sans-serif;
 }
 html,body{overflow-x:hidden}
+.fb-btn{position:fixed;bottom:20px;right:20px;z-index:200;background:var(--orange);color:#1a1a1a;border:none;border-radius:999px;padding:11px 16px;font-size:0.82rem;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.35);display:flex;align-items:center;gap:6px}
+.fb-btn:hover{opacity:.9}
+.fb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;display:none;align-items:center;justify-content:center;padding:16px}
+.fb-overlay.open{display:flex}
+.fb-modal{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;max-width:420px;width:100%;max-height:85vh;overflow-y:auto}
+.fb-modal h3{font-family:var(--font-head);font-size:1rem;font-weight:600;margin-bottom:12px}
+.fb-modal textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:var(--rxs);font-family:inherit;font-size:0.85rem;min-height:90px;resize:vertical;margin-bottom:10px}
+.fb-modal textarea:focus{outline:none;border-color:var(--orange)}
+.fb-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.fb-shot-btn{flex:1;background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:9px 10px;border-radius:var(--rxs);font-size:0.78rem;font-family:inherit;cursor:pointer}
+.fb-shot-btn:hover{border-color:var(--orange);color:var(--text)}
+.fb-shot-preview{max-width:100%;border-radius:var(--rxs);border:1px solid var(--border);margin-bottom:10px;display:none}
+.fb-shot-preview.show{display:block}
+.fb-actions{display:flex;gap:8px;justify-content:flex-end}
+.fb-cancel{background:transparent;border:1px solid var(--border);color:var(--text2);padding:9px 14px;border-radius:var(--rxs);font-size:0.8rem;font-family:inherit;cursor:pointer}
+.fb-submit{background:var(--orange);color:#1a1a1a;border:none;padding:9px 14px;border-radius:var(--rxs);font-size:0.8rem;font-weight:700;font-family:inherit;cursor:pointer}
+.fb-submit:disabled{opacity:.5;cursor:default}
+.fb-thanks{font-size:0.85rem;color:var(--green);display:none}
+.fb-thanks.show{display:block}
 body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:60px}
 header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
 .logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
@@ -320,6 +339,32 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   </p>
 </footer>
 
+<button class="fb-btn" id="fb-open-btn" onclick="fbOpen()">💬 Feedback</button>
+
+<div class="fb-overlay" id="fb-overlay" onclick="if(event.target===this)fbClose()">
+  <div class="fb-modal">
+    <h3 id="fb-title">Imaš predlog ali si našel napako?</h3>
+    <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="fb-bot-field" enctype="multipart/form-data" id="fb-form">
+      <input type="hidden" name="form-name" value="feedback">
+      <p style="display:none"><label>Ne izpolni: <input name="fb-bot-field"></label></p>
+      <input type="hidden" name="page" id="fb-page-field" value="index">
+      <input type="hidden" name="lang" id="fb-lang-field" value="en">
+      <textarea name="message" id="fb-message" placeholder="Napiši sem..." required></textarea>
+      <div class="fb-row">
+        <button type="button" class="fb-shot-btn" id="fb-shot-btn" onclick="fbCaptureShot()">📸 Dodaj screenshot strani</button>
+      </div>
+      <img class="fb-shot-preview" id="fb-shot-preview" alt="screenshot preview">
+      <input type="file" name="screenshot" id="fb-shot-file" accept="image/png" style="display:none">
+      <div class="fb-actions">
+        <button type="button" class="fb-cancel" id="fb-cancel-btn" onclick="fbClose()">Prekliči</button>
+        <button type="submit" class="fb-submit" id="fb-submit-btn">Pošlji</button>
+      </div>
+      <p class="fb-thanks" id="fb-thanks">Hvala za povratno informacijo! 🙌</p>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 var lang = 'en';
 var activeTollFilter = 'all';
@@ -1212,6 +1257,83 @@ function setLang(l) {
   if (sel) sel.value = l;
   applyLang();
 }
+
+var fbTexts = {
+  sl:{title:'Imaš predlog ali si našel napako?', placeholder:'Napiši sem...', shot:'📸 Dodaj screenshot strani', cancel:'Prekliči', submit:'Pošlji', thanks:'Hvala za povratno informacijo! 🙌'},
+  en:{title:'Got a suggestion or found a bug?', placeholder:'Write here...', shot:'📸 Add a screenshot of the page', cancel:'Cancel', submit:'Send', thanks:'Thanks for the feedback! 🙌'},
+  hr:{title:'Imaš prijedlog ili si pronašao grešku?', placeholder:'Napiši ovdje...', shot:'📸 Dodaj screenshot stranice', cancel:'Odustani', submit:'Pošalji', thanks:'Hvala na povratnoj informaciji! 🙌'},
+  de:{title:'Hast du einen Vorschlag oder einen Fehler gefunden?', placeholder:'Hier schreiben...', shot:'📸 Screenshot der Seite hinzufügen', cancel:'Abbrechen', submit:'Senden', thanks:'Danke für dein Feedback! 🙌'},
+  es:{title:'¿Tienes una sugerencia o encontraste un error?', placeholder:'Escribe aquí...', shot:'📸 Añadir una captura de pantalla', cancel:'Cancelar', submit:'Enviar', thanks:'¡Gracias por tu opinión! 🙌'},
+  it:{title:'Hai un suggerimento o hai trovato un errore?', placeholder:'Scrivi qui...', shot:'📸 Aggiungi uno screenshot della pagina', cancel:'Annulla', submit:'Invia', thanks:'Grazie per il feedback! 🙌'},
+  cs:{title:'Máš návrh nebo jsi našel chybu?', placeholder:'Napiš sem...', shot:'📸 Přidat snímek stránky', cancel:'Zrušit', submit:'Odeslat', thanks:'Díky za zpětnou vazbu! 🙌'},
+  uk:{title:'Є пропозиція чи знайшов помилку?', placeholder:'Напиши тут...', shot:'📸 Додати скриншот сторінки', cancel:'Скасувати', submit:'Надіслати', thanks:'Дякую за відгук! 🙌'}
+};
+function fbApplyLang() {
+  var ft = fbTexts[lang] || fbTexts.en;
+  document.getElementById('fb-title').textContent = ft.title;
+  document.getElementById('fb-message').placeholder = ft.placeholder;
+  document.getElementById('fb-shot-btn').textContent = ft.shot;
+  document.getElementById('fb-cancel-btn').textContent = ft.cancel;
+  document.getElementById('fb-submit-btn').textContent = ft.submit;
+  document.getElementById('fb-thanks').textContent = ft.thanks;
+  document.getElementById('fb-lang-field').value = lang;
+}
+function fbOpen() {
+  fbApplyLang();
+  document.getElementById('fb-overlay').classList.add('open');
+}
+function fbClose() {
+  document.getElementById('fb-overlay').classList.remove('open');
+}
+function fbCaptureShot() {
+  var btn = document.getElementById('fb-shot-btn');
+  btn.disabled = true;
+  btn.textContent = '...';
+  document.getElementById('fb-overlay').style.display = 'none';
+  html2canvas(document.body, {backgroundColor: '#1a1a1a', logging: false}).then(function(canvas) {
+    document.getElementById('fb-overlay').style.display = 'flex';
+    canvas.toBlob(function(blob) {
+      var file = new File([blob], 'screenshot.png', {type: 'image/png'});
+      var dt = new DataTransfer();
+      dt.items.add(file);
+      document.getElementById('fb-shot-file').files = dt.files;
+      var img = document.getElementById('fb-shot-preview');
+      img.src = canvas.toDataURL('image/png');
+      img.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = (fbTexts[lang] || fbTexts.en).shot + ' ✓';
+    }, 'image/png');
+  }).catch(function() {
+    document.getElementById('fb-overlay').style.display = 'flex';
+    btn.disabled = false;
+    btn.textContent = (fbTexts[lang] || fbTexts.en).shot;
+  });
+}
+document.getElementById('fb-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('fb-page-field').value = 'index';
+  var form = e.target;
+  var data = new FormData(form);
+  var submitBtn = document.getElementById('fb-submit-btn');
+  submitBtn.disabled = true;
+  fetch('/', {method: 'POST', body: data})
+    .then(function() {
+      form.style.display = 'none';
+      document.getElementById('fb-thanks').classList.add('show');
+      setTimeout(function() {
+        fbClose();
+        form.style.display = '';
+        document.getElementById('fb-thanks').classList.remove('show');
+        form.reset();
+        document.getElementById('fb-shot-preview').classList.remove('show');
+        submitBtn.disabled = false;
+      }, 2500);
+    })
+    .catch(function() {
+      submitBtn.disabled = false;
+      alert('Napaka pri pošiljanju, poskusi znova.');
+    });
+});
 
 function applyLang() {
   var t = T[lang];
