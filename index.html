@@ -66,15 +66,17 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 
 .lang-select-wrap{flex:1;min-width:0;max-width:220px}
 .lang-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:var(--rxs);font-size:0.82rem;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;padding-right:28px}
 .lang-select:hover{border-color:var(--orange)}
-.hero{padding:28px 20px 22px;max-width:680px;margin:0 auto;display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
-.hero-stat{flex-shrink:0}
+.hero{padding:28px 20px 22px;max-width:680px;margin:0 auto;display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:22px;flex-shrink:0;flex-wrap:wrap}
 .hero-stat .v{font-family:var(--font-mono);font-size:2.5rem;font-weight:700;color:var(--orange);line-height:1}
 .hero-stat .l{font-size:0.7rem;color:var(--text2);margin-top:4px;max-width:170px;line-height:1.35}
+.hero-stat2 .v{font-family:var(--font-mono);font-size:1.4rem;font-weight:700;color:var(--sky);line-height:1}
+.hero-stat2 .l{font-size:0.7rem;color:var(--text2);margin-top:4px;max-width:150px;line-height:1.35}
 .hero-text{flex-grow:1;min-width:200px}
 .hero h1{font-family:var(--font-head);font-size:1.7rem;font-weight:700;letter-spacing:-0.3px;margin-bottom:6px;line-height:1.1}
 .hero h1 span{color:var(--orange)}
 .hero p{color:var(--text2);font-size:0.9rem;max-width:400px}
-@media (max-width:480px){.hero{padding:22px 16px 18px}.hero-stat .v{font-size:2rem}}
+@media (max-width:480px){.hero{padding:22px 16px 18px}.hero-stat .v{font-size:2rem}.hero-stat2 .v{font-size:1.15rem}}
 .tabs{display:flex;border-bottom:1px solid var(--border);max-width:680px;margin:0 auto;background:var(--bg2)}
 .tab{flex:1;min-width:0;padding:12px 6px;font-size:0.82rem;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;text-align:center;line-height:1.25;white-space:normal;overflow-wrap:break-word}
 .tab:hover{color:var(--text)}
@@ -208,9 +210,15 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 </header>
 
 <div class="hero">
-  <div class="hero-stat">
-    <div class="v" id="hero-stat-value">—</div>
-    <div class="l" id="hero-stat-label"></div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="v" id="hero-stat-value">—</div>
+      <div class="l" id="hero-stat-label"></div>
+    </div>
+    <div class="hero-stat2">
+      <div class="v" id="hero-stat2-value">—</div>
+      <div class="l" id="hero-stat2-label"></div>
+    </div>
   </div>
   <div class="hero-text">
     <h1 id="hero-title"><span>TankSmart</span> – Cene goriva po Evropi</h1>
@@ -246,7 +254,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   </div>
   <div class="card">
     <div class="card-title" id="lbl-fueltype">Vrsta goriva</div>
-    <select id="fuelTypeCompare" onchange="renderPrices()">
+    <select id="fuelTypeCompare" onchange="renderPrices();renderHeroStat()">
       <option value="b95">Bencin 95</option>
       <option value="b98">Bencin 98/100</option>
       <option value="diesel">Diesel</option>
@@ -568,7 +576,9 @@ var T = {
   sl:{
     heroTitle:'<span>TankSmart</span> – Cene goriva po Evropi',
     heroSub:'Primerjaj cene, izračunaj strošek poti in najdi, kje je najcenejše točenje.',
-    heroStatLabel:'najcenejši bencin 95 danes v Evropi',
+    heroStatLabel:'danes v Evropi',
+    heroCheapestWord:'Najcenejši',
+    heroMoverLabel:'največja sprememba ta teden',
     tabCompare:'🗺 Primerjava cen', tabCalc:'🧮 Kalkulator poti', tabTolls:'🛣️ Cestnine', tabTips:'💡 Koristno vedeti', tabFaq:'❓ FAQ',
     lblFueltype:'Vrsta goriva', lblVehicle:'Vaše vozilo', lblVname:'Ime vozila (neobvezno)',
     btnSaveV:'Shrani', lblCons:'Poraba (L/100km)', lblFtype:'Vrsta goriva',
@@ -656,7 +666,9 @@ var T = {
   en:{
     heroTitle:'<span>TankSmart</span> – Fuel Prices Across Europe',
     heroSub:'Compare prices, calculate trip costs, and find where it\'s cheapest to fill up.',
-    heroStatLabel:'cheapest petrol 95 in Europe today',
+    heroStatLabel:'in Europe today',
+    heroCheapestWord:'Cheapest',
+    heroMoverLabel:'biggest change this week',
     tabCompare:'🗺 Compare prices', tabCalc:'🧮 Trip calculator', tabTolls:'🛣️ Tolls', tabTips:'💡 Good to know', tabFaq:'❓ FAQ',
     lblFueltype:'Fuel type', lblVehicle:'Your vehicle', lblVname:'Vehicle name (optional)',
     btnSaveV:'Save', lblCons:'Consumption (L/100km)', lblFtype:'Fuel type',
@@ -744,7 +756,9 @@ var T = {
   hr:{
     heroTitle:'<span>TankSmart</span> – Cijene goriva diljem Europe',
     heroSub:'Usporedi cijene, izračunaj trošak puta i pronađi gdje je najjeftinije gorivo.',
-    heroStatLabel:'najjeftiniji benzin 95 danas u Europi',
+    heroStatLabel:'danas u Europi',
+    heroCheapestWord:'Najjeftiniji',
+    heroMoverLabel:'najveća promjena ovaj tjedan',
     tabCompare:'🗺 Usporedi cijene', tabCalc:'🧮 Kalkulator puta', tabTolls:'🛣️ Cestarine', tabTips:'💡 Korisno znati', tabFaq:'❓ FAQ',
     lblFueltype:'Vrsta goriva', lblVehicle:'Vaše vozilo', lblVname:'Naziv vozila (opcionalno)',
     btnSaveV:'Spremi', lblCons:'Potrošnja (L/100km)', lblFtype:'Vrsta goriva',
@@ -832,7 +846,9 @@ var T = {
   de:{
     heroTitle:'<span>TankSmart</span> – Kraftstoffpreise in Europa',
     heroSub:'Vergleiche Preise, berechne die Fahrtkosten und finde, wo Tanken am günstigsten ist.',
-    heroStatLabel:'günstigstes Benzin 95 heute in Europa',
+    heroStatLabel:'heute in Europa',
+    heroCheapestWord:'Günstigster',
+    heroMoverLabel:'größte Veränderung diese Woche',
     tabCompare:'🗺 Preisvergleich', tabCalc:'🧮 Fahrtrechner', tabTolls:'🛣️ Maut', tabTips:'💡 Gut zu wissen', tabFaq:'❓ FAQ',
     lblFueltype:'Kraftstoffart', lblVehicle:'Dein Fahrzeug', lblVname:'Fahrzeugname (optional)',
     btnSaveV:'Speichern', lblCons:'Verbrauch (L/100km)', lblFtype:'Kraftstoffart',
@@ -921,7 +937,9 @@ var T = {
   es:{
     heroTitle:'<span>TankSmart</span> – Precios de combustible en Europa',
     heroSub:'Compara precios, calcula el coste del viaje y encuentra dónde repostar es más barato.',
-    heroStatLabel:'gasolina 95 más barata hoy en Europa',
+    heroStatLabel:'hoy en Europa',
+    heroCheapestWord:'Más barato',
+    heroMoverLabel:'mayor cambio esta semana',
     tabCompare:'🗺 Comparar precios', tabCalc:'🧮 Calculadora de viaje', tabTolls:'🛣️ Peajes', tabTips:'💡 Bueno saber', tabFaq:'❓ FAQ',
     lblFueltype:'Tipo de combustible', lblVehicle:'Tu vehículo', lblVname:'Nombre del vehículo (opcional)',
     btnSaveV:'Guardar', lblCons:'Consumo (L/100km)', lblFtype:'Tipo de combustible',
@@ -1009,7 +1027,9 @@ var T = {
   it:{
     heroTitle:'<span>TankSmart</span> – Prezzi del carburante in Europa',
     heroSub:'Confronta i prezzi, calcola il costo del viaggio e trova dove fare rifornimento costa meno.',
-    heroStatLabel:'benzina 95 più economica oggi in Europa',
+    heroStatLabel:'oggi in Europa',
+    heroCheapestWord:'Più economico',
+    heroMoverLabel:'maggior variazione questa settimana',
     tabCompare:'🗺 Confronta prezzi', tabCalc:'🧮 Calcolatore di viaggio', tabTolls:'🛣️ Pedaggi', tabTips:'💡 Buono a sapersi', tabFaq:'❓ FAQ',
     lblFueltype:'Tipo di carburante', lblVehicle:'Il tuo veicolo', lblVname:'Nome del veicolo (opzionale)',
     btnSaveV:'Salva', lblCons:'Consumo (L/100km)', lblFtype:'Tipo di carburante',
@@ -1097,7 +1117,9 @@ var T = {
   cs:{
     heroTitle:'<span>TankSmart</span> – Ceny pohonných hmot v Evropě',
     heroSub:'Porovnej ceny, spočítej náklady na cestu a najdi, kde je tankování nejlevnější.',
-    heroStatLabel:'nejlevnější benzín 95 dnes v Evropě',
+    heroStatLabel:'dnes v Evropě',
+    heroCheapestWord:'Nejlevnější',
+    heroMoverLabel:'největší změna tento týden',
     tabCompare:'🗺 Porovnání cen', tabCalc:'🧮 Kalkulačka cesty', tabTolls:'🛣️ Mýtné', tabTips:'💡 Dobré vědět', tabFaq:'❓ FAQ',
     lblFueltype:'Druh paliva', lblVehicle:'Tvoje vozidlo', lblVname:'Název vozidla (nepovinné)',
     btnSaveV:'Uložit', lblCons:'Spotřeba (L/100km)', lblFtype:'Druh paliva',
@@ -1185,7 +1207,9 @@ var T = {
   uk:{
     heroTitle:'<span>TankSmart</span> – Ціни на пальне в Європі',
     heroSub:'Порівнюй ціни, розраховуй вартість поїздки і знаходь, де заправитися дешевше.',
-    heroStatLabel:'найдешевший бензин 95 сьогодні в Європі',
+    heroStatLabel:'сьогодні в Європі',
+    heroCheapestWord:'Найдешевший',
+    heroMoverLabel:'найбільша зміна цього тижня',
     tabCompare:'🗺 Порівняння цін', tabCalc:'🧮 Калькулятор поїздки', tabTolls:'🛣️ Платні дороги', tabTips:'💡 Корисно знати', tabFaq:'❓ FAQ',
     lblFueltype:'Тип пального', lblVehicle:'Твій автомобіль', lblVname:'Назва автомобіля (необов\'язково)',
     btnSaveV:'Зберегти', lblCons:'Витрата (л/100км)', lblFtype:'Тип пального',
@@ -1421,12 +1445,32 @@ function applyLang() {
 
 function renderHeroStat() {
   var t = T[lang];
-  var entries = Object.entries(prices).filter(function(e){return e[1].b95!==null;}).sort(function(a,b){return a[1].b95-b[1].b95;});
-  if (!entries.length) return;
-  var cheapest = entries[0];
-  var ctryName = t.countries[cheapest[0]] || cheapest[0];
-  document.getElementById('hero-stat-value').textContent = cheapest[1].b95.toFixed(3);
-  document.getElementById('hero-stat-label').textContent = '€/l — ' + t.heroStatLabel + ' (' + ctryName + ')';
+  var ftEl = document.getElementById('fuelTypeCompare');
+  var ft = ftEl ? ftEl.value : 'b95';
+  var fuelName = ft==='b98' ? t.f98 : (ft==='diesel' ? t.fd : t.f95);
+
+  var entries = Object.entries(prices).filter(function(e){return e[1][ft]!==null;}).sort(function(a,b){return a[1][ft]-b[1][ft];});
+  if (entries.length) {
+    var cheapest = entries[0];
+    var ctryName = t.countries[cheapest[0]] || cheapest[0];
+    document.getElementById('hero-stat-value').textContent = cheapest[1][ft].toFixed(3);
+    document.getElementById('hero-stat-label').textContent = '€/l — ' + t.heroCheapestWord + ' ' + fuelName + ' ' + t.heroStatLabel + ' (' + ctryName + ')';
+  }
+
+  var movers = Object.entries(prices).filter(function(e){
+    var prev = pricesPrev[e[0]];
+    return e[1][ft]!==null && prev && prev[ft]!==null && prev[ft]!==undefined;
+  }).map(function(e){
+    return [e[0], e[1][ft] - pricesPrev[e[0]][ft]];
+  }).sort(function(a,b){ return Math.abs(b[1]) - Math.abs(a[1]); });
+  if (movers.length) {
+    var top = movers[0];
+    var mCtryName = t.countries[top[0]] || top[0];
+    var up = top[1] > 0;
+    document.getElementById('hero-stat2-value').innerHTML = (up?'▲':'▼') + ' ' + Math.abs(top[1]).toFixed(3) + ' €/l';
+    document.getElementById('hero-stat2-value').style.color = up ? 'var(--red)' : 'var(--green)';
+    document.getElementById('hero-stat2-label').textContent = t.heroMoverLabel + ' (' + mCtryName + ')';
+  }
 }
 
 function normText(s) {
