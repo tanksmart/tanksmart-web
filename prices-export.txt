@@ -1,61 +1,61 @@
 TankSmart - trenutne cene goriva (za IG grafike / Claude Design)
-Zadnja posodobitev: 2026-10-06 (osveži se avtomatsko vsak torek)
+Zadnja posodobitev: 2026-10-13 (osveži se avtomatsko vsak torek)
 Format: Ime (SLO / EN / HR-SRB-BIH) | Bencin 95 | Bencin 98 | Diesel  [vse v EUR/l]
 
 === Balkan ===
 Slovenija / Slovenia / Slovenija: B95=1.744, B98=1.971, Diesel=1.883
-Hrvaška / Croatia / Hrvatska: B95=1.740, B98=1.966, Diesel=1.840
-Bosna in H. / Bosnia & Herz. / Bosna i H.: B95=1.740, B98=1.966, Diesel=1.930
-Srbija / Serbia / Srbija: B95=1.760, B98=1.989, Diesel=2.010
-Sev. Makedonija / N. Macedonia / S. Makedonija: B95=1.610, B98=1.819, Diesel=1.700
-Črna Gora / Montenegro / Crna Gora: B95=1.750, B98=1.977, Diesel=1.950
+Hrvaška / Croatia / Hrvatska: B95=1.740, B98=1.966, Diesel=1.830
+Bosna in H. / Bosnia & Herz. / Bosna i H.: B95=1.740, B98=1.966, Diesel=1.900
+Srbija / Serbia / Srbija: B95=1.770, B98=2.000, Diesel=2.020
+Sev. Makedonija / N. Macedonia / S. Makedonija: B95=1.600, B98=1.808, Diesel=1.580
+Črna Gora / Montenegro / Crna Gora: B95=1.750, B98=1.977, Diesel=1.850
 Kosovo / Kosovo / Kosovo: B95=1.380, B98=n/a, Diesel=1.450
 Albanija / Albania / Albanija: B95=2.230, B98=n/a, Diesel=2.382
 
 === Central Europe ===
-Avstrija / Austria / Austrija: B95=1.837, B98=2.076, Diesel=2.138
-Madžarska / Hungary / Mađarska: B95=1.730, B98=n/a, Diesel=1.920
-Bolgarija / Bulgaria / Bugarska: B95=1.670, B98=1.887, Diesel=1.900
-Romunija / Romania / Rumunjska: B95=1.897, B98=n/a, Diesel=2.104
-Češka / Czechia / Češka: B95=1.880, B98=n/a, Diesel=2.076
-Slovaška / Slovakia / Slovačka: B95=1.853, B98=n/a, Diesel=1.978
-Poljska / Poland / Poljska: B95=1.853, B98=n/a, Diesel=2.060
+Avstrija / Austria / Austrija: B95=1.865, B98=2.107, Diesel=2.162
+Madžarska / Hungary / Mađarska: B95=1.757, B98=n/a, Diesel=1.943
+Bolgarija / Bulgaria / Bugarska: B95=1.660, B98=1.876, Diesel=1.890
+Romunija / Romania / Rumunjska: B95=1.886, B98=n/a, Diesel=2.050
+Češka / Czechia / Češka: B95=1.847, B98=n/a, Diesel=1.952
+Slovaška / Slovakia / Slovačka: B95=1.845, B98=n/a, Diesel=1.972
+Poljska / Poland / Poljska: B95=1.520, B98=n/a, Diesel=1.764
 
 === Southern Europe ===
-Italija / Italy / Italija: B95=2.048, B98=2.314, Diesel=2.242
-Grčija / Greece / Grčka: B95=2.205, B98=n/a, Diesel=2.178
-Španija / Spain / Španjolska: B95=1.940, B98=2.192, Diesel=1.934
-Portugalska / Portugal / Portugal: B95=2.099, B98=2.372, Diesel=2.186
+Italija / Italy / Italija: B95=2.035, B98=2.300, Diesel=2.252
+Grčija / Greece / Grčka: B95=2.199, B98=n/a, Diesel=2.118
+Španija / Spain / Španjolska: B95=1.849, B98=2.089, Diesel=1.918
+Portugalska / Portugal / Portugal: B95=2.081, B98=2.352, Diesel=2.155
 
 === Western Europe ===
-Nemčija / Germany / Njemačka: B95=2.345, B98=2.650, Diesel=2.437
-Švica / Switzerland / Švicarska: B95=2.252, B98=2.545, Diesel=2.470
-Francija / France / Francuska: B95=2.213, B98=2.501, Diesel=2.371
-Nizozemska / Netherlands / Nizozemska: B95=2.465, B98=2.785, Diesel=2.526
-Belgija / Belgium / Belgija: B95=2.032, B98=2.296, Diesel=2.430
+Nemčija / Germany / Njemačka: B95=2.196, B98=2.481, Diesel=2.254
+Švica / Switzerland / Švicarska: B95=2.375, B98=2.684, Diesel=2.516
+Francija / France / Francuska: B95=2.212, B98=2.500, Diesel=2.355
+Nizozemska / Netherlands / Nizozemska: B95=2.432, B98=2.748, Diesel=2.506
+Belgija / Belgium / Belgija: B95=1.959, B98=2.214, Diesel=2.349
 Velika Britanija / United Kingdom / Ujedinjeno Kraljevstvo: B95=2.067, B98=2.336, Diesel=2.363
-Irska / Ireland / Irska: B95=1.972, B98=2.228, Diesel=2.123
-Luksemburg / Luxembourg / Luksemburg: B95=1.888, B98=2.133, Diesel=2.095
+Irska / Ireland / Irska: B95=1.983, B98=2.241, Diesel=2.164
+Luksemburg / Luxembourg / Luksemburg: B95=1.837, B98=2.076, Diesel=2.057
 
 === Scandinavia ===
-Danska / Denmark / Danska: B95=2.658, B98=3.004, Diesel=2.542
-Švedska / Sweden / Švedska: B95=1.595, B98=1.802, Diesel=2.135
+Danska / Denmark / Danska: B95=2.605, B98=2.944, Diesel=2.488
+Švedska / Sweden / Švedska: B95=1.589, B98=1.796, Diesel=2.118
 Norveška / Norway / Norveška: B95=1.990, B98=2.249, Diesel=2.210
-Finska / Finland / Finska: B95=2.331, B98=2.634, Diesel=2.523
+Finska / Finland / Finska: B95=2.370, B98=2.678, Diesel=2.553
 Islandija / Iceland / Island: B95=2.034, B98=2.298, Diesel=2.339
 
 === Baltic ===
-Estonija / Estonia / Estonija: B95=1.928, B98=2.179, Diesel=2.239
-Latvija / Latvia / Latvija: B95=2.038, B98=2.303, Diesel=2.133
-Litva / Lithuania / Litva: B95=1.954, B98=2.208, Diesel=2.253
+Estonija / Estonia / Estonija: B95=1.945, B98=2.198, Diesel=2.096
+Latvija / Latvia / Latvija: B95=1.962, B98=2.217, Diesel=2.120
+Litva / Lithuania / Litva: B95=1.938, B98=2.190, Diesel=2.241
 
 === Micro-states ===
 Malta / Malta / Malta: B95=1.340, B98=1.514, Diesel=1.210
 San Marino / San Marino / San Marino: B95=2.141, B98=2.419, Diesel=2.281
-Andora / Andorra / Andora: B95=1.620, B98=1.831, Diesel=1.768
+Andora / Andorra / Andora: B95=1.615, B98=1.825, Diesel=1.758
 Monako / Monaco / Monako: B95=2.219, B98=2.508, Diesel=2.383
 
 === Eastern Europe (non-EU) ===
 Ukrajina / Ukraine / Ukrajina: B95=1.750, B98=n/a, Diesel=1.920
-Moldavija / Moldova / Moldavija: B95=1.703, B98=n/a, Diesel=1.770
+Moldavija / Moldova / Moldavija: B95=1.689, B98=n/a, Diesel=1.742
 Belorusija / Belarus / Bjelorusija: B95=0.790, B98=n/a, Diesel=0.790
