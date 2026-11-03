@@ -362,6 +362,8 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   <br>
   <a href="blog.html" id="blog-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px"></a>
   <br>
+  <a href="winter-tyres.html" id="winter-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px">Winter tyres in Europe</a>
+  <br>
   <a href="privacy.html" id="privacy-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px">Privacy</a>
   <p style="font-size:0.78rem;color:var(--text3);margin-top:16px">
     <span id="footer-contact-label"></span> <a href="mailto:tank-smart@pm.me" style="color:var(--orange);text-decoration:none">tank-smart@pm.me</a>
@@ -1448,6 +1450,9 @@ function applyLang() {
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[lang] || _pl.en;
   document.getElementById('privacy-link').href = 'privacy.html?lang=' + lang;
+  var _wl = {en:'Winter tyres in Europe', sl:'Zimska oprema po Evropi', hr:'Zimska oprema u Europi', de:'Winterreifen in Europa', es:'Neumáticos de invierno en Europa', it:'Gomme invernali in Europa', cs:'Zimní pneumatiky v Evropě', uk:'Зимові шини в Європі'};
+  document.getElementById('winter-link').textContent = _wl[lang] || _wl.en;
+  document.getElementById('winter-link').href = 'winter-tyres.html?lang=' + lang;
   var ftc = document.getElementById('fuelTypeCompare');
   var ft = document.getElementById('fuelType');
   [ftc,ft].forEach(function(s){if(s){s.options[0].text=t.f95;s.options[1].text=t.f98;s.options[2].text=t.fd;}});
