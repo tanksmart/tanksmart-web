@@ -5,7 +5,7 @@ Format: Ime (SLO / EN / HR-SRB-BIH) | Bencin 95 | Bencin 98 | Diesel  [vse v EUR
 === Balkan ===
 Slovenija / Slovenia / Slovenija: B95=1.626, B98=1.837, Diesel=1.949
 Hrvaška / Croatia / Hrvatska: B95=1.690, B98=1.910, Diesel=1.890
-Bosna in H. / Bosnia & Herz. / Bosna i H.: B95=1.728, B98=1.953, Diesel=1.933
+Bosna in H. / Bosnia & Herz. / Bosna i H.: B95=1.698, B98=1.919, Diesel=1.953
 Srbija / Serbia / Srbija: B95=1.770, B98=2.000, Diesel=2.020
 Sev. Makedonija / N. Macedonia / S. Makedonija: B95=1.480, B98=1.672, Diesel=1.610
 Črna Gora / Montenegro / Crna Gora: B95=1.750, B98=1.977, Diesel=1.850
@@ -22,7 +22,7 @@ Slovaška / Slovakia / Slovačka: B95=1.885, B98=n/a, Diesel=1.952
 Poljska / Poland / Poljska: B95=1.560, B98=n/a, Diesel=1.790
 
 === Southern Europe ===
-Italija / Italy / Italija: B95=2.017, B98=2.279, Diesel=2.261
+Italija / Italy / Italija: B95=2.010, B98=2.271, Diesel=2.241
 Grčija / Greece / Grčka: B95=2.143, B98=n/a, Diesel=2.127
 Španija / Spain / Španjolska: B95=1.780, B98=2.011, Diesel=1.889
 Portugalska / Portugal / Portugal: B95=2.099, B98=2.372, Diesel=2.175
