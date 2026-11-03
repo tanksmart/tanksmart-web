@@ -722,6 +722,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
   </div>
 
+  <p style="text-align:center;margin-top:40px;font-size:0.8rem"><a href="privacy.html" id="privacy-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Privacy</a></p>
 </main>
 
 <script>
@@ -759,6 +760,9 @@ function setLang(l) {
   document.getElementById('kofi-btn').textContent = kofiTexts[l].btn;
   document.title = pageTitles[l] || pageTitles.en;
   document.documentElement.lang = l;
+  var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
+  document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
+  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
   document.querySelectorAll('.lang-link').forEach(a => { a.href = 'index.html?lang=' + l; });
 }
 document.addEventListener('DOMContentLoaded', function() {

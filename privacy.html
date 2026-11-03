@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy | TankSmart</title>
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/logo/favicon-180.png">
+<meta name="description" content="What TankSmart stores, which services it uses (Google Analytics, Google AdSense, Netlify) and how to contact me about your data.">
+<meta name="author" content="TankSmart">
+<meta property="og:title" content="Privacy | TankSmart">
+<meta property="og:description" content="What TankSmart stores and which services it uses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tanksmart.eu/privacy.html">
+<link rel="canonical" href="https://tanksmart.eu/privacy.html">
+<meta name="google-site-verification" content="acx_DVhwnb23Ej65PcwssD-63N3sdqYMKsiMqGZiBKE" />
+<meta name="google-site-verification" content="vXxjpm2MInLPAoBD0eWskdH50QsaMvK0BpokGEbnQEw" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89GFL248FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-89GFL248FV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3494450722238693" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#13161b;--bg2:#1a1f26;--bg3:#0f1217;
+  --border:rgba(255,255,255,0.08);--text:#eef1f5;--text2:#98a1ac;--text3:#656d78;
+  --orange:#f2c744;--orange-dim:#3a3320;
+  --sky:#5fa8d3;--sky-dim:#132933;
+  --green:#6fab7f;--red:#c6604f;
+  --r:0px;--rs:0px;--rxs:0px;
+  --font-head:'Big Shoulders Display',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:60px}
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
+.road-line{height:8px;background:repeating-linear-gradient(90deg,var(--orange) 0 22px,transparent 22px 40px);opacity:0.55}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--orange);border-radius:0;font-size:20px;flex-shrink:0}
+.logo-text{font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:#ecebe6;letter-spacing:-0.3px}
+.logo-text .accent{color:var(--orange)}
+.lang-select-wrap{flex:1;min-width:0;max-width:220px}
+.lang-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:var(--rxs);font-size:0.82rem;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;padding-right:28px}
+.lang-select:hover{border-color:var(--orange)}
+@media (max-width:480px){
+  header{padding:10px 12px;gap:8px}
+  .logo-text{display:none}
+}
+main{max-width:680px;margin:0 auto;padding:32px 20px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:0.85rem;margin-bottom:28px;transition:color .15s}
+.back-link:hover{color:var(--orange)}
+.article-title{font-family:var(--font-head);font-size:1.7rem;font-weight:600;letter-spacing:-0.4px;margin-bottom:8px;line-height:1.3}
+.article-meta{font-size:0.8rem;color:var(--text3);margin-bottom:32px}
+.article-body{font-size:0.97rem;color:var(--text2);line-height:1.85}
+.article-body p{margin-bottom:1.2em}
+.article-body p:last-child{margin-bottom:0}
+.lang-section{display:none}
+.lang-section.active{display:block}
+.divider-lang{border:none;border-top:2px solid var(--border);margin:48px 0}
+.cta-box{background:var(--orange-dim);border:1px solid var(--orange);border-radius:var(--r);padding:20px;margin-top:40px;text-align:center}
+.cta-box p{font-size:0.9rem;color:var(--text2);margin-bottom:12px}
+.cta-btn{display:inline-block;background:var(--orange);color:#1a1a1a;text-decoration:none;padding:10px 24px;border-radius:var(--rs);font-size:0.9rem;font-weight:700;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.kofi-cta{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--orange-dim),var(--bg3));border:1px solid var(--orange);border-radius:var(--rs);padding:14px 16px;margin-bottom:28px}
+.kofi-cta-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.kofi-cta-text{flex-grow:1;min-width:0}
+.kofi-cta-title{font-family:var(--font-head);font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.kofi-cta-desc{font-size:0.72rem;color:var(--text2);line-height:1.4}
+.kofi-cta-btn{flex-shrink:0;background:var(--orange);color:#1a1a1a;border:none;border-radius:0;padding:9px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+@media (max-width:480px){.kofi-cta{padding:12px 14px}}
+.article-body h2{font-family:var(--font-head);font-size:1.15rem;font-weight:600;color:var(--text);margin:1.8em 0 0.5em;letter-spacing:-0.2px}
+.article-body a{color:var(--orange);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo lang-link">
+    <img src="assets/logo/header-square-38.svg" width="38" height="38" alt="" style="flex-shrink:0">
+    <span class="logo-text">Tank<span class="accent">Smart</span></span>
+  </a>
+  <div class="lang-select-wrap">
+    <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="sl">Slovenščina</option>
+      <option value="hr">Hrvatski / Srpski / Bosanski</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="cs">Čeština</option>
+      <option value="uk">Українська</option>
+    </select>
+  </div>
+</header>
+<div class="road-line"></div>
+
+<main>
+  <a href="index.html" class="back-link lang-link" id="back-link">← Back to TankSmart</a>
+
+  <!-- EN -->
+  <div class="lang-section active" id="section-en">
+    <h1 class="article-title">Privacy</h1>
+    <div class="article-meta">Last updated: 3 November 2026</div>
+    <div class="article-body">
+      <p>TankSmart is a small site I run on my own. You don't need an account to use it, and I don't sell anyone's data. Below is a plain list of what the site saves, what it sends to other services, and why.</p>
+      <h2>Who runs the site</h2>
+      <p>I'm the creator of TankSmart, based in Slovenia. For anything about your data, write to <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>What stays in your browser</h2>
+      <p>If you save a vehicle in the calculator, its details are stored only in your own browser (local storage). They never reach me. You can delete them by clearing this site's data in your browser.</p>
+      <h2>Visit statistics (Google Analytics)</h2>
+      <p>I use Google Analytics to see how many people visit, which pages they open and roughly where they come from (country, device, browser). This helps me understand what is useful and what isn't. Google Analytics uses cookies, and the data is processed by Google, which may also transfer it to the United States. I don't see who you are, only totals.</p>
+      <h2>Ads (Google AdSense)</h2>
+      <p>The site is connected to Google AdSense so it can show ads in the future. When ads are shown, Google and its partners can use cookies to show ads, including ads based on your earlier visits to other sites. You can turn off personalised ads at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. How Google uses data from sites like this one is explained at <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Feedback form</h2>
+      <p>If you send feedback through the form, I receive your message, the page and language it was sent from and, if you add one, a screenshot. The screenshot shows the page as it looked on your screen, including anything typed into the calculator. The form doesn't ask for your name or email. Messages are stored by Netlify, the company that hosts the site. I only use them to fix and improve the site. If you want a message deleted, write to me.</p>
+      <h2>Email</h2>
+      <p>If you write to <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, I get your email address and whatever you write. I use it only to reply to you. The mailbox is hosted by Proton Mail.</p>
+      <h2>Other services the site loads</h2>
+      <p>The site is hosted by Netlify, which keeps short technical logs of requests (such as your IP address) to run and protect the service. Fonts are loaded from Google Fonts, and one small script (used for the feedback screenshot) from cdnjs, run by Cloudflare. When your browser loads these files, those services see your IP address, as they would with any website.</p>
+      <h2>Links to other sites</h2>
+      <p>TankSmart links to other sites, such as Ko-fi, official vignette shops and the fuel price sources. Once you go there, their own privacy rules apply.</p>
+      <h2>Cookies</h2>
+      <p>TankSmart itself doesn't set cookies. Cookies come from Google Analytics and Google AdSense, described above. You can block or delete them in your browser settings at any time.</p>
+      <h2>Your rights</h2>
+      <p>Under the GDPR you can ask what data I have about you, ask me to correct or delete it, or object to how it is used. Write to <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. For data held by Google, you can also use your Google account settings. If you think I've handled your data wrongly, you can complain to the Slovenian Information Commissioner (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Changes</h2>
+      <p>If anything here changes, for example when ads go live or I add a new feature, I'll update this page and the date at the top.</p>
+    </div>
+  </div>
+
+  <!-- SL -->
+  <div class="lang-section" id="section-sl">
+    <h1 class="article-title">Zasebnost</h1>
+    <div class="article-meta">Zadnja posodobitev: 3. november 2026</div>
+    <div class="article-body">
+      <p>TankSmart je majhna stran, ki jo vodim sama. Za uporabo ne potrebuješ računa, podatkov pa nikomur ne prodajam. Spodaj je preprost seznam: kaj stran shrani, kaj pošlje drugim storitvam in zakaj.</p>
+      <h2>Kdo vodi stran</h2>
+      <p>Sem ustvarjalka strani TankSmart iz Slovenije. Za vse v zvezi s tvojimi podatki mi piši na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Kaj ostane v tvojem brskalniku</h2>
+      <p>Če v kalkulatorju shraniš vozilo, se podatki o njem shranijo samo v tvojem brskalniku (lokalna shramba). Do mene nikoli ne pridejo. Izbrišeš jih tako, da v brskalniku počistiš podatke te strani.</p>
+      <h2>Statistika obiska (Google Analytics)</h2>
+      <p>Uporabljam Google Analytics, da vidim, koliko ljudi obišče stran, katere strani odprejo in od kod približno prihajajo (država, naprava, brskalnik). Tako vem, kaj je uporabno in kaj ne. Google Analytics uporablja piškotke, podatke pa obdeluje Google, ki jih lahko prenese tudi v ZDA. Kdo si, ne vidim, vidim samo skupne številke.</p>
+      <h2>Oglasi (Google AdSense)</h2>
+      <p>Stran je povezana z Google AdSense, da bo lahko v prihodnje prikazovala oglase. Ko bodo oglasi vklopljeni, lahko Google in njegovi partnerji uporabljajo piškotke za prikaz oglasov, tudi takih, ki temeljijo na tvojih prejšnjih obiskih drugih strani. Prilagojene oglase lahko izklopiš na <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. Kako Google uporablja podatke s takih strani, piše na <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Obrazec za povratne informacije</h2>
+      <p>Če mi pošlješ sporočilo prek obrazca, dobim tvoje sporočilo, podatek, s katere strani in v katerem jeziku je bilo poslano, ter posnetek zaslona, če ga dodaš. Na posnetku je stran takšna, kot je bila na tvojem zaslonu, skupaj z vsem, kar je bilo vpisano v kalkulator. Obrazec ne sprašuje po imenu ali e-pošti. Sporočila hrani Netlify, podjetje, ki gosti stran. Uporabim jih samo za popravke in izboljšave strani. Če želiš, da sporočilo izbrišem, mi piši.</p>
+      <h2>E-pošta</h2>
+      <p>Če mi pišeš na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, dobim tvoj e-poštni naslov in vse, kar napišeš. To uporabim samo za odgovor. Nabiralnik gosti Proton Mail.</p>
+      <h2>Druge storitve, ki jih stran naloži</h2>
+      <p>Stran gosti Netlify, ki za delovanje in zaščito storitve hrani kratke tehnične dnevnike zahtev (na primer tvoj IP naslov). Pisave se naložijo z Google Fonts, ena majhna skripta (za posnetek zaslona v obrazcu) pa s cdnjs, ki ga upravlja Cloudflare. Ko tvoj brskalnik naloži te datoteke, te storitve vidijo tvoj IP naslov, tako kot pri vsaki spletni strani.</p>
+      <h2>Povezave na druge strani</h2>
+      <p>TankSmart vsebuje povezave na druge strani, na primer Ko-fi, uradne prodajalne vinjet in vire cen goriva. Ko greš tja, veljajo njihova pravila o zasebnosti.</p>
+      <h2>Piškotki</h2>
+      <p>TankSmart sam ne nastavlja piškotkov. Piškotki prihajajo od Google Analytics in Google AdSense, ki sta opisana zgoraj. V nastavitvah brskalnika jih lahko kadar koli blokiraš ali izbrišeš.</p>
+      <h2>Tvoje pravice</h2>
+      <p>Po GDPR lahko vprašaš, katere podatke imam o tebi, zahtevaš, da jih popravim ali izbrišem, ali ugovarjaš njihovi uporabi. Piši na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. Za podatke, ki jih hrani Google, lahko uporabiš tudi nastavitve svojega Google računa. Če meniš, da sem s tvojimi podatki ravnala narobe, se lahko pritožiš pri Informacijskem pooblaščencu (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Spremembe</h2>
+      <p>Če se kaj od tega spremeni, na primer ko se vklopijo oglasi ali dodam novo funkcijo, bom posodobila to stran in datum na vrhu.</p>
+    </div>
+  </div>
+
+  <!-- HR -->
+  <div class="lang-section" id="section-hr">
+    <h1 class="article-title">Privatnost</h1>
+    <div class="article-meta">Zadnje ažuriranje: 3. studenoga 2026.</div>
+    <div class="article-body">
+      <p>TankSmart je mala stranica koju vodim sama. Za korištenje ne trebaš račun, a podatke nikome ne prodajem. Ispod je jednostavan popis: što stranica sprema, što šalje drugim uslugama i zašto.</p>
+      <h2>Tko vodi stranicu</h2>
+      <p>Ja sam autorica stranice TankSmart iz Slovenije. Za sve vezano uz tvoje podatke piši mi na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Što ostaje u tvom pregledniku</h2>
+      <p>Ako u kalkulatoru spremiš vozilo, podaci o njemu spremaju se samo u tvom pregledniku (lokalna pohrana). Nikad ne dolaze do mene. Izbrisat ćeš ih ako u pregledniku očistiš podatke ove stranice.</p>
+      <h2>Statistika posjeta (Google Analytics)</h2>
+      <p>Koristim Google Analytics da vidim koliko ljudi posjećuje stranicu, koje stranice otvaraju i otprilike odakle dolaze (zemlja, uređaj, preglednik). Tako znam što je korisno, a što nije. Google Analytics koristi kolačiće, a podatke obrađuje Google, koji ih može prenijeti i u SAD. Ne vidim tko si, vidim samo ukupne brojke.</p>
+      <h2>Oglasi (Google AdSense)</h2>
+      <p>Stranica je povezana s Google AdSenseom kako bi ubuduće mogla prikazivati oglase. Kad oglasi budu uključeni, Google i njegovi partneri mogu koristiti kolačiće za prikaz oglasa, uključujući one temeljene na tvojim ranijim posjetima drugim stranicama. Personalizirane oglase možeš isključiti na <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. Kako Google koristi podatke s ovakvih stranica, objašnjeno je na <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Obrazac za povratne informacije</h2>
+      <p>Ako mi pošalješ poruku preko obrasca, dobivam tvoju poruku, podatak s koje stranice i na kojem jeziku je poslana te snimku zaslona ako je dodaš. Na snimci je stranica onakva kakva je bila na tvom zaslonu, zajedno sa svime što je bilo upisano u kalkulator. Obrazac ne traži ime ni e-mail. Poruke čuva Netlify, tvrtka koja hostira stranicu. Koristim ih samo za popravke i poboljšanja stranice. Ako želiš da poruku izbrišem, javi mi se.</p>
+      <h2>E-mail</h2>
+      <p>Ako mi pišeš na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, dobivam tvoju e-mail adresu i sve što napišeš. To koristim samo da ti odgovorim. Sandučić hostira Proton Mail.</p>
+      <h2>Druge usluge koje stranica učitava</h2>
+      <p>Stranicu hostira Netlify, koji radi rada i zaštite usluge čuva kratke tehničke zapise zahtjeva (na primjer tvoju IP adresu). Fontovi se učitavaju s Google Fonts, a jedna mala skripta (za snimku zaslona u obrascu) s cdnjs-a, kojim upravlja Cloudflare. Kad tvoj preglednik učita te datoteke, te usluge vide tvoju IP adresu, kao i kod svake web stranice.</p>
+      <h2>Poveznice na druge stranice</h2>
+      <p>TankSmart sadrži poveznice na druge stranice, na primjer Ko-fi, službene prodavaonice vinjeta i izvore cijena goriva. Kad odeš tamo, vrijede njihova pravila o privatnosti.</p>
+      <h2>Kolačići</h2>
+      <p>TankSmart sam ne postavlja kolačiće. Kolačići dolaze od Google Analyticsa i Google AdSensea, opisanih gore. U postavkama preglednika možeš ih u bilo kojem trenutku blokirati ili izbrisati.</p>
+      <h2>Tvoja prava</h2>
+      <p>Prema GDPR-u možeš pitati koje podatke imam o tebi, zatražiti da ih ispravim ili izbrišem ili prigovoriti njihovoj upotrebi. Piši na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. Za podatke koje čuva Google možeš koristiti i postavke svog Google računa. Ako misliš da sam s tvojim podacima postupila pogrešno, možeš se žaliti slovenskom Povjereniku za informacije (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Promjene</h2>
+      <p>Ako se nešto od ovoga promijeni, na primjer kad se uključe oglasi ili dodam novu funkciju, ažurirat ću ovu stranicu i datum na vrhu.</p>
+    </div>
+  </div>
+
+  <!-- DE -->
+  <div class="lang-section" id="section-de">
+    <h1 class="article-title">Datenschutz</h1>
+    <div class="article-meta">Zuletzt aktualisiert: 3. November 2026</div>
+    <div class="article-body">
+      <p>TankSmart ist eine kleine Seite, die ich allein betreibe. Du brauchst kein Konto, um sie zu nutzen, und ich verkaufe keine Daten. Hier steht in einfachen Worten, was die Seite speichert, was sie an andere Dienste schickt und warum.</p>
+      <h2>Wer die Seite betreibt</h2>
+      <p>Ich bin die Erstellerin von TankSmart und lebe in Slowenien. Bei Fragen zu deinen Daten schreib mir an <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Was in deinem Browser bleibt</h2>
+      <p>Wenn du im Rechner ein Fahrzeug speicherst, werden die Angaben nur in deinem eigenen Browser gespeichert (Local Storage). Sie kommen nie bei mir an. Du kannst sie löschen, indem du die Daten dieser Seite in deinem Browser löschst.</p>
+      <h2>Besucherstatistik (Google Analytics)</h2>
+      <p>Ich nutze Google Analytics, um zu sehen, wie viele Menschen die Seite besuchen, welche Seiten sie öffnen und ungefähr woher sie kommen (Land, Gerät, Browser). So weiß ich, was nützlich ist und was nicht. Google Analytics verwendet Cookies, und die Daten verarbeitet Google, das sie auch in die USA übertragen kann. Ich sehe nicht, wer du bist, nur Gesamtzahlen.</p>
+      <h2>Werbung (Google AdSense)</h2>
+      <p>Die Seite ist mit Google AdSense verbunden, damit sie künftig Werbung zeigen kann. Sobald Anzeigen laufen, können Google und seine Partner Cookies verwenden, um Anzeigen zu zeigen, auch solche, die auf deinen früheren Besuchen anderer Seiten beruhen. Personalisierte Werbung kannst du unter <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a> abschalten. Wie Google Daten von solchen Seiten nutzt, steht unter <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Feedback-Formular</h2>
+      <p>Wenn du mir über das Formular Feedback schickst, bekomme ich deine Nachricht, die Info, von welcher Seite und in welcher Sprache sie kam, und einen Screenshot, falls du einen anhängst. Der Screenshot zeigt die Seite so, wie sie auf deinem Bildschirm aussah, einschließlich allem, was im Rechner eingetragen war. Das Formular fragt nicht nach Name oder E-Mail. Die Nachrichten speichert Netlify, die Firma, die die Seite hostet. Ich nutze sie nur, um die Seite zu reparieren und zu verbessern. Wenn ich eine Nachricht löschen soll, schreib mir.</p>
+      <h2>E-Mail</h2>
+      <p>Wenn du an <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a> schreibst, bekomme ich deine E-Mail-Adresse und alles, was du schreibst. Ich nutze das nur, um dir zu antworten. Das Postfach liegt bei Proton Mail.</p>
+      <h2>Weitere Dienste, die die Seite lädt</h2>
+      <p>Die Seite wird von Netlify gehostet. Netlify speichert für Betrieb und Schutz des Dienstes kurze technische Protokolle der Anfragen (zum Beispiel deine IP-Adresse). Die Schriften werden von Google Fonts geladen und ein kleines Skript (für den Screenshot im Formular) von cdnjs, das Cloudflare betreibt. Wenn dein Browser diese Dateien lädt, sehen diese Dienste deine IP-Adresse, wie bei jeder Website.</p>
+      <h2>Links zu anderen Seiten</h2>
+      <p>TankSmart verlinkt auf andere Seiten, zum Beispiel Ko-fi, offizielle Vignetten-Shops und die Quellen der Kraftstoffpreise. Dort gelten deren eigene Datenschutzregeln.</p>
+      <h2>Cookies</h2>
+      <p>TankSmart selbst setzt keine Cookies. Cookies kommen von Google Analytics und Google AdSense, wie oben beschrieben. Du kannst sie jederzeit in deinen Browsereinstellungen blockieren oder löschen.</p>
+      <h2>Deine Rechte</h2>
+      <p>Nach der DSGVO kannst du fragen, welche Daten ich über dich habe, verlangen, dass ich sie berichtige oder lösche, oder ihrer Nutzung widersprechen. Schreib an <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. Für Daten bei Google kannst du auch die Einstellungen deines Google-Kontos nutzen. Wenn du meinst, dass ich mit deinen Daten falsch umgegangen bin, kannst du dich beim slowenischen Informationsbeauftragten beschweren (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Änderungen</h2>
+      <p>Wenn sich hier etwas ändert, zum Beispiel wenn Anzeigen starten oder ich eine neue Funktion hinzufüge, aktualisiere ich diese Seite und das Datum oben.</p>
+    </div>
+  </div>
+
+  <!-- ES -->
+  <div class="lang-section" id="section-es">
+    <h1 class="article-title">Privacidad</h1>
+    <div class="article-meta">Última actualización: 3 de noviembre de 2026</div>
+    <div class="article-body">
+      <p>TankSmart es un sitio pequeño que llevo yo sola. No necesitas una cuenta para usarlo y no vendo datos a nadie. Aquí explico, de forma sencilla, qué guarda el sitio, qué envía a otros servicios y por qué.</p>
+      <h2>Quién lleva el sitio</h2>
+      <p>Soy la creadora de TankSmart y vivo en Eslovenia. Para cualquier cosa sobre tus datos, escríbeme a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Qué se queda en tu navegador</h2>
+      <p>Si guardas un vehículo en la calculadora, sus datos se guardan solo en tu propio navegador (almacenamiento local). Nunca me llegan a mí. Puedes borrarlos eliminando los datos de este sitio en tu navegador.</p>
+      <h2>Estadísticas de visitas (Google Analytics)</h2>
+      <p>Uso Google Analytics para ver cuántas personas visitan el sitio, qué páginas abren y, más o menos, de dónde vienen (país, dispositivo, navegador). Así sé qué resulta útil y qué no. Google Analytics usa cookies y los datos los trata Google, que también puede transferirlos a Estados Unidos. No veo quién eres, solo cifras totales.</p>
+      <h2>Anuncios (Google AdSense)</h2>
+      <p>El sitio está conectado a Google AdSense para poder mostrar anuncios en el futuro. Cuando haya anuncios, Google y sus socios pueden usar cookies para mostrarlos, incluidos anuncios basados en tus visitas anteriores a otros sitios. Puedes desactivar los anuncios personalizados en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. Cómo usa Google los datos de sitios como este se explica en <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Formulario de comentarios</h2>
+      <p>Si me envías un comentario con el formulario, recibo tu mensaje, desde qué página y en qué idioma se envió y, si la añades, una captura de pantalla. La captura muestra la página tal como se veía en tu pantalla, incluido lo que estuviera escrito en la calculadora. El formulario no pide nombre ni correo. Los mensajes los guarda Netlify, la empresa que aloja el sitio. Solo los uso para arreglar y mejorar el sitio. Si quieres que borre un mensaje, escríbeme.</p>
+      <h2>Correo electrónico</h2>
+      <p>Si me escribes a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, recibo tu dirección de correo y lo que escribas. Solo lo uso para responderte. El buzón está en Proton Mail.</p>
+      <h2>Otros servicios que carga el sitio</h2>
+      <p>El sitio está alojado en Netlify, que guarda registros técnicos breves de las solicitudes (por ejemplo, tu dirección IP) para que el servicio funcione y esté protegido. Las fuentes se cargan desde Google Fonts y un pequeño script (para la captura del formulario) desde cdnjs, que gestiona Cloudflare. Cuando tu navegador carga esos archivos, esos servicios ven tu dirección IP, como en cualquier web.</p>
+      <h2>Enlaces a otros sitios</h2>
+      <p>TankSmart enlaza a otros sitios, como Ko-fi, las tiendas oficiales de viñetas y las fuentes de precios de combustible. Cuando entras en ellos, se aplican sus propias normas de privacidad.</p>
+      <h2>Cookies</h2>
+      <p>TankSmart no pone cookies propias. Las cookies vienen de Google Analytics y Google AdSense, descritos arriba. Puedes bloquearlas o borrarlas cuando quieras en la configuración de tu navegador.</p>
+      <h2>Tus derechos</h2>
+      <p>Según el RGPD puedes preguntar qué datos tengo sobre ti, pedir que los corrija o los borre, u oponerte a su uso. Escribe a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. Para los datos que guarda Google, también puedes usar los ajustes de tu cuenta de Google. Si crees que he tratado mal tus datos, puedes reclamar ante el Comisionado de Información de Eslovenia (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Cambios</h2>
+      <p>Si algo de esto cambia, por ejemplo cuando se activen los anuncios o añada una función nueva, actualizaré esta página y la fecha de arriba.</p>
+    </div>
+  </div>
+
+  <!-- IT -->
+  <div class="lang-section" id="section-it">
+    <h1 class="article-title">Privacy</h1>
+    <div class="article-meta">Ultimo aggiornamento: 3 novembre 2026</div>
+    <div class="article-body">
+      <p>TankSmart è un piccolo sito che gestisco da sola. Non serve un account per usarlo e non vendo i dati di nessuno. Qui sotto spiego in modo semplice cosa salva il sito, cosa invia ad altri servizi e perché.</p>
+      <h2>Chi gestisce il sito</h2>
+      <p>Sono la creatrice di TankSmart e vivo in Slovenia. Per qualsiasi cosa riguardi i tuoi dati, scrivimi a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Cosa resta nel tuo browser</h2>
+      <p>Se salvi un veicolo nel calcolatore, i suoi dati restano solo nel tuo browser (archiviazione locale). Non arrivano mai a me. Puoi cancellarli eliminando i dati di questo sito nel tuo browser.</p>
+      <h2>Statistiche delle visite (Google Analytics)</h2>
+      <p>Uso Google Analytics per vedere quante persone visitano il sito, quali pagine aprono e, più o meno, da dove arrivano (paese, dispositivo, browser). Così capisco cosa è utile e cosa no. Google Analytics usa i cookie e i dati sono trattati da Google, che può trasferirli anche negli Stati Uniti. Non vedo chi sei, solo numeri complessivi.</p>
+      <h2>Annunci (Google AdSense)</h2>
+      <p>Il sito è collegato a Google AdSense per poter mostrare annunci in futuro. Quando gli annunci saranno attivi, Google e i suoi partner potranno usare i cookie per mostrarli, anche in base alle tue visite precedenti su altri siti. Puoi disattivare gli annunci personalizzati su <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. Come Google usa i dati di siti come questo è spiegato su <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Modulo di feedback</h2>
+      <p>Se mi mandi un feedback con il modulo, ricevo il tuo messaggio, da quale pagina e in quale lingua è stato inviato e, se la aggiungi, una schermata. La schermata mostra la pagina come appariva sul tuo schermo, compreso quello che era scritto nel calcolatore. Il modulo non chiede nome né email. I messaggi sono conservati da Netlify, l'azienda che ospita il sito. Li uso solo per correggere e migliorare il sito. Se vuoi che cancelli un messaggio, scrivimi.</p>
+      <h2>Email</h2>
+      <p>Se mi scrivi a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, ricevo il tuo indirizzo email e quello che scrivi. Lo uso solo per risponderti. La casella è su Proton Mail.</p>
+      <h2>Altri servizi caricati dal sito</h2>
+      <p>Il sito è ospitato da Netlify, che conserva brevi registri tecnici delle richieste (per esempio il tuo indirizzo IP) per far funzionare e proteggere il servizio. I font vengono caricati da Google Fonts e un piccolo script (per la schermata del modulo) da cdnjs, gestito da Cloudflare. Quando il tuo browser carica questi file, questi servizi vedono il tuo indirizzo IP, come con qualsiasi sito.</p>
+      <h2>Link ad altri siti</h2>
+      <p>TankSmart contiene link ad altri siti, per esempio Ko-fi, i negozi ufficiali delle vignette e le fonti dei prezzi del carburante. Quando vai lì, valgono le loro regole sulla privacy.</p>
+      <h2>Cookie</h2>
+      <p>TankSmart non imposta cookie propri. I cookie arrivano da Google Analytics e Google AdSense, descritti sopra. Puoi bloccarli o cancellarli quando vuoi nelle impostazioni del browser.</p>
+      <h2>I tuoi diritti</h2>
+      <p>Secondo il GDPR puoi chiedere quali dati ho su di te, chiedere di correggerli o cancellarli, oppure opporti al loro uso. Scrivi a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. Per i dati conservati da Google puoi usare anche le impostazioni del tuo account Google. Se pensi che abbia trattato male i tuoi dati, puoi presentare un reclamo al Commissario per l'informazione della Slovenia (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Modifiche</h2>
+      <p>Se qualcosa cambia, per esempio quando partiranno gli annunci o aggiungerò una nuova funzione, aggiornerò questa pagina e la data in alto.</p>
+    </div>
+  </div>
+
+  <!-- CS -->
+  <div class="lang-section" id="section-cs">
+    <h1 class="article-title">Ochrana soukromí</h1>
+    <div class="article-meta">Naposledy aktualizováno: 3. listopadu 2026</div>
+    <div class="article-body">
+      <p>TankSmart je malý web, který provozuji sama. K používání nepotřebuješ účet a ničí data neprodávám. Níže je jednoduchý přehled: co web ukládá, co posílá jiným službám a proč.</p>
+      <h2>Kdo web provozuje</h2>
+      <p>Jsem autorka webu TankSmart a žiju ve Slovinsku. S čímkoli ohledně tvých údajů mi napiš na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Co zůstává v tvém prohlížeči</h2>
+      <p>Když si v kalkulačce uložíš vozidlo, údaje o něm se uloží jen v tvém prohlížeči (místní úložiště). Ke mně se nikdy nedostanou. Smažeš je tak, že v prohlížeči vymažeš data tohoto webu.</p>
+      <h2>Statistika návštěvnosti (Google Analytics)</h2>
+      <p>Používám Google Analytics, abych viděla, kolik lidí web navštíví, které stránky otevírají a zhruba odkud přicházejí (země, zařízení, prohlížeč). Díky tomu vím, co je užitečné a co ne. Google Analytics používá cookies a data zpracovává Google, který je může přenášet i do USA. Nevidím, kdo jsi, jen celková čísla.</p>
+      <h2>Reklamy (Google AdSense)</h2>
+      <p>Web je propojený s Google AdSense, aby mohl v budoucnu zobrazovat reklamy. Až budou reklamy zapnuté, Google a jeho partneři mohou používat cookies k zobrazování reklam, včetně reklam podle tvých dřívějších návštěv jiných webů. Personalizované reklamy si můžeš vypnout na <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. Jak Google používá data z takových webů, je vysvětleno na <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Formulář zpětné vazby</h2>
+      <p>Když mi pošleš zpětnou vazbu přes formulář, dostanu tvou zprávu, informaci, z jaké stránky a v jakém jazyce byla odeslána, a snímek obrazovky, pokud ho přidáš. Snímek ukazuje stránku tak, jak vypadala na tvé obrazovce, včetně všeho, co bylo zapsané v kalkulačce. Formulář se neptá na jméno ani e-mail. Zprávy uchovává Netlify, firma, která web hostuje. Používám je jen k opravám a vylepšení webu. Pokud chceš, abych zprávu smazala, napiš mi.</p>
+      <h2>E-mail</h2>
+      <p>Když mi napíšeš na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, dostanu tvou e-mailovou adresu a vše, co napíšeš. Použiju to jen k odpovědi. Schránka běží na Proton Mail.</p>
+      <h2>Další služby, které web načítá</h2>
+      <p>Web hostuje Netlify, který kvůli provozu a ochraně služby uchovává krátké technické záznamy požadavků (například tvou IP adresu). Písma se načítají z Google Fonts a jeden malý skript (pro snímek obrazovky ve formuláři) z cdnjs, který provozuje Cloudflare. Když tvůj prohlížeč tyto soubory načte, tyto služby vidí tvou IP adresu, stejně jako u každého webu.</p>
+      <h2>Odkazy na jiné weby</h2>
+      <p>TankSmart odkazuje na jiné weby, například Ko-fi, oficiální prodejny dálničních známek a zdroje cen paliv. Jakmile tam přejdeš, platí jejich vlastní pravidla ochrany soukromí.</p>
+      <h2>Cookies</h2>
+      <p>TankSmart sám žádné cookies nenastavuje. Cookies pocházejí z Google Analytics a Google AdSense, popsaných výše. V nastavení prohlížeče je můžeš kdykoli zablokovat nebo smazat.</p>
+      <h2>Tvoje práva</h2>
+      <p>Podle GDPR se můžeš zeptat, jaké údaje o tobě mám, požádat o jejich opravu nebo smazání, nebo vznést námitku proti jejich použití. Napiš na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. U údajů, které má Google, můžeš použít i nastavení svého účtu Google. Pokud si myslíš, že jsem s tvými údaji naložila špatně, můžeš si stěžovat u slovinského Informačního zmocněnce (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Změny</h2>
+      <p>Pokud se tu něco změní, například až se zapnou reklamy nebo přidám novou funkci, aktualizuji tuto stránku i datum nahoře.</p>
+    </div>
+  </div>
+
+  <!-- UK -->
+  <div class="lang-section" id="section-uk">
+    <h1 class="article-title">Конфіденційність</h1>
+    <div class="article-meta">Останнє оновлення: 3 листопада 2026</div>
+    <div class="article-body">
+      <p>TankSmart є невеликим сайтом, який я веду сама. Щоб ним користуватися, обліковий запис не потрібен, і я нікому не продаю дані. Нижче простий перелік: що сайт зберігає, що надсилає іншим сервісам і навіщо.</p>
+      <h2>Хто веде сайт</h2>
+      <p>Я авторка TankSmart, живу в Словенії. З усіх питань щодо твоїх даних пиши мені на <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+      <h2>Що залишається у твоєму браузері</h2>
+      <p>Якщо ти зберігаєш транспортний засіб у калькуляторі, дані про нього зберігаються лише у твоєму браузері (локальне сховище). До мене вони ніколи не потрапляють. Видалити їх можна, очистивши дані цього сайту в браузері.</p>
+      <h2>Статистика відвідувань (Google Analytics)</h2>
+      <p>Я використовую Google Analytics, щоб бачити, скільки людей відвідує сайт, які сторінки вони відкривають і приблизно звідки приходять (країна, пристрій, браузер). Так я розумію, що корисне, а що ні. Google Analytics використовує файли cookie, а дані обробляє Google, який може передавати їх і до США. Я не бачу, хто ти, лише загальні цифри.</p>
+      <h2>Реклама (Google AdSense)</h2>
+      <p>Сайт підключено до Google AdSense, щоб у майбутньому показувати рекламу. Коли реклама запрацює, Google та його партнери можуть використовувати файли cookie для показу реклами, зокрема на основі твоїх попередніх відвідин інших сайтів. Персоналізовану рекламу можна вимкнути на <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>. Як Google використовує дані з таких сайтів, пояснено на <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+      <h2>Форма відгуку</h2>
+      <p>Якщо ти надсилаєш відгук через форму, я отримую твоє повідомлення, інформацію, з якої сторінки і якою мовою його надіслано, а також знімок екрана, якщо ти його додаси. На знімку видно сторінку такою, якою вона була на твоєму екрані, разом з усім, що було введено в калькулятор. Форма не запитує ім'я чи e-mail. Повідомлення зберігає Netlify, компанія, яка хостить сайт. Я використовую їх лише для виправлень і покращень сайту. Якщо хочеш, щоб я видалила повідомлення, напиши мені.</p>
+      <h2>E-mail</h2>
+      <p>Якщо ти пишеш на <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>, я отримую твою адресу e-mail і все, що ти напишеш. Використовую це лише для відповіді. Поштова скринька працює на Proton Mail.</p>
+      <h2>Інші сервіси, які завантажує сайт</h2>
+      <p>Сайт розміщено на Netlify, який для роботи та захисту сервісу зберігає короткі технічні журнали запитів (наприклад, твою IP-адресу). Шрифти завантажуються з Google Fonts, а один невеликий скрипт (для знімка екрана у формі) з cdnjs, яким керує Cloudflare. Коли твій браузер завантажує ці файли, ці сервіси бачать твою IP-адресу, як і на будь-якому сайті.</p>
+      <h2>Посилання на інші сайти</h2>
+      <p>TankSmart містить посилання на інші сайти, наприклад Ko-fi, офіційні магазини віньєток і джерела цін на пальне. Коли ти переходиш туди, діють їхні власні правила конфіденційності.</p>
+      <h2>Файли cookie</h2>
+      <p>Сам TankSmart не встановлює файлів cookie. Вони походять від Google Analytics і Google AdSense, описаних вище. Ти можеш будь-коли заблокувати або видалити їх у налаштуваннях браузера.</p>
+      <h2>Твої права</h2>
+      <p>Згідно з GDPR ти можеш запитати, які дані про тебе я маю, попросити їх виправити чи видалити або заперечити проти їх використання. Пиши на <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>. Для даних, які зберігає Google, можна також скористатися налаштуваннями свого облікового запису Google. Якщо вважаєш, що я неправильно повелася з твоїми даними, можеш поскаржитися Інформаційному уповноваженому Словенії (<a href="https://www.ip-rs.si" target="_blank" rel="noopener">ip-rs.si</a>).</p>
+      <h2>Зміни</h2>
+      <p>Якщо щось тут зміниться, наприклад коли запрацює реклама або я додам нову функцію, я оновлю цю сторінку і дату вгорі.</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+let lang = 'en';
+const pageTitles = {
+  en: 'Privacy | TankSmart',
+  sl: 'Zasebnost | TankSmart',
+  hr: 'Privatnost | TankSmart',
+  de: 'Datenschutz | TankSmart',
+  es: 'Privacidad | TankSmart',
+  it: 'Privacy | TankSmart',
+  cs: 'Ochrana soukromí | TankSmart',
+  uk: 'Конфіденційність | TankSmart'
+};
+function setLang(l) {
+  lang = l;
+  var sel = document.getElementById('lang-select');
+  if (sel) sel.value = l;
+  document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-'+l).classList.add('active');
+  const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart', de:'← Zurück zu TankSmart', es:'← Volver a TankSmart', it:'← Torna a TankSmart', cs:'← Zpět na TankSmart', uk:'← Назад до TankSmart'};
+  document.getElementById('back-link').textContent = backTexts[l];
+  document.title = pageTitles[l] || pageTitles.en;
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-link').forEach(a => { a.href = 'index.html?lang=' + l; });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var urlLang = null;
+  try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
+  setLang((['en','sl','hr','de','es','it','cs','uk'].indexOf(urlLang) !== -1) ? urlLang : 'en');
+});
+</script>
+</body>
+</html>
