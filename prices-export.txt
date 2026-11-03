@@ -1,10 +1,10 @@
 TankSmart - trenutne cene goriva (za IG grafike / Claude Design)
-Zadnja posodobitev: 2026-10-27 (osveži se avtomatsko vsak torek)
+Zadnja posodobitev: 2026-11-03 (osveži se avtomatsko vsak torek)
 Format: Ime (SLO / EN / HR-SRB-BIH) | Bencin 95 | Bencin 98 | Diesel  [vse v EUR/l]
 
 === Balkan ===
-Slovenija / Slovenia / Slovenija: B95=1.627, B98=1.839, Diesel=1.935
-Hrvaška / Croatia / Hrvatska: B95=1.690, B98=1.910, Diesel=1.880
+Slovenija / Slovenia / Slovenija: B95=1.626, B98=1.837, Diesel=1.949
+Hrvaška / Croatia / Hrvatska: B95=1.690, B98=1.910, Diesel=1.890
 Bosna in H. / Bosnia & Herz. / Bosna i H.: B95=1.728, B98=1.953, Diesel=1.933
 Srbija / Serbia / Srbija: B95=1.770, B98=2.000, Diesel=2.020
 Sev. Makedonija / N. Macedonia / S. Makedonija: B95=1.480, B98=1.672, Diesel=1.610
@@ -13,9 +13,9 @@ Kosovo / Kosovo / Kosovo: B95=1.380, B98=n/a, Diesel=1.450
 Albanija / Albania / Albanija: B95=2.230, B98=n/a, Diesel=2.382
 
 === Central Europe ===
-Avstrija / Austria / Austrija: B95=1.817, B98=2.053, Diesel=2.132
-Madžarska / Hungary / Mađarska: B95=1.756, B98=n/a, Diesel=1.931
-Bolgarija / Bulgaria / Bugarska: B95=1.620, B98=1.831, Diesel=1.910
+Avstrija / Austria / Austrija: B95=1.747, B98=1.974, Diesel=2.148
+Madžarska / Hungary / Mađarska: B95=1.751, B98=n/a, Diesel=1.992
+Bolgarija / Bulgaria / Bugarska: B95=1.610, B98=1.819, Diesel=1.920
 Romunija / Romania / Rumunjska: B95=1.895, B98=n/a, Diesel=2.044
 Češka / Czechia / Češka: B95=1.862, B98=n/a, Diesel=1.953
 Slovaška / Slovakia / Slovačka: B95=1.885, B98=n/a, Diesel=1.952
@@ -29,7 +29,7 @@ Portugalska / Portugal / Portugal: B95=2.099, B98=2.372, Diesel=2.175
 
 === Western Europe ===
 Nemčija / Germany / Njemačka: B95=2.179, B98=2.462, Diesel=2.266
-Švica / Switzerland / Švicarska: B95=2.395, B98=2.706, Diesel=2.539
+Švica / Switzerland / Švicarska: B95=2.387, B98=2.697, Diesel=2.551
 Francija / France / Francuska: B95=2.229, B98=2.519, Diesel=2.346
 Nizozemska / Netherlands / Nizozemska: B95=2.391, B98=2.702, Diesel=2.456
 Belgija / Belgium / Belgija: B95=1.989, B98=2.248, Diesel=2.351
