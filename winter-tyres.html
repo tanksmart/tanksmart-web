@@ -2576,7 +2576,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     <div class="wnores">Країну не знайдено.</div>
     <p class="wout">Я зібрала цю сторінку з офіційних джерел і даних автоклубів. Якщо помітиш помилку або правило, що змінилося, напиши мені на <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
   </div>
-  <p style="text-align:center;margin-top:40px;font-size:0.8rem"><a href="privacy.html" id="privacy-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Privacy</a></p>
+  <p class="subnav" style="text-align:center;margin-top:40px;font-size:0.8rem;color:var(--text3)"><a href="guides.html" id="guides-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Travel guides</a> &nbsp;·&nbsp; <a href="privacy.html" id="privacy-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Privacy</a></p>
 </main>
 
 <script>
@@ -2612,6 +2612,9 @@ function setLang(l) {
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
   document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  var _gl = {en:'Travel guides', sl:'Vodniki za pot', hr:'Vodiči za put', de:'Reiseratgeber', es:'Guías de viaje', it:'Guide di viaggio', cs:'Cestovní průvodci', uk:'Дорожні поради'};
+  document.getElementById('guides-link').textContent = _gl[l] || _gl.en;
+  document.getElementById('guides-link').href = 'guides.html?lang=' + l;
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;
