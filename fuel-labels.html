@@ -115,7 +115,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
 <div class="road-line"></div>
 
 <main>
-  <a href="index.html" class="back-link lang-link" id="back-link">← Back to TankSmart</a>
+  <a href="guides.html" class="back-link" id="back-link">← Back to travel guides</a>
 
   <!-- EN -->
   <div class="lang-section active" id="section-en">
@@ -980,7 +980,7 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
     </div>
     <p class="wout">Я зібрала цю сторінку з офіційних джерел, даних автоклубів і галузевих асоціацій. Якщо помітиш помилку або щось, що змінилося, напиши мені на <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
   </div>
-  <p class="subnav" style="text-align:center;margin-top:40px;font-size:0.8rem;color:var(--text3)"><a href="guides.html" id="guides-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Travel guides</a> &nbsp;·&nbsp; <a href="privacy.html" id="privacy-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Privacy</a></p>
+  <p class="subnav" style="text-align:center;margin-top:40px;font-size:0.8rem;color:var(--text3)"><a href="guides.html" id="guides-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Travel guides</a><span style="display:inline-block;width:1px;height:0.85em;background:var(--border);margin:0 12px;vertical-align:middle"></span><a href="privacy.html" id="privacy-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Privacy</a></p>
 </main>
 
 <script>
@@ -1001,8 +1001,9 @@ function setLang(l) {
   if (sel) sel.value = l;
   document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-'+l).classList.add('active');
-  const backTexts = {en:'← Back to TankSmart', sl:'← Nazaj na TankSmart', hr:'← Natrag na TankSmart', de:'← Zurück zu TankSmart', es:'← Volver a TankSmart', it:'← Torna a TankSmart', cs:'← Zpět na TankSmart', uk:'← Назад до TankSmart'};
+  const backTexts = {en:'← Back to travel guides', sl:'← Nazaj na vodnike za pot', hr:'← Natrag na vodiče za put', de:'← Zurück zu den Reiseratgebern', es:'← Volver a las guías de viaje', it:'← Torna alle guide di viaggio', cs:'← Zpět na cestovní průvodce', uk:'← Назад до дорожніх порад'};
   document.getElementById('back-link').textContent = backTexts[l];
+  document.getElementById('back-link').href = 'guides.html?lang=' + l;
   document.title = pageTitles[l] || pageTitles.en;
   document.documentElement.lang = l;
   document.querySelectorAll('.lang-link').forEach(a => { a.href = 'index.html?lang=' + l; });
