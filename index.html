@@ -366,6 +366,10 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   <br>
   <a href="car-equipment.html" id="kit-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px">Mandatory car equipment</a>
   <br>
+  <a href="fuel-jerrycan.html" id="jerry-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px">Fuel in a jerrycan across borders</a>
+  <br>
+  <a href="fuel-labels.html" id="labels-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px">Fuel labels E5, E10, B7, HVO</a>
+  <br>
   <a href="privacy.html" id="privacy-link" style="font-size:0.82rem;color:var(--text3);text-decoration:underline;text-underline-offset:2px;display:inline-block;margin-top:6px">Privacy</a>
   <p style="font-size:0.78rem;color:var(--text3);margin-top:16px">
     <span id="footer-contact-label"></span> <a href="mailto:tank-smart@pm.me" style="color:var(--orange);text-decoration:none">tank-smart@pm.me</a>
@@ -1458,6 +1462,12 @@ function applyLang() {
   var _kl = {en:'Mandatory car equipment', sl:'Obvezna oprema v avtu', hr:'Obvezna oprema u autu', de:'Pflichtausstattung im Auto', es:'Equipamiento obligatorio del coche', it:'Dotazioni obbligatorie in auto', cs:'Povinná výbava auta', uk:"Обов'язкове спорядження авто"};
   document.getElementById('kit-link').textContent = _kl[lang] || _kl.en;
   document.getElementById('kit-link').href = 'car-equipment.html?lang=' + lang;
+  var _jerry_link = {en:'Fuel in a jerrycan across borders', sl:'Gorivo v kanistru čez mejo', hr:'Gorivo u kanistru preko granice', de:'Benzin im Kanister über die Grenze', es:'Combustible en bidón y fronteras', it:'Carburante in tanica oltre confine', cs:'Palivo v kanystru přes hranice', uk:'Пальне в каністрі через кордон'};
+  document.getElementById('jerry-link').textContent = _jerry_link[lang] || _jerry_link.en;
+  document.getElementById('jerry-link').href = 'fuel-jerrycan.html?lang=' + lang;
+  var _labels_link = {en:'Fuel labels E5, E10, B7, HVO', sl:'Oznake goriv E5, E10, B7, HVO', hr:'Oznake goriva E5, E10, B7, HVO', de:'Kraftstoffkennzeichnung E5, E10, B7, HVO', es:'Etiquetas de combustible E5, E10, B7, HVO', it:'Etichette carburante E5, E10, B7, HVO', cs:'Označení paliv E5, E10, B7, HVO', uk:'Маркування пального E5, E10, B7, HVO'};
+  document.getElementById('labels-link').textContent = _labels_link[lang] || _labels_link.en;
+  document.getElementById('labels-link').href = 'fuel-labels.html?lang=' + lang;
   var ftc = document.getElementById('fuelTypeCompare');
   var ft = document.getElementById('fuelType');
   [ftc,ft].forEach(function(s){if(s){s.options[0].text=t.f95;s.options[1].text=t.f98;s.options[2].text=t.fd;}});
