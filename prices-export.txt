@@ -53,7 +53,7 @@ Litva / Lithuania / Litva: B95=1.868, B98=2.111, Diesel=2.250
 Malta / Malta / Malta: B95=1.340, B98=1.514, Diesel=1.210
 San Marino / San Marino / San Marino: B95=1.718, B98=1.941, Diesel=2.055
 Andora / Andorra / Andora: B95=1.615, B98=1.825, Diesel=1.758
-Monako / Monaco / Monako: B95=2.219, B98=2.508, Diesel=2.383
+Monako / Monaco / Monako: B95=2.071, B98=2.340, Diesel=2.235
 
 === Eastern Europe (non-EU) ===
 Ukrajina / Ukraine / Ukrajina: B95=1.753, B98=n/a, Diesel=2.040
