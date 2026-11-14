@@ -363,7 +363,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     <div id="moverChips"></div>
   </div>
   <p id="footer-about" style="font-size:0.85rem;color:var(--text2);line-height:1.6;margin-bottom:10px"></p>
-  <nav class="ft-nav"><a href="about.html" id="about-link">About</a><a href="blog.html" id="blog-link">Weekly price news</a><a href="guides.html" id="guides-link">Travel guides</a><a href="privacy.html" id="privacy-link">Privacy</a></nav>
+  <nav class="ft-nav"><a href="/en/about.html" id="about-link">About</a><a href="/en/blog.html" id="blog-link">Weekly price news</a><a href="/en/guides.html" id="guides-link">Travel guides</a><a href="/en/privacy.html" id="privacy-link">Privacy</a></nav>
   <p style="font-size:0.78rem;color:var(--text3);margin-top:16px">
     <span id="footer-contact-label"></span> <a href="mailto:tank-smart@pm.me" style="color:var(--orange);text-decoration:none">tank-smart@pm.me</a>
   </p>
@@ -1460,7 +1460,7 @@ function applyLang() {
   document.getElementById('toll-btn-toll').textContent = t.tollToll;
   var _nav = {en:['About', 'Weekly price news', 'Travel guides', 'Privacy'], sl:['O TankSmartu', 'Tedenske novice', 'Vodniki za pot', 'Zasebnost'], hr:['O TankSmartu', 'Tjedne vijesti', 'Vodiči za put', 'Privatnost'], de:['Über TankSmart', 'Wöchentliche News', 'Reiseratgeber', 'Datenschutz'], es:['Sobre TankSmart', 'Noticias semanales', 'Guías de viaje', 'Privacidad'], it:['Su TankSmart', 'Notizie settimanali', 'Guide di viaggio', 'Privacy'], cs:['O TankSmartu', 'Týdenní novinky', 'Cestovní průvodci', 'Ochrana soukromí'], uk:['Про TankSmart', 'Щотижневі новини', 'Дорожні поради', 'Конфіденційність']}[lang] || ['About', 'Weekly price news', 'Travel guides', 'Privacy'];
   [['about-link','about.html'],['blog-link','blog.html'],['guides-link','guides.html'],['privacy-link','privacy.html']].forEach(function(x, i){
-    var el = document.getElementById(x[0]); if (!el) return; el.textContent = _nav[i]; el.href = x[1] + '?lang=' + lang; });
+    var el = document.getElementById(x[0]); if (!el) return; el.textContent = _nav[i]; el.href = '/' + lang + '/' + x[1]; });
   var ftc = document.getElementById('fuelTypeCompare');
   var ft = document.getElementById('fuelType');
   [ftc,ft].forEach(function(s){if(s){s.options[0].text=t.f95;s.options[1].text=t.f98;s.options[2].text=t.fd;}});

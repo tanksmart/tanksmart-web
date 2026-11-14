@@ -1,0 +1,5 @@
+# Builds one page per language (/sl/, /en/, ...) from the multilingual pages on every deploy.
+# "|| true" keeps the deploy going even if the script ever fails; the committed pages are then used.
+[build]
+  command = "python3 tools/split_languages.py || true"
+  publish = "."
