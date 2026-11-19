@@ -479,16 +479,16 @@ function setLang(l) {
   document.getElementById('section-'+l).classList.add('active');
   const backTexts = {en:'← Back to travel guides', sl:'← Nazaj na vodnike za pot', hr:'← Natrag na vodiče za put', de:'← Zurück zu den Reiseratgebern', es:'← Volver a las guías de viaje', it:'← Torna alle guide di viaggio', cs:'← Zpět na cestovní průvodce', uk:'← Назад до дорожніх порад'};
   document.getElementById('back-link').textContent = backTexts[l];
-  document.getElementById('back-link').href = 'guides.html?lang=' + l;
+  document.getElementById('back-link').href = '/' + l + '/guides.html';
   document.title = pageTitles[l] || pageTitles.en;
   document.documentElement.lang = l;
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
   var _gl = {en:'Travel guides', sl:'Vodniki za pot', hr:'Vodiči za put', de:'Reiseratgeber', es:'Guías de viaje', it:'Guide di viaggio', cs:'Cestovní průvodci', uk:'Дорожні поради'};
   document.getElementById('guides-link').textContent = _gl[l] || _gl.en;
-  document.getElementById('guides-link').href = 'guides.html?lang=' + l;
+  document.getElementById('guides-link').href = '/' + l + '/guides.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-sl">
     <h1 class="article-title">Vodniki za pot po Evropi</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Praktične informacije, ki jih potrebuješ pred potjo v tujino: kaj moraš imeti v avtu, kakšna so zimska pravila in kako se znajdeš na tuji črpalki. Pri vsakem vodniku so navedeni viri.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=sl"><h2>Zimska oprema po Evropi</h2><p>Kdaj so zimske gume in verige obvezne v 42 državah, najmanjši profil in ježevke.</p><span>Preberi</span></a>
-      <a class="gcard" href="car-equipment.html?lang=sl"><h2>Obvezna oprema v avtu</h2><p>Odsevni jopič, trikotnik, prva pomoč in ostala obvezna oprema po državah.</p><span>Preberi</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=sl"><h2>Gorivo v kanistru čez mejo</h2><p>Koliko goriva smeš peljati v kanistru, kazni in pravila na trajektih.</p><span>Preberi</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=sl"><h2>Oznake goriv E5, E10, B7, HVO</h2><p>Kaj pomenijo oznake na črpalkah in kako se gorivu reče v 40 državah.</p><span>Preberi</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=sl"><h2>Kako porabiti manj goriva</h2><p>Kaj res zmanjša porabo, s številkami iz testov avtoklubov: hitrost, strešni kovček, klima, tlak v pnevmatikah.</p><span>Preberi</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=sl"><h2>Vinjete in cestnine po Evropi</h2><p>Kje rabiš vinjeto, kje plačaš cestnino, kje kupiš uradno in kako se izogneš kazni.</p><span>Preberi</span></a>
+      <a class="gcard" href="/sl/winter-tyres.html"><h2>Zimska oprema po Evropi</h2><p>Kdaj so zimske gume in verige obvezne v 42 državah, najmanjši profil in ježevke.</p><span>Preberi</span></a>
+      <a class="gcard" href="/sl/car-equipment.html"><h2>Obvezna oprema v avtu</h2><p>Odsevni jopič, trikotnik, prva pomoč in ostala obvezna oprema po državah.</p><span>Preberi</span></a>
+      <a class="gcard" href="/sl/fuel-jerrycan.html"><h2>Gorivo v kanistru čez mejo</h2><p>Koliko goriva smeš peljati v kanistru, kazni in pravila na trajektih.</p><span>Preberi</span></a>
+      <a class="gcard" href="/sl/fuel-labels.html"><h2>Oznake goriv E5, E10, B7, HVO</h2><p>Kaj pomenijo oznake na črpalkah in kako se gorivu reče v 40 državah.</p><span>Preberi</span></a>
+      <a class="gcard" href="/sl/fuel-saving.html"><h2>Kako porabiti manj goriva</h2><p>Kaj res zmanjša porabo, s številkami iz testov avtoklubov: hitrost, strešni kovček, klima, tlak v pnevmatikah.</p><span>Preberi</span></a>
+      <a class="gcard" href="/sl/vignettes-tolls.html"><h2>Vinjete in cestnine po Evropi</h2><p>Kje rabiš vinjeto, kje plačaš cestnino, kje kupiš uradno in kako se izogneš kazni.</p><span>Preberi</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

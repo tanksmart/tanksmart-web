@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-uk">
     <h1 class="article-title">Поради для подорожей авто Європою</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Практична інформація перед поїздкою за кордон: що мати в авто, які діють зимові правила і як зорієнтуватися на іноземній АЗС. У кожному матеріалі вказано джерела.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=uk"><h2>Зимові шини в Європі</h2><p>Коли зимові шини й ланцюги обов'язкові у 42 країнах, мінімальний протектор і шипи.</p><span>Читати</span></a>
-      <a class="gcard" href="car-equipment.html?lang=uk"><h2>Обов'язкове спорядження авто</h2><p>Жилет, знак аварійної зупинки, аптечка та інше обов'язкове спорядження за країнами.</p><span>Читати</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=uk"><h2>Пальне в каністрі через кордон</h2><p>Скільки пального можна везти в каністрі, штрафи та правила на поромах.</p><span>Читати</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=uk"><h2>Маркування пального E5, E10, B7, HVO</h2><p>Що означають позначки на колонках і як називається пальне у 40 країнах.</p><span>Читати</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=uk"><h2>Як витрачати менше пального</h2><p>Що справді зменшує витрату, з цифрами з тестів автоклубів: швидкість, бокс на даху, кондиціонер, тиск у шинах.</p><span>Читати</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=uk"><h2>Вінєтки й платні дороги в Європі</h2><p>Де потрібна вінєтка, де платиш за дорогу, де купувати офіційно і як уникнути штрафу.</p><span>Читати</span></a>
+      <a class="gcard" href="/uk/winter-tyres.html"><h2>Зимові шини в Європі</h2><p>Коли зимові шини й ланцюги обов'язкові у 42 країнах, мінімальний протектор і шипи.</p><span>Читати</span></a>
+      <a class="gcard" href="/uk/car-equipment.html"><h2>Обов'язкове спорядження авто</h2><p>Жилет, знак аварійної зупинки, аптечка та інше обов'язкове спорядження за країнами.</p><span>Читати</span></a>
+      <a class="gcard" href="/uk/fuel-jerrycan.html"><h2>Пальне в каністрі через кордон</h2><p>Скільки пального можна везти в каністрі, штрафи та правила на поромах.</p><span>Читати</span></a>
+      <a class="gcard" href="/uk/fuel-labels.html"><h2>Маркування пального E5, E10, B7, HVO</h2><p>Що означають позначки на колонках і як називається пальне у 40 країнах.</p><span>Читати</span></a>
+      <a class="gcard" href="/uk/fuel-saving.html"><h2>Як витрачати менше пального</h2><p>Що справді зменшує витрату, з цифрами з тестів автоклубів: швидкість, бокс на даху, кондиціонер, тиск у шинах.</p><span>Читати</span></a>
+      <a class="gcard" href="/uk/vignettes-tolls.html"><h2>Вінєтки й платні дороги в Європі</h2><p>Де потрібна вінєтка, де платиш за дорогу, де купувати офіційно і як уникнути штрафу.</p><span>Читати</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

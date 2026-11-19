@@ -124,6 +124,9 @@ def build(src, l, s, secs):
     p = p.replace('src="assets/', 'src="/assets/').replace('href="assets/', 'href="/assets/')
     p = p.replace('href="index.html"', 'href="/index.html?lang=%s"' % l)
     p = p.replace("'index.html?lang='", "'/index.html?lang='")
+    # links between subpages go straight to the clean language address, not page.html?lang=xx
+    p = re.sub(r'"(?!index)([a-z-]+\.html)\?lang=([a-z]{2})"', r'"/\2/\1"', p)
+    p = re.sub(r"'(?!index)([a-z-]+\.html)\?lang=' \+ (\w+)", r"'/' + \2 + '/\1'", p)
     # language menu opens the same page in the other language
     p = p.replace('onchange="setLang(this.value)"', "onchange=\"location.href='/'+this.value+'/%s'\"" % src)
     p = p.replace(INIT, "setLang('%s');" % l)

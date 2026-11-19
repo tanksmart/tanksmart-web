@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-de">
     <h1 class="article-title">Ratgeber für Autofahrten durch Europa</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Praktische Infos für die Fahrt ins Ausland: was ins Auto gehört, welche Winterregeln gelten und wie du dich an einer ausländischen Tankstelle zurechtfindest. Jeder Ratgeber nennt seine Quellen.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=de"><h2>Winterreifen in Europa</h2><p>Wann Winterreifen und Schneeketten in 42 Ländern Pflicht sind, Mindestprofil und Spikereifen.</p><span>Lesen</span></a>
-      <a class="gcard" href="car-equipment.html?lang=de"><h2>Pflichtausstattung im Auto</h2><p>Warnweste, Warndreieck, Verbandskasten und weitere Pflichtausstattung je Land.</p><span>Lesen</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=de"><h2>Benzin im Kanister über die Grenze</h2><p>Wie viel Kraftstoff im Kanister erlaubt ist, Bußgelder und Regeln auf Fähren.</p><span>Lesen</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=de"><h2>Kraftstoffkennzeichnung E5, E10, B7, HVO</h2><p>Was die Kennzeichen an der Zapfsäule bedeuten und wie Kraftstoff in 40 Ländern heißt.</p><span>Lesen</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=de"><h2>Weniger Sprit verbrauchen</h2><p>Was den Verbrauch wirklich senkt, mit Zahlen aus Tests von Automobilclubs: Tempo, Dachbox, Klimaanlage, Reifendruck.</p><span>Lesen</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=de"><h2>Vignetten und Maut in Europa</h2><p>Wo du eine Vignette brauchst, wo Maut anfällt, wo du offiziell kaufst und wie du Strafen vermeidest.</p><span>Lesen</span></a>
+      <a class="gcard" href="/de/winter-tyres.html"><h2>Winterreifen in Europa</h2><p>Wann Winterreifen und Schneeketten in 42 Ländern Pflicht sind, Mindestprofil und Spikereifen.</p><span>Lesen</span></a>
+      <a class="gcard" href="/de/car-equipment.html"><h2>Pflichtausstattung im Auto</h2><p>Warnweste, Warndreieck, Verbandskasten und weitere Pflichtausstattung je Land.</p><span>Lesen</span></a>
+      <a class="gcard" href="/de/fuel-jerrycan.html"><h2>Benzin im Kanister über die Grenze</h2><p>Wie viel Kraftstoff im Kanister erlaubt ist, Bußgelder und Regeln auf Fähren.</p><span>Lesen</span></a>
+      <a class="gcard" href="/de/fuel-labels.html"><h2>Kraftstoffkennzeichnung E5, E10, B7, HVO</h2><p>Was die Kennzeichen an der Zapfsäule bedeuten und wie Kraftstoff in 40 Ländern heißt.</p><span>Lesen</span></a>
+      <a class="gcard" href="/de/fuel-saving.html"><h2>Weniger Sprit verbrauchen</h2><p>Was den Verbrauch wirklich senkt, mit Zahlen aus Tests von Automobilclubs: Tempo, Dachbox, Klimaanlage, Reifendruck.</p><span>Lesen</span></a>
+      <a class="gcard" href="/de/vignettes-tolls.html"><h2>Vignetten und Maut in Europa</h2><p>Wo du eine Vignette brauchst, wo Maut anfällt, wo du offiziell kaufst und wie du Strafen vermeidest.</p><span>Lesen</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

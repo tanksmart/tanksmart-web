@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-en">
     <h1 class="article-title">Travel guides for driving in Europe</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Practical information you need before a trip abroad: what to carry in the car, the winter rules and how to find your way at a foreign petrol station. Every guide lists its sources.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=en"><h2>Winter tyres in Europe</h2><p>When winter tyres and snow chains are mandatory in 42 countries, minimum tread and studded tyres.</p><span>Read</span></a>
-      <a class="gcard" href="car-equipment.html?lang=en"><h2>Mandatory car equipment</h2><p>Hi-vis vest, warning triangle, first-aid kit and other required equipment by country.</p><span>Read</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=en"><h2>Fuel in a jerrycan across borders</h2><p>How much fuel you can carry in a canister, fines and ferry rules.</p><span>Read</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=en"><h2>Fuel labels E5, E10, B7, HVO</h2><p>What the pump labels mean and what fuel is called in 40 countries.</p><span>Read</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=en"><h2>How to use less fuel</h2><p>What actually lowers consumption, with figures from automobile club tests: speed, roof box, air conditioning, tyre pressure.</p><span>Read</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=en"><h2>Vignettes and tolls in Europe</h2><p>Where you need a vignette, where you pay tolls, where to buy officially and how to avoid fines.</p><span>Read</span></a>
+      <a class="gcard" href="/en/winter-tyres.html"><h2>Winter tyres in Europe</h2><p>When winter tyres and snow chains are mandatory in 42 countries, minimum tread and studded tyres.</p><span>Read</span></a>
+      <a class="gcard" href="/en/car-equipment.html"><h2>Mandatory car equipment</h2><p>Hi-vis vest, warning triangle, first-aid kit and other required equipment by country.</p><span>Read</span></a>
+      <a class="gcard" href="/en/fuel-jerrycan.html"><h2>Fuel in a jerrycan across borders</h2><p>How much fuel you can carry in a canister, fines and ferry rules.</p><span>Read</span></a>
+      <a class="gcard" href="/en/fuel-labels.html"><h2>Fuel labels E5, E10, B7, HVO</h2><p>What the pump labels mean and what fuel is called in 40 countries.</p><span>Read</span></a>
+      <a class="gcard" href="/en/fuel-saving.html"><h2>How to use less fuel</h2><p>What actually lowers consumption, with figures from automobile club tests: speed, roof box, air conditioning, tyre pressure.</p><span>Read</span></a>
+      <a class="gcard" href="/en/vignettes-tolls.html"><h2>Vignettes and tolls in Europe</h2><p>Where you need a vignette, where you pay tolls, where to buy officially and how to avoid fines.</p><span>Read</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

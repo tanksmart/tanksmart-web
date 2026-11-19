@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-it">
     <h1 class="article-title">Guide per viaggiare in auto in Europa</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Informazioni pratiche prima di un viaggio all'estero: cosa portare in auto, le regole invernali e come orientarsi in un distributore straniero. Ogni guida indica le sue fonti.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=it"><h2>Gomme invernali in Europa</h2><p>Quando gomme invernali e catene sono obbligatorie in 42 paesi, battistrada minimo e gomme chiodate.</p><span>Leggi</span></a>
-      <a class="gcard" href="car-equipment.html?lang=it"><h2>Dotazioni obbligatorie in auto</h2><p>Giubbotto, triangolo, kit di pronto soccorso e altre dotazioni obbligatorie per paese.</p><span>Leggi</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=it"><h2>Carburante in tanica oltre confine</h2><p>Quanto carburante puoi portare in tanica, multe e regole sui traghetti.</p><span>Leggi</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=it"><h2>Etichette carburante E5, E10, B7, HVO</h2><p>Cosa significano le etichette alla pompa e come si chiama il carburante in 40 paesi.</p><span>Leggi</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=it"><h2>Come consumare meno carburante</h2><p>Cosa riduce davvero i consumi, con i numeri delle prove degli automobile club: velocità, box da tetto, aria condizionata, pressione delle gomme.</p><span>Leggi</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=it"><h2>Vignette e pedaggi in Europa</h2><p>Dove serve la vignetta, dove si paga il pedaggio, dove comprare in modo ufficiale e come evitare multe.</p><span>Leggi</span></a>
+      <a class="gcard" href="/it/winter-tyres.html"><h2>Gomme invernali in Europa</h2><p>Quando gomme invernali e catene sono obbligatorie in 42 paesi, battistrada minimo e gomme chiodate.</p><span>Leggi</span></a>
+      <a class="gcard" href="/it/car-equipment.html"><h2>Dotazioni obbligatorie in auto</h2><p>Giubbotto, triangolo, kit di pronto soccorso e altre dotazioni obbligatorie per paese.</p><span>Leggi</span></a>
+      <a class="gcard" href="/it/fuel-jerrycan.html"><h2>Carburante in tanica oltre confine</h2><p>Quanto carburante puoi portare in tanica, multe e regole sui traghetti.</p><span>Leggi</span></a>
+      <a class="gcard" href="/it/fuel-labels.html"><h2>Etichette carburante E5, E10, B7, HVO</h2><p>Cosa significano le etichette alla pompa e come si chiama il carburante in 40 paesi.</p><span>Leggi</span></a>
+      <a class="gcard" href="/it/fuel-saving.html"><h2>Come consumare meno carburante</h2><p>Cosa riduce davvero i consumi, con i numeri delle prove degli automobile club: velocità, box da tetto, aria condizionata, pressione delle gomme.</p><span>Leggi</span></a>
+      <a class="gcard" href="/it/vignettes-tolls.html"><h2>Vignette e pedaggi in Europa</h2><p>Dove serve la vignetta, dove si paga il pedaggio, dove comprare in modo ufficiale e come evitare multe.</p><span>Leggi</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-cs">
     <h1 class="article-title">Průvodci pro cesty autem po Evropě</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Praktické informace před cestou do zahraničí: co mít v autě, jaká platí zimní pravidla a jak se vyznat na zahraniční čerpací stanici. U každého průvodce jsou uvedené zdroje.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=cs"><h2>Zimní pneumatiky v Evropě</h2><p>Kdy jsou zimní pneumatiky a řetězy povinné ve 42 zemích, minimální dezén a hroty.</p><span>Číst</span></a>
-      <a class="gcard" href="car-equipment.html?lang=cs"><h2>Povinná výbava auta</h2><p>Reflexní vesta, trojúhelník, lékárnička a další povinná výbava podle zemí.</p><span>Číst</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=cs"><h2>Palivo v kanystru přes hranice</h2><p>Kolik paliva smíš vézt v kanystru, pokuty a pravidla na trajektech.</p><span>Číst</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=cs"><h2>Označení paliv E5, E10, B7, HVO</h2><p>Co znamenají označení na stojanech a jak se palivo jmenuje ve 40 zemích.</p><span>Číst</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=cs"><h2>Jak spotřebovat méně paliva</h2><p>Co opravdu snižuje spotřebu, s čísly z testů autoklubů: rychlost, střešní box, klimatizace, tlak v pneumatikách.</p><span>Číst</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=cs"><h2>Dálniční známky a mýtné v Evropě</h2><p>Kde potřebuješ známku, kde platíš mýtné, kde koupit oficiálně a jak se vyhnout pokutě.</p><span>Číst</span></a>
+      <a class="gcard" href="/cs/winter-tyres.html"><h2>Zimní pneumatiky v Evropě</h2><p>Kdy jsou zimní pneumatiky a řetězy povinné ve 42 zemích, minimální dezén a hroty.</p><span>Číst</span></a>
+      <a class="gcard" href="/cs/car-equipment.html"><h2>Povinná výbava auta</h2><p>Reflexní vesta, trojúhelník, lékárnička a další povinná výbava podle zemí.</p><span>Číst</span></a>
+      <a class="gcard" href="/cs/fuel-jerrycan.html"><h2>Palivo v kanystru přes hranice</h2><p>Kolik paliva smíš vézt v kanystru, pokuty a pravidla na trajektech.</p><span>Číst</span></a>
+      <a class="gcard" href="/cs/fuel-labels.html"><h2>Označení paliv E5, E10, B7, HVO</h2><p>Co znamenají označení na stojanech a jak se palivo jmenuje ve 40 zemích.</p><span>Číst</span></a>
+      <a class="gcard" href="/cs/fuel-saving.html"><h2>Jak spotřebovat méně paliva</h2><p>Co opravdu snižuje spotřebu, s čísly z testů autoklubů: rychlost, střešní box, klimatizace, tlak v pneumatikách.</p><span>Číst</span></a>
+      <a class="gcard" href="/cs/vignettes-tolls.html"><h2>Dálniční známky a mýtné v Evropě</h2><p>Kde potřebuješ známku, kde platíš mýtné, kde koupit oficiálně a jak se vyhnout pokutě.</p><span>Číst</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;

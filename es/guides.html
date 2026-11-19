@@ -120,12 +120,12 @@ main{max-width:680px;margin:0 auto;padding:32px 20px}
   <div class="lang-section active" id="section-es">
     <h1 class="article-title">Guías para viajar en coche por Europa</h1>
     <div class="article-body" style="margin-bottom:24px"><p>Información práctica antes de un viaje al extranjero: qué llevar en el coche, las normas de invierno y cómo orientarte en una gasolinera de otro país. Cada guía indica sus fuentes.</p></div>
-      <a class="gcard" href="winter-tyres.html?lang=es"><h2>Neumáticos de invierno en Europa</h2><p>Cuándo son obligatorios los neumáticos de invierno y las cadenas en 42 países, dibujo mínimo y clavos.</p><span>Leer</span></a>
-      <a class="gcard" href="car-equipment.html?lang=es"><h2>Equipamiento obligatorio del coche</h2><p>Chaleco, triángulo, botiquín y el resto del equipamiento obligatorio por país.</p><span>Leer</span></a>
-      <a class="gcard" href="fuel-jerrycan.html?lang=es"><h2>Combustible en bidón y fronteras</h2><p>Cuánto combustible puedes llevar en bidón, multas y normas en los ferris.</p><span>Leer</span></a>
-      <a class="gcard" href="fuel-labels.html?lang=es"><h2>Etiquetas de combustible E5, E10, B7, HVO</h2><p>Qué significan las etiquetas del surtidor y cómo se llama el combustible en 40 países.</p><span>Leer</span></a>
-      <a class="gcard" href="fuel-saving.html?lang=es"><h2>Cómo gastar menos combustible</h2><p>Lo que de verdad reduce el consumo, con cifras de pruebas de clubes: velocidad, cofre de techo, aire acondicionado, presión de neumáticos.</p><span>Leer</span></a>
-      <a class="gcard" href="vignettes-tolls.html?lang=es"><h2>Viñetas y peajes en Europa</h2><p>Dónde necesitas viñeta, dónde pagas peaje, dónde comprar de forma oficial y cómo evitar multas.</p><span>Leer</span></a>
+      <a class="gcard" href="/es/winter-tyres.html"><h2>Neumáticos de invierno en Europa</h2><p>Cuándo son obligatorios los neumáticos de invierno y las cadenas en 42 países, dibujo mínimo y clavos.</p><span>Leer</span></a>
+      <a class="gcard" href="/es/car-equipment.html"><h2>Equipamiento obligatorio del coche</h2><p>Chaleco, triángulo, botiquín y el resto del equipamiento obligatorio por país.</p><span>Leer</span></a>
+      <a class="gcard" href="/es/fuel-jerrycan.html"><h2>Combustible en bidón y fronteras</h2><p>Cuánto combustible puedes llevar en bidón, multas y normas en los ferris.</p><span>Leer</span></a>
+      <a class="gcard" href="/es/fuel-labels.html"><h2>Etiquetas de combustible E5, E10, B7, HVO</h2><p>Qué significan las etiquetas del surtidor y cómo se llama el combustible en 40 países.</p><span>Leer</span></a>
+      <a class="gcard" href="/es/fuel-saving.html"><h2>Cómo gastar menos combustible</h2><p>Lo que de verdad reduce el consumo, con cifras de pruebas de clubes: velocidad, cofre de techo, aire acondicionado, presión de neumáticos.</p><span>Leer</span></a>
+      <a class="gcard" href="/es/vignettes-tolls.html"><h2>Viñetas y peajes en Europa</h2><p>Dónde necesitas viñeta, dónde pagas peaje, dónde comprar de forma oficial y cómo evitar multas.</p><span>Leer</span></a>
   </div>
 
 
@@ -162,7 +162,7 @@ function setLang(l) {
   document.querySelectorAll('.lang-link').forEach(a => { a.href = '/index.html?lang=' + l; });
   var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
   document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
-  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  document.getElementById('privacy-link').href = '/' + l + '/privacy.html';
 }
 document.addEventListener('DOMContentLoaded', function() {
   var urlLang = null;
