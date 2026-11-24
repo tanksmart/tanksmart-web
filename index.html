@@ -7,6 +7,11 @@
 <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/logo/favicon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#13161b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TankSmart">
 <meta name="description" content="Compare fuel prices across 42 European countries, calculate your trip cost, split it with passengers, and check tolls. Updated weekly from official sources.">
 <meta name="keywords" content="fuel price calculator, petrol prices Europe, diesel prices Balkans, cene goriva, kalkulator goriva, cijene goriva, cestnine, vinjeta">
 <meta name="author" content="TankSmart">
@@ -206,6 +211,14 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 .ft-nav a:first-child{border-left:none}
 .ft-nav a:hover{color:var(--orange)}
 @media (max-width:480px){.ft-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px 0}.ft-nav a{border-left:none;padding:0 6px}}
+.pwa-cta{display:none;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;margin-bottom:16px}
+.pwa-cta.show{display:flex}
+.pwa-cta-icon{width:34px;height:34px;flex-shrink:0}
+.pwa-cta-text{flex-grow:1;min-width:0}
+.pwa-cta-title{font-family:var(--font-head);font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.pwa-cta-desc{font-size:0.72rem;color:var(--text2);line-height:1.4}
+.pwa-cta-btn{flex-shrink:0;background:var(--orange);color:#1a1a1a;border:none;border-radius:0;padding:9px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap}
+.pwa-cta-x{flex-shrink:0;background:none;border:none;color:var(--text3);font-size:1.1rem;cursor:pointer;padding:4px 2px;line-height:1}
 /* desktop: wider and larger */
 @media (min-width:900px){html{font-size:112.5%}.hero,.tabs,main{max-width:840px}.hero p{max-width:560px}}
 </style>
@@ -245,6 +258,15 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 </div>
 
 <main>
+<div class="pwa-cta" id="pwa-cta">
+  <img class="pwa-cta-icon" src="assets/logo/icon-192.png" alt="">
+  <div class="pwa-cta-text">
+    <div class="pwa-cta-title" id="pwa-title"></div>
+    <div class="pwa-cta-desc" id="pwa-desc"></div>
+  </div>
+  <button class="pwa-cta-btn" id="pwa-btn" style="display:none"></button>
+  <button class="pwa-cta-x" id="pwa-x" aria-label="Close">×</button>
+</div>
 <div class="kofi-cta">
   <span class="kofi-cta-icon">☕</span>
   <div class="kofi-cta-text">
@@ -1336,8 +1358,33 @@ function setLang(l) {
   lang = l;
   var sel = document.getElementById('lang-select');
   if (sel) sel.value = l;
+  try { localStorage.setItem('ts_lang', l); } catch(e) {}
   applyLang();
+  if (typeof pwaRender === 'function') pwaRender();
 }
+var pwaTexts = {"sl": ["Dodaj TankSmart na telefon", "Odpre se kot aplikacija, zadnje cene vidiš tudi brez interneta.", "Tapni Deli, nato \"Dodaj na začetni zaslon\". Odpre se kot aplikacija.", "Dodaj"], "en": ["Add TankSmart to your phone", "Opens like an app, and you can see the latest prices even offline.", "Tap Share, then \"Add to Home Screen\". It opens like an app.", "Add"], "hr": ["Dodaj TankSmart na mobitel", "Otvara se kao aplikacija, a zadnje cijene vidiš i bez interneta.", "Dodirni Dijeli, zatim \"Dodaj na početni zaslon\". Otvara se kao aplikacija.", "Dodaj"], "de": ["TankSmart aufs Handy holen", "Öffnet sich wie eine App, die letzten Preise siehst du auch offline.", "Tippe auf Teilen, dann \"Zum Home-Bildschirm\". Öffnet sich wie eine App.", "Hinzufügen"], "es": ["Añade TankSmart a tu móvil", "Se abre como una app y ves los últimos precios incluso sin conexión.", "Toca Compartir y luego \"Añadir a pantalla de inicio\". Se abre como una app.", "Añadir"], "it": ["Aggiungi TankSmart al telefono", "Si apre come un'app e vedi gli ultimi prezzi anche offline.", "Tocca Condividi, poi \"Aggiungi alla schermata Home\". Si apre come un'app.", "Aggiungi"], "cs": ["Přidej si TankSmart do telefonu", "Otevře se jako aplikace a poslední ceny uvidíš i bez internetu.", "Klepni na Sdílet a pak na \"Přidat na plochu\". Otevře se jako aplikace.", "Přidat"], "uk": ["Додай TankSmart на телефон", "Відкривається як застосунок, останні ціни видно навіть без інтернету.", "Натисни «Поділитися», потім «На початковий екран». Відкривається як застосунок.", "Додати"]};
+var pwaPrompt = null;
+function pwaIOS(){var u=navigator.userAgent;return /iphone|ipad|ipod/i.test(u)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);}
+function pwaInstalled(){return (window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;}
+function pwaRender(){
+  var box=document.getElementById('pwa-cta'); if(!box) return;
+  var t=pwaTexts[lang]||pwaTexts.en, ios=pwaIOS();
+  document.getElementById('pwa-title').textContent=t[0];
+  document.getElementById('pwa-desc').textContent=ios?t[2]:t[1];
+  var btn=document.getElementById('pwa-btn'); btn.textContent=t[3]; btn.style.display=pwaPrompt?'':'none';
+  var off=false, visits=0; try{off=localStorage.getItem('ts_pwa_off')==='1';visits=+localStorage.getItem('ts_visits')||0;}catch(e){}
+  var mobile=window.matchMedia&&window.matchMedia('(max-width:900px)').matches;
+  box.classList.toggle('show', !pwaInstalled() && !off && mobile && visits>=2 && (ios||!!pwaPrompt));
+}
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();pwaPrompt=e;pwaRender();});
+window.addEventListener('appinstalled',function(){pwaPrompt=null;try{localStorage.setItem('ts_pwa_off','1');}catch(e){}pwaRender();});
+document.addEventListener('DOMContentLoaded',function(){
+  try{localStorage.setItem('ts_visits',String((+localStorage.getItem('ts_visits')||0)+1));}catch(e){}
+  document.getElementById('pwa-btn').onclick=function(){if(!pwaPrompt)return;pwaPrompt.prompt();pwaPrompt.userChoice.then(function(){pwaPrompt=null;pwaRender();});};
+  document.getElementById('pwa-x').onclick=function(){try{localStorage.setItem('ts_pwa_off','1');}catch(e){}pwaRender();};
+});
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}
+
 
 var fbTexts = {
   sl:{title:'Imaš predlog ali si našel napako?', placeholder:'Napiši sem...', shot:'📸 Dodaj screenshot strani', cancel:'Prekliči', submit:'Pošlji', thanks:'Hvala za povratno informacijo! 🙌'},
@@ -1757,7 +1804,10 @@ function showTab(name) {
 document.addEventListener('DOMContentLoaded',function(){
   var urlLang = null;
   try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
-  if (['en','sl','hr','de','es','it','cs','uk'].indexOf(urlLang) !== -1) { setLang(urlLang); } else { setLang('en'); }
+  var stored = null; try { stored = localStorage.getItem('ts_lang'); } catch(e) {}
+  if (['en','sl','hr','de','es','it','cs','uk'].indexOf(urlLang) !== -1) { setLang(urlLang); }
+  else if (['en','sl','hr','de','es','it','cs','uk'].indexOf(stored) !== -1) { setLang(stored); }
+  else { setLang('en'); }
 });
 </script>
 </body>
