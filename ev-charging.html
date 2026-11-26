@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Charging an electric car in Europe: prices, payment and planning | TankSmart</title>
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/logo/favicon-180.png">
+<meta name="description" content="Charging an electric car in Europe: how charging is priced, what EU rules (AFIR) guarantee, paying by card, fake QR codes, Tesla Superchargers, winter range and a map of charging points.">
+<meta name="author" content="TankSmart">
+<meta property="og:title" content="Charging an electric car in Europe: prices, payment and planning">
+<meta property="og:description" content="How to charge an electric car in Europe without overpaying.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tanksmart.eu/ev-charging.html">
+<link rel="canonical" href="https://tanksmart.eu/ev-charging.html">
+<meta name="google-site-verification" content="acx_DVhwnb23Ej65PcwssD-63N3sdqYMKsiMqGZiBKE" />
+<meta name="google-site-verification" content="vXxjpm2MInLPAoBD0eWskdH50QsaMvK0BpokGEbnQEw" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89GFL248FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-89GFL248FV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3494450722238693" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#13161b;--bg2:#1a1f26;--bg3:#0f1217;
+  --border:rgba(255,255,255,0.08);--text:#eef1f5;--text2:#98a1ac;--text3:#656d78;
+  --orange:#f2c744;--orange-dim:#3a3320;
+  --sky:#5fa8d3;--sky-dim:#132933;
+  --green:#6fab7f;--red:#c6604f;
+  --r:0px;--rs:0px;--rxs:0px;
+  --font-head:'Big Shoulders Display',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:60px}
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
+.road-line{height:8px;background:repeating-linear-gradient(90deg,var(--orange) 0 22px,transparent 22px 40px);opacity:0.55}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--orange);border-radius:0;font-size:20px;flex-shrink:0}
+.logo-text{font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:#ecebe6;letter-spacing:-0.3px}
+.logo-text .accent{color:var(--orange)}
+.lang-select-wrap{flex:1;min-width:0;max-width:220px}
+.lang-select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:var(--rxs);font-size:0.82rem;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;padding-right:28px}
+.lang-select:hover{border-color:var(--orange)}
+@media (max-width:480px){
+  header{padding:10px 12px;gap:8px}
+  .logo-text{display:none}
+}
+main{max-width:680px;margin:0 auto;padding:32px 20px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:0.85rem;margin-bottom:28px;transition:color .15s}
+.back-link:hover{color:var(--orange)}
+.article-title{font-family:var(--font-head);font-size:1.7rem;font-weight:600;letter-spacing:-0.4px;margin-bottom:8px;line-height:1.3}
+.article-meta{font-size:0.8rem;color:var(--text3);margin-bottom:32px}
+.article-body{font-size:0.97rem;color:var(--text2);line-height:1.85}
+.article-body p{margin-bottom:1.2em}
+.article-body p:last-child{margin-bottom:0}
+.lang-section{display:none}
+.lang-section.active{display:block}
+.divider-lang{border:none;border-top:2px solid var(--border);margin:48px 0}
+.cta-box{background:var(--orange-dim);border:1px solid var(--orange);border-radius:var(--r);padding:20px;margin-top:40px;text-align:center}
+.cta-box p{font-size:0.9rem;color:var(--text2);margin-bottom:12px}
+.cta-btn{display:inline-block;background:var(--orange);color:#1a1a1a;text-decoration:none;padding:10px 24px;border-radius:var(--rs);font-size:0.9rem;font-weight:700;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.kofi-cta{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--orange-dim),var(--bg3));border:1px solid var(--orange);border-radius:var(--rs);padding:14px 16px;margin-bottom:28px}
+.kofi-cta-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.kofi-cta-text{flex-grow:1;min-width:0}
+.kofi-cta-title{font-family:var(--font-head);font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.kofi-cta-desc{font-size:0.72rem;color:var(--text2);line-height:1.4}
+.kofi-cta-btn{flex-shrink:0;background:var(--orange);color:#1a1a1a;border:none;border-radius:0;padding:9px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+@media (max-width:480px){.kofi-cta{padding:12px 14px}}
+/* desktop: wider and larger */
+@media (min-width:900px){html{font-size:112.5%}main{max-width:780px}}
+.article-body a{color:var(--orange);text-decoration:none}
+.article-body h2{font-family:var(--font-head);font-size:1.2rem;font-weight:600;color:var(--text);margin:1.8em 0 0.6em;letter-spacing:-0.2px}
+.article-body ul{padding-left:20px;margin-bottom:1.2em}
+.article-body li{margin-bottom:0.5em}
+.atable{width:100%;border-collapse:collapse;font-size:0.86rem;margin:6px 0 1.4em;line-height:1.45}
+.atable th{text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);padding:8px 8px 8px 0}
+.atable td{border-bottom:1px solid var(--border);padding:8px 8px 8px 0;vertical-align:top;color:var(--text2)}
+.atable td:first-child{color:var(--text);white-space:nowrap}
+.atable tr.reg td{color:var(--text3);font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding-top:16px;border-bottom:none}
+.asrc{font-size:0.8rem;color:var(--text3)}
+.asrc a{color:var(--text3);text-decoration:underline;text-underline-offset:2px}
+.wout{font-size:0.86rem;color:var(--text3);line-height:1.6;margin-top:28px}
+.wout a{color:var(--orange);text-decoration:none}
+@media (max-width:480px){.atable{font-size:0.8rem}.atable td:first-child{white-space:normal}}
+</style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#13161b">
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo lang-link">
+    <img src="assets/logo/header-square-38.svg" width="38" height="38" alt="" style="flex-shrink:0">
+    <span class="logo-text">Tank<span class="accent">Smart</span></span>
+  </a>
+  <div class="lang-select-wrap">
+    <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="sl">Slovenščina</option>
+      <option value="hr">Hrvatski / Srpski / Bosanski</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="cs">Čeština</option>
+      <option value="uk">Українська</option>
+    </select>
+  </div>
+</header>
+<div class="road-line"></div>
+
+<main>
+  <a href="guides.html" class="back-link" id="back-link">← Back to travel guides</a>
+
+  <!-- EN -->
+  <div class="lang-section active" id="section-en">
+    <h1 class="article-title">Charging an electric car in Europe: prices, payment and planning</h1>
+    <div class="article-meta">Checked on 26 November 2026</div>
+    <div class="article-body">
+      <p>For fuel, the EU publishes average prices for every member state each week. For charging, the EU's Alternative Fuels Observatory publishes prices per country only occasionally, and its data was last updated in January 2024. That's why on TankSmart you won't find a table of charging prices per country. On this page you'll find how charging is priced, what EU rules guarantee you at a public charger, and how to plan a trip so that you pay less and wait less. At the bottom there is a map of charging points.</p>
+      <h2>How the price is made up</h2>
+      <p>At a public charger you can pay in several ways, and one charge can include more than one of them:</p>
+      <ul>
+        <li>Per kWh: you pay for the energy that goes into the car. Under EU rules, the price without a contract at fast chargers of 50 kW or more has to be based on kWh.</li>
+        <li>Per minute: some operators charge for time, mostly at slower chargers. A car that can only take power slowly then pays more for the same amount of energy.</li>
+        <li>Per session: a fixed amount for each charge, used by some operators and apps.</li>
+        <li>Blocking or parking fee: a charge per minute if you stay plugged in too long or leave the car there after charging. In tariffs offered through third-party apps and charging cards, the consumer organisation BEUC found such fees in about 9 out of 10 cases.</li>
+      </ul>
+      <p>Slow chargers use alternating current (AC), usually up to 22 kW, and are common in towns and car parks. Fast chargers use direct current (DC), usually 50 kW or more, and are what you mostly find along motorways. Fast charging usually costs more per kWh. According to figures from the EU's Alternative Fuels Observatory that BEUC quoted in July 2026 (the data itself may be older), average prices through apps and charging cards range from about 0.27 to 0.65 €/kWh for AC and from about 0.32 to 0.85 €/kWh for DC, and some prices are above 1 €/kWh.</p>
+      <h2>What EU rules guarantee you</h2>
+      <p>Since 13 April 2024 the EU regulation on alternative fuels infrastructure (AFIR) has applied in all EU countries. For drivers it means:</p>
+      <ul>
+        <li>You can charge at any public charger without a contract and without registering in an app. In practice, some older chargers don't offer an easy way to pay without a contract yet.</li>
+        <li>New chargers of 50 kW or more must accept payment cards, through a card reader or a contactless terminal.</li>
+        <li>From 1 January 2027 this also applies to older chargers of 50 kW or more along the trans-European road network (TEN-T) and in secure truck parking areas.</li>
+        <li>At chargers below 50 kW the operator can let you pay online instead of by card, for example through a QR code.</li>
+        <li>At chargers of 50 kW or more the price per kWh without a contract must be shown at the charger. On top of the kWh price, the operator may only add a fee per minute for occupying the charger.</li>
+        <li>Apps and charging cards must show you all parts of the price, including roaming costs, before you start charging.</li>
+      </ul>
+      <p>AFIR is an EU regulation. Outside the EU, for example in Switzerland, Serbia or the UK, it doesn't apply, so check how you can pay there before the trip.</p>
+      <h2>Bank card, operator's app or charging card?</h2>
+      <p>The same charger can cost very different amounts depending on how you pay. BEUC looked at data from more than 11,000 EU charging stations: the gap between the cheapest and the most expensive app or card at the same charger was usually 0.40 to 1.00 €/kWh.</p>
+      <ul>
+        <li>Bank card at the charger: no contract and no app, which makes it the simplest option on a trip. You pay the price shown at the charger.</li>
+        <li>The operator's own app: usually gives you the operator's own price. In a BEUC example from the Netherlands, 51.4 kWh at Shell chargers cost 12.81 € through the operator, while a session of 53.7 kWh through another provider's app cost 45.90 €.</li>
+        <li>Charging cards and apps that work across many countries (roaming): convenient, because one account works with many networks, but the price can be higher than the operator's own and often includes fees per minute or for blocking. Always check the price in the app before you plug in.</li>
+        <li>A subscription can pay off if you often charge with the same network. Before you sign up, compare the monthly fee with how much you actually charge there.</li>
+      </ul>
+      <h2>Watch out for fake QR codes</h2>
+      <p>ADAC warns about a scam at chargers: criminals stick their own QR code over the operator's code. It leads to a copy of the operator's website, where you enter your card details. If the charger's display shows a QR code, scan that one instead of the sticker. Check that no sticker has been put over another one, and be careful if the page asks for an unusually high amount or looks unprofessional. ADAC considers the operator's app or the card terminal at the charger the safer way to pay. Tesla says that it never asks customers to pay through a QR code.</p>
+      <h2>Tesla Superchargers</h2>
+      <p>Tesla has opened selected Supercharger sites to other electric cars in selected countries. You start and pay for charging in the Tesla app, and at a limited number of sites you can also pay directly with a card. A paid Supercharging membership lowers the price per kWh at selected sites. Idle and congestion fees apply to other cars too. Tesla's map shows which sites are open.</p>
+      <h2>Planning a trip</h2>
+      <ul>
+        <li>Arrive at a fast charger with 10 to 30 percent battery and charge to about 80 percent. After 80 percent the charging power drops a lot, so the last part takes much longer (ADAC).</li>
+        <li>A cold battery charges much more slowly. Most cars warm it up on the way if you set the charger as the destination in the car's navigation (ADAC).</li>
+        <li>Winter means less range. In the Green NCAP test, electric cars used on average 70 percent more energy at -7 °C than at 23 °C in a short 23 km test cycle, and their range was about 40 percent lower. In ADAC's long-term tests, consumption in winter was 25 to 31 percent higher.</li>
+        <li>Heated seats and a heated steering wheel use less energy than warming the whole cabin. If you warm the car up while it's still plugged in, the energy comes from the grid and not from the battery (ADAC).</li>
+        <li>When charging is done, move the car. You avoid blocking fees, and someone else can charge.</li>
+        <li>Before you drive into a country outside the EU, check which networks and payment methods work there.</li>
+      </ul>
+      <h2>What does 100 km cost?</h2>
+      <p>For an electric car, multiply consumption in kWh per 100 km by the price per kWh. For a petrol or diesel car, multiply litres per 100 km by the price per litre.</p>
+      <p>An example with round numbers: a car that uses 18 kWh per 100 km and charges at 0.60 €/kWh pays 10.80 € per 100 km. A petrol car that uses 6.5 litres per 100 km pays 10.40 € at 1.60 €/l. Charge at 0.40 €/kWh and the electric car pays 7.20 €.</p>
+      <p>Keep in mind that the consumption shown by the car usually doesn't include charging losses, and you pay for the energy measured at the charger. ADAC measured losses of 1 to 4 percent at fast chargers with a warm battery and 6 to 10 percent with a cold one. For fuel, use the current prices on TankSmart.</p>
+      <h2>Map of charging points</h2>
+      <p>The map comes from Open Charge Map, a non-profit, community-run database. It loads only when you click the button, and then Open Charge Map sees your IP address. Prices and opening hours may be out of date, so check them in the operator's app before you go.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Show map</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Data: Open Charge Map and its contributors, licence CC BY 4.0</a></p>
+      <h2>Sources</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">I put this page together from EU rules, automobile club tests and consumer organisation reports. If you spot a mistake, write to me at <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- SL -->
+  <div class="lang-section" id="section-sl">
+    <h1 class="article-title">Polnjenje električnega avta po Evropi: cene, plačilo in načrtovanje</h1>
+    <div class="article-meta">Preverjeno 26. novembra 2026</div>
+    <div class="article-body">
+      <p>Za gorivo EU vsak teden objavi povprečne cene za vse države članice. Za polnjenje Evropski observatorij za alternativna goriva objavlja cene po državah le občasno, zadnjič so bili podatki posodobljeni januarja 2024. Zato na TankSmart ni tabele cen polnjenja po državah. Na tej strani pa izveš, kako se polnjenje zaračuna, kaj ti na javni polnilnici zagotavljajo pravila EU in kako načrtovati pot, da plačaš manj in manj čakaš. Na dnu je zemljevid polnilnic.</p>
+      <h2>Iz česa je sestavljena cena</h2>
+      <p>Na javni polnilnici lahko plačaš na več načinov, in eno polnjenje lahko vključuje več teh postavk:</p>
+      <ul>
+        <li>Po kWh: plačaš energijo, ki gre v avto. Po pravilih EU mora cena brez pogodbe na hitrih polnilnicah z 50 kW ali več temeljiti na kWh.</li>
+        <li>Po minuti: nekateri ponudniki zaračunavajo čas, večinoma na počasnejših polnilnicah. Avto, ki lahko polni samo počasi, potem za isto količino energije plača več.</li>
+        <li>Za vsako polnjenje: fiksen znesek za vsako polnjenje, ki ga uporabljajo nekateri ponudniki in aplikacije.</li>
+        <li>Pristojbina za zasedenost: znesek na minuto, če avto ostane priklopljen predolgo ali ga po koncu polnjenja pustiš na mestu. Potrošniška organizacija BEUC je take pristojbine našla pri približno 9 od 10 tarif, ki jih ponujajo aplikacije in kartice drugih ponudnikov.</li>
+      </ul>
+      <p>Počasne polnilnice uporabljajo izmenični tok (AC), navadno do 22 kW, in so pogoste v mestih in na parkiriščih. Hitre polnilnice uporabljajo enosmerni tok (DC), navadno 50 kW ali več, in te so večinoma ob avtocestah. Hitro polnjenje je na kWh navadno dražje. Po podatkih Evropskega observatorija za alternativna goriva, ki jih je BEUC navedel julija 2026 (sami podatki so lahko starejši), so povprečne cene prek aplikacij in kartic za polnjenje od okoli 0,27 do 0,65 €/kWh za AC in od okoli 0,32 do 0,85 €/kWh za DC, nekatere cene pa so nad 1 €/kWh.</p>
+      <h2>Kaj ti zagotavljajo pravila EU</h2>
+      <p>Od 13. aprila 2024 v vseh državah EU velja uredba EU o infrastrukturi za alternativna goriva (AFIR). Za voznike to pomeni:</p>
+      <ul>
+        <li>Na vsaki javni polnilnici lahko polniš brez pogodbe in brez registracije v aplikaciji. V praksi nekatere starejše polnilnice še ne omogočajo preprostega plačila brez pogodbe.</li>
+        <li>Nove polnilnice z 50 kW ali več morajo sprejemati plačilne kartice, s čitalnikom kartic ali brezstičnim terminalom.</li>
+        <li>Od 1. januarja 2027 to velja tudi za starejše polnilnice z 50 kW ali več ob vseevropskem cestnem omrežju (TEN-T) in na varovanih parkiriščih za tovornjake.</li>
+        <li>Na polnilnicah pod 50 kW ti ponudnik lahko namesto plačila s kartico omogoči plačilo prek spleta, na primer s kodo QR.</li>
+        <li>Na polnilnicah z 50 kW ali več mora biti cena na kWh brez pogodbe napisana na polnilnici. Ceni na kWh lahko ponudnik doda samo še pristojbino na minuto za zasedenost polnilnice.</li>
+        <li>Aplikacije in kartice za polnjenje ti morajo pred začetkom polnjenja pokazati vse dele cene, tudi stroške gostovanja (roaming).</li>
+      </ul>
+      <p>AFIR je uredba EU. Zunaj EU, na primer v Švici, Srbiji ali Veliki Britaniji, ne velja, zato pred potjo preveri, kako lahko tam plačaš.</p>
+      <h2>Bančna kartica, aplikacija ponudnika ali kartica za polnjenje?</h2>
+      <p>Ista polnilnica lahko stane zelo različno, odvisno od tega, kako plačaš. BEUC je pregledal podatke z več kot 11.000 polnilnih postaj v EU: razlika med najcenejšo in najdražjo aplikacijo ali kartico na isti polnilnici je bila navadno od 0,40 do 1,00 €/kWh.</p>
+      <ul>
+        <li>Bančna kartica na polnilnici: brez pogodbe in brez aplikacije, zato je na poti najpreprostejša. Plačaš ceno, ki je napisana na polnilnici.</li>
+        <li>Aplikacija ponudnika polnilnice: navadno dobiš njegovo lastno ceno. V primeru, ki ga BEUC navaja z Nizozemske, je 51,4 kWh na Shellovih polnilnicah prek ponudnika stalo 12,81 €, polnjenje 53,7 kWh prek aplikacije drugega ponudnika pa 45,90 €.</li>
+        <li>Kartice in aplikacije za polnjenje, ki delujejo v več državah (roaming): priročne, ker en račun deluje v mnogih omrežjih, a cena je lahko višja od cene ponudnika polnilnice in pogosto vključuje pristojbine na minuto ali za zasedenost. Pred priklopom vedno preveri ceno v aplikaciji.</li>
+        <li>Naročnina se lahko splača, če pogosto polniš v istem omrežju. Preden se naročiš, primerjaj mesečni znesek s tem, koliko tam dejansko polniš.</li>
+      </ul>
+      <h2>Pazi na lažne kode QR</h2>
+      <p>ADAC opozarja na prevaro na polnilnicah: goljufi čez kodo ponudnika nalepijo svojo kodo QR. Ta te pelje na kopijo spletne strani ponudnika, kjer vpišeš podatke kartice. Če zaslon polnilnice pokaže kodo QR, skeniraj tisto in ne nalepke. Preveri, ali ni čez nalepko prilepljena druga, in pazi, če stran zahteva nenavadno visok znesek ali je videti neprofesionalno. ADAC kot varnejši način plačila priporoča aplikacijo ponudnika ali terminal za kartice na polnilnici. Tesla pravi, da strank nikoli ne prosi za plačilo prek kode QR.</p>
+      <h2>Teslini Superchargerji</h2>
+      <p>Tesla je izbrane lokacije Supercharger odprla tudi za druge električne avte v izbranih državah. Polnjenje začneš in plačaš v aplikaciji Tesla, na omejenem številu lokacij pa lahko plačaš tudi neposredno s kartico. Plačljivo članstvo Supercharging na izbranih lokacijah zniža ceno na kWh. Pristojbine za zasedenost in gnečo veljajo tudi za druge avte. Katere lokacije so odprte, kaže Teslin zemljevid.</p>
+      <h2>Načrtovanje poti</h2>
+      <ul>
+        <li>Na hitro polnilnico pripelji z 10 do 30 odstotki baterije in polni do približno 80 odstotkov. Nad 80 odstotki moč polnjenja močno pade, zato zadnji del traja veliko dlje (ADAC).</li>
+        <li>Hladna baterija se polni precej počasneje. Večina avtomobilov jo med vožnjo ogreje, če v navigaciji avta za cilj nastaviš polnilnico (ADAC).</li>
+        <li>Pozimi je doseg manjši. V testu Green NCAP so električni avti pri -7 °C v kratkem, 23 km dolgem testnem ciklu porabili povprečno 70 odstotkov več energije kot pri 23 °C, doseg pa je bil približno 40 odstotkov manjši. V dolgotrajnih testih ADAC je bila poraba pozimi višja za 25 do 31 odstotkov.</li>
+        <li>Ogrevanje sedežev in volana porabi manj energije kot ogrevanje celotne kabine. Če avto ogreješ, ko je še priklopljen, gre energija iz omrežja in ne iz baterije (ADAC).</li>
+        <li>Ko je polnjenje končano, avto premakni. Izogneš se pristojbini za zasedenost, nekdo drug pa lahko polni.</li>
+        <li>Preden zapelješ v državo zunaj EU, preveri, katera omrežja in načini plačila tam delujejo.</li>
+      </ul>
+      <h2>Koliko stane 100 km?</h2>
+      <p>Pri električnem avtu porabo v kWh na 100 km pomnoži s ceno na kWh. Pri avtu na bencin ali dizel pomnoži litre na 100 km s ceno na liter.</p>
+      <p>Primer z okroglimi številkami: avto, ki porabi 18 kWh na 100 km in polni po 0,60 €/kWh, plača 10,80 € na 100 km. Avto na bencin, ki porabi 6,5 litra na 100 km, pri 1,60 €/l plača 10,40 €. Če polniš po 0,40 €/kWh, električni avto plača 7,20 €.</p>
+      <p>Upoštevaj, da poraba, ki jo kaže avto, navadno ne vključuje izgub pri polnjenju, plačaš pa energijo, ki jo izmeri polnilnica. ADAC je na hitrih polnilnicah izmeril izgube od 1 do 4 odstotke pri topli bateriji in od 6 do 10 odstotkov pri hladni. Za gorivo uporabi trenutne cene na TankSmart.</p>
+      <h2>Zemljevid polnilnic</h2>
+      <p>Zemljevid je od Open Charge Map, neprofitne baze, ki jo urejajo uporabniki. Naloži se šele, ko klikneš gumb, takrat pa Open Charge Map vidi tvoj naslov IP. Cene in delovni čas so lahko zastareli, zato jih pred potjo preveri v aplikaciji ponudnika.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Pokaži zemljevid</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Podatki: Open Charge Map in sodelujoči, licenca CC BY 4.0</a></p>
+      <h2>Viri</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">To stran sem sestavila iz pravil EU, testov avtomobilskih klubov in poročil potrošniških organizacij. Če opaziš napako, mi piši na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- HR -->
+  <div class="lang-section" id="section-hr">
+    <h1 class="article-title">Punjenje električnog automobila po Europi: cijene, plaćanje i planiranje</h1>
+    <div class="article-meta">Provjereno 26. studenoga 2026.</div>
+    <div class="article-body">
+      <p>Za gorivo EU svaki tjedan objavljuje prosječne cijene za sve države članice. Za punjenje Europski opservatorij za alternativna goriva objavljuje cijene po državama samo povremeno, a podaci su zadnji put ažurirani u siječnju 2024. Zato na TankSmartu nema tablice cijena punjenja po državama. Na ovoj stranici saznat ćeš kako se punjenje naplaćuje, što ti na javnoj punionici jamče pravila EU-a i kako planirati put da platiš manje i manje čekaš. Na dnu je karta punionica.</p>
+      <h2>Od čega se sastoji cijena</h2>
+      <p>Na javnoj punionici možeš platiti na više načina, a jedno punjenje može uključivati više tih stavki:</p>
+      <ul>
+        <li>Po kWh: plaćaš energiju koja ulazi u automobil. Prema pravilima EU-a, cijena bez ugovora na brzim punionicama od 50 kW ili više mora se temeljiti na kWh.</li>
+        <li>Po minuti: neki operateri naplaćuju vrijeme, uglavnom na sporijim punionicama. Automobil koji može puniti samo sporo tada za istu količinu energije plaća više.</li>
+        <li>Po punjenju: fiksni iznos za svako punjenje, koji koriste neki operateri i aplikacije.</li>
+        <li>Naknada za zauzimanje: iznos po minuti ako automobil ostane priključen predugo ili ostane na mjestu nakon punjenja. Potrošačka organizacija BEUC takve je naknade pronašla u otprilike 9 od 10 tarifa koje nude aplikacije i kartice drugih pružatelja.</li>
+      </ul>
+      <p>Spore punionice koriste izmjeničnu struju (AC), obično do 22 kW, i česte su u gradovima i na parkiralištima. Brze punionice koriste istosmjernu struju (DC), obično 50 kW ili više, i uglavnom su uz autoceste. Brzo punjenje po kWh obično je skuplje. Prema podacima Europskog opservatorija za alternativna goriva koje je BEUC naveo u srpnju 2026. (sami podaci mogu biti stariji), prosječne cijene preko aplikacija i kartica za punjenje kreću se od oko 0,27 do 0,65 €/kWh za AC i od oko 0,32 do 0,85 €/kWh za DC, a neke su cijene iznad 1 €/kWh.</p>
+      <h2>Što ti jamče pravila EU-a</h2>
+      <p>Od 13. travnja 2024. u svim državama EU-a vrijedi uredba EU-a o infrastrukturi za alternativna goriva (AFIR). Za vozače to znači:</p>
+      <ul>
+        <li>Na svakoj javnoj punionici možeš puniti bez ugovora i bez registracije u aplikaciji. U praksi neke starije punionice još ne nude jednostavno plaćanje bez ugovora.</li>
+        <li>Nove punionice od 50 kW ili više moraju primati platne kartice, preko čitača kartica ili beskontaktnog terminala.</li>
+        <li>Od 1. siječnja 2027. to vrijedi i za starije punionice od 50 kW ili više uz transeuropsku cestovnu mrežu (TEN-T) i na sigurnim parkiralištima za kamione.</li>
+        <li>Na punionicama ispod 50 kW operater ti umjesto plaćanja karticom može omogućiti plaćanje preko interneta, na primjer QR kodom.</li>
+        <li>Na punionicama od 50 kW ili više cijena po kWh bez ugovora mora biti istaknuta na punionici. Na cijenu po kWh operater smije dodati samo naknadu po minuti za zauzimanje punionice.</li>
+        <li>Aplikacije i kartice za punjenje moraju ti prije početka punjenja pokazati sve dijelove cijene, uključujući troškove roaminga.</li>
+      </ul>
+      <p>AFIR je uredba EU-a. Izvan EU-a, na primjer u Švicarskoj, Srbiji ili Ujedinjenom Kraljevstvu, ne vrijedi, pa prije puta provjeri kako ondje možeš platiti.</p>
+      <h2>Bankovna kartica, aplikacija operatera ili kartica za punjenje?</h2>
+      <p>Ista punionica može stajati vrlo različito, ovisno o tome kako plaćaš. BEUC je pregledao podatke s više od 11.000 punionica u EU-u: razlika između najjeftinije i najskuplje aplikacije ili kartice na istoj punionici obično je bila od 0,40 do 1,00 €/kWh.</p>
+      <ul>
+        <li>Bankovna kartica na punionici: bez ugovora i bez aplikacije, pa je na putu najjednostavnija. Plaćaš cijenu istaknutu na punionici.</li>
+        <li>Aplikacija operatera punionice: obično dobivaš njegovu vlastitu cijenu. U primjeru koji BEUC navodi iz Nizozemske, 51,4 kWh na Shellovim punionicama preko operatera stajalo je 12,81 €, a punjenje od 53,7 kWh preko aplikacije drugog pružatelja 45,90 €.</li>
+        <li>Kartice i aplikacije za punjenje koje rade u više država (roaming): praktične, jer jedan račun radi u mnogim mrežama, ali cijena može biti viša od cijene operatera i često uključuje naknade po minuti ili za zauzimanje. Prije priključivanja uvijek provjeri cijenu u aplikaciji.</li>
+        <li>Pretplata se može isplatiti ako često puniš u istoj mreži. Prije pretplate usporedi mjesečni iznos s time koliko ondje stvarno puniš.</li>
+      </ul>
+      <h2>Pazi na lažne QR kodove</h2>
+      <p>ADAC upozorava na prijevaru na punionicama: prevaranti preko koda operatera zalijepe svoj QR kod. On vodi na kopiju stranice operatera, gdje upisuješ podatke kartice. Ako zaslon punionice prikazuje QR kod, skeniraj taj, a ne naljepnicu. Provjeri da preko naljepnice nije zalijepljena druga i pazi ako stranica traži neobično visok iznos ili izgleda neprofesionalno. ADAC kao sigurniji način plaćanja preporučuje aplikaciju operatera ili terminal za kartice na punionici. Tesla navodi da od kupaca nikad ne traži plaćanje preko QR koda.</p>
+      <h2>Teslini Superchargeri</h2>
+      <p>Tesla je odabrane Supercharger lokacije otvorila i za druge električne automobile u odabranim državama. Punjenje pokrećeš i plaćaš u aplikaciji Tesla, a na ograničenom broju lokacija možeš platiti i izravno karticom. Plaćeno članstvo Supercharging na odabranim lokacijama snižava cijenu po kWh. Naknade za zauzimanje i gužvu vrijede i za druge automobile. Koje su lokacije otvorene, pokazuje Teslina karta.</p>
+      <h2>Planiranje puta</h2>
+      <ul>
+        <li>Na brzu punionicu dođi s 10 do 30 posto baterije i puni do otprilike 80 posto. Iznad 80 posto snaga punjenja jako pada, pa zadnji dio traje puno dulje (ADAC).</li>
+        <li>Hladna baterija puni se puno sporije. Većina automobila zagrije je usput ako u navigaciji automobila punionicu postaviš kao odredište (ADAC).</li>
+        <li>Zimi je domet manji. U testu Green NCAP električni su automobili na -7 °C u kratkom testnom ciklusu od 23 km trošili u prosjeku 70 posto više energije nego na 23 °C, a domet im je bio oko 40 posto manji. U ADAC-ovim dugotrajnim testovima potrošnja je zimi bila veća za 25 do 31 posto.</li>
+        <li>Grijanje sjedala i upravljača troši manje energije od grijanja cijele kabine. Ako automobil zagriješ dok je još priključen, energija dolazi iz mreže, a ne iz baterije (ADAC).</li>
+        <li>Kad je punjenje gotovo, pomakni automobil. Izbjegavaš naknadu za zauzimanje, a netko drugi može puniti.</li>
+        <li>Prije nego uđeš u državu izvan EU-a, provjeri koje mreže i načini plaćanja ondje rade.</li>
+      </ul>
+      <h2>Koliko stoji 100 km?</h2>
+      <p>Kod električnog automobila pomnoži potrošnju u kWh na 100 km s cijenom po kWh. Kod automobila na benzin ili dizel pomnoži litre na 100 km s cijenom po litri.</p>
+      <p>Primjer s okruglim brojevima: automobil koji troši 18 kWh na 100 km i puni po 0,60 €/kWh plaća 10,80 € na 100 km. Automobil na benzin koji troši 6,5 litara na 100 km plaća 10,40 € pri 1,60 €/l. Ako puniš po 0,40 €/kWh, električni automobil plaća 7,20 €.</p>
+      <p>Imaj na umu da potrošnja koju pokazuje automobil obično ne uključuje gubitke pri punjenju, a plaćaš energiju koju izmjeri punionica. ADAC je na brzim punionicama izmjerio gubitke od 1 do 4 posto s toplom baterijom i od 6 do 10 posto s hladnom. Za gorivo koristi trenutne cijene na TankSmartu.</p>
+      <h2>Karta punionica</h2>
+      <p>Karta je od Open Charge Mapa, neprofitne baze koju uređuju korisnici. Učitava se tek kad klikneš gumb, a tada Open Charge Map vidi tvoju IP adresu. Cijene i radno vrijeme mogu biti zastarjeli, pa ih prije puta provjeri u aplikaciji operatera.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Prikaži kartu</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Podaci: Open Charge Map i suradnici, licenca CC BY 4.0</a></p>
+      <h2>Izvori</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">Ovu sam stranicu sastavila iz pravila EU-a, testova autoklubova i izvješća potrošačkih organizacija. Ako primijetiš pogrešku, piši mi na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- DE -->
+  <div class="lang-section" id="section-de">
+    <h1 class="article-title">Elektroauto laden in Europa: Preise, Bezahlen und Planung</h1>
+    <div class="article-meta">Geprüft am 26. November 2026</div>
+    <div class="article-body">
+      <p>Für Kraftstoff veröffentlicht die EU jede Woche Durchschnittspreise für alle Mitgliedstaaten. Für das Laden veröffentlicht die Europäische Beobachtungsstelle für alternative Kraftstoffe Preise pro Land nur gelegentlich, zuletzt wurden die Daten im Januar 2024 aktualisiert. Deshalb findest du auf TankSmart keine Tabelle mit Ladepreisen pro Land. Auf dieser Seite erfährst du, wie Laden abgerechnet wird, was dir die EU-Regeln an einer öffentlichen Ladesäule garantieren und wie du eine Fahrt planst, damit du weniger zahlst und weniger wartest. Ganz unten gibt es eine Karte der Ladepunkte.</p>
+      <h2>Woraus sich der Preis zusammensetzt</h2>
+      <p>An einer öffentlichen Ladesäule kannst du auf mehrere Arten zahlen, und ein Ladevorgang kann mehrere dieser Posten enthalten:</p>
+      <ul>
+        <li>Pro kWh: Du zahlst für die Energie, die ins Auto fließt. Nach den EU-Regeln muss der Preis ohne Vertrag an Schnellladern ab 50 kW auf der kWh beruhen.</li>
+        <li>Pro Minute: Manche Betreiber berechnen die Zeit, vor allem an langsameren Ladesäulen. Ein Auto, das nur langsam laden kann, zahlt dann für dieselbe Energiemenge mehr.</li>
+        <li>Pro Ladevorgang: ein fester Betrag für jeden Ladevorgang, den manche Betreiber und Apps verlangen.</li>
+        <li>Blockier- oder Parkgebühr: ein Betrag pro Minute, wenn das Auto zu lange angesteckt bleibt oder nach dem Laden stehen bleibt. In Tarifen, die über Apps und Ladekarten anderer Anbieter laufen, fand die Verbraucherorganisation BEUC solche Gebühren in etwa 9 von 10 Fällen.</li>
+      </ul>
+      <p>Langsame Ladesäulen nutzen Wechselstrom (AC), meist bis 22 kW, und sind in Städten und auf Parkplätzen verbreitet. Schnelllader nutzen Gleichstrom (DC), meist 50 kW oder mehr, und stehen vor allem an Autobahnen. Schnellladen kostet pro kWh meist mehr. Nach Zahlen der Europäischen Beobachtungsstelle für alternative Kraftstoffe, die BEUC im Juli 2026 zitierte (die Daten selbst können älter sein), liegen die Durchschnittspreise über Apps und Ladekarten bei etwa 0,27 bis 0,65 €/kWh für AC und etwa 0,32 bis 0,85 €/kWh für DC, und manche Preise liegen über 1 €/kWh.</p>
+      <h2>Was dir die EU-Regeln garantieren</h2>
+      <p>Seit dem 13. April 2024 gilt in allen EU-Ländern die EU-Verordnung über die Infrastruktur für alternative Kraftstoffe (AFIR). Für Fahrerinnen und Fahrer heißt das:</p>
+      <ul>
+        <li>Du kannst an jeder öffentlichen Ladesäule ohne Vertrag und ohne Registrierung in einer App laden. In der Praxis bieten manche ältere Ladesäulen noch keine einfache Bezahlung ohne Vertrag.</li>
+        <li>Neue Ladesäulen ab 50 kW müssen Zahlungskarten akzeptieren, über ein Kartenlesegerät oder ein kontaktloses Terminal.</li>
+        <li>Ab dem 1. Januar 2027 gilt das auch für ältere Ladesäulen ab 50 kW entlang des transeuropäischen Straßennetzes (TEN-T) und auf sicheren Lkw-Parkplätzen.</li>
+        <li>An Ladesäulen unter 50 kW kann der Betreiber statt Kartenzahlung auch eine Online-Zahlung anbieten, zum Beispiel per QR-Code.</li>
+        <li>An Ladesäulen ab 50 kW muss der Preis pro kWh ohne Vertrag an der Ladesäule angezeigt werden. Zum kWh-Preis darf der Betreiber nur eine Gebühr pro Minute für das Blockieren der Ladesäule hinzufügen.</li>
+        <li>Apps und Ladekarten müssen dir vor dem Laden alle Preisbestandteile zeigen, einschließlich Roamingkosten.</li>
+      </ul>
+      <p>AFIR ist eine EU-Verordnung. Außerhalb der EU, zum Beispiel in der Schweiz, in Serbien oder in Großbritannien, gilt sie nicht. Prüf also vor der Fahrt, wie du dort bezahlen kannst.</p>
+      <h2>Bankkarte, App des Betreibers oder Ladekarte?</h2>
+      <p>Dieselbe Ladesäule kann sehr unterschiedlich viel kosten, je nachdem, wie du bezahlst. BEUC hat Daten von mehr als 11.000 Ladestationen in der EU ausgewertet: Der Unterschied zwischen der günstigsten und der teuersten App oder Karte an derselben Ladesäule lag meist bei 0,40 bis 1,00 €/kWh.</p>
+      <ul>
+        <li>Bankkarte an der Ladesäule: kein Vertrag und keine App, deshalb unterwegs am einfachsten. Du zahlst den Preis, der an der Ladesäule steht.</li>
+        <li>App des Betreibers: Meist bekommst du den eigenen Preis des Betreibers. In einem Beispiel von BEUC aus den Niederlanden kosteten 51,4 kWh an Shell-Ladesäulen über den Betreiber 12,81 €, ein Ladevorgang mit 53,7 kWh über die App eines anderen Anbieters 45,90 €.</li>
+        <li>Ladekarten und Apps, die in vielen Ländern funktionieren (Roaming): praktisch, weil ein Konto in vielen Netzen funktioniert, aber der Preis kann höher sein als beim Betreiber selbst und enthält oft Gebühren pro Minute oder fürs Blockieren. Prüf vor dem Anstecken immer den Preis in der App.</li>
+        <li>Ein Abo kann sich lohnen, wenn du oft im selben Netz lädst. Vergleich vor dem Abschluss die Monatsgebühr damit, wie viel du dort wirklich lädst.</li>
+      </ul>
+      <h2>Vorsicht vor gefälschten QR-Codes</h2>
+      <p>Der ADAC warnt vor einer Betrugsmasche an Ladesäulen: Kriminelle kleben ihren eigenen QR-Code über den Code des Betreibers. Er führt zu einer Kopie der Website des Betreibers, auf der du deine Kartendaten eingibst. Wenn das Display der Ladesäule einen QR-Code zeigt, scanne diesen statt des Aufklebers. Prüf, ob ein Aufkleber über einen anderen geklebt wurde, und sei vorsichtig, wenn die Seite einen ungewöhnlich hohen Betrag verlangt oder unprofessionell wirkt. Als sicherere Bezahlwege nennt der ADAC die App des Betreibers oder das Kartenterminal an der Ladesäule. Tesla sagt, dass es Kundinnen und Kunden nie bittet, über einen QR-Code zu bezahlen.</p>
+      <h2>Tesla Supercharger</h2>
+      <p>Tesla hat ausgewählte Supercharger-Standorte in ausgewählten Ländern auch für andere Elektroautos geöffnet. Du startest und bezahlst das Laden in der Tesla-App, an einer begrenzten Zahl von Standorten kannst du auch direkt mit Karte zahlen. Eine kostenpflichtige Supercharging-Mitgliedschaft senkt an ausgewählten Standorten den Preis pro kWh. Blockier- und Auslastungsgebühren gelten auch für andere Autos. Welche Standorte offen sind, zeigt die Karte von Tesla.</p>
+      <h2>Eine Fahrt planen</h2>
+      <ul>
+        <li>Komm mit 10 bis 30 Prozent Akku zum Schnelllader und lade bis etwa 80 Prozent. Über 80 Prozent sinkt die Ladeleistung stark, deshalb dauert der letzte Teil viel länger (ADAC).</li>
+        <li>Ein kalter Akku lädt deutlich langsamer. Die meisten Autos heizen ihn unterwegs vor, wenn du die Ladesäule im Navi des Autos als Ziel eingibst (ADAC).</li>
+        <li>Im Winter ist die Reichweite geringer. Im Test von Green NCAP verbrauchten Elektroautos bei -7 °C in einem kurzen Testzyklus von 23 km im Schnitt 70 Prozent mehr Energie als bei 23 °C, die Reichweite war etwa 40 Prozent geringer. In den Dauertests des ADAC lag der Verbrauch im Winter 25 bis 31 Prozent höher.</li>
+        <li>Sitz- und Lenkradheizung brauchen weniger Energie, als den ganzen Innenraum zu heizen. Wenn du das Auto vorwärmst, solange es noch angesteckt ist, kommt die Energie aus dem Netz und nicht aus dem Akku (ADAC).</li>
+        <li>Wenn das Laden fertig ist, park das Auto um. So vermeidest du Blockiergebühren, und jemand anderes kann laden.</li>
+        <li>Bevor du in ein Land außerhalb der EU fährst, prüf, welche Netze und Zahlungsarten dort funktionieren.</li>
+      </ul>
+      <h2>Was kosten 100 km?</h2>
+      <p>Beim Elektroauto multiplizierst du den Verbrauch in kWh pro 100 km mit dem Preis pro kWh. Beim Benziner oder Diesel multiplizierst du Liter pro 100 km mit dem Preis pro Liter.</p>
+      <p>Ein Beispiel mit runden Zahlen: Ein Auto, das 18 kWh pro 100 km verbraucht und für 0,60 €/kWh lädt, zahlt 10,80 € pro 100 km. Ein Benziner mit 6,5 Litern pro 100 km zahlt bei 1,60 €/l 10,40 €. Lädst du für 0,40 €/kWh, zahlt das Elektroauto 7,20 €.</p>
+      <p>Denk daran, dass der Verbrauch, den das Auto anzeigt, die Ladeverluste meist nicht enthält, du aber die Energie bezahlst, die die Ladesäule misst. Der ADAC hat an Schnellladern Verluste von 1 bis 4 Prozent bei warmem Akku und 6 bis 10 Prozent bei kaltem gemessen. Für Kraftstoff nimm die aktuellen Preise auf TankSmart.</p>
+      <h2>Karte der Ladepunkte</h2>
+      <p>Die Karte stammt von Open Charge Map, einer gemeinnützigen Datenbank, die von der Community gepflegt wird. Sie lädt erst, wenn du auf den Button klickst, und dann sieht Open Charge Map deine IP-Adresse. Preise und Öffnungszeiten können veraltet sein, prüfe sie also vor der Fahrt in der App des Betreibers.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Karte anzeigen</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Daten: Open Charge Map und Mitwirkende, Lizenz CC BY 4.0</a></p>
+      <h2>Quellen</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">Ich habe diese Seite aus EU-Regeln, Tests von Automobilclubs und Berichten von Verbraucherorganisationen zusammengestellt. Wenn dir ein Fehler auffällt, schreib mir an <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- ES -->
+  <div class="lang-section" id="section-es">
+    <h1 class="article-title">Cargar un coche eléctrico en Europa: precios, pago y planificación</h1>
+    <div class="article-meta">Revisado el 26 de noviembre de 2026</div>
+    <div class="article-body">
+      <p>Para el combustible, la UE publica cada semana los precios medios de todos los Estados miembros. Para la carga, el Observatorio Europeo de Combustibles Alternativos publica precios por país solo de vez en cuando, y sus datos se actualizaron por última vez en enero de 2024. Por eso en TankSmart no hay una tabla de precios de carga por país. En esta página verás cómo se cobra la carga, qué te garantizan las normas de la UE en un cargador público y cómo planificar un viaje para pagar menos y esperar menos. Abajo del todo hay un mapa de puntos de carga.</p>
+      <h2>De qué se compone el precio</h2>
+      <p>En un cargador público puedes pagar de varias formas, y una misma carga puede incluir más de una:</p>
+      <ul>
+        <li>Por kWh: pagas la energía que entra en el coche. Según las normas de la UE, en los cargadores rápidos de 50 kW o más el precio sin contrato tiene que basarse en el kWh.</li>
+        <li>Por minuto: algunos operadores cobran el tiempo, sobre todo en cargadores más lentos. Un coche que solo puede cargar despacio paga entonces más por la misma energía.</li>
+        <li>Por sesión: una cantidad fija por cada carga, que usan algunos operadores y apps.</li>
+        <li>Tarifa por ocupación o aparcamiento: un importe por minuto si el coche se queda enchufado demasiado tiempo o sigue en la plaza después de cargar. En las tarifas que se ofrecen a través de apps y tarjetas de otros proveedores, la organización de consumidores BEUC encontró este tipo de tarifas en unos 9 de cada 10 casos.</li>
+      </ul>
+      <p>Los cargadores lentos usan corriente alterna (AC), normalmente hasta 22 kW, y son habituales en ciudades y aparcamientos. Los rápidos usan corriente continua (DC), normalmente de 50 kW o más, y son los que más se ven junto a las autopistas. La carga rápida suele costar más por kWh. Según cifras del Observatorio Europeo de Combustibles Alternativos que BEUC citó en julio de 2026 (los datos pueden ser anteriores), los precios medios a través de apps y tarjetas de carga van de unos 0,27 a 0,65 €/kWh en AC y de unos 0,32 a 0,85 €/kWh en DC, y algunos precios superan 1 €/kWh.</p>
+      <h2>Qué te garantizan las normas de la UE</h2>
+      <p>Desde el 13 de abril de 2024 se aplica en todos los países de la UE el reglamento europeo sobre infraestructura para combustibles alternativos (AFIR). Para quien conduce significa:</p>
+      <ul>
+        <li>Puedes cargar en cualquier cargador público sin contrato y sin registrarte en una app. En la práctica, algunos cargadores antiguos todavía no ofrecen una forma sencilla de pagar sin contrato.</li>
+        <li>Los cargadores nuevos de 50 kW o más tienen que aceptar tarjetas de pago, con lector de tarjetas o terminal sin contacto.</li>
+        <li>Desde el 1 de enero de 2027 esto se aplica también a los cargadores antiguos de 50 kW o más a lo largo de la red transeuropea de carreteras (TEN-T) y en aparcamientos seguros para camiones.</li>
+        <li>En los cargadores de menos de 50 kW, el operador puede permitirte pagar por internet en lugar de con tarjeta, por ejemplo con un código QR.</li>
+        <li>En los cargadores de 50 kW o más, el precio por kWh sin contrato tiene que aparecer en el cargador. Sobre el precio por kWh, el operador solo puede añadir una tarifa por minuto por ocupar el cargador.</li>
+        <li>Las apps y tarjetas de carga tienen que mostrarte todos los componentes del precio, incluidos los costes de itinerancia (roaming), antes de empezar a cargar.</li>
+      </ul>
+      <p>AFIR es un reglamento de la UE. Fuera de la UE, por ejemplo en Suiza, Serbia o el Reino Unido, no se aplica, así que comprueba antes del viaje cómo puedes pagar allí.</p>
+      <h2>¿Tarjeta bancaria, app del operador o tarjeta de carga?</h2>
+      <p>El mismo cargador puede costar cantidades muy distintas según cómo pagues. BEUC analizó datos de más de 11.000 estaciones de carga de la UE: la diferencia entre la app o tarjeta más barata y la más cara en el mismo cargador solía ser de 0,40 a 1,00 €/kWh.</p>
+      <ul>
+        <li>Tarjeta bancaria en el cargador: sin contrato y sin app, así que es lo más sencillo en un viaje. Pagas el precio que aparece en el cargador.</li>
+        <li>App del propio operador: normalmente obtienes el precio del operador. En un ejemplo de BEUC en los Países Bajos, 51,4 kWh en cargadores de Shell costaron 12,81 € a través del operador, mientras que una carga de 53,7 kWh con la app de otro proveedor costó 45,90 €.</li>
+        <li>Tarjetas y apps de carga que funcionan en muchos países (roaming): son cómodas, porque una sola cuenta sirve en muchas redes, pero el precio puede ser más alto que el del operador y a menudo incluye tarifas por minuto o por ocupación. Comprueba siempre el precio en la app antes de enchufar.</li>
+        <li>Una suscripción puede compensar si cargas a menudo en la misma red. Antes de suscribirte, compara la cuota mensual con lo que de verdad cargas allí.</li>
+      </ul>
+      <h2>Cuidado con los códigos QR falsos</h2>
+      <p>El ADAC alerta de una estafa en los cargadores: los delincuentes pegan su propio código QR encima del código del operador. Lleva a una copia de la web del operador, donde introduces los datos de tu tarjeta. Si la pantalla del cargador muestra un código QR, escanea ese y no la pegatina. Comprueba que no haya una pegatina puesta encima de otra y desconfía si la página pide un importe inusualmente alto o parece poco profesional. El ADAC considera más seguro pagar con la app del operador o con el terminal de tarjetas del cargador. Tesla afirma que nunca pide a sus clientes pagar mediante un código QR.</p>
+      <h2>Supercargadores de Tesla</h2>
+      <p>Tesla ha abierto algunos de sus Supercargadores a otros coches eléctricos en algunos países. La carga se inicia y se paga en la app de Tesla, y en un número limitado de estaciones también se puede pagar directamente con tarjeta. Una suscripción de pago a Supercharging baja el precio por kWh en algunas estaciones. Las tarifas por inactividad y por congestión también se aplican a otros coches. El mapa de Tesla muestra qué estaciones están abiertas.</p>
+      <h2>Planificar un viaje</h2>
+      <ul>
+        <li>Llega al cargador rápido con un 10 a 30 por ciento de batería y carga hasta un 80 por ciento aproximadamente. Por encima del 80 por ciento la potencia de carga baja mucho, así que lo último tarda bastante más (ADAC).</li>
+        <li>Una batería fría carga mucho más despacio. La mayoría de los coches la calientan por el camino si pones el cargador como destino en el navegador del coche (ADAC).</li>
+        <li>En invierno la autonomía es menor. En la prueba de Green NCAP, los coches eléctricos gastaron de media un 70 por ciento más de energía a -7 °C que a 23 °C en un ciclo de prueba corto de 23 km, y su autonomía fue un 40 por ciento menor. En las pruebas de larga duración del ADAC, el consumo en invierno fue entre un 25 y un 31 por ciento mayor.</li>
+        <li>Los asientos y el volante calefactados gastan menos energía que calentar todo el habitáculo. Si calientas el coche mientras sigue enchufado, la energía sale de la red y no de la batería (ADAC).</li>
+        <li>Cuando termine la carga, mueve el coche. Evitas la tarifa por ocupación y otra persona puede cargar.</li>
+        <li>Antes de entrar en un país de fuera de la UE, comprueba qué redes y formas de pago funcionan allí.</li>
+      </ul>
+      <h2>¿Cuánto cuestan 100 km?</h2>
+      <p>En un coche eléctrico, multiplica el consumo en kWh por 100 km por el precio por kWh. En un coche de gasolina o diésel, multiplica los litros por 100 km por el precio por litro.</p>
+      <p>Un ejemplo con números redondos: un coche que gasta 18 kWh por 100 km y carga a 0,60 €/kWh paga 10,80 € por 100 km. Un coche de gasolina que gasta 6,5 litros por 100 km paga 10,40 € a 1,60 €/l. Si cargas a 0,40 €/kWh, el eléctrico paga 7,20 €.</p>
+      <p>Ten en cuenta que el consumo que muestra el coche normalmente no incluye las pérdidas de carga, y tú pagas la energía que mide el cargador. El ADAC midió pérdidas del 1 al 4 por ciento en cargadores rápidos con la batería caliente y del 6 al 10 por ciento con la batería fría. Para el combustible, usa los precios actuales de TankSmart.</p>
+      <h2>Mapa de puntos de carga</h2>
+      <p>El mapa es de Open Charge Map, una base de datos sin ánimo de lucro que mantiene la comunidad. Solo se carga cuando pulsas el botón, y entonces Open Charge Map ve tu dirección IP. Los precios y horarios pueden no estar al día, así que compruébalos en la app del operador antes de salir.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Mostrar mapa</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Datos: Open Charge Map y colaboradores, licencia CC BY 4.0</a></p>
+      <h2>Fuentes</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">He preparado esta página a partir de normas de la UE, pruebas de clubes de automovilistas e informes de organizaciones de consumidores. Si ves algún error, escríbeme a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- IT -->
+  <div class="lang-section" id="section-it">
+    <h1 class="article-title">Ricaricare un'auto elettrica in Europa: prezzi, pagamento e pianificazione</h1>
+    <div class="article-meta">Verificato il 26 novembre 2026</div>
+    <div class="article-body">
+      <p>Per il carburante, la UE pubblica ogni settimana i prezzi medi di tutti gli Stati membri. Per la ricarica, l'Osservatorio europeo dei combustibili alternativi pubblica i prezzi per paese solo ogni tanto, e i suoi dati sono stati aggiornati l'ultima volta a gennaio 2024. Per questo su TankSmart non trovi una tabella dei prezzi di ricarica per paese. In questa pagina trovi come si paga la ricarica, cosa ti garantiscono le regole UE a una colonnina pubblica e come pianificare un viaggio per pagare meno e aspettare meno. In fondo c'è una mappa delle colonnine.</p>
+      <h2>Da cosa è composto il prezzo</h2>
+      <p>A una colonnina pubblica puoi pagare in diversi modi, e una stessa ricarica può comprendere più voci:</p>
+      <ul>
+        <li>Per kWh: paghi l'energia che entra nell'auto. Secondo le regole UE, alle colonnine veloci da 50 kW in su il prezzo senza contratto deve basarsi sul kWh.</li>
+        <li>Al minuto: alcuni operatori fanno pagare il tempo, soprattutto alle colonnine più lente. Un'auto che può caricare solo lentamente paga allora di più per la stessa energia.</li>
+        <li>A sessione: un importo fisso per ogni ricarica, usato da alcuni operatori e app.</li>
+        <li>Tariffa di occupazione o sosta: un importo al minuto se l'auto resta collegata troppo a lungo o rimane al posto dopo la ricarica. Nelle tariffe offerte da app e tessere di altri fornitori, l'associazione dei consumatori BEUC ha trovato queste tariffe in circa 9 casi su 10.</li>
+      </ul>
+      <p>Le colonnine lente usano la corrente alternata (AC), di solito fino a 22 kW, e sono comuni in città e nei parcheggi. Quelle veloci usano la corrente continua (DC), di solito da 50 kW in su, e si trovano soprattutto lungo le autostrade. La ricarica veloce costa di solito di più per kWh. Secondo i dati dell'Osservatorio europeo dei combustibili alternativi citati da BEUC a luglio 2026 (i dati stessi possono essere più vecchi), i prezzi medi tramite app e tessere di ricarica vanno da circa 0,27 a 0,65 €/kWh in AC e da circa 0,32 a 0,85 €/kWh in DC, e alcuni prezzi superano 1 €/kWh.</p>
+      <h2>Cosa ti garantiscono le regole UE</h2>
+      <p>Dal 13 aprile 2024 in tutti i paesi UE si applica il regolamento europeo sull'infrastruttura per i combustibili alternativi (AFIR). Per chi guida significa:</p>
+      <ul>
+        <li>Puoi ricaricare a qualsiasi colonnina pubblica senza contratto e senza registrarti in un'app. In pratica alcune colonnine più vecchie non offrono ancora un modo semplice per pagare senza contratto.</li>
+        <li>Le nuove colonnine da 50 kW in su devono accettare carte di pagamento, con un lettore di carte o un terminale contactless.</li>
+        <li>Dal 1° gennaio 2027 questo vale anche per le colonnine più vecchie da 50 kW in su lungo la rete stradale transeuropea (TEN-T) e nelle aree di sosta sicure per camion.</li>
+        <li>Alle colonnine sotto i 50 kW l'operatore può farti pagare online invece che con la carta, per esempio con un codice QR.</li>
+        <li>Alle colonnine da 50 kW in su il prezzo per kWh senza contratto deve essere indicato sulla colonnina. Oltre al prezzo per kWh, l'operatore può aggiungere solo una tariffa al minuto per l'occupazione della colonnina.</li>
+        <li>App e tessere di ricarica devono mostrarti tutte le voci del prezzo, compresi i costi di roaming, prima che inizi la ricarica.</li>
+      </ul>
+      <p>AFIR è un regolamento UE. Fuori dalla UE, per esempio in Svizzera, Serbia o Regno Unito, non si applica, quindi prima del viaggio controlla come puoi pagare lì.</p>
+      <h2>Carta bancaria, app dell'operatore o tessera di ricarica?</h2>
+      <p>La stessa colonnina può costare cifre molto diverse a seconda di come paghi. BEUC ha esaminato i dati di oltre 11.000 stazioni di ricarica nella UE: la differenza tra l'app o la tessera più economica e quella più cara alla stessa colonnina era di solito da 0,40 a 1,00 €/kWh.</p>
+      <ul>
+        <li>Carta bancaria alla colonnina: niente contratto e niente app, quindi in viaggio è l'opzione più semplice. Paghi il prezzo indicato sulla colonnina.</li>
+        <li>App dell'operatore: di solito ottieni il prezzo dell'operatore. In un esempio di BEUC dai Paesi Bassi, 51,4 kWh alle colonnine Shell sono costati 12,81 € tramite l'operatore, mentre una ricarica di 53,7 kWh con l'app di un altro fornitore è costata 45,90 €.</li>
+        <li>Tessere e app di ricarica che funzionano in molti paesi (roaming): comode, perché un solo account funziona con molte reti, ma il prezzo può essere più alto di quello dell'operatore e spesso include tariffe al minuto o di occupazione. Controlla sempre il prezzo nell'app prima di collegarti.</li>
+        <li>Un abbonamento può convenire se ricarichi spesso con la stessa rete. Prima di abbonarti, confronta il canone mensile con quanto ricarichi davvero lì.</li>
+      </ul>
+      <h2>Attenzione ai codici QR falsi</h2>
+      <p>L'ADAC mette in guardia da una truffa alle colonnine: i truffatori incollano il proprio codice QR sopra quello dell'operatore. Porta a una copia del sito dell'operatore, dove inserisci i dati della carta. Se il display della colonnina mostra un codice QR, inquadra quello e non l'adesivo. Controlla che non ci sia un adesivo incollato sopra un altro e diffida se la pagina chiede un importo insolitamente alto o sembra poco professionale. Per l'ADAC è più sicuro pagare con l'app dell'operatore o con il terminale per carte della colonnina. Tesla dichiara di non chiedere mai ai clienti di pagare tramite un codice QR.</p>
+      <h2>Supercharger Tesla</h2>
+      <p>Tesla ha aperto alcuni siti Supercharger anche alle altre auto elettriche in alcuni paesi. La ricarica si avvia e si paga nell'app Tesla, e in un numero limitato di siti si può pagare anche direttamente con la carta. Un abbonamento Supercharging a pagamento abbassa il prezzo per kWh in alcuni siti. Le tariffe di inattività e di congestione valgono anche per le altre auto. La mappa di Tesla mostra quali siti sono aperti.</p>
+      <h2>Pianificare un viaggio</h2>
+      <ul>
+        <li>Arriva alla colonnina veloce con una batteria tra il 10 e il 30 per cento e ricarica fino a circa l'80 per cento. Oltre l'80 per cento la potenza di ricarica cala molto, quindi l'ultima parte richiede molto più tempo (ADAC).</li>
+        <li>Una batteria fredda si ricarica molto più lentamente. La maggior parte delle auto la riscalda durante il viaggio se imposti la colonnina come destinazione nel navigatore dell'auto (ADAC).</li>
+        <li>D'inverno l'autonomia è minore. Nel test di Green NCAP le auto elettriche hanno consumato in media il 70 per cento di energia in più a -7 °C rispetto a 23 °C in un breve ciclo di prova di 23 km, e la loro autonomia era più bassa di circa il 40 per cento. Nei test di lunga durata dell'ADAC il consumo invernale era più alto dal 25 al 31 per cento.</li>
+        <li>Sedili e volante riscaldati consumano meno energia che scaldare tutto l'abitacolo. Se riscaldi l'auto mentre è ancora collegata, l'energia arriva dalla rete e non dalla batteria (ADAC).</li>
+        <li>Quando la ricarica è finita, sposta l'auto. Eviti la tariffa di occupazione e qualcun altro può ricaricare.</li>
+        <li>Prima di entrare in un paese fuori dalla UE, controlla quali reti e metodi di pagamento funzionano lì.</li>
+      </ul>
+      <h2>Quanto costano 100 km?</h2>
+      <p>Per un'auto elettrica, moltiplica il consumo in kWh per 100 km per il prezzo per kWh. Per un'auto a benzina o diesel, moltiplica i litri per 100 km per il prezzo al litro.</p>
+      <p>Un esempio con numeri tondi: un'auto che consuma 18 kWh per 100 km e ricarica a 0,60 €/kWh paga 10,80 € per 100 km. Un'auto a benzina che consuma 6,5 litri per 100 km paga 10,40 € a 1,60 €/l. Se ricarichi a 0,40 €/kWh, l'auto elettrica paga 7,20 €.</p>
+      <p>Tieni presente che il consumo mostrato dall'auto di solito non comprende le perdite di ricarica, mentre paghi l'energia misurata dalla colonnina. L'ADAC ha misurato perdite dall'1 al 4 per cento alle colonnine veloci con batteria calda e dal 6 al 10 per cento con batteria fredda. Per il carburante, usa i prezzi attuali su TankSmart.</p>
+      <h2>Mappa delle colonnine</h2>
+      <p>La mappa è di Open Charge Map, un database senza scopo di lucro curato dalla comunità. Si carica solo quando premi il pulsante, e a quel punto Open Charge Map vede il tuo indirizzo IP. Prezzi e orari possono non essere aggiornati, quindi controllali nell'app dell'operatore prima di partire.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Mostra la mappa</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Dati: Open Charge Map e collaboratori, licenza CC BY 4.0</a></p>
+      <h2>Fonti</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">Ho preparato questa pagina partendo dalle regole UE, dai test degli automobile club e dai rapporti delle associazioni dei consumatori. Se noti un errore, scrivimi a <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- CS -->
+  <div class="lang-section" id="section-cs">
+    <h1 class="article-title">Nabíjení elektromobilu v Evropě: ceny, placení a plánování</h1>
+    <div class="article-meta">Ověřeno 26. listopadu 2026</div>
+    <div class="article-body">
+      <p>U paliv EU každý týden zveřejňuje průměrné ceny ve všech členských státech. U nabíjení zveřejňuje Evropská observatoř alternativních paliv ceny podle zemí jen občas a její data byla naposledy aktualizována v lednu 2024. Proto na TankSmartu není tabulka cen nabíjení podle zemí. Na této stránce se dozvíš, jak se nabíjení účtuje, co ti na veřejné nabíječce zaručují pravidla EU a jak naplánovat cestu s nižšími náklady a kratším čekáním. Úplně dole je mapa nabíjecích míst.</p>
+      <h2>Z čeho se skládá cena</h2>
+      <p>Na veřejné nabíječce můžeš platit několika způsoby a jedno nabíjení může zahrnovat víc těchto položek:</p>
+      <ul>
+        <li>Za kWh: platíš za energii, která jde do auta. Podle pravidel EU musí být cena bez smlouvy na rychlonabíječkách od 50 kW založená na kWh.</li>
+        <li>Za minutu: někteří provozovatelé účtují čas, hlavně na pomalejších nabíječkách. Auto, které umí nabíjet jen pomalu, pak za stejné množství energie zaplatí víc.</li>
+        <li>Za nabíjení: pevná částka za každé nabíjení, kterou používají někteří provozovatelé a aplikace.</li>
+        <li>Poplatek za blokování: částka za minutu, pokud auto zůstane připojené příliš dlouho nebo stojí na místě i po nabití. V tarifech, které nabízejí aplikace a karty jiných poskytovatelů, našla spotřebitelská organizace BEUC takové poplatky zhruba v 9 případech z 10.</li>
+      </ul>
+      <p>Pomalé nabíječky používají střídavý proud (AC), obvykle do 22 kW, a jsou běžné ve městech a na parkovištích. Rychlonabíječky používají stejnosměrný proud (DC), obvykle 50 kW a víc, a najdeš je hlavně u dálnic. Rychlé nabíjení je za kWh obvykle dražší. Podle údajů Evropské observatoře alternativních paliv, které BEUC citovala v červenci 2026 (samotná data mohou být starší), se průměrné ceny přes aplikace a nabíjecí karty pohybují zhruba od 0,27 do 0,65 €/kWh u AC a zhruba od 0,32 do 0,85 €/kWh u DC a některé ceny jsou nad 1 €/kWh.</p>
+      <h2>Co ti zaručují pravidla EU</h2>
+      <p>Od 13. dubna 2024 platí ve všech zemích EU nařízení EU o infrastruktuře pro alternativní paliva (AFIR). Pro řidiče to znamená:</p>
+      <ul>
+        <li>Na každé veřejné nabíječce můžeš nabíjet bez smlouvy a bez registrace v aplikaci. V praxi některé starší nabíječky zatím jednoduché placení bez smlouvy nenabízejí.</li>
+        <li>Nové nabíječky od 50 kW musí přijímat platební karty, přes čtečku karet nebo bezkontaktní terminál.</li>
+        <li>Od 1. ledna 2027 to platí i pro starší nabíječky od 50 kW podél transevropské silniční sítě (TEN-T) a na zabezpečených parkovištích pro kamiony.</li>
+        <li>Na nabíječkách pod 50 kW ti provozovatel může místo placení kartou umožnit placení přes internet, například kódem QR.</li>
+        <li>Na nabíječkách od 50 kW musí být cena za kWh bez smlouvy uvedená přímo na nabíječce. K ceně za kWh smí provozovatel přidat jen poplatek za minutu za blokování nabíječky.</li>
+        <li>Aplikace a nabíjecí karty ti musí před začátkem nabíjení ukázat všechny části ceny, včetně nákladů na roaming.</li>
+      </ul>
+      <p>AFIR je nařízení EU. Mimo EU, například ve Švýcarsku, Srbsku nebo Velké Británii, neplatí, takže si před cestou ověř, jak tam můžeš platit.</p>
+      <h2>Bankovní karta, aplikace provozovatele, nebo nabíjecí karta?</h2>
+      <p>Stejná nabíječka může stát velmi různě podle toho, jak platíš. BEUC prošla data z více než 11 000 nabíjecích stanic v EU: rozdíl mezi nejlevnější a nejdražší aplikací nebo kartou na stejné nabíječce byl obvykle 0,40 až 1,00 €/kWh.</p>
+      <ul>
+        <li>Bankovní karta na nabíječce: bez smlouvy a bez aplikace, takže je to na cestě nejjednodušší. Platíš cenu uvedenou na nabíječce.</li>
+        <li>Aplikace provozovatele: obvykle dostaneš jeho vlastní cenu. V příkladu, který BEUC uvádí z Nizozemska, stálo 51,4 kWh na nabíječkách Shell přes provozovatele 12,81 €, zatímco nabíjení 53,7 kWh přes aplikaci jiného poskytovatele 45,90 €.</li>
+        <li>Nabíjecí karty a aplikace, které fungují v mnoha zemích (roaming): pohodlné, protože jeden účet funguje v mnoha sítích, ale cena může být vyšší než u provozovatele a často zahrnuje poplatky za minutu nebo za blokování. Před připojením vždy zkontroluj cenu v aplikaci.</li>
+        <li>Předplatné se může vyplatit, pokud často nabíjíš ve stejné síti. Před objednáním porovnej měsíční poplatek s tím, kolik tam opravdu nabiješ.</li>
+      </ul>
+      <h2>Pozor na falešné kódy QR</h2>
+      <p>ADAC varuje před podvodem na nabíječkách: podvodníci přelepí kód provozovatele vlastním kódem QR. Ten vede na kopii webu provozovatele, kde zadáš údaje karty. Pokud displej nabíječky ukazuje kód QR, naskenuj ten, ne nálepku. Zkontroluj, jestli není jedna nálepka přelepená druhou, a dej pozor, pokud stránka chce neobvykle vysokou částku nebo vypadá neprofesionálně. ADAC považuje za bezpečnější placení přes aplikaci provozovatele nebo platební terminál na nabíječce. Tesla uvádí, že zákazníky nikdy nežádá o platbu přes kód QR.</p>
+      <h2>Superchargery Tesla</h2>
+      <p>Tesla otevřela vybrané lokality Supercharger i pro jiné elektromobily ve vybraných zemích. Nabíjení spouštíš a platíš v aplikaci Tesla a na omezeném počtu lokalit můžeš platit i přímo kartou. Placené členství Supercharging na vybraných lokalitách snižuje cenu za kWh. Poplatky za nečinnost a za přetížení platí i pro jiná auta. Které lokality jsou otevřené, ukazuje mapa Tesly.</p>
+      <h2>Plánování cesty</h2>
+      <ul>
+        <li>Na rychlonabíječku přijeď s 10 až 30 procenty baterie a nabíjej zhruba do 80 procent. Nad 80 procent výkon nabíjení hodně klesá, takže poslední část trvá mnohem déle (ADAC).</li>
+        <li>Studená baterie se nabíjí mnohem pomaleji. Většina aut ji cestou ohřeje, pokud v navigaci auta zadáš nabíječku jako cíl (ADAC).</li>
+        <li>V zimě je dojezd menší. V testu Green NCAP spotřebovaly elektromobily při -7 °C v krátkém testovacím cyklu o délce 23 km v průměru o 70 procent víc energie než při 23 °C a jejich dojezd byl asi o 40 procent nižší. V dlouhodobých testech ADAC byla spotřeba v zimě vyšší o 25 až 31 procent.</li>
+        <li>Vyhřívaná sedadla a volant spotřebují méně energie než vytápění celé kabiny. Pokud auto předehřeješ, dokud je ještě připojené, energie jde ze sítě, ne z baterie (ADAC).</li>
+        <li>Když je nabíjení hotové, přeparkuj. Vyhneš se poplatku za blokování a může nabíjet někdo další.</li>
+        <li>Než vjedeš do země mimo EU, ověř si, které sítě a způsoby placení tam fungují.</li>
+      </ul>
+      <h2>Kolik stojí 100 km?</h2>
+      <p>U elektromobilu vynásob spotřebu v kWh na 100 km cenou za kWh. U auta na benzin nebo naftu vynásob litry na 100 km cenou za litr.</p>
+      <p>Příklad s kulatými čísly: auto, které spotřebuje 18 kWh na 100 km a nabíjí za 0,60 €/kWh, zaplatí 10,80 € za 100 km. Auto na benzin se spotřebou 6,5 litru na 100 km zaplatí při 1,60 €/l 10,40 €. Při nabíjení za 0,40 €/kWh zaplatí elektromobil 7,20 €.</p>
+      <p>Pamatuj, že spotřeba, kterou ukazuje auto, obvykle nezahrnuje ztráty při nabíjení, ale platíš za energii, kterou změří nabíječka. ADAC naměřil na rychlonabíječkách ztráty 1 až 4 procenta s teplou baterií a 6 až 10 procent se studenou. U paliva použij aktuální ceny na TankSmartu.</p>
+      <h2>Mapa nabíjecích míst</h2>
+      <p>Mapa je od Open Charge Map, neziskové databáze, kterou spravuje komunita. Načte se až po kliknutí na tlačítko a pak Open Charge Map vidí tvou IP adresu. Ceny a otevírací doba nemusí být aktuální, proto si je před cestou ověř v aplikaci provozovatele.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Zobrazit mapu</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Data: Open Charge Map a přispěvatelé, licence CC BY 4.0</a></p>
+      <h2>Zdroje</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">Tuto stránku jsem sestavila z pravidel EU, testů autoklubů a zpráv spotřebitelských organizací. Pokud najdeš chybu, napiš mi na <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+
+  <!-- UK -->
+  <div class="lang-section" id="section-uk">
+    <h1 class="article-title">Заряджання електромобіля в Європі: ціни, оплата і планування</h1>
+    <div class="article-meta">Перевірено 26 листопада 2026</div>
+    <div class="article-body">
+      <p>Для пального ЄС щотижня публікує середні ціни для всіх країн-членів. Для заряджання Європейська обсерваторія альтернативних видів палива публікує ціни за країнами лише час від часу, і востаннє її дані оновлювалися в січні 2024 року. Тому на TankSmart немає таблиці цін на заряджання за країнами. На цій сторінці є те, як рахують заряджання, що тобі гарантують правила ЄС на публічній зарядній станції і як спланувати поїздку, щоб платити менше і менше чекати. Унизу є карта зарядних станцій.</p>
+      <h2>З чого складається ціна</h2>
+      <p>На публічній зарядній станції можна платити кількома способами, і одне заряджання може включати кілька з них:</p>
+      <ul>
+        <li>За кВт·год: ти платиш за енергію, яка надходить в авто. За правилами ЄС ціна без договору на швидких зарядних станціях від 50 кВт має ґрунтуватися на кВт·год.</li>
+        <li>За хвилину: деякі оператори беруть плату за час, переважно на повільніших станціях. Авто, яке може заряджатися лише повільно, тоді платить більше за ту саму кількість енергії.</li>
+        <li>За сеанс: фіксована сума за кожне заряджання, яку використовують деякі оператори та застосунки.</li>
+        <li>Плата за простій: сума за хвилину, якщо авто залишається підключеним надто довго або стоїть на місці після заряджання. У тарифах, які пропонують застосунки та картки інших постачальників, організація споживачів BEUC знайшла такі платежі приблизно в 9 випадках з 10.</li>
+      </ul>
+      <p>Повільні станції використовують змінний струм (AC), зазвичай до 22 кВт, і поширені в містах та на парковках. Швидкі станції використовують постійний струм (DC), зазвичай від 50 кВт, і стоять переважно вздовж автомагістралей. Швидке заряджання за кВт·год зазвичай дорожче. За даними Європейської обсерваторії альтернативних видів палива, які BEUC навела в липні 2026 року (самі дані можуть бути старішими), середні ціни через застосунки та зарядні картки становлять приблизно від 0,27 до 0,65 €/кВт·год для AC і приблизно від 0,32 до 0,85 €/кВт·год для DC, а деякі ціни перевищують 1 €/кВт·год.</p>
+      <h2>Що тобі гарантують правила ЄС</h2>
+      <p>З 13 квітня 2024 року в усіх країнах ЄС діє регламент ЄС про інфраструктуру для альтернативних видів палива (AFIR). Для водіїв це означає:</p>
+      <ul>
+        <li>На будь-якій публічній станції можна заряджатися без договору і без реєстрації в застосунку. На практиці деякі старіші станції поки не пропонують простої оплати без договору.</li>
+        <li>Нові станції від 50 кВт мають приймати платіжні картки через зчитувач карток або безконтактний термінал.</li>
+        <li>З 1 січня 2027 року це стосується і старіших станцій від 50 кВт уздовж транс'європейської дорожньої мережі (TEN-T) і на охоронюваних стоянках для вантажівок.</li>
+        <li>На станціях до 50 кВт оператор може замість оплати карткою дозволити оплату через інтернет, наприклад через QR-код.</li>
+        <li>На станціях від 50 кВт ціна за кВт·год без договору має бути вказана на станції. До ціни за кВт·год оператор може додати лише плату за хвилину за зайняту станцію.</li>
+        <li>Застосунки та зарядні картки мають показати всі складові ціни, зокрема витрати на роумінг, до початку заряджання.</li>
+      </ul>
+      <p>AFIR є регламентом ЄС. За межами ЄС, наприклад у Швейцарії, Сербії чи Великій Британії, він не діє, тож перед поїздкою перевір, як там можна заплатити.</p>
+      <h2>Банківська картка, застосунок оператора чи зарядна картка?</h2>
+      <p>Та сама станція може коштувати дуже по-різному залежно від способу оплати. BEUC проаналізувала дані понад 11 000 зарядних станцій у ЄС: різниця між найдешевшим і найдорожчим застосунком або карткою на тій самій станції зазвичай становила від 0,40 до 1,00 €/кВт·год.</p>
+      <ul>
+        <li>Банківська картка на станції: без договору і без застосунку, тому в дорозі це найпростіше. Ти платиш ціну, вказану на станції.</li>
+        <li>Застосунок оператора станції: зазвичай дає власну ціну оператора. У прикладі BEUC з Нідерландів 51,4 кВт·год на станціях Shell через оператора коштували 12,81 €, а заряджання на 53,7 кВт·год через застосунок іншого постачальника коштувало 45,90 €.</li>
+        <li>Зарядні картки та застосунки, які працюють у багатьох країнах (роумінг): зручні, бо один акаунт працює в багатьох мережах, але ціна може бути вищою, ніж в оператора, і часто включає плату за хвилину або за простій. Перед підключенням завжди перевір ціну в застосунку.</li>
+        <li>Підписка може окупитися, якщо часто заряджатися в одній мережі. Перед оформленням порівняй щомісячну плату з тим, скільки там насправді заряджаєшся.</li>
+      </ul>
+      <h2>Обережно з фальшивими QR-кодами</h2>
+      <p>ADAC попереджає про шахрайство на зарядних станціях: шахраї наклеюють свій QR-код поверх коду оператора. Він веде на копію сайту оператора, де вводять дані картки. Якщо дисплей станції показує QR-код, скануй саме його, а не наліпку. Перевір, чи не наклеєна одна наліпка поверх іншої, і будь насторожі, якщо сторінка просить незвично велику суму або виглядає непрофесійно. ADAC вважає безпечнішою оплату через застосунок оператора або картковий термінал на станції. Tesla заявляє, що ніколи не просить клієнтів платити через QR-код.</p>
+      <h2>Суперчарджери Tesla</h2>
+      <p>Tesla відкрила вибрані локації Supercharger і для інших електромобілів у вибраних країнах. Заряджання запускають і оплачують у застосунку Tesla, а на обмеженій кількості локацій можна платити і безпосередньо карткою. Платне членство Supercharging знижує ціну за кВт·год на вибраних локаціях. Плата за простій і за завантаженість діє і для інших авто. Які локації відкриті, показує карта Tesla.</p>
+      <h2>Планування поїздки</h2>
+      <ul>
+        <li>Під'їжджай до швидкої станції з 10 до 30 відсотками заряду і заряджай приблизно до 80 відсотків. Після 80 відсотків потужність заряджання сильно падає, тому останню частину доводиться чекати набагато довше (ADAC).</li>
+        <li>Холодна батарея заряджається набагато повільніше. Більшість авто прогрівають її в дорозі, якщо в навігації авто вказати станцію як пункт призначення (ADAC).</li>
+        <li>Взимку запас ходу менший. У тесті Green NCAP електромобіли при -7 °C у короткому тестовому циклі на 23 км у середньому споживали на 70 відсотків більше енергії, ніж при 23 °C, а запас ходу був приблизно на 40 відсотків меншим. У тривалих тестах ADAC взимку споживання зростало щонайменше на 25 і щонайбільше на 31 відсоток.</li>
+        <li>Підігрів сидінь і керма витрачає менше енергії, ніж обігрів усього салону. Якщо прогріти авто, поки воно ще підключене, енергія йде з мережі, а не з батареї (ADAC).</li>
+        <li>Коли заряджання закінчилося, переставляй авто. Так не буде плати за простій, і хтось інший зможе заряджатися.</li>
+        <li>Перш ніж в'їжджати в країну за межами ЄС, перевір, які мережі та способи оплати там працюють.</li>
+      </ul>
+      <h2>Скільки коштують 100 км?</h2>
+      <p>Для електромобіля помнож споживання в кВт·год на 100 км на ціну за кВт·год. Для авто на бензині чи дизелі помнож літри на 100 км на ціну за літр.</p>
+      <p>Приклад із круглими числами: авто, яке споживає 18 кВт·год на 100 км і заряджається по 0,60 €/кВт·год, платить 10,80 € за 100 км. Бензинове авто, яке витрачає 6,5 літра на 100 км, при 1,60 €/л платить 10,40 €. Якщо заряджатися по 0,40 €/кВт·год, електромобіль платить 7,20 €.</p>
+      <p>Варто пам'ятати, що споживання, яке показує авто, зазвичай не включає втрат під час заряджання, а платиш ти за енергію, яку виміряла станція. ADAC виміряв на швидких станціях втрати від 1 до 4 відсотків з теплою батареєю і від 6 до 10 відсотків з холодною. Для пального використовуй актуальні ціни на TankSmart.</p>
+      <h2>Карта зарядних станцій</h2>
+      <p>Карта від Open Charge Map, некомерційної бази даних, яку веде спільнота. Вона завантажується лише після натискання кнопки, і тоді Open Charge Map бачить твою IP-адресу. Ціни та години роботи можуть бути застарілими, тож перевір їх у застосунку оператора перед поїздкою.</p>
+      <div style="border:1px solid var(--border);background:var(--bg2);min-height:120px;display:flex;align-items:center;justify-content:center;margin:6px 0 6px"><button type="button" data-frame="&lt;iframe src=&quot;https://map.openchargemap.io/?mode=embedded&amp;latitude=48.2&amp;longitude=11.5&quot; title=&quot;Open Charge Map&quot; allow=&quot;geolocation&quot; loading=&quot;lazy&quot; style=&quot;width:100%;height:480px;border:0;display:block&quot;&gt;&lt;/iframe&gt;" onclick="this.parentNode.innerHTML=this.getAttribute('data-frame')" style="background:var(--orange);color:#1a1a1a;border:none;padding:11px 18px;font-weight:600;font-family:inherit;font-size:0.86rem;cursor:pointer">Показати карту</button></div>
+      <p class="asrc" style="margin-top:4px"><a href="https://openchargemap.org" target="_blank" rel="noopener">Дані: Open Charge Map і учасники, ліцензія CC BY 4.0</a></p>
+      <h2>Джерела</h2>
+      <ul class="asrc">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulation (EU) 2023/1804 (AFIR), EUR-Lex</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/general-information/news/questions-and-answers-regulation-deployment-alternative-fuels" target="_blank" rel="noopener">European Commission: AFIR questions and answers</a></li>
+        <li><a href="https://nationale-leitstelle.de/en/bestand-ausbau/afir/" target="_blank" rel="noopener">Nationale Leitstelle Ladeinfrastruktur: Ad-hoc charging anywhere in the EU</a></li>
+        <li><a href="https://www.beuc.eu/position-papers/plugged-priced-out-how-make-public-charging-evs-work-consumers" target="_blank" rel="noopener">BEUC: Plugged in, priced out (30. 7. 2026)</a></li>
+        <li><a href="https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-073_EV_charging_prices_and_data_report.pdf" target="_blank" rel="noopener">BEUC: EV charging prices and data report (July 2026)</a></li>
+        <li><a href="https://www.adac.de/news/auto-quishing-betrug-ladesaeule/" target="_blank" rel="noopener">ADAC: Quishing at charging stations (17. 3. 2025)</a></li>
+        <li><a href="https://www.tesla.com/en_ie/support/charging/supercharging-other-evs" target="_blank" rel="noopener">Tesla: Supercharging other EVs</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/laden/elektroauto-tipps-zum-schnellladen/" target="_blank" rel="noopener">ADAC: Tips for fast charging (7. 8. 2025)</a></li>
+        <li><a href="https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/antrieb/elektroauto-reichweite-winter/" target="_blank" rel="noopener">ADAC: Electric cars in winter (20. 11. 2024)</a></li>
+        <li><a href="https://presse.adac.de/meldungen/adac-ev/technik/e-auto-am-schnelllader-so-viel-energie-geht-zwischen-ladesaeule-und-akku-verloren.html" target="_blank" rel="noopener">ADAC: Charging losses at fast chargers (27. 5. 2025)</a></li>
+        <li><a href="https://transport.ec.europa.eu/transport-themes/clean-transport/alternative-fuels-sustainable-mobility-europe/alternative-fuels-infrastructure/questions-and-answers-regulation-deployment-alternative-fuels-infrastructure-eu-20231804_en" target="_blank" rel="noopener">European Commission: AFIR questions and answers (TEN-T, payment)</a></li>
+        <li><a href="https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices" target="_blank" rel="noopener">European Alternative Fuels Observatory: Electric vehicle recharging prices</a></li>
+        <li><a href="https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en" target="_blank" rel="noopener">European Commission: Weekly Oil Bulletin</a></li>
+        <li><a href="https://openchargemap.org" target="_blank" rel="noopener">Open Charge Map</a></li>
+      </ul>
+    </div>
+    <p class="wout">Я склала цю сторінку з правил ЄС, тестів автоклубів і звітів організацій споживачів. Якщо помітиш помилку, напиши мені на <a href="mailto:tank-smart@pm.me">tank-smart@pm.me</a>.</p>
+  </div>
+  <p class="subnav" style="text-align:center;margin-top:40px;font-size:0.8rem;color:var(--text3)"><a href="guides.html" id="guides-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Travel guides</a><span style="display:inline-block;width:1px;height:0.85em;background:var(--border);margin:0 12px;vertical-align:middle"></span><a href="privacy.html" id="privacy-link" style="color:var(--text3);text-decoration:underline;text-underline-offset:2px">Privacy</a></p>
+</main>
+
+<script>
+let lang = 'en';
+const pageTitles = {
+  en: 'Charging an electric car in Europe: prices, payment and planning | TankSmart',
+  sl: 'Polnjenje električnega avta po Evropi: cene, plačilo in načrtovanje | TankSmart',
+  hr: 'Punjenje električnog automobila po Europi: cijene, plaćanje i planiranje | TankSmart',
+  de: 'Elektroauto laden in Europa: Preise, Bezahlen und Planung | TankSmart',
+  es: 'Cargar un coche eléctrico en Europa: precios, pago y planificación | TankSmart',
+  it: "Ricaricare un'auto elettrica in Europa: prezzi, pagamento e pianificazione | TankSmart",
+  cs: 'Nabíjení elektromobilu v Evropě: ceny, placení a plánování | TankSmart',
+  uk: 'Заряджання електромобіля в Європі: ціни, оплата і планування | TankSmart'
+};
+function setLang(l) {
+  lang = l;
+  var sel = document.getElementById('lang-select');
+  if (sel) sel.value = l;
+  document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-'+l).classList.add('active');
+  const backTexts = {en:'← Back to travel guides', sl:'← Nazaj na vodnike za pot', hr:'← Natrag na vodiče za put', de:'← Zurück zu den Reiseratgebern', es:'← Volver a las guías de viaje', it:'← Torna alle guide di viaggio', cs:'← Zpět na cestovní průvodce', uk:'← Назад до дорожніх порад'};
+  document.getElementById('back-link').textContent = backTexts[l];
+  document.getElementById('back-link').href = 'guides.html?lang=' + l;
+  document.title = pageTitles[l] || pageTitles.en;
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-link').forEach(a => { a.href = 'index.html?lang=' + l; });
+  var _pl = {en:'Privacy', sl:'Zasebnost', hr:'Privatnost', de:'Datenschutz', es:'Privacidad', it:'Privacy', cs:'Ochrana soukromí', uk:'Конфіденційність'};
+  document.getElementById('privacy-link').textContent = _pl[l] || _pl.en;
+  document.getElementById('privacy-link').href = 'privacy.html?lang=' + l;
+  var _gl = {en:'Travel guides', sl:'Vodniki za pot', hr:'Vodiči za put', de:'Reiseratgeber', es:'Guías de viaje', it:'Guide di viaggio', cs:'Cestovní průvodci', uk:'Дорожні поради'};
+  document.getElementById('guides-link').textContent = _gl[l] || _gl.en;
+  document.getElementById('guides-link').href = 'guides.html?lang=' + l;
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var urlLang = null;
+  try { urlLang = new URLSearchParams(window.location.search).get('lang'); } catch(e) {}
+  setLang((['en','sl','hr','de','es','it','cs','uk'].indexOf(urlLang) !== -1) ? urlLang : 'en');
+});
+</script>
+</body>
+</html>

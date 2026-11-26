@@ -53,6 +53,24 @@
 /car-equipment /uk/car-equipment.html 301! Language=uk
 /car-equipment.html /en/car-equipment.html 301!
 /car-equipment /en/car-equipment.html 301!
+/ev-charging.html lang=:lang /:lang/ev-charging.html 301!
+/ev-charging lang=:lang /:lang/ev-charging.html 301!
+/ev-charging.html /sl/ev-charging.html 301! Language=sl
+/ev-charging /sl/ev-charging.html 301! Language=sl
+/ev-charging.html /hr/ev-charging.html 301! Language=hr,sr,bs
+/ev-charging /hr/ev-charging.html 301! Language=hr,sr,bs
+/ev-charging.html /de/ev-charging.html 301! Language=de
+/ev-charging /de/ev-charging.html 301! Language=de
+/ev-charging.html /es/ev-charging.html 301! Language=es
+/ev-charging /es/ev-charging.html 301! Language=es
+/ev-charging.html /it/ev-charging.html 301! Language=it
+/ev-charging /it/ev-charging.html 301! Language=it
+/ev-charging.html /cs/ev-charging.html 301! Language=cs,sk
+/ev-charging /cs/ev-charging.html 301! Language=cs,sk
+/ev-charging.html /uk/ev-charging.html 301! Language=uk
+/ev-charging /uk/ev-charging.html 301! Language=uk
+/ev-charging.html /en/ev-charging.html 301!
+/ev-charging /en/ev-charging.html 301!
 /fuel-jerrycan.html lang=:lang /:lang/fuel-jerrycan.html 301!
 /fuel-jerrycan lang=:lang /:lang/fuel-jerrycan.html 301!
 /fuel-jerrycan.html /sl/fuel-jerrycan.html 301! Language=sl
