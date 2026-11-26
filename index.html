@@ -104,7 +104,7 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 
 @media (max-width:360px){
   .tab{font-size:0.62rem;padding:9px 2px}
 }
-main{max-width:680px;margin:0 auto;padding:20px}
+main{max-width:680px;margin:0 auto;padding:20px;min-height:100vh}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px}
 .card-title{font-size:0.78rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px}
 .calc-cta{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--orange-dim),var(--bg3));border:1px solid var(--orange);border-radius:var(--rs);padding:14px 16px;margin-bottom:16px;cursor:pointer}
@@ -225,12 +225,12 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
 </head>
 <body>
 <header>
-  <a href="index.html" class="logo">
+  <a href="index.html" class="logo" aria-label="TankSmart">
     <img src="assets/logo/header-square-38.svg" width="38" height="38" alt="" style="flex-shrink:0">
     <span class="logo-text">Tank<span class="accent">Smart</span></span>
   </a>
   <div class="lang-select-wrap">
-    <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+    <select class="lang-select" id="lang-select" aria-label="Language" onchange="setLang(this.value)">
       <option value="en">English</option>
       <option value="sl">Slovenščina</option>
       <option value="hr">Hrvatski / Srpski / Bosanski</option>
@@ -286,7 +286,7 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   </div>
   <div class="card">
     <div class="card-title" id="lbl-fueltype">Vrsta goriva</div>
-    <select id="fuelTypeCompare" onchange="renderPrices();renderHeroStat()">
+    <select id="fuelTypeCompare" aria-labelledby="lbl-fueltype" onchange="renderPrices();renderHeroStat()">
       <option value="b95">Bencin 95</option>
       <option value="b98">Bencin 98/100</option>
       <option value="diesel">Diesel</option>
@@ -309,11 +309,11 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
     <div class="row2" style="margin-top:12px">
       <div>
         <label id="lbl-cons">Poraba (L/100km)</label>
-        <input type="number" id="consumption" placeholder="npr. 6.5" step="0.1" min="1">
+        <input type="number" id="consumption" aria-labelledby="lbl-cons" placeholder="npr. 6.5" step="0.1" min="1">
       </div>
       <div>
         <label id="lbl-ftype">Vrsta goriva</label>
-        <select id="fuelType">
+        <select id="fuelType" aria-labelledby="lbl-ftype">
           <option value="b95">Bencin 95</option>
           <option value="b98">Bencin 98/100</option>
           <option value="diesel">Diesel</option>
@@ -324,12 +324,12 @@ input:focus,select:focus{border-color:var(--orange);background:var(--bg2)}
   <div class="card">
     <div class="card-title" id="lbl-trip">Podrobnosti poti</div>
     <label id="lbl-km">Razdalja (km)</label>
-    <input type="number" id="km" placeholder="npr. 350" min="1">
+    <input type="number" id="km" aria-labelledby="lbl-km" placeholder="npr. 350" min="1">
     <label id="lbl-country">Država točenja</label>
-    <select id="country"></select>
+    <select id="country" aria-labelledby="lbl-country"></select>
     <hr class="divider">
     <label id="lbl-pass">Število potnikov (delitev stroška)</label>
-    <select id="passengers" onchange="updateNames()">
+    <select id="passengers" aria-labelledby="lbl-pass" onchange="updateNames()">
       <option value="1">1 (sam/a)</option>
       <option value="2" selected>2 osebi</option>
       <option value="3">3 osebe</option>
